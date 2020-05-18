@@ -17,12 +17,18 @@ module.exports = {
     testResultsProcessor: 'jest-sonar-reporter',
     collectCoverageFrom: [
         '**/src/**/*.ts',
+        '**/projects/**/*.ts',
         '!**/node_modules/**',
         '!**/src/**/*.module.ts',
         '!test/**',
         '!**/polyfills.ts',
         '!**/environments/**',
         '!**/src/setupJest.ts',
+        '!**/*.module.ts',
+        '!**/*.mock.ts',
+        '!**/*.stories.ts',
+        '!**/+store/**/*.actions.ts',
+        '!**/+store/**/*.selectors.ts',
     ],
 
     coverageReporters: ['json', 'lcov', 'html', 'text'],

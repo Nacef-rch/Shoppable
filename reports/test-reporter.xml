@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+    <file path="E:\My Work\Shoppable\projects\authentication\src\lib\authentication.service.spec.ts">
+        <testCase name="AuthenticationService should be created" duration="35"/>
+    </file>
+    <file path="E:\My Work\Shoppable\projects\authentication\src\lib\authentication.component.spec.ts">
+        <testCase name="AuthenticationComponent should create" duration="93"/>
+    </file>
+    <file path="E:\My Work\Shoppable\src\app\app.component.spec.ts">
+        <testCase name="AppComponent should create the app" duration="334"/>
+        <testCase name="AppComponent should have as title &apos;Shoppable&apos;" duration="197"/>
+        <testCase name="AppComponent should render title" duration="154"/>
+    </file>
+    <file path="E:\My Work\Shoppable\src\Storyshots.spec.ts">
+        <testCase name="Storyshots Welcome to Storybook" duration="111"/>
+        <testCase name="Storyshots Button Text" duration="29"/>
+        <testCase name="Storyshots Button Emoji" duration="26"/>
+        <testCase name="Storyshots Button with some emoji and action" duration="24"/>
+        <testCase name="Storyshots Button button with link to another story" duration="17"/>
+    </file>
+    <file path="E:\My Work\Shoppable\projects\Storyshots.spec.ts">
+        <testCase name="Storyshots Welcome to Storybook" duration="116"/>
+        <testCase name="Storyshots Button Text" duration="27"/>
+        <testCase name="Storyshots Button Emoji" duration="27"/>
+        <testCase name="Storyshots Button with some emoji and action" duration="25"/>
+        <testCase name="Storyshots Button button with link to another story" duration="23"/>
+    </file>
+</testExecutions>
