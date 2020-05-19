@@ -1,1 +1,76 @@
-<p>login works!</p>
+<div class="main">
+    <section class="sign-in">
+        <div class="container">
+            <div class="signin-content">
+                <div class="signin-image" *ngIf="!isLoading">
+                    <figure>
+                        <img src="assets/auth-images/signin-image.jpg" alt="sing up image" />
+                    </figure>
+                    <a href="#" class="signup-image-link">Create an account</a>
+                </div>
+
+                <div class="signin-form">
+                    <h2 class="form-title" *ngIf="!isLoading">Sign In</h2>
+
+                    <form
+                        class="register-form"
+                        #signUpForm="ngForm"
+                        (ngSubmit)="onSubmit(signUpForm)"
+                        *ngIf="!isLoading"
+                    >
+                        <div class="form-group">
+                            <label for="email"><i class="zmdi zmdi-email"></i></label>
+                            <input type="email" placeholder="Your Email" ngModel name="email" required email />
+                        </div>
+                        <div class="form-group">
+                            <label for="password"><i class="zmdi zmdi-lock"></i></label>
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                ngModel
+                                name="password"
+                                required
+                                minlength="6"
+                            />
+                        </div>
+
+                        <div *ngIf="error" class="login-error">{{ error }}</div>
+
+                        <div class="form-group">
+                            <input type="checkbox" name="remember-me" class="agree-term" id="remember-me" />
+                            <label for="remember-me" class="label-agree-term"
+                                ><span><span></span></span>Remember me</label
+                            >
+                        </div>
+                        <div class="form-group form-button">
+                            <input
+                                type="submit"
+                                name="signin"
+                                class="form-submit"
+                                value="Log in"
+                                [disabled]="!signUpForm.valid"
+                            />
+                        </div>
+                    </form>
+                    <div class="social-login" *ngIf="!isLoading">
+                        <span class="social-label">Or login with</span>
+                        <ul class="socials">
+                            <li>
+                                <a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div *ngIf="isLoading" style="text-align: center;">
+    <lib-loading-spinner></lib-loading-spinner>
+</div>
