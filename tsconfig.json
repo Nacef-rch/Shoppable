@@ -14,7 +14,10 @@
         "target": "es2015",
         "lib": ["es2018", "dom"],
         "paths": {
-            "authentication": ["dist/authentication/authentication", "dist/authentication"]
+            "@app/*": ["src/app/*"],
+            "@env/*": ["src/environments/*"],
+            "@assets/*": ["src/assets/*"],
+            "@authentication": ["projects/authentication"]
         }
     },
     "angularCompilerOptions": {
