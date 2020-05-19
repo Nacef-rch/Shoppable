@@ -20,19 +20,17 @@ module.exports = {
         '**/projects/**/*.ts',
         '!**/node_modules/**',
         '!**/src/**/*.module.ts',
-        '!test/**',
+        '!reports/**',
         '!**/polyfills.ts',
         '!**/environments/**',
-        '!**/src/setupJest.ts',
+        '!jest/**',
         '!**/*.module.ts',
-        '!**/*.mock.ts',
         '!**/*.stories.ts',
-        '!**/+store/**/*.actions.ts',
-        '!**/+store/**/*.selectors.ts',
     ],
 
     coverageReporters: ['json', 'lcov', 'html', 'text'],
-    collectCoverageFrom: ['<rootDir>/src/app/**/*.ts', '!**/*.module.ts', '!**/*.mock.ts', '!**/*.stories.ts'],
+    //TODO: change Coverage path for libs
+    collectCoverageFrom: ['<rootDir>/src/app/**/*.ts', '!**/*.module.ts', '!**/*.stories.ts'],
     coverageDirectory: '<rootDir>/reports',
     coveragePathIgnorePatterns: ['<rootDir>/node_modules'],
 };
