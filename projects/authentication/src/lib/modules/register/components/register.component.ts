@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserOnRegister } from '../../../shared/models/user.model';
+import { AuthenticationService } from '../../../shared/services/authentication.service';
 
 @Component({
     selector: 'lib-register',
@@ -8,19 +9,35 @@ import { UserOnRegister } from '../../../shared/models/user.model';
     styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
+    constructor(private auth: AuthenticationService) {}
     user: UserOnRegister;
     isLoading = false;
-    //error: string = null;
+    error = {};
+
+    /////////////TODO: only empty the errors and use service with switch to clean errors + css for errors login + register
 
     onSubmit(form: NgForm) {
         if (!form.valid) {
             return;
         }
-        // this.user = {
-        //     email: form.value.email,
-        //     password: form.value.password,
-        // };
-        this.isLoading = true;
+        this.user = {
+            name: form.value.name,
+            email: form.value.email,
+            password: form.value.password,
+            confirmPassword: form.value.confirmPassword,
+            handle: form.value.handle,
+        };
+        this.auth.addUser(this.user).subscribe(
+            (res) => {
+                console.log(res);
+                this.isLoading = false;
+            },
+            (err) => {
+                this.error = err.error;
+                console.log(this.error);
+                this.isLoading = false;
+            },
+        );
 
         form.reset();
     }

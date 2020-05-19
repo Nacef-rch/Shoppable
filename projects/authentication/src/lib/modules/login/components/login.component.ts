@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { LoginService } from '../services/login.service';
 import { UserOnLogin } from '../../../shared/models/user.model';
+import { AuthenticationService } from '../../../shared/services/authentication.service';
 
 @Component({
     selector: 'lib-login',
@@ -9,7 +9,7 @@ import { UserOnLogin } from '../../../shared/models/user.model';
     styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-    constructor(private loginService: LoginService) {}
+    constructor(private auth: AuthenticationService) {}
     user: UserOnLogin;
     isLoading = false;
     error: string = null;
@@ -24,7 +24,7 @@ export class LoginComponent {
         };
         this.isLoading = true;
 
-        this.loginService.addUSer(this.user).subscribe(
+        this.auth.checkUser(this.user).subscribe(
             (res) => {
                 console.log(JSON.stringify(res));
                 this.isLoading = false;
