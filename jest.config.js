@@ -15,22 +15,19 @@ module.exports = {
     },
     testMatch: ['<rootDir>/**/**/*.spec.ts'],
     testResultsProcessor: 'jest-sonar-reporter',
-    collectCoverageFrom: [
-        '**/src/**/*.ts',
-        '**/projects/**/*.ts',
-        '!**/node_modules/**',
-        '!**/src/**/*.module.ts',
-        '!reports/**',
-        '!**/polyfills.ts',
-        '!**/environments/**',
-        '!jest/**',
-        '!**/*.module.ts',
-        '!**/*.stories.ts',
-    ],
 
     coverageReporters: ['json', 'lcov', 'html', 'text'],
     //TODO: change Coverage path for libs
-    collectCoverageFrom: ['<rootDir>/src/app/**/*.ts', '!**/*.module.ts', '!**/*.stories.ts'],
+    collectCoverageFrom: [
+        '<rootDir>/src/app/**/*.ts',
+        '<rootDir>/projects/**/*.ts',
+        '!**/polyfills.ts',
+        '!**/environments/**',
+        '!<rootDir>/Jest/**',
+        '!<rootDir>/reports/**',
+        '!**/*.module.ts',
+        '!**/*.stories.ts',
+    ],
     coverageDirectory: '<rootDir>/reports',
     coveragePathIgnorePatterns: ['<rootDir>/node_modules'],
 };
