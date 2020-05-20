@@ -14,8 +14,6 @@ export class RegisterComponent {
     isLoading = false;
     error: string = null;
 
-    /////////////TODO: only empty the errors and use service with switch to clean errors + css for errors login + register
-
     onSubmit(form: NgForm) {
         if (!form.valid) {
             return;
@@ -30,16 +28,14 @@ export class RegisterComponent {
         this.isLoading = true;
         this.auth.addUser(this.user).subscribe(
             (res) => {
-                console.log(res);
                 this.isLoading = false;
             },
             (err) => {
-                console.log(err);
                 this.error = err;
                 this.isLoading = false;
             },
         );
 
-        //form.reset();
+        form.reset();
     }
 }

@@ -26,12 +26,10 @@ export class LoginComponent {
 
         this.auth.checkUser(this.user).subscribe(
             (res) => {
-                console.log(JSON.stringify(res));
                 this.isLoading = false;
             },
             (err) => {
                 this.error = err.error.general;
-                console.log(JSON.stringify(err.error.general));
                 this.isLoading = false;
             },
         );
