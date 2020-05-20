@@ -31,7 +31,7 @@ export class RegisterComponent {
             (res) => {
                 this.isLoading = false;
                 //TODO: change route to products route for V1
-                this.router.navigate(['']);
+                this.router.navigate(['/test']);
             },
             (err) => {
                 this.error = err;

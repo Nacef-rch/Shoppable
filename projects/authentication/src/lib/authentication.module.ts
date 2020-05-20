@@ -6,10 +6,11 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './modules/login/components/login.component';
 import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loading-spinner.component';
 import { RegisterComponent } from './modules/register/components/register.component';
+import { AuthRoutingModule } from './auth-routing.module';
 
 @NgModule({
     declarations: [LoginComponent, LoadingSpinnerComponent, RegisterComponent],
-    imports: [HttpClientModule, BrowserModule, CommonModule, FormsModule],
+    imports: [HttpClientModule, BrowserModule, CommonModule, FormsModule, AuthRoutingModule],
     exports: [LoginComponent, RegisterComponent, LoadingSpinnerComponent],
 })
 export class AuthenticationModule {}
