@@ -12,7 +12,7 @@ export class RegisterComponent {
     constructor(private auth: AuthenticationService) {}
     user: UserOnRegister;
     isLoading = false;
-    error = {};
+    error: string = null;
 
     /////////////TODO: only empty the errors and use service with switch to clean errors + css for errors login + register
 
@@ -27,18 +27,19 @@ export class RegisterComponent {
             confirmPassword: form.value.confirmPassword,
             handle: form.value.handle,
         };
+        this.isLoading = true;
         this.auth.addUser(this.user).subscribe(
             (res) => {
                 console.log(res);
                 this.isLoading = false;
             },
             (err) => {
-                this.error = err.error;
-                console.log(this.error);
+                console.log(err);
+                this.error = err;
                 this.isLoading = false;
             },
         );
 
-        form.reset();
+        //form.reset();
     }
 }

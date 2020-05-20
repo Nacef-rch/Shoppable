@@ -404,13 +404,21 @@ label.valid:after {
     -o-transform: translateY(0);
     -ms-transform: translateY(0);
 }
-.login-error {
+.AnForm-error {
     font-family: 'Poppins', sans-serif;
     font-size: 110%;
     color: #cc3b49;
     margin-bottom: 10px;
     text-align: center;
 }
+
+input.ng-invalid.ng-touched {
+    border-bottom: 1px solid #cc3b49;
+}
+input.ng-invalid.ng-touched::placeholder {
+    color: #cc3b49;
+}
+
 .material-icons-name {
     font-size: 18px;
 }

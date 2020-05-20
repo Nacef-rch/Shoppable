@@ -3,47 +3,105 @@
         <div class="container">
             <div class="signup-content">
                 <div class="signup-form">
-                    <h2 class="form-title">Sign up</h2>
-                    <form class="register-form" #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)">
+                    <h2 class="form-title" *ngIf="!isLoading">Sign up</h2>
+                    <form
+                        class="register-form"
+                        #signInForm="ngForm"
+                        (ngSubmit)="onSubmit(signInForm)"
+                        *ngIf="!isLoading"
+                    >
                         <div class="form-group">
-                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" placeholder="Your Name" ngModel name="name" required />
+                            <label for="name"
+                                ><i
+                                    class="zmdi zmdi-account material-icons-name"
+                                    [style.color]="!name.valid && name.touched ? '#cc3b49' : 'black'"
+                                ></i
+                            ></label>
+                            <input
+                                type="text"
+                                [placeholder]="!name.valid && name.touched ? 'Please enter your name !' : 'Your name'"
+                                ngModel
+                                name="name"
+                                required
+                                #name="ngModel"
+                            />
                         </div>
                         <div class="form-group">
-                            <label for="email"><i class="zmdi zmdi-email"></i></label>
-                            <input type="email" placeholder="Your Email" ngModel name="email" required email />
+                            <label for="email"
+                                ><i
+                                    class="zmdi zmdi-email"
+                                    [style.color]="!email.valid && email.touched ? '#cc3b49' : 'black'"
+                                ></i
+                            ></label>
+                            <input
+                                type="email"
+                                [placeholder]="
+                                    !email.valid && email.touched ? 'Please enter a valid email !' : 'Your Email'
+                                "
+                                ngModel
+                                name="email"
+                                required
+                                email
+                                #email="ngModel"
+                            />
                         </div>
                         <div class="form-group">
-                            <label for="password"><i class="zmdi zmdi-lock"></i></label>
+                            <label for="password"
+                                ><i
+                                    class="zmdi zmdi-lock"
+                                    [style.color]="!password.valid && password.touched ? '#cc3b49' : 'black'"
+                                ></i
+                            ></label>
                             <input
                                 type="password"
-                                placeholder="Password"
+                                [placeholder]="
+                                    !password.valid && password.touched ? 'Please enter a password !' : 'Password'
+                                "
                                 ngModel
                                 name="password"
                                 required
                                 minlength="6"
+                                #password="ngModel"
                             />
                         </div>
                         <div class="form-group">
-                            <label for="re-password"><i class="zmdi zmdi-lock-outline"></i></label>
+                            <label for="re-password"
+                                ><i
+                                    class="zmdi zmdi-lock-outline"
+                                    [style.color]="
+                                        !confirmPassword.valid && confirmPassword.touched ? '#cc3b49' : 'black'
+                                    "
+                                ></i
+                            ></label>
                             <input
                                 type="password"
-                                placeholder="Repeat your password"
+                                [placeholder]="
+                                    !confirmPassword.valid && confirmPassword.touched
+                                        ? 'Please repeat your password !'
+                                        : 'Repeat your password'
+                                "
                                 ngModel
                                 name="confirmPassword"
                                 required
+                                #confirmPassword="ngModel"
                             />
                         </div>
                         <div class="form-group">
-                            <label for="handle"><i class="zmdi zmdi-bookmark"></i></label>
+                            <label for="handle"
+                                ><i
+                                    class="zmdi zmdi-bookmark"
+                                    [style.color]="!handle.valid && handle.touched ? '#cc3b49' : 'black'"
+                                ></i
+                            ></label>
                             <input
                                 type="text"
                                 name="handle"
-                                placeholder="handle"
+                                [placeholder]="!handle.valid && handle.touched ? 'Please enter a Handle !' : 'Handle'"
                                 ngModel
                                 name="handle"
                                 required
                                 minlength="4"
+                                #handle="ngModel"
                             />
                         </div>
                         <div class="form-group">
@@ -52,6 +110,10 @@
                                 ><span><span></span></span>I agree all statements in
                                 <a href="#" class="term-service">Terms of service</a></label
                             >
+                        </div>
+
+                        <div *ngIf="error" class="AnForm-error">
+                            <i class="zmdi zmdi-alert-triangle" style="color: #cc3b49;"></i> {{ error }}
                         </div>
                         <div class="form-group form-button">
                             <input
@@ -64,7 +126,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="signup-image">
+                <div class="signup-image" *ngIf="!isLoading">
                     <figure>
                         <img src="assets/auth-images/signup-image.jpg" alt="sing up image" />
                     </figure>
@@ -74,4 +136,7 @@
             </div>
         </div>
     </section>
+</div>
+<div *ngIf="isLoading" style="text-align: center;">
+    <lib-loading-spinner></lib-loading-spinner>
 </div>
