@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserOnLogin } from '../../../shared/models/user.model';
 import { AuthenticationService } from '../../../shared/services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'lib-login',
@@ -9,7 +10,7 @@ import { AuthenticationService } from '../../../shared/services/authentication.s
     styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-    constructor(private auth: AuthenticationService) {}
+    constructor(private auth: AuthenticationService, private router: Router) {}
     user: UserOnLogin;
     isLoading = false;
     error: string = null;
@@ -27,6 +28,8 @@ export class LoginComponent {
         this.auth.checkUser(this.user).subscribe(
             (res) => {
                 this.isLoading = false;
+                //TODO: change route to products route for V1
+                this.router.navigate(['']);
             },
             (err) => {
                 this.error = err.error.general;
