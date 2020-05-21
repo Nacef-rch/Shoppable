@@ -5,11 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthenticationModule } from 'projects/authentication/src/public-api';
 import { TestComponent } from './test.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from 'projects/authentication/src/lib/shared/services/interceptor/auth-interceptor.service';
 
 @NgModule({
     declarations: [AppComponent, TestComponent],
     imports: [BrowserModule, AppRoutingModule, AuthenticationModule],
-    providers: [],
+
+    providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
