@@ -17,7 +17,9 @@
             "@app/*": ["src/app/*"],
             "@env/*": ["src/environments/*"],
             "@assets/*": ["src/assets/*"],
-            "@authentication": ["projects/authentication"]
+            "@authentication/*": ["projects/authentication/src/lib/*"],
+            "@core/*": ["projects/core/src/lib/*"],
+            "@shared/*": ["projects/shared/src/lib/*"]
         }
     },
     "angularCompilerOptions": {

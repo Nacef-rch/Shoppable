@@ -5,17 +5,18 @@ import { UserOnLogin, UserOnRegister, User } from '../models/user.model';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import jwtDecode from 'jwt-decode';
-import { stringify } from 'querystring';
 import { Router } from '@angular/router';
 @Injectable({
     providedIn: 'root',
 })
 export class AuthenticationService {
     user = new BehaviorSubject<User>(null);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private tokenExpirationTimer: any;
 
     constructor(private http: HttpClient, private router: Router) {}
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     public checkUser(user: UserOnLogin): Observable<any> {
         return this.http.post('https://europe-west1-kila-2352b.cloudfunctions.net/api/login', user).pipe(
             tap((resData) => {
@@ -23,6 +24,7 @@ export class AuthenticationService {
             }),
         );
     }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     public addUser(user: UserOnRegister): Observable<any> {
         return this.http.post('https://europe-west1-kila-2352b.cloudfunctions.net/api/signup', user).pipe(
             catchError(this.handleError),
@@ -31,7 +33,7 @@ export class AuthenticationService {
             }),
         );
     }
-    private handleAuthentication(resUser) {
+    private handleAuthentication(resUser): void {
         const tokenDecoded = jwtDecode(resUser.token);
         const expirationDate = new Date(+tokenDecoded.exp * 1000);
         const userToken = `Bearer ${resUser.token}`;
@@ -42,7 +44,7 @@ export class AuthenticationService {
         console.log(user);
     }
 
-    autoLogin() {
+    autoLogin(): void {
         const userData: {
             email: string;
             id: string;
@@ -65,7 +67,7 @@ export class AuthenticationService {
             this.autoLogout(expirationDuration);
         }
     }
-    logout() {
+    logout(): void {
         this.user.next(null);
         this.router.navigate(['/login']);
         localStorage.removeItem('userData');
@@ -74,13 +76,14 @@ export class AuthenticationService {
         }
     }
 
-    autoLogout(expirationDuration: number) {
+    autoLogout(expirationDuration: number): void {
         console.log(expirationDuration);
         this.tokenExpirationTimer = setTimeout(() => {
             this.logout();
         }, expirationDuration);
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     private handleError(errorRes: HttpErrorResponse) {
         let errorMessage = 'Something went wrong, please try again !';
         if (!errorRes.error) {

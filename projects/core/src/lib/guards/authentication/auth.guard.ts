@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, UrlTree } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AuthenticationService } from '../shared/services/authentication.service';
+import { AuthenticationService } from '@authentication/services/authentication.service';
 import { map, take } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })

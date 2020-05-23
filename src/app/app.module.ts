@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { AuthenticationModule } from 'projects/authentication/src/public-api';
 import { TestComponent } from './test.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptorService } from 'projects/authentication/src/lib/shared/services/interceptor/auth-interceptor.service';
+import { AuthInterceptorService } from '@core/interceptors/authentication/auth-interceptor.service';
 
 @NgModule({
     declarations: [AppComponent, TestComponent],
