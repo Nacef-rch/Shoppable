@@ -36,6 +36,7 @@
         "@angular/platform-browser-dynamic": "~9.1.6",
         "@angular/router": "~9.1.6",
         "@briebug/jest-schematic": "^2.1.1",
+        "@ngrx/effects": "^9.1.2",
         "@ngrx/store": "^9.1.2",
         "@storybook/addon-storyshots": "^5.3.18",
         "jwt-decode": "^2.2.0",

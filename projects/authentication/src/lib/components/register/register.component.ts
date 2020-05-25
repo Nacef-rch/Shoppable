@@ -1,20 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import * as fromApp from '../../../../../+store/app.reducer';
 
-import { Router } from '@angular/router';
-import { UserOnRegister } from '../../models/user.model';
-import { AuthenticationService } from '../../services/authentication.service';
+import { UserOnRegister } from '@authentication/models/user.model';
+import { Store } from '@ngrx/store';
+import * as AuthActions from '@authentication/+store/auth.actions';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'lib-register',
     templateUrl: './register.component.html',
     styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent {
-    constructor(private auth: AuthenticationService, private router: Router) {}
+export class RegisterComponent implements OnInit, OnDestroy {
+    private storeSub: Subscription;
+
+    constructor(private store: Store<fromApp.AppState>) {}
     user: UserOnRegister;
     isLoading = false;
     error: string = null;
+
+    ngOnInit(): void {
+        this.storeSub = this.store.select('auth').subscribe((authState) => {
+            this.isLoading = authState.loading;
+            this.error = authState.authError;
+        });
+    }
 
     onSubmit(form: NgForm): void {
         if (!form.valid) {
@@ -27,19 +38,14 @@ export class RegisterComponent {
             confirmPassword: form.value.confirmPassword,
             handle: form.value.handle,
         };
-        this.isLoading = true;
-        this.auth.addUser(this.user).subscribe(
-            () => {
-                this.isLoading = false;
-                //TODO: change route to products route for V1
-                this.router.navigate(['/test']);
-            },
-            (err) => {
-                this.error = err;
-                this.isLoading = false;
-            },
-        );
+        this.store.dispatch(new AuthActions.SignupStart(this.user));
 
         form.reset();
+    }
+    ngOnDestroy(): void {
+        if (this.storeSub) {
+            this.storeSub.unsubscribe();
+        }
+        this.store.dispatch(new AuthActions.ClearError());
     }
 }
