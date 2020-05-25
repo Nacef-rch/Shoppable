@@ -2,16 +2,20 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpParams } from '@angular/common/http';
 import { AuthenticationService } from '@authentication/services/authentication.service';
-import { exhaustMap, take } from 'rxjs/operators';
-//Note !!!!!!!!!!!!!!!!! maybe i will have a bug with user.token => bearer missing !! add it in user model
+import { exhaustMap, take, map } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../../../../../+store/app.reducer';
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
-    constructor(private authService: AuthenticationService) {}
+    constructor(private authService: AuthenticationService, private store: Store<fromApp.AppState>) {}
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     intercept(req: HttpRequest<any>, next: HttpHandler) {
-        return this.authService.user.pipe(
+        return this.store.select('auth').pipe(
             take(1),
+            map((authState) => {
+                return authState.user;
+            }),
             exhaustMap((user) => {
                 if (!user) {
                     return next.handle(req);

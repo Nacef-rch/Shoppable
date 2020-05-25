@@ -1,11 +1,16 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { LoginContainerComponent } from './containers/login/login-container.component';
-import { RegisterContainerComponent } from './containers/register/register-container.component';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
-    { path: 'login', component: LoginContainerComponent },
-    { path: 'register', component: RegisterContainerComponent },
+    {
+        path: 'login',
+        loadChildren: () => import('./containers/login/login.module').then((m) => m.LoginModule),
+    },
+    {
+        path: 'register',
+        loadChildren: () => import('./containers/register/register.module').then((m) => m.RegisterModule),
+    },
 ];
 
 @NgModule({
