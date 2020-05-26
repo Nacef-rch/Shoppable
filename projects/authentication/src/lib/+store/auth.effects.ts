@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '@authentication/models/user.model';
 import { AuthenticationService } from '@authentication/services/authentication.service';
+import { environment } from '@env/environment';
 
 export interface AuthResponseData {
     token: string;
@@ -24,6 +25,7 @@ const handleAuthentication = (resData) => {
         userId: tokenDecoded.user_id,
         token: userToken,
         expirationDate: expirationDate,
+        redirect: true,
     });
 };
 const handleError = (errorRes: any) => {
@@ -72,7 +74,7 @@ export class AuthEffects {
         ofType(AuthActions.SIGNUP_START),
         switchMap((signupAction: AuthActions.SignupStart) => {
             return this.http
-                .post<AuthResponseData>('https://europe-west1-kila-2352b.cloudfunctions.net/api/signup', {
+                .post<AuthResponseData>(environment.firebaseAPIKey + '/signup', {
                     name: signupAction.payload.name,
                     email: signupAction.payload.email,
                     password: signupAction.payload.password,
@@ -99,7 +101,7 @@ export class AuthEffects {
         ofType(AuthActions.LOGIN_START),
         switchMap((authData: AuthActions.LoginStart) => {
             return this.http
-                .post<AuthResponseData>('https://europe-west1-kila-2352b.cloudfunctions.net/api/login', {
+                .post<AuthResponseData>(environment.firebaseAPIKey + '/login', {
                     email: authData.payload.email,
                     password: authData.payload.password,
                 })
@@ -121,8 +123,10 @@ export class AuthEffects {
     @Effect({ dispatch: false })
     authRedirect = this.actions$.pipe(
         ofType(AuthActions.AUTHENTICATE_SUCCESS),
-        tap(() => {
-            this.router.navigate(['/test']);
+        tap((authSuccessAction: AuthActions.AuthenticateSuccess) => {
+            if (authSuccessAction.payload.redirect) {
+                this.router.navigate(['/test']);
+            }
         }),
     );
     @Effect()
@@ -153,6 +157,7 @@ export class AuthEffects {
                     userId: loadedUser.id,
                     token: loadedUser.token,
                     expirationDate: new Date(userData._tokenExpirationDate),
+                    redirect: false,
                 });
             }
             return { type: 'DUMMY' };
