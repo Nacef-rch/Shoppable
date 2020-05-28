@@ -24,7 +24,10 @@
                         "tsConfig": "tsconfig.app.json",
                         "aot": true,
                         "assets": ["src/favicon.ico", "src/assets"],
-                        "styles": ["src/styles.scss"],
+                        "styles": [
+                            "src/styles.scss",
+                            "node_modules/material-design-iconic-font/dist/css/material-design-iconic-font.min.css"
+                        ],
                         "scripts": []
                     },
                     "configurations": {
@@ -122,6 +125,60 @@
                             "projects/authentication/tsconfig.lib.json",
                             "projects/authentication/tsconfig.spec.json"
                         ],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "core": {
+            "projectType": "library",
+            "root": "projects/core",
+            "sourceRoot": "projects/core/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "projects/core/tsconfig.lib.json",
+                        "project": "projects/core/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/core/tsconfig.lib.prod.json"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["projects/core/tsconfig.lib.json", "projects/core/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "shared": {
+            "projectType": "library",
+            "root": "projects/shared",
+            "sourceRoot": "projects/shared/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "projects/shared/tsconfig.lib.json",
+                        "project": "projects/shared/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/shared/tsconfig.lib.prod.json"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["projects/shared/tsconfig.lib.json", "projects/shared/tsconfig.spec.json"],
                         "exclude": ["**/node_modules/**"]
                     }
                 }
