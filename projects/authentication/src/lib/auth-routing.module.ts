@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { LoginContainerComponent } from './containers/login/login-container.component';
 import { RegisterContainerComponent } from './containers/register/register-container.component';
 

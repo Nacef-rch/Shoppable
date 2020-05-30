@@ -8,7 +8,7 @@ import { AuthFacade } from '@authentication/+store/auth.facade';
 })
 export class AppComponent implements OnInit {
     constructor(private authFacade: AuthFacade) {}
-    ngOnInit() {
+    public ngOnInit(): void {
         this.authFacade.AutoLogin();
     }
     title = 'Shoppable';

@@ -1,5 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, UrlTree } from '@angular/router';
+import {
+    CanActivate,
+    ActivatedRouteSnapshot,
+    RouterStateSnapshot,
+    Router,
+    UrlTree
+} from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from '@authentication/services/authentication.service';
@@ -12,11 +17,11 @@ export class AuthGuard implements CanActivate {
     constructor(
         private authService: AuthenticationService,
         private router: Router,
-        private store: Store<fromApp.AppState>,
+        private store: Store<fromApp.AppState>
     ) {}
     canActivate(
         route: ActivatedRouteSnapshot,
-        router: RouterStateSnapshot,
+        router: RouterStateSnapshot
     ): boolean | UrlTree | Promise<boolean | UrlTree> | Observable<boolean | UrlTree> {
         return this.store.select('auth').pipe(
             take(1),
@@ -29,7 +34,7 @@ export class AuthGuard implements CanActivate {
                     return true;
                 }
                 return this.router.createUrlTree(['/login']);
-            }),
+            })
         );
     }
 }

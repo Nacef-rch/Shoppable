@@ -3,7 +3,6 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
 
 @NgModule({
     declarations: [LoadingSpinnerComponent],
-    imports: [],
-    exports: [LoadingSpinnerComponent],
+    exports: [LoadingSpinnerComponent]
 })
 export class SharedModule {}
