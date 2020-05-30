@@ -32,7 +32,7 @@ export const handleError = (errorRes: any): string => {
         }
     }
     if (errorRes.error.general) {
-        errorMessage = 'Something went wrong, please try again !';
+        errorMessage = 'Wrong credentials, please try again !';
     }
 
     return errorMessage;

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AuthRoutingModule } from './auth-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginContainerComponent } from './containers/login/login-container.component';
 import { CommonModule } from '@angular/common';
 
@@ -29,7 +29,8 @@ import { RegisterFormComponent } from './components/register/form/register-form.
         AuthRoutingModule,
         FormsModule,
         CommonModule,
-        SharedModule
+        SharedModule,
+        ReactiveFormsModule
     ],
     exports: [LoginContainerComponent, RegisterContainerComponent]
 })

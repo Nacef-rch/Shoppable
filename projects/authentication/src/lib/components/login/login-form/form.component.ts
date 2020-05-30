@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import * as fromApp from '../../../../../../+store/app.reducer';
 import { UserOnLogin } from '@authentication/models/user.model';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AuthFacade } from '@authentication/+store/auth.facade';
+import { FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'lib-form',
@@ -13,6 +14,7 @@ import { AuthFacade } from '@authentication/+store/auth.facade';
 })
 export class FormComponent implements OnInit, OnDestroy {
     private storeSub: Subscription;
+    loginForm: FormGroup;
     constructor(private store: Store<fromApp.AppState>, private authFacade: AuthFacade) {}
     user: UserOnLogin;
     error: string = null;
@@ -21,19 +23,23 @@ export class FormComponent implements OnInit, OnDestroy {
         this.storeSub = this.store.select('auth').subscribe((authState) => {
             this.error = authState.authError;
         });
+        this.loginForm = new FormGroup({
+            email: new FormControl(null, [Validators.required, Validators.email]),
+            password: new FormControl(null, [Validators.required, Validators.minLength(6)])
+        });
     }
 
-    onSubmit(form: NgForm): void {
-        if (!form.valid) {
+    onSubmit(): void {
+        if (!this.loginForm.valid) {
             return;
         }
         this.user = {
-            email: form.value.email,
-            password: form.value.password
+            email: this.loginForm.value.email,
+            password: this.loginForm.value.password
         };
         this.authFacade.LoginStart(this.user.email, this.user.password);
 
-        form.reset();
+        this.loginForm.reset();
     }
     ngOnDestroy(): void {
         if (this.storeSub) {
