@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Store } from '@ngrx/store';
-import * as fromApp from '../../../../+store/app.reducer';
-import * as AuthActions from '../+store/auth.actions';
+import { AuthFacade } from '@authentication/+store/auth.facade';
 @Injectable({
-    providedIn: 'root',
+    providedIn: 'root'
 })
 export class AuthenticationService {
     private tokenExpirationTimer: any;
 
-    constructor(private store: Store<fromApp.AppState>) {}
+    constructor(private authFacade: AuthFacade) {}
 
     setLogoutTimer(expirationDuration: number): void {
         this.tokenExpirationTimer = setTimeout(() => {
-            this.store.dispatch(new AuthActions.Logout());
+            this.authFacade.Logout();
         }, expirationDuration);
     }
     clearLogoutTimer() {

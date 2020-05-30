@@ -6,16 +6,17 @@ import { UserOnRegister } from '@authentication/models/user.model';
 import { Store } from '@ngrx/store';
 import * as AuthActions from '@authentication/+store/auth.actions';
 import { Subscription } from 'rxjs';
+import { AuthFacade } from '@authentication/+store/auth.facade';
 
 @Component({
     selector: 'lib-register',
     templateUrl: './register.component.html',
-    styleUrls: ['./register.component.scss'],
+    styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit, OnDestroy {
     private storeSub: Subscription;
 
-    constructor(private store: Store<fromApp.AppState>) {}
+    constructor(private store: Store<fromApp.AppState>, private authFacade: AuthFacade) {}
     user: UserOnRegister;
     isLoading = false;
     error: string = null;
@@ -36,9 +37,15 @@ export class RegisterComponent implements OnInit, OnDestroy {
             email: form.value.email,
             password: form.value.password,
             confirmPassword: form.value.confirmPassword,
-            handle: form.value.handle,
+            handle: form.value.handle
         };
-        this.store.dispatch(new AuthActions.SignupStart(this.user));
+        this.authFacade.SignupStart(
+            this.user.name,
+            this.user.email,
+            this.user.password,
+            this.user.confirmPassword,
+            this.user.handle
+        );
 
         form.reset();
     }
@@ -46,6 +53,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
         if (this.storeSub) {
             this.storeSub.unsubscribe();
         }
-        this.store.dispatch(new AuthActions.ClearError());
+        this.authFacade.ClearError();
     }
 }

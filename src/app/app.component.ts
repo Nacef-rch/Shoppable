@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import * as fromApp from '../../projects/+store/app.reducer';
-import * as AuthActions from '@authentication/+store/auth.actions';
+import { AuthFacade } from '@authentication/+store/auth.facade';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-    constructor(private store: Store<fromApp.AppState>) {}
+    constructor(private authFacade: AuthFacade) {}
     ngOnInit() {
-        this.store.dispatch(new AuthActions.AutoLogin());
+        this.authFacade.AutoLogin();
     }
     title = 'Shoppable';
 }
