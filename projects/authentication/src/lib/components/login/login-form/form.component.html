@@ -1,0 +1,60 @@
+<form class="register-form" #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)">
+    <div class="form-group">
+        <label for="email"
+            ><i
+                class="zmdi zmdi-email"
+                [style.color]="!email.valid && email.touched ? '#cc3b49' : 'black'"
+            ></i
+        ></label>
+        <input
+            type="email"
+            [placeholder]="
+                !email.valid && email.touched ? 'Please enter a valid email !' : 'Your Email'
+            "
+            ngModel
+            name="email"
+            required
+            email
+            #email="ngModel"
+        />
+    </div>
+    <div class="form-group">
+        <label for="password"
+            ><i
+                class="zmdi zmdi-lock"
+                [style.color]="!password.valid && password.touched ? '#cc3b49' : 'black'"
+            ></i
+        ></label>
+        <input
+            type="password"
+            [placeholder]="
+                !password.valid && password.touched ? 'Please enter you password !' : 'Password'
+            "
+            ngModel
+            name="password"
+            required
+            minlength="6"
+            #password="ngModel"
+        />
+    </div>
+
+    <div *ngIf="error" class="AnForm-error">
+        <i class="zmdi zmdi-alert-triangle" style="color: #cc3b49;"></i> {{ error }}
+    </div>
+
+    <div class="form-group">
+        <input type="checkbox" name="remember-me" class="agree-term" id="remember-me" />
+        <label for="remember-me" class="label-agree-term"
+            ><span><span></span></span>Remember me</label
+        >
+    </div>
+    <div class="form-group form-button">
+        <input
+            type="submit"
+            name="signin"
+            class="form-submit"
+            value="Log in"
+            [disabled]="!signUpForm.valid"
+        />
+    </div>
+</form>

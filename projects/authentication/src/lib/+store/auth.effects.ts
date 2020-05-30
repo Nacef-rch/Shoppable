@@ -1,4 +1,4 @@
-import { Actions, ofType, Effect } from '@ngrx/effects';
+import { Actions, ofType, Effect, createEffect } from '@ngrx/effects';
 import * as AuthActions from './auth.actions';
 import jwtDecode from 'jwt-decode';
 import { switchMap, catchError, map, tap } from 'rxjs/operators';
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { User, UserOnRegister, UserOnLogin } from '@authentication/models/user.model';
 import { AuthenticationService } from '@authentication/services/authentication.service';
 import { environment } from '@env/environment';
+import { handleError } from '@authentication/helpers/api-helpers';
 
 export interface AuthResponseData {
     token: string;
@@ -28,102 +29,72 @@ const handleAuthentication = (resData) => {
         redirect: true
     });
 };
-const handleError = (errorRes: any) => {
-    let errorMessage = 'Something went wrong, please try again !';
-    if (!errorRes.error) {
-        return of(AuthActions.AUTHENTICATE_FAIL({ errorMessage }));
-    }
-    if (errorRes.error.name) {
-        errorMessage = 'Must not be empty';
-    }
-    if (errorRes.error.email) {
-        switch (errorRes.error.email) {
-            case 'Must not be empty':
-                errorMessage = 'Must not be empty';
-                break;
-            case 'Email is already in use':
-                errorMessage = 'Email is already in use';
-        }
-    }
-    if (errorRes.error.password) {
-        errorMessage = 'Must not be empty';
-    }
-    if (errorRes.error.confirmPassword) {
-        errorMessage = 'Passwords must match';
-    }
+const msgError = (errorRes: any) => {
+    const errorMessage = handleError(errorRes);
 
-    if (errorRes.error.handle) {
-        switch (errorRes.error.handle) {
-            case 'Must not be empty':
-                errorMessage = 'Must not be empty';
-                break;
-            case 'this handle is already taken':
-                errorMessage = 'This handle is already taken';
-        }
-    }
-    if (errorRes.error.general) {
-        errorMessage = 'Something went wrong, please try again !';
-    }
     return of(AuthActions.AUTHENTICATE_FAIL({ errorMessage }));
 };
 
 @Injectable()
 export class AuthEffects {
-    @Effect()
-    authSignup = this.actions$.pipe(
-        ofType(AuthActions.SIGNUP_START),
-        switchMap((signupAction: UserOnRegister) => {
-            return this.http
-                .post<AuthResponseData>(environment.firebaseAPIKey + '/signup', {
-                    name: signupAction.name,
-                    email: signupAction.email,
-                    password: signupAction.password,
-                    confirmPassword: signupAction.confirmPassword,
-                    handle: signupAction.handle
-                })
-                .pipe(
-                    tap((resData) => {
-                        const tokenDecoded = jwtDecode(resData.token);
-                        this.authService.setLogoutTimer(
-                            tokenDecoded.exp * 1000 - new Date().getTime()
-                        );
-                    }),
-                    map((resData) => {
-                        return handleAuthentication(resData);
-                    }),
-                    catchError((error) => {
-                        return handleError(error);
+    public authSignup$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(AuthActions.SIGNUP_START),
+            switchMap((signupAction: UserOnRegister) => {
+                return this.http
+                    .post<AuthResponseData>(environment.firebaseAPIKey + '/signup', {
+                        name: signupAction.name,
+                        email: signupAction.email,
+                        password: signupAction.password,
+                        confirmPassword: signupAction.confirmPassword,
+                        handle: signupAction.handle
                     })
-                );
-        })
+                    .pipe(
+                        tap((resData) => {
+                            const tokenDecoded = jwtDecode(resData.token);
+                            this.authService.setLogoutTimer(
+                                tokenDecoded.exp * 1000 - new Date().getTime()
+                            );
+                        }),
+                        map((resData) => {
+                            return handleAuthentication(resData);
+                        }),
+                        catchError((error) => {
+                            return msgError(error);
+                        })
+                    );
+            })
+        )
     );
 
-    @Effect()
-    authLogin = this.actions$.pipe(
-        ofType(AuthActions.LOGIN_START),
-        switchMap((authData: UserOnLogin) => {
-            return this.http
-                .post<AuthResponseData>(environment.firebaseAPIKey + '/login', {
-                    email: authData.email,
-                    password: authData.password
-                })
-                .pipe(
-                    tap((resData) => {
-                        const tokenDecoded = jwtDecode(resData.token);
-
-                        this.authService.setLogoutTimer(
-                            tokenDecoded.exp * 1000 - new Date().getTime()
-                        );
-                    }),
-                    map((resData) => {
-                        return handleAuthentication(resData);
-                    }),
-                    catchError((error) => {
-                        return of(AuthActions.AUTHENTICATE_FAIL(error.error.general));
+    public authLogin$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(AuthActions.LOGIN_START),
+            switchMap((authData: UserOnLogin) => {
+                return this.http
+                    .post<AuthResponseData>(environment.firebaseAPIKey + '/login', {
+                        email: authData.email,
+                        password: authData.password
                     })
-                );
-        })
+                    .pipe(
+                        tap((resData) => {
+                            const tokenDecoded = jwtDecode(resData.token);
+
+                            this.authService.setLogoutTimer(
+                                tokenDecoded.exp * 1000 - new Date().getTime()
+                            );
+                        }),
+                        map((resData) => {
+                            return handleAuthentication(resData);
+                        }),
+                        catchError((error) => {
+                            return msgError(error);
+                        })
+                    );
+            })
+        )
     );
+
     @Effect({ dispatch: false })
     authRedirect = this.actions$.pipe(
         ofType(AuthActions.AUTHENTICATE_SUCCESS),

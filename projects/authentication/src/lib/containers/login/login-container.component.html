@@ -1,1 +1,26 @@
-<lib-login></lib-login>
+<div class="main">
+    <section class="sign-in">
+        <div class="container">
+            <div class="signin-content">
+                <div class="signin-image" *ngIf="!isLoading">
+                    <figure>
+                        <img src="assets/auth-images/signin-image.jpg" alt="sing up image" />
+                    </figure>
+                    <a routerLink="/register" class="signup-image-link">Create an account</a>
+                </div>
+
+                <div class="signin-form">
+                    <h2 class="form-title" *ngIf="!isLoading">Sign In</h2>
+                    <lib-form *ngIf="!isLoading"></lib-form>
+
+                    <div class="social-login" *ngIf="!isLoading">
+                        <lib-login-social></lib-login-social>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div *ngIf="isLoading" style="text-align: center;">
+    <lib-loading-spinner></lib-loading-spinner>
+</div>

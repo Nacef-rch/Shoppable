@@ -20,6 +20,7 @@ export const AUTHENTICATE_FAIL = createAction(
     '[Auth] Authenticate Fail',
     props<{ errorMessage: string }>()
 );
+
 export const SIGNUP_START = createAction(
     '[Auth] Signup Start',
     props<{
