@@ -8,7 +8,7 @@ describe('RegisterContainerComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [RegisterContainerComponent],
+            declarations: [RegisterContainerComponent]
         }).compileComponents();
     }));
 

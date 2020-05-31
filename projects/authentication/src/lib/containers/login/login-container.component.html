@@ -11,10 +11,10 @@
 
                 <div class="signin-form">
                     <h2 class="form-title" *ngIf="!isLoading">Sign In</h2>
-                    <lib-form *ngIf="!isLoading"></lib-form>
+                    <lib-login-form *ngIf="!isLoading"></lib-login-form>
 
                     <div class="social-login" *ngIf="!isLoading">
-                        <lib-login-social></lib-login-social>
+                        <lib-social-auth></lib-social-auth>
                     </div>
                 </div>
             </div>

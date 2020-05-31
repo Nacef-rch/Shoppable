@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import * as fromApp from '../../../../../../+store/app.reducer';
+import * as fromApp from '../../../../../+store/app.reducer';
 import { UserOnRegister } from '@authentication/models/user.model';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
