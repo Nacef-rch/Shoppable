@@ -1,21 +1,25 @@
-import { Actions, ofType, Effect, createEffect } from '@ngrx/effects';
-import * as AuthActions from './auth.actions';
-import jwtDecode from 'jwt-decode';
-import { switchMap, catchError, map, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { User, UserOnRegister, UserOnLogin } from '@authentication/models/user.model';
-import { AuthenticationService } from '@authentication/services/authentication.service';
+
+import { of, Observable } from 'rxjs';
+import { Actions, ofType, Effect, createEffect } from '@ngrx/effects';
+import { switchMap, catchError, map, tap } from 'rxjs/operators';
+
+import jwtDecode from 'jwt-decode';
+
+import * as AuthActions from './auth.actions';
 import { environment } from '@env/environment';
+import { User, UserOnRegister, UserOnLogin } from '@authentication/models/user.model';
+import { AuthenticateSuccessType } from '@authentication/models/returnTypes.model';
+import { AuthenticationService } from '@authentication/services/authentication.service';
 import { handleError } from '@shared/helpers/api-helpers';
 
 export interface AuthResponseData {
     token: string;
 }
 
-const handleAuthentication = (resData) => {
+const handleAuthentication = (resData: any): AuthenticateSuccessType => {
     const tokenDecoded = jwtDecode(resData.token);
     const expirationDate = new Date(+tokenDecoded.exp * 1000);
     const userToken = `Bearer ${resData.token}`;
@@ -29,7 +33,7 @@ const handleAuthentication = (resData) => {
         redirect: true
     });
 };
-const msgError = (errorRes: any) => {
+const msgError = (errorRes: any): Observable<any> => {
     const errorMessage = handleError(errorRes);
 
     return of(AuthActions.AUTHENTICATE_FAIL({ errorMessage }));
@@ -96,7 +100,7 @@ export class AuthEffects {
     );
 
     @Effect({ dispatch: false })
-    authRedirect = this.actions$.pipe(
+    public authRedirect = this.actions$.pipe(
         ofType(AuthActions.AUTHENTICATE_SUCCESS),
         tap(
             (authSuccessAction: {
@@ -113,7 +117,7 @@ export class AuthEffects {
         )
     );
     @Effect()
-    autoLogin = this.actions$.pipe(
+    public autoLogin = this.actions$.pipe(
         ofType(AuthActions.AUTO_LOGIN),
         map(() => {
             const userData: {
@@ -149,7 +153,7 @@ export class AuthEffects {
     );
 
     @Effect({ dispatch: false })
-    authLogout = this.actions$.pipe(
+    public authLogout = this.actions$.pipe(
         ofType(AuthActions.LOGOUT),
         tap(() => {
             this.authService.clearLogoutTimer();

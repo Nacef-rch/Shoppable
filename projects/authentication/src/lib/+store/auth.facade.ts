@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+
 import * as AuthActions from './auth.actions';
 import * as fromApp from '../../../../+store/app.reducer';
 import { authQuery } from './auth.selectors';

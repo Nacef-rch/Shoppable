@@ -1,6 +1,7 @@
-import { User } from '@authentication/models/user.model';
 import { Action, createReducer, on } from '@ngrx/store';
+
 import * as AuthActions from './auth.actions';
+import { User } from '@authentication/models/user.model';
 
 export interface State {
     user: User;
@@ -48,4 +49,4 @@ export function authReducer(state: State | undefined, action: Action): State {
     return reducer(state, action);
 }
 
-export const authStoreName = 'authStore'; //why ?
+export const authStoreName = 'authStore';

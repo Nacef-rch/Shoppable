@@ -1,10 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import * as fromApp from '../../../../../+store/app.reducer';
-import { UserOnRegister } from '@authentication/models/user.model';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
+
 import { AuthFacade } from '@authentication/+store/auth.facade';
+import * as fromApp from '../../../../../+store/app.reducer';
+import { UserOnRegister } from '@authentication/models/user.model';
 
 @Component({
     selector: 'lib-register-form',
@@ -13,27 +15,35 @@ import { AuthFacade } from '@authentication/+store/auth.facade';
 })
 export class RegisterFormComponent implements OnInit, OnDestroy {
     private storeSub: Subscription;
+    private user: UserOnRegister;
+    public error: string = null;
+    public registerForm: FormGroup;
 
     constructor(private store: Store<fromApp.AppState>, private authFacade: AuthFacade) {}
-    user: UserOnRegister;
-    error: string = null;
 
     ngOnInit(): void {
         this.storeSub = this.store.select('auth').subscribe((authState) => {
             this.error = authState.authError;
         });
+        this.registerForm = new FormGroup({
+            name: new FormControl(null, [Validators.required, Validators.minLength(6)]),
+            email: new FormControl(null, [Validators.required, Validators.email]),
+            password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
+            confirmPassword: new FormControl(null, [Validators.required, Validators.minLength(6)]),
+            handle: new FormControl(null, [Validators.required, Validators.minLength(4)])
+        });
     }
 
-    onSubmit(form: NgForm): void {
-        if (!form.valid) {
+    onSubmit(): void {
+        if (!this.registerForm.valid) {
             return;
         }
         this.user = {
-            name: form.value.name,
-            email: form.value.email,
-            password: form.value.password,
-            confirmPassword: form.value.confirmPassword,
-            handle: form.value.handle
+            name: this.registerForm.value.name,
+            email: this.registerForm.value.email,
+            password: this.registerForm.value.password,
+            confirmPassword: this.registerForm.value.confirmPassword,
+            handle: this.registerForm.value.handle
         };
         this.authFacade.SignupStart(
             this.user.name,
@@ -43,7 +53,7 @@ export class RegisterFormComponent implements OnInit, OnDestroy {
             this.user.handle
         );
 
-        form.reset();
+        this.registerForm.reset();
     }
     ngOnDestroy(): void {
         if (this.storeSub) {

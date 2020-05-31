@@ -1,11 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import * as fromApp from '../../../../../+store/app.reducer';
-import { UserOnLogin } from '@authentication/models/user.model';
-import { Store } from '@ngrx/store';
-import { Subscription } from 'rxjs';
 import { AuthFacade } from '@authentication/+store/auth.facade';
 import { FormGroup } from '@angular/forms';
+
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+
+import * as fromApp from '../../../../../+store/app.reducer';
+import { UserOnLogin } from '@authentication/models/user.model';
 
 @Component({
     selector: 'lib-login-form',
@@ -14,12 +16,13 @@ import { FormGroup } from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit, OnDestroy {
     private storeSub: Subscription;
-    loginForm: FormGroup;
-    constructor(private store: Store<fromApp.AppState>, private authFacade: AuthFacade) {}
-    user: UserOnLogin;
-    error: string = null;
+    public loginForm: FormGroup;
+    private user: UserOnLogin;
+    public error: string = null;
 
-    ngOnInit(): void {
+    constructor(private store: Store<fromApp.AppState>, private authFacade: AuthFacade) {}
+
+    public ngOnInit(): void {
         this.storeSub = this.store.select('auth').subscribe((authState) => {
             this.error = authState.authError;
         });
@@ -29,7 +32,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
         });
     }
 
-    onSubmit(): void {
+    public onSubmit(): void {
         if (!this.loginForm.valid) {
             return;
         }
@@ -41,7 +44,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
         this.loginForm.reset();
     }
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         if (this.storeSub) {
             this.storeSub.unsubscribe();
         }
