@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { User, UserOnRegister, UserOnLogin } from '@authentication/models/user.model';
 import { AuthenticationService } from '@authentication/services/authentication.service';
 import { environment } from '@env/environment';
-import { handleError } from '@authentication/helpers/api-helpers';
+import { handleError } from '@shared/helpers/api-helpers';
 
 export interface AuthResponseData {
     token: string;

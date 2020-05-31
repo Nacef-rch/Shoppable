@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { TestComponent } from './test.component';
-import { AuthGuard } from '@core/guards/authentication/auth.guard';
+import { AuthGuard } from '@authentication/guards/authentication/auth.guard';
 
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },

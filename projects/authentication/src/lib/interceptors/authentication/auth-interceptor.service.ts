@@ -7,7 +7,10 @@ import { Store } from '@ngrx/store';
 import * as fromApp from '../../../../../+store/app.reducer';
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
-    constructor(private authService: AuthenticationService, private store: Store<fromApp.AppState>) {}
+    constructor(
+        private authService: AuthenticationService,
+        private store: Store<fromApp.AppState>
+    ) {}
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     intercept(req: HttpRequest<any>, next: HttpHandler) {
@@ -21,10 +24,10 @@ export class AuthInterceptorService implements HttpInterceptor {
                     return next.handle(req);
                 }
                 const modifiedReq = req.clone({
-                    params: new HttpParams().set('auth', user.token),
+                    params: new HttpParams().set('auth', user.token)
                 });
                 return next.handle(modifiedReq);
-            }),
+            })
         );
     }
 }
