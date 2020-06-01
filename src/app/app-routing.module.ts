@@ -5,7 +5,13 @@ import { TestComponent } from './test.component';
 import { AuthGuard } from '@authentication/guards/authentication/auth.guard';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    {
+        path: 'auth',
+        loadChildren: () =>
+            import('@authentication/authentication.module').then((m) => m.AuthenticationModule)
+    },
+
+    { path: '', redirectTo: 'auth', pathMatch: 'full' },
     { path: 'test', component: TestComponent, canActivate: [AuthGuard] }
 ];
 

@@ -6,12 +6,22 @@ import { RegisterContainerComponent } from './containers/register/register-conta
 
 const routes: Routes = [
     {
-        path: 'login',
-        component: LoginContainerComponent
-    },
-    {
-        path: 'register',
-        component: RegisterContainerComponent
+        path: '',
+        children: [
+            {
+                path: '',
+                redirectTo: 'login',
+                pathMatch: 'full'
+            },
+            {
+                path: 'login',
+                component: LoginContainerComponent
+            },
+            {
+                path: 'register',
+                component: RegisterContainerComponent
+            }
+        ]
     }
 ];
 

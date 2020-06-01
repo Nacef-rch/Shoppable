@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthenticationModule } from 'projects/authentication/src/public-api';
 import { TestComponent } from './test.component';
 import { EffectsModule } from '@ngrx/effects';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -13,13 +12,15 @@ import * as fromApp from '../../projects/+store/app.reducer';
 import { AuthEffects } from '@authentication/+store/auth.effects';
 import { environment } from '@env/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
     declarations: [AppComponent, TestComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        AuthenticationModule,
+        SharedModule,
+        //AuthenticationModule,
 
         StoreModule.forRoot(fromApp.appReducer),
         EffectsModule.forRoot([AuthEffects]),
