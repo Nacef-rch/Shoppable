@@ -39,6 +39,8 @@
         "@ngrx/effects": "^9.1.2",
         "@ngrx/router-store": "^9.1.2",
         "@ngrx/store": "^9.1.2",
+        "@ngx-translate/core": "^12.1.2",
+        "@ngx-translate/http-loader": "^4.0.0",
         "@storybook/addon-storyshots": "^5.3.18",
         "jwt-decode": "^2.2.0",
         "material-design-iconic-font": "^2.2.0",
