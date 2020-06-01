@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { SharedModule } from '@shared/shared.module';
+import { I18nModule } from './services/i18n/i18n.module';
 
 @NgModule({
     declarations: [],
-    imports: [SharedModule],
-    exports: []
+    imports: [I18nModule],
+    exports: [I18nModule]
 })
 export class CoreModule {}

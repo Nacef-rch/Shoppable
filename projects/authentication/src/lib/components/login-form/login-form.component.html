@@ -14,8 +14,8 @@
             type="email"
             [placeholder]="
                 !loginForm.get('email').valid && loginForm.get('email').touched
-                    ? 'Please enter a valid email !'
-                    : 'Your Email'
+                    ? ('AUTH.LOGIN.VALID_EMAIL' | translate)
+                    : ('AUTH.LOGIN.EMAIL' | translate)
             "
             name="email"
             formControlName="email"
@@ -36,8 +36,8 @@
             type="password"
             [placeholder]="
                 !loginForm.get('password').valid && loginForm.get('password').touched
-                    ? 'Please enter you password !'
-                    : 'Password'
+                    ? ('AUTH.LOGIN.VALID_PASS' | translate)
+                    : ('AUTH.LOGIN.PASS' | translate)
             "
             name="password"
             formControlName="password"
@@ -51,7 +51,7 @@
     <div class="form-group">
         <input type="checkbox" name="remember-me" class="agree-term" id="remember-me" />
         <label for="remember-me" class="label-agree-term"
-            ><span><span></span></span>Remember me</label
+            ><span><span></span></span>{{ 'AUTH.LOGIN.REMEMBER' | translate }}</label
         >
     </div>
     <div class="form-group form-button">
@@ -59,7 +59,7 @@
             type="submit"
             name="signin"
             class="form-submit"
-            value="Log in"
+            value="{{ 'AUTH.LOGIN.LOG_IN' | translate }}"
             [disabled]="!loginForm.valid"
         />
     </div>

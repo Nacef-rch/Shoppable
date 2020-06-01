@@ -15,6 +15,7 @@ import {
     AuthenticateSuccessType,
     AuthResponseData
 } from '@authentication/models/returnTypes.model';
+import { I18nService } from '@core/services/i18n/services/i18n.service';
 
 const handleAuthentication = (resData: AuthResponseData): AuthenticateSuccessType => {
     const tokenDecoded = jwtDecode(resData.token);
@@ -30,8 +31,8 @@ const handleAuthentication = (resData: AuthResponseData): AuthenticateSuccessTyp
         redirect: true
     });
 };
-const msgError = (errorRes: HttpErrorResponse): Observable<any> => {
-    const errorMessage = handleError(errorRes);
+const msgError = (errorRes: HttpErrorResponse, lang: string): Observable<any> => {
+    const errorMessage = handleError(errorRes, lang);
     return of(AuthActions.AUTHENTICATE_FAIL({ errorMessage }));
 };
 
@@ -60,7 +61,7 @@ export class AuthEffects {
                             return handleAuthentication(resData);
                         }),
                         catchError((error) => {
-                            return msgError(error);
+                            return msgError(error, this.translate.lang);
                         })
                     );
             })
@@ -88,7 +89,7 @@ export class AuthEffects {
                             return handleAuthentication(resData);
                         }),
                         catchError((error) => {
-                            return msgError(error);
+                            return msgError(error, this.translate.lang);
                         })
                     );
             })
@@ -161,6 +162,7 @@ export class AuthEffects {
         private actions$: Actions,
         private http: HttpClient,
         private router: Router,
-        private authService: AuthenticationService
+        private authService: AuthenticationService,
+        private translate: I18nService
     ) {}
 }

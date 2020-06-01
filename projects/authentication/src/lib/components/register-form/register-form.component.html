@@ -14,8 +14,8 @@
             type="text"
             [placeholder]="
                 !registerForm.get('name').valid && registerForm.get('name').touched
-                    ? 'Please enter your name !'
-                    : 'Your name'
+                    ? ('AUTH.REGISTER.VALID_NAME' | translate)
+                    : ('AUTH.REGISTER.NAME' | translate)
             "
             name="name"
             formControlName="name"
@@ -36,8 +36,8 @@
             type="email"
             [placeholder]="
                 !registerForm.get('email').valid && registerForm.get('email').touched
-                    ? 'Please enter a valid email !'
-                    : 'Your Email'
+                    ? ('AUTH.REGISTER.VALID_EMAIL' | translate)
+                    : ('AUTH.REGISTER.EMAIL' | translate)
             "
             name="email"
             formControlName="email"
@@ -58,8 +58,8 @@
             type="password"
             [placeholder]="
                 !registerForm.get('password').valid && registerForm.get('password').touched
-                    ? 'Please enter a password !'
-                    : 'Password'
+                    ? ('AUTH.REGISTER.VALID_PASS' | translate)
+                    : ('AUTH.REGISTER.PASS' | translate)
             "
             name="password"
             formControlName="password"
@@ -82,8 +82,8 @@
             [placeholder]="
                 !registerForm.get('confirmPassword').valid &&
                 registerForm.get('confirmPassword').touched
-                    ? 'Please repeat your password !'
-                    : 'Repeat your password'
+                    ? ('AUTH.REGISTER.VALID_REPASS' | translate)
+                    : ('AUTH.REGISTER.REPASS' | translate)
             "
             name="confirmPassword"
             formControlName="confirmPassword"
@@ -105,8 +105,8 @@
             name="handle"
             [placeholder]="
                 !registerForm.get('handle').valid && registerForm.get('handle').touched
-                    ? 'Please enter a Handle !'
-                    : 'Handle'
+                    ? ('AUTH.REGISTER.VALID_HANDLE' | translate)
+                    : ('AUTH.REGISTER.HANDLE' | translate)
             "
             name="handle"
             formControlName="handle"
@@ -115,8 +115,8 @@
     <div class="form-group">
         <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
         <label for="agree-term" class="label-agree-term"
-            ><span><span></span></span>I agree all statements in
-            <a href="#" class="term-service">Terms of service</a></label
+            ><span><span></span></span>{{ 'AUTH.REGISTER.AGREE' | translate }}
+            <a href="#" class="term-service">{{ 'AUTH.REGISTER.TERMS' | translate }}</a></label
         >
     </div>
 
@@ -129,7 +129,7 @@
             type="submit"
             name="signup"
             class="form-submit"
-            value="Register"
+            value="{{ 'AUTH.REGISTER.REGISTER' | translate }}"
             [disabled]="!registerForm.valid"
         />
     </div>

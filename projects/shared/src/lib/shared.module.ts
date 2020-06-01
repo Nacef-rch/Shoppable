@@ -3,16 +3,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoadingSpinnerComponent } from '@shared/components/loading-spinner/loading-spinner.component';
 import { CommonModule } from '@angular/common';
+import { CoreModule } from '@core/core.module';
 
 @NgModule({
     declarations: [LoadingSpinnerComponent],
-    imports: [HttpClientModule, FormsModule, CommonModule, ReactiveFormsModule],
+    imports: [HttpClientModule, FormsModule, CommonModule, ReactiveFormsModule, CoreModule],
     exports: [
         LoadingSpinnerComponent,
         HttpClientModule,
         FormsModule,
         CommonModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        CoreModule
     ]
 })
 export class SharedModule {}

@@ -1,9 +1,12 @@
+<lib-i18ntest></lib-i18ntest>
 <div class="main">
     <section class="signup">
         <div class="container">
             <div class="signup-content">
                 <div class="signup-form">
-                    <h2 class="form-title" *ngIf="!isLoading">Sign up</h2>
+                    <h2 class="form-title" *ngIf="!isLoading">
+                        {{ 'AUTH.REGISTER.SIGN' | translate }}
+                    </h2>
                     <lib-register-form *ngIf="!isLoading"></lib-register-form>
                 </div>
                 <div class="signup-image" *ngIf="!isLoading">
@@ -11,7 +14,9 @@
                         <img src="assets/auth-images/signup-image.jpg" alt="sing up image" />
                     </figure>
 
-                    <a routerLink="/login" class="signup-image-link">I am already member</a>
+                    <a routerLink="/auth/login" class="signup-image-link">{{
+                        'AUTH.REGISTER.MEMBER' | translate
+                    }}</a>
                 </div>
             </div>
         </div>

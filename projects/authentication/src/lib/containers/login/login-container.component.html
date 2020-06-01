@@ -1,3 +1,4 @@
+<lib-i18ntest></lib-i18ntest>
 <div class="main">
     <section class="sign-in">
         <div class="container">
@@ -6,11 +7,16 @@
                     <figure>
                         <img src="assets/auth-images/signin-image.jpg" alt="sing up image" />
                     </figure>
-                    <a routerLink="/register" class="signup-image-link">Create an account</a>
+                    <a routerLink="/auth/register" class="signup-image-link">{{
+                        'AUTH.LOGIN.CREATE' | translate
+                    }}</a>
                 </div>
 
                 <div class="signin-form">
-                    <h2 class="form-title" *ngIf="!isLoading">Sign In</h2>
+                    <h2 class="form-title" *ngIf="!isLoading">
+                        {{ 'AUTH.LOGIN.SIGN' | translate }}
+                    </h2>
+
                     <lib-login-form *ngIf="!isLoading"></lib-login-form>
 
                     <div class="social-login" *ngIf="!isLoading">
@@ -21,6 +27,7 @@
         </div>
     </section>
 </div>
+
 <div *ngIf="isLoading" style="text-align: center;">
     <lib-loading-spinner></lib-loading-spinner>
 </div>
