@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginContainerComponent } from './containers/login/login-container.component';
-import { RegisterContainerComponent } from './containers/register/register-container.component';
+import { LoginContainerComponent } from '@authentication/containers/login/login-container.component';
+import { RegisterContainerComponent } from '@authentication/containers/register/register-container.component';
 
 const routes: Routes = [
     {

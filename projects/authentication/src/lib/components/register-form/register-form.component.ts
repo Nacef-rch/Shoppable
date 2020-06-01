@@ -1,10 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
 import { Subscription } from 'rxjs';
 
 import { AuthFacade } from '@authentication/+store/auth.facade';
-
 import { UserOnRegister } from '@authentication/models/user.model';
 
 @Component({
@@ -20,7 +18,7 @@ export class RegisterFormComponent implements OnInit, OnDestroy {
 
     constructor(private authFacade: AuthFacade) {}
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.storeSub = this.authFacade.error$.subscribe((errorRes) => {
             this.error = errorRes;
         });
@@ -33,7 +31,7 @@ export class RegisterFormComponent implements OnInit, OnDestroy {
         });
     }
 
-    onSubmit(): void {
+    public onSubmit(): void {
         if (!this.registerForm.valid) {
             return;
         }
@@ -54,7 +52,7 @@ export class RegisterFormComponent implements OnInit, OnDestroy {
 
         this.registerForm.reset();
     }
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         if (this.storeSub) {
             this.storeSub.unsubscribe();
         }

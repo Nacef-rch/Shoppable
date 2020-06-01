@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AuthFacade } from '@authentication/+store/auth.facade';
 
 @Component({

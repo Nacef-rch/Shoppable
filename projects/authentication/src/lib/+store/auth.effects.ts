@@ -1,25 +1,22 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { of, Observable } from 'rxjs';
+import { environment } from '@env/environment';
 import { Actions, ofType, Effect, createEffect } from '@ngrx/effects';
+import { of, Observable } from 'rxjs';
 import { switchMap, catchError, map, tap } from 'rxjs/operators';
 
 import jwtDecode from 'jwt-decode';
-
-import * as AuthActions from './auth.actions';
-import { environment } from '@env/environment';
+import * as AuthActions from '@authentication/+store/auth.actions';
 import { User, UserOnRegister, UserOnLogin } from '@authentication/models/user.model';
-import { AuthenticateSuccessType } from '@authentication/models/returnTypes.model';
 import { AuthenticationService } from '@authentication/services/authentication.service';
 import { handleError } from '@shared/helpers/api-helpers';
+import {
+    AuthenticateSuccessType,
+    AuthResponseData
+} from '@authentication/models/returnTypes.model';
 
-export interface AuthResponseData {
-    token: string;
-}
-
-const handleAuthentication = (resData: any): AuthenticateSuccessType => {
+const handleAuthentication = (resData: AuthResponseData): AuthenticateSuccessType => {
     const tokenDecoded = jwtDecode(resData.token);
     const expirationDate = new Date(+tokenDecoded.exp * 1000);
     const userToken = `Bearer ${resData.token}`;
@@ -33,9 +30,8 @@ const handleAuthentication = (resData: any): AuthenticateSuccessType => {
         redirect: true
     });
 };
-const msgError = (errorRes: any): Observable<any> => {
+const msgError = (errorRes: HttpErrorResponse): Observable<any> => {
     const errorMessage = handleError(errorRes);
-
     return of(AuthActions.AUTHENTICATE_FAIL({ errorMessage }));
 };
 

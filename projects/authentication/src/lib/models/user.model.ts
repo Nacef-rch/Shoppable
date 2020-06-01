@@ -1,4 +1,3 @@
-//TODO: Still in work !
 export class User {
     constructor(
         public email: string,

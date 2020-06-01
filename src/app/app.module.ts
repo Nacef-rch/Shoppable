@@ -1,17 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { TestComponent } from './test.component';
-import { EffectsModule } from '@ngrx/effects';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptorService } from '@authentication/interceptors/authentication/auth-interceptor.service';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { environment } from '@env/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { SharedModule } from '@shared/shared.module';
+import { environment } from '@env/environment';
+
+import { AppRoutingModule } from '@app/app-routing.module';
+import { AppComponent } from '@app/app.component';
+import { TestComponent } from '@app/test.component';
 import { AuthenticationModule } from '@authentication/authentication.module';
+import { AuthInterceptorService } from '@authentication/interceptors/authentication/auth-interceptor.service';
 
 @NgModule({
     declarations: [AppComponent, TestComponent],
@@ -19,7 +19,6 @@ import { AuthenticationModule } from '@authentication/authentication.module';
         AuthenticationModule,
         BrowserModule,
         AppRoutingModule,
-        SharedModule,
         StoreModule.forRoot({}),
         EffectsModule.forRoot([]),
         StoreDevtoolsModule.instrument({ logOnly: environment.production }),

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { AuthFacade } from '@authentication/+store/auth.facade';
 
 @Component({
@@ -8,7 +9,7 @@ import { AuthFacade } from '@authentication/+store/auth.facade';
 })
 export class TestComponent {
     constructor(private authFacade: AuthFacade) {}
-    onClick() {
+    public onClick(): void {
         this.authFacade.Logout();
     }
 }

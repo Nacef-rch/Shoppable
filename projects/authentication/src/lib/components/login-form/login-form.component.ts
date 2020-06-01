@@ -1,10 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { AuthFacade } from '@authentication/+store/auth.facade';
 import { FormGroup } from '@angular/forms';
-
 import { Subscription } from 'rxjs';
 
+import { AuthFacade } from '@authentication/+store/auth.facade';
 import { UserOnLogin } from '@authentication/models/user.model';
 
 @Component({
@@ -14,8 +13,8 @@ import { UserOnLogin } from '@authentication/models/user.model';
 })
 export class LoginFormComponent implements OnInit, OnDestroy {
     private storeSub: Subscription;
-    public loginForm: FormGroup;
     private user: UserOnLogin;
+    public loginForm: FormGroup;
     public error: string = null;
 
     constructor(private authFacade: AuthFacade) {}

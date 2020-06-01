@@ -5,3 +5,6 @@ export interface AuthenticateSuccessType {
     expirationDate: Date;
     redirect: boolean;
 }
+export interface AuthResponseData {
+    token: string;
+}

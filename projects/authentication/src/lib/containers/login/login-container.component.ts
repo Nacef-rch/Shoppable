@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { AuthFacade } from '@authentication/+store/auth.facade';
-
-import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'lib-login-container',
@@ -11,16 +10,15 @@ import { Subscription } from 'rxjs';
 })
 export class LoginContainerComponent implements OnInit, OnDestroy {
     private storeSub: Subscription;
+    public isLoading = false;
     constructor(private authFacade: AuthFacade) {}
 
-    isLoading = false;
-
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.storeSub = this.authFacade.loading$.subscribe((loadRes) => {
             this.isLoading = loadRes;
         });
     }
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         if (this.storeSub) {
             this.storeSub.unsubscribe();
         }

@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
-
-import { AuthRoutingModule } from './auth-routing.module';
-import { SharedModule } from '@shared/shared.module';
-
-import { LoginContainerComponent } from './containers/login/login-container.component';
-import { RegisterContainerComponent } from './containers/register/register-container.component';
-import { SocialAuthComponent } from './components/social-auth/social-auth.component';
-import { LoginFormComponent } from './components/login-form/login-form.component';
-import { RegisterFormComponent } from './components/register-form/register-form.component';
-import { StoreModule } from '@ngrx/store';
-import * as fromAuth from '@authentication/+store/auth.reducer';
-import { AuthEffects } from './+store/auth.effects';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+
+import { SharedModule } from '@shared/shared.module';
+import { AuthRoutingModule } from '@authentication/auth-routing.module';
+import * as fromAuth from '@authentication/+store/auth.reducer';
+import { AuthEffects } from '@authentication/+store/auth.effects';
+import { LoginContainerComponent } from '@authentication/containers/login/login-container.component';
+import { RegisterContainerComponent } from '@authentication/containers/register/register-container.component';
+import { SocialAuthComponent } from '@authentication/components/social-auth/social-auth.component';
+import { LoginFormComponent } from '@authentication/components/login-form/login-form.component';
+import { RegisterFormComponent } from '@authentication/components/register-form/register-form.component';
 
 @NgModule({
     declarations: [
