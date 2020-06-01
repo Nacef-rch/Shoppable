@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import * as fromApp from '../../../../../+store/app.reducer';
-import { Store } from '@ngrx/store';
+
 import { Subscription } from 'rxjs';
 import { AuthFacade } from '@authentication/+store/auth.facade';
 
@@ -12,13 +11,13 @@ import { AuthFacade } from '@authentication/+store/auth.facade';
 export class RegisterContainerComponent implements OnInit, OnDestroy {
     private storeSub: Subscription;
 
-    constructor(private store: Store<fromApp.AppState>, private authFacade: AuthFacade) {}
+    constructor(private authFacade: AuthFacade) {}
 
     isLoading = false;
 
     ngOnInit(): void {
-        this.storeSub = this.store.select('auth').subscribe((authState) => {
-            this.isLoading = authState.loading;
+        this.storeSub = this.authFacade.loading$.subscribe((loadRes) => {
+            this.isLoading = loadRes;
         });
     }
 

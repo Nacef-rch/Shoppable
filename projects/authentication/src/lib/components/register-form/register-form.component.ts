@@ -1,11 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
 import { AuthFacade } from '@authentication/+store/auth.facade';
-import * as fromApp from '../../../../../+store/app.reducer';
+
 import { UserOnRegister } from '@authentication/models/user.model';
 
 @Component({
@@ -19,11 +18,11 @@ export class RegisterFormComponent implements OnInit, OnDestroy {
     public error: string = null;
     public registerForm: FormGroup;
 
-    constructor(private store: Store<fromApp.AppState>, private authFacade: AuthFacade) {}
+    constructor(private authFacade: AuthFacade) {}
 
     ngOnInit(): void {
-        this.storeSub = this.store.select('auth').subscribe((authState) => {
-            this.error = authState.authError;
+        this.storeSub = this.authFacade.error$.subscribe((errorRes) => {
+            this.error = errorRes;
         });
         this.registerForm = new FormGroup({
             name: new FormControl(null, [Validators.required, Validators.minLength(6)]),

@@ -3,10 +3,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { AuthFacade } from '@authentication/+store/auth.facade';
 import { FormGroup } from '@angular/forms';
 
-import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
-import * as fromApp from '../../../../../+store/app.reducer';
 import { UserOnLogin } from '@authentication/models/user.model';
 
 @Component({
@@ -20,11 +18,11 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     private user: UserOnLogin;
     public error: string = null;
 
-    constructor(private store: Store<fromApp.AppState>, private authFacade: AuthFacade) {}
+    constructor(private authFacade: AuthFacade) {}
 
     public ngOnInit(): void {
-        this.storeSub = this.store.select('auth').subscribe((authState) => {
-            this.error = authState.authError;
+        this.storeSub = this.authFacade.error$.subscribe((errorRes) => {
+            this.error = errorRes;
         });
         this.loginForm = new FormGroup({
             email: new FormControl(null, [Validators.required, Validators.email]),
