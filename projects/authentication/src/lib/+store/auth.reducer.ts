@@ -49,4 +49,4 @@ export function authReducer(state: State | undefined, action: Action): State {
     return reducer(state, action);
 }
 
-export const authStoreName = 'authStore';
+export const authStoreName = 'auth';

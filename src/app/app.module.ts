@@ -8,8 +8,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from '@authentication/interceptors/authentication/auth-interceptor.service';
 import { StoreModule } from '@ngrx/store';
-import * as fromApp from '../../projects/+store/app.reducer';
-import { AuthEffects } from '@authentication/+store/auth.effects';
 import { environment } from '@env/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { SharedModule } from '@shared/shared.module';
@@ -20,10 +18,8 @@ import { SharedModule } from '@shared/shared.module';
         BrowserModule,
         AppRoutingModule,
         SharedModule,
-        //AuthenticationModule,
-
-        StoreModule.forRoot(fromApp.appReducer),
-        EffectsModule.forRoot([AuthEffects]),
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([]),
         StoreDevtoolsModule.instrument({ logOnly: environment.production }),
         StoreRouterConnectingModule.forRoot()
     ],
