@@ -11,10 +11,12 @@ import { StoreModule } from '@ngrx/store';
 import { environment } from '@env/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { SharedModule } from '@shared/shared.module';
+import { AuthenticationModule } from '@authentication/authentication.module';
 
 @NgModule({
     declarations: [AppComponent, TestComponent],
     imports: [
+        AuthenticationModule,
         BrowserModule,
         AppRoutingModule,
         SharedModule,

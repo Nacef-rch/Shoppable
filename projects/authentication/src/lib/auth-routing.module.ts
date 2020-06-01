@@ -6,7 +6,7 @@ import { RegisterContainerComponent } from './containers/register/register-conta
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'auth',
         children: [
             {
                 path: '',

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import * as AuthActions from './auth.actions';
-import * as fromApp from '../../../../+store/app.reducer';
 import { authQuery } from './auth.selectors';
+import { AuthStore } from './auth.reducer';
 @Injectable({
     providedIn: 'root'
 })
@@ -11,7 +11,7 @@ export class AuthFacade {
     public user$ = this.store.select(authQuery.getUser); // <== observable
     public error$ = this.store.select(authQuery.getAuthError);
     public loading$ = this.store.select(authQuery.getLoading);
-    constructor(private store: Store<fromApp.AppState>) {}
+    constructor(private store: Store<AuthStore>) {}
 
     public AuthSuccess(
         email: string,

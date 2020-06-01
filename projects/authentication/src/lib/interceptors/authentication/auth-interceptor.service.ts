@@ -1,24 +1,17 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpParams } from '@angular/common/http';
-import { AuthenticationService } from '@authentication/services/authentication.service';
-import { exhaustMap, take, map } from 'rxjs/operators';
-import { Store } from '@ngrx/store';
-import * as fromApp from '../../../../../+store/app.reducer';
+
+import { exhaustMap, take } from 'rxjs/operators';
+
+import { AuthFacade } from '@authentication/+store/auth.facade';
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
-    constructor(
-        private authService: AuthenticationService,
-        private store: Store<fromApp.AppState>
-    ) {}
+    constructor(private authFacade: AuthFacade) {}
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     intercept(req: HttpRequest<any>, next: HttpHandler) {
-        return this.store.select('auth').pipe(
+        return this.authFacade.user$.pipe(
             take(1),
-            map((authState) => {
-                return authState.user;
-            }),
             exhaustMap((user) => {
                 if (!user) {
                     return next.handle(req);

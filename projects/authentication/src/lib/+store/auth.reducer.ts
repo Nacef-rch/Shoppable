@@ -8,6 +8,9 @@ export interface State {
     authError: string;
     loading: boolean;
 }
+export interface AuthStore {
+    readonly state: State;
+}
 
 const initialState: State = {
     user: null,
