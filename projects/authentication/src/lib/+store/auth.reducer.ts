@@ -12,7 +12,7 @@ export interface AuthStore {
     readonly state: State;
 }
 
-const initialState: State = {
+export const initialState: State = {
     user: null,
     authError: null,
     loading: false

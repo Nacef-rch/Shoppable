@@ -11,6 +11,9 @@ import { RegisterContainerComponent } from '@authentication/containers/register/
 import { SocialAuthComponent } from '@authentication/components/social-auth/social-auth.component';
 import { LoginFormComponent } from '@authentication/components/login-form/login-form.component';
 import { RegisterFormComponent } from '@authentication/components/register-form/register-form.component';
+import { AuthInterceptorService } from './interceptors/authentication/auth-interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { initialState } from '@authentication/+store/auth.reducer';
 
 @NgModule({
     declarations: [
@@ -23,9 +26,12 @@ import { RegisterFormComponent } from '@authentication/components/register-form/
     imports: [
         AuthRoutingModule,
         SharedModule,
-        StoreModule.forFeature(fromAuth.authStoreName, fromAuth.authReducer),
+        StoreModule.forFeature(fromAuth.authStoreName, fromAuth.authReducer, {
+            initialState: initialState
+        }),
         EffectsModule.forFeature([AuthEffects])
     ],
+    providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
     exports: [LoginContainerComponent, RegisterContainerComponent]
 })
 export class AuthenticationModule {}
