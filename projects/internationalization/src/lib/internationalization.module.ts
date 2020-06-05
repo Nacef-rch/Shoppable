@@ -11,7 +11,7 @@ import { getTranslateModuleInstance } from '@i18n/helpers/i18n.helper';
 import { I18nService } from '@i18n/services/i18n.service';
 import { LangSwitcherComponent } from '@i18n/components/lang-switcher/lang-switcher.component';
 import { InitService, init } from '@i18n/services/init.service';
-import { throwIfAlreadyLoaded } from './helpers/module-import.helper';
+import { throwIfAlreadyLoaded } from '@i18n/helpers/module-import.helper';
 @NgModule({
     declarations: [LangSwitcherComponent],
     imports: [
@@ -36,8 +36,8 @@ import { throwIfAlreadyLoaded } from './helpers/module-import.helper';
     exports: [TranslateModule, LangSwitcherComponent]
 })
 export class InternationalizationModule {
-    // constructor(@Optional() @SkipSelf() parentModule: InternationalizationModule) {
-    //     // Enforce Core Module is load only in the App Module.
-    //     throwIfAlreadyLoaded(parentModule, 'InternationalizationModule');
-    // }
+    constructor(@Optional() @SkipSelf() parentModule: InternationalizationModule) {
+        // Enforce Core Module is load only in the App Module.
+        throwIfAlreadyLoaded(parentModule, 'InternationalizationModule');
+    }
 }

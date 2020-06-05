@@ -9,16 +9,20 @@ import { environment } from '@env/environment';
 
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
+import { InternationalizationModule } from '@i18n/internationalization.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [AppComponent],
     imports: [
         BrowserModule,
+        //InternationalizationModule,
         AppRoutingModule,
         StoreModule.forRoot({}),
         EffectsModule.forRoot([]),
         StoreDevtoolsModule.instrument({ logOnly: environment.production }),
-        StoreRouterConnectingModule.forRoot()
+        StoreRouterConnectingModule.forRoot(),
+        BrowserAnimationsModule
     ],
 
     bootstrap: [AppComponent]
