@@ -11,7 +11,7 @@ import { RegisterContainerComponent } from '@authentication/containers/register/
 import { SocialAuthComponent } from '@authentication/components/social-auth/social-auth.component';
 import { LoginFormComponent } from '@authentication/components/login-form/login-form.component';
 import { RegisterFormComponent } from '@authentication/components/register-form/register-form.component';
-import { AuthInterceptorService } from './interceptors/authentication/auth-interceptor.service';
+import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { initialState } from '@authentication/+store/auth.reducer';
 

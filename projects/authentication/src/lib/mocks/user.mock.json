@@ -1,4 +1,7 @@
 {
+    "Token": {
+        "token": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc0Mzg3ZGUyMDUxMWNkND…SRtCRcLiZtZqIKmu7LLXs_FArZ4B62GCZ3ggcxRX4stJTC6_Q"
+    },
     "userGotToken": {
         "email": "test@email.com",
         "userId": "mQe3Nr6egJdYBHg1ETwEOtzq4FM2",

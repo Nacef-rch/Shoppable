@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`authReducer \`SIGNUP_START\`, should set Loading to false in state 1`] = `
+Object {
+  "authError": null,
+  "loading": true,
+  "user": null,
+}
+`;
+
+exports[`authReducer AUTO_LOGIN should reset state to initial state 1`] = `
+Object {
+  "authError": null,
+  "loading": false,
+  "user": null,
+}
+`;
+
+exports[`authReducer CLEAR_ERROR should reset state to initial state 1`] = `
+Object {
+  "authError": null,
+  "loading": false,
+  "user": null,
+}
+`;
+
+exports[`authReducer LOGIN/SIGNUP \`LOGIN_START\`, should set loading to true in state 1`] = `
+Object {
+  "authError": null,
+  "loading": true,
+  "user": null,
+}
+`;
+
+exports[`authReducer LOGOUT should user state to initial state 1`] = `
+Object {
+  "authError": null,
+  "loading": false,
+  "user": null,
+}
+`;
+
+exports[`authReducer undefined action \`AUTHENTICATE_FAIL\`, should add error in the state if there is error 1`] = `
+Object {
+  "authError": "Error",
+  "loading": false,
+  "user": null,
+}
+`;
+
+exports[`authReducer undefined action AUTHENTICATE \`AUTHENTICATE_SUCCESS\`, should add a user in the state 1`] = `
+Object {
+  "authError": null,
+  "loading": false,
+  "user": User {
+    "_token": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc0Mzg3ZGUyMDU…pefWhy_e1w88oc5VLXiXCdJV_ovfM_MgaooA4-YJZ-2PIybmQ",
+    "_tokenExpirationDate": 2020-06-05T14:41:41.099Z,
+    "email": "test@email.com",
+    "id": "mQe3Nr6egJdYBHg1ETwEOtzq4FM2",
+  },
+}
+`;
+
+exports[`authReducer undefined action should return the default state 1`] = `
+Object {
+  "authError": null,
+  "loading": false,
+  "user": null,
+}
+`;

@@ -44,6 +44,7 @@
         "@ngx-translate/core": "^12.1.2",
         "@ngx-translate/http-loader": "^4.0.0",
         "@storybook/addon-storyshots": "^5.3.18",
+        "jasmine-marbles": "^0.6.0",
         "jwt-decode": "^2.2.0",
         "material-design-iconic-font": "^2.2.0",
         "rxjs": "~6.5.4",

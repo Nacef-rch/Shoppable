@@ -3,15 +3,25 @@ module.exports = {
     testEnvironment: 'jsdom',
     setupFilesAfterEnv: ['<rootDir>/Jest/setupJest.ts'],
     moduleNameMapper: {
-        '^lodash-es$': 'lodash',
+        '^lodash-es$': 'lodash'
     },
     globals: {
         'ts-jest': {
             tsConfig: '<rootDir>/tsconfig.spec.json',
             diagnostics: true,
             stringifyContentPathRegex: '\\.html$',
-            astTransformers: [require.resolve('jest-preset-angular/InlineHtmlStripStylesTransformer')],
-        },
+            astTransformers: [
+                require.resolve('jest-preset-angular/InlineHtmlStripStylesTransformer')
+            ]
+        }
+    },
+    moduleNameMapper: {
+        '^@authentication/(.*)$': '<rootDir>/projects/authentication/src/lib/$1',
+        '^@shared/(.*)$': '<rootDir>/projects/shared/src/lib/$1',
+        '^@core/(.*)$': '<rootDir>/projects/core/src/lib/$1',
+        '^@authentication/(.*)$': '<rootDir>/projects/authentication/src/lib/$1',
+        '^@i18n/(.*)$': '<rootDir>/projects/internationalization/src/lib/$1',
+        '^@env/(.*)$': '<rootDir>/src/environments/$1'
     },
     testMatch: ['<rootDir>/**/**/*.spec.ts'],
     testResultsProcessor: 'jest-sonar-reporter',
@@ -26,8 +36,8 @@ module.exports = {
         '!<rootDir>/Jest/**',
         '!<rootDir>/reports/**',
         '!**/*.module.ts',
-        '!**/*.stories.ts',
+        '!**/*.stories.ts'
     ],
     coverageDirectory: '<rootDir>/reports',
-    coveragePathIgnorePatterns: ['<rootDir>/node_modules'],
+    coveragePathIgnorePatterns: ['<rootDir>/node_modules']
 };

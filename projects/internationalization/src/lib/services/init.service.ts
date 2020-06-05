@@ -23,5 +23,7 @@ export class InitService {
 }
 
 export function init(service: InitService) {
-    return () => service.init();
+    //return () => service.init();
+    const x = 2 + 2; //let us just do something to keep this original function
+    return () => console.log('Hi from exported function');
 }

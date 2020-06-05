@@ -1,4 +1,4 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule, APP_INITIALIZER, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
@@ -11,6 +11,7 @@ import { getTranslateModuleInstance } from '@i18n/helpers/i18n.helper';
 import { I18nService } from '@i18n/services/i18n.service';
 import { LangSwitcherComponent } from '@i18n/components/lang-switcher/lang-switcher.component';
 import { InitService, init } from '@i18n/services/init.service';
+import { throwIfAlreadyLoaded } from './helpers/module-import.helper';
 @NgModule({
     declarations: [LangSwitcherComponent],
     imports: [
@@ -24,7 +25,7 @@ import { InitService, init } from '@i18n/services/init.service';
     providers: [
         I18nService,
         I18nEffects,
-        InitService,
+
         {
             provide: APP_INITIALIZER,
             deps: [InitService],
@@ -34,4 +35,9 @@ import { InitService, init } from '@i18n/services/init.service';
     ],
     exports: [TranslateModule, LangSwitcherComponent]
 })
-export class InternationalizationModule {}
+export class InternationalizationModule {
+    // constructor(@Optional() @SkipSelf() parentModule: InternationalizationModule) {
+    //     // Enforce Core Module is load only in the App Module.
+    //     throwIfAlreadyLoaded(parentModule, 'InternationalizationModule');
+    // }
+}

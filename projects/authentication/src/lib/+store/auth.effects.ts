@@ -9,7 +9,7 @@ import { switchMap, catchError, map, tap } from 'rxjs/operators';
 import * as AuthActions from '@authentication/+store/auth.actions';
 import { User, UserOnRegister, UserOnLogin } from '@authentication/models/user.model';
 import { AuthenticationService } from '@authentication/services/authentication.service';
-import { handleError } from '@authentication/helpers/api-helpers';
+import { handleError } from '@authentication/helpers/handleError';
 import { AuthResponseData } from '@authentication/models/returnTypes.model';
 import { I18nService } from '@i18n/services/i18n.service';
 import { handleAuthentication } from '@authentication/helpers/local-storage.helper';

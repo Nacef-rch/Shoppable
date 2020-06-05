@@ -14,7 +14,8 @@ describe('I18nFacade', () => {
         TestBed.configureTestingModule({
             providers: [I18nFacade, provideMockStore()]
         });
-        store = TestBed.inject(Store);
+        store = TestBed.inject(Store) as MockStore<I18nStore>;
+        //store = TestBed.inject(Store);
         facade = TestBed.inject(I18nFacade);
         spyOn(store, 'dispatch');
     });
