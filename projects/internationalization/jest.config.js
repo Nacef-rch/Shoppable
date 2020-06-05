@@ -5,6 +5,9 @@ module.exports = {
     ...baseConfig,
     rootDir: '../..',
     roots: ['<rootDir>/projects/internationalization'],
+    moduleNameMapper: {
+        '^@i18n/(.*)$': '<rootDir>/projects/internationalization/src/lib/$1'
+    },
     collectCoverageFrom: [
         '<rootDir>/projects/internationalization/**/*.ts',
         '!**/*.module.ts',

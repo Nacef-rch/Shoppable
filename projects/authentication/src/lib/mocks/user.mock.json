@@ -1,0 +1,19 @@
+{
+    "userGotToken": {
+        "email": "test@email.com",
+        "userId": "mQe3Nr6egJdYBHg1ETwEOtzq4FM2",
+        "token": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc0Mzg3ZGUyMDU…pefWhy_e1w88oc5VLXiXCdJV_ovfM_MgaooA4-YJZ-2PIybmQ",
+        "redirect": true
+    },
+    "userOnRegister": {
+        "name": "test",
+        "email": "test@email.com",
+        "password": "12345667",
+        "confirmPassword": "12345667",
+        "handle": "test"
+    },
+    "userOnLogin": {
+        "email": "test@email.com",
+        "password": "12345667"
+    }
+}

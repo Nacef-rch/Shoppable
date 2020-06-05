@@ -4,6 +4,9 @@ const baseConfig = require('../../jest.config');
 module.exports = {
     ...baseConfig,
     rootDir: '../..',
+    moduleNameMapper: {
+        '^@authentication/(.*)$': '<rootDir>/projects/authentication/src/lib/$1'
+    },
     roots: ['<rootDir>/projects/authentication'],
     collectCoverageFrom: [
         '<rootDir>/projects/authentication/**/*.ts',

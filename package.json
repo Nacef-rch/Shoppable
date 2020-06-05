@@ -12,6 +12,7 @@
         "test:coverage": "jest --coverage",
         "test:auth:lib": "jest --runInBand --config ./projects/authentication/jest.config.js",
         "test:auth:coverage": "jest --coverage --config ./projects/authentication/jest.config.js",
+        "test:watch:lib": "jest --watch --config ./projects/authentication/jest.config.js",
         "test:core:lib": "jest --runInBand --config ./projects/core/jest.config.js",
         "test:core:coverage": "jest --coverage --config ./projects/core/jest.config.js",
         "test:shared:lib": "jest --runInBand --config ./projects/shared/jest.config.js",

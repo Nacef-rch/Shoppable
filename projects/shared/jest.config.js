@@ -5,5 +5,12 @@ module.exports = {
     ...baseConfig,
     rootDir: '../..',
     roots: ['<rootDir>/projects/shared'],
-    collectCoverageFrom: ['<rootDir>/projects/shared/**/*.ts', '!**/*.module.ts', '!**/*.stories.ts'],
+    moduleNameMapper: {
+        '^@shared/(.*)$': '<rootDir>/projects/shared/src/lib/$1'
+    },
+    collectCoverageFrom: [
+        '<rootDir>/projects/shared/**/*.ts',
+        '!**/*.module.ts',
+        '!**/*.stories.ts'
+    ]
 };
