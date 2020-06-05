@@ -10,16 +10,21 @@
                 "
             ></i
         ></label>
-        <input
-            type="email"
-            [placeholder]="
-                !loginForm.get('email').valid && loginForm.get('email').touched
-                    ? ('AUTH.LOGIN.VALID_EMAIL' | translate)
-                    : ('AUTH.LOGIN.EMAIL' | translate)
-            "
-            name="email"
-            formControlName="email"
-        />
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Ex. pat@example.com" />
+            <mat-error
+                *ngIf="
+                    loginForm.get('email').hasError('email') &&
+                    !loginForm.get('email').hasError('required')
+                "
+            >
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('email').hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
     </div>
     <div class="form-group">
         <label for="password"
@@ -32,16 +37,19 @@
                 "
             ></i
         ></label>
-        <input
-            type="password"
-            [placeholder]="
-                !loginForm.get('password').valid && loginForm.get('password').touched
-                    ? ('AUTH.LOGIN.VALID_PASS' | translate)
-                    : ('AUTH.LOGIN.PASS' | translate)
-            "
-            name="password"
-            formControlName="password"
-        />
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+            <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+            >
+                <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+        </mat-form-field>
     </div>
 
     <div *ngIf="error" class="AnForm-error">

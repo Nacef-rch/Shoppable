@@ -16,6 +16,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     private user: UserOnLogin;
     public loginForm: FormGroup;
     public error: string = null;
+    public hide = true;
 
     constructor(private authFacade: AuthFacade) {}
 
