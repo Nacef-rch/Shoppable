@@ -193,6 +193,37 @@
                     }
                 }
             }
+        },
+        "internationalization": {
+            "projectType": "library",
+            "root": "projects/internationalization",
+            "sourceRoot": "projects/internationalization/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "projects/internationalization/tsconfig.lib.json",
+                        "project": "projects/internationalization/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/internationalization/tsconfig.lib.prod.json"
+                        }
+                    }
+                },
+
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/internationalization/tsconfig.lib.json",
+                            "projects/internationalization/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
         }
     },
     "defaultProject": "Shoppable"

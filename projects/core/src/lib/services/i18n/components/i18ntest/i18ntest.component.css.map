@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,KAAK,CAAC;EACF,KAAK,EAAE,KAAK;EACZ,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,OAAO;EACd,MAAM,EAAE,IAAI;CACf;;AACD,AAAA,KAAK,AAAA,MAAM,CAAC;EACR,KAAK,EAAE,OAAO;CACjB",
-    "sources": [
-        "i18ntest.component.scss"
-    ],
-    "names": [],
-    "file": "i18ntest.component.css"
-}

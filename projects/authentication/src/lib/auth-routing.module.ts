@@ -7,15 +7,15 @@ import { RegisterContainerComponent } from '@authentication/containers/register/
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'auth/login',
+        redirectTo: 'login',
         pathMatch: 'full'
     },
     {
-        path: 'auth/login',
+        path: 'login',
         component: LoginContainerComponent
     },
     {
-        path: 'auth/register',
+        path: 'register',
         component: RegisterContainerComponent
     }
 ];

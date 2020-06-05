@@ -1,40 +1,19 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '@env/environment';
 import { Actions, ofType, Effect, createEffect } from '@ngrx/effects';
-import { of, Observable } from 'rxjs';
+import { of } from 'rxjs';
 import { switchMap, catchError, map, tap } from 'rxjs/operators';
 
-import jwtDecode from 'jwt-decode';
 import * as AuthActions from '@authentication/+store/auth.actions';
 import { User, UserOnRegister, UserOnLogin } from '@authentication/models/user.model';
 import { AuthenticationService } from '@authentication/services/authentication.service';
-import { handleError } from '@shared/helpers/api-helpers';
-import {
-    AuthenticateSuccessType,
-    AuthResponseData
-} from '@authentication/models/returnTypes.model';
-import { I18nService } from '@core/services/i18n/services/i18n.service';
-
-const handleAuthentication = (resData: AuthResponseData): AuthenticateSuccessType => {
-    const tokenDecoded = jwtDecode(resData.token);
-    const expirationDate = new Date(+tokenDecoded.exp * 1000);
-    const userToken = `Bearer ${resData.token}`;
-    const user = new User(tokenDecoded.email, tokenDecoded.user_id, userToken, expirationDate);
-    localStorage.setItem('userData', JSON.stringify(user));
-    return AuthActions.AUTHENTICATE_SUCCESS({
-        email: tokenDecoded.email,
-        userId: tokenDecoded.user_id,
-        token: userToken,
-        expirationDate: expirationDate,
-        redirect: true
-    });
-};
-const msgError = (errorRes: HttpErrorResponse, lang: string): Observable<any> => {
-    const errorMessage = handleError(errorRes, lang);
-    return of(AuthActions.AUTHENTICATE_FAIL({ errorMessage }));
-};
+import { handleError } from '@authentication/helpers/api-helpers';
+import { AuthResponseData } from '@authentication/models/returnTypes.model';
+import { I18nService } from '@i18n/services/i18n.service';
+import { handleAuthentication } from '@authentication/helpers/local-storage.helper';
+import jwtDecode from 'jwt-decode';
 
 @Injectable()
 export class AuthEffects {
@@ -58,10 +37,13 @@ export class AuthEffects {
                             );
                         }),
                         map((resData) => {
-                            return handleAuthentication(resData);
+                            return AuthActions.AUTHENTICATE_SUCCESS({
+                                ...handleAuthentication(resData)
+                            });
                         }),
                         catchError((error) => {
-                            return msgError(error, this.translate.lang);
+                            const errorMessage = handleError(error, this.translate.lang);
+                            return of(AuthActions.AUTHENTICATE_FAIL({ errorMessage }));
                         })
                     );
             })
@@ -86,10 +68,13 @@ export class AuthEffects {
                             );
                         }),
                         map((resData) => {
-                            return handleAuthentication(resData);
+                            return AuthActions.AUTHENTICATE_SUCCESS({
+                                ...handleAuthentication(resData)
+                            });
                         }),
                         catchError((error) => {
-                            return msgError(error, this.translate.lang);
+                            const errorMessage = handleError(error, this.translate.lang);
+                            return of(AuthActions.AUTHENTICATE_FAIL({ errorMessage }));
                         })
                     );
             })
@@ -108,7 +93,7 @@ export class AuthEffects {
                 redirect: boolean;
             }) => {
                 if (authSuccessAction.redirect) {
-                    this.router.navigate(['/test']);
+                    this.router.navigate(['auth/register']);
                 }
             }
         )

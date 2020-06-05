@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoadingSpinnerComponent } from '@shared/components/loading-spinner/loading-spinner.component';
 import { CommonModule } from '@angular/common';
 import { CoreModule } from '@core/core.module';
+import { InternationalizationModule } from '@i18n/internationalization.module';
 
 @NgModule({
     declarations: [LoadingSpinnerComponent],
@@ -14,7 +15,8 @@ import { CoreModule } from '@core/core.module';
         FormsModule,
         CommonModule,
         ReactiveFormsModule,
-        CoreModule
+        CoreModule,
+        InternationalizationModule
     ]
 })
 export class SharedModule {}

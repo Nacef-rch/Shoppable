@@ -4,9 +4,9 @@ const baseConfig = require('../../jest.config');
 module.exports = {
     ...baseConfig,
     rootDir: '../..',
-    roots: ['<rootDir>/projects/authentication'],
+    roots: ['<rootDir>/projects/internationalization'],
     collectCoverageFrom: [
-        '<rootDir>/projects/authentication/**/*.ts',
+        '<rootDir>/projects/internationalization/**/*.ts',
         '!**/*.module.ts',
         '!**/*.stories.ts'
     ]
