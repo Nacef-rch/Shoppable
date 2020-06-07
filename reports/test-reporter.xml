@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
     <file path="E:\My Work\Shoppable\projects\authentication\src\lib\guards\auth.guard.spec.ts">
-        <testCase name="Auth Guard should be created" duration="46"/>
+        <testCase name="Auth Guard should be created" duration="31"/>
+    </file>
+    <file path="E:\My Work\Shoppable\projects\authentication\src\lib\+store\auth.effects.spec.ts">
+        <testCase name="UserEffects should be created" duration="15"/>
     </file>
     <file path="E:\My Work\Shoppable\projects\authentication\src\lib\authentication.module.spec.ts">
-        <testCase name="authModule should create an instance" duration="0"/>
+        <testCase name="authModule should create an instance" duration="1"/>
     </file>
     <file path="E:\My Work\Shoppable\projects\authentication\src\lib\+store\auth.facade.spec.ts">
         <testCase name="UserFacade should be created" duration="20"/>
-        <testCase name="UserFacade should dispatch a authActions.AUTHENTICATE_SUCCESS action when AuthSuccess is called" duration="21"/>
-        <testCase name="UserFacade should dispatch a authActions.LOGOUT action when Logout is called" duration="18"/>
-        <testCase name="UserFacade should dispatch a authActions.LOGIN_START action when Logout is called" duration="9"/>
-        <testCase name="UserFacade should dispatch a authActions.AUTHENTICATE_FAIL action when AuthFail is called" duration="12"/>
-        <testCase name="UserFacade should dispatch a authActions.SIGNUP_START action when SignupStart is called" duration="12"/>
-        <testCase name="UserFacade should dispatch a authActions.CLEAR_ERROR action when ClearError is called" duration="10"/>
-        <testCase name="UserFacade should dispatch a authActions.AUTO_LOGIN action when AutoLogin is called" duration="10"/>
+        <testCase name="UserFacade should dispatch a authActions.AUTHENTICATE_SUCCESS action when AuthSuccess is called" duration="10"/>
+        <testCase name="UserFacade should dispatch a authActions.LOGOUT action when Logout is called" duration="11"/>
+        <testCase name="UserFacade should dispatch a authActions.LOGIN_START action when Logout is called" duration="8"/>
+        <testCase name="UserFacade should dispatch a authActions.AUTHENTICATE_FAIL action when AuthFail is called" duration="7"/>
+        <testCase name="UserFacade should dispatch a authActions.SIGNUP_START action when SignupStart is called" duration="8"/>
+        <testCase name="UserFacade should dispatch a authActions.CLEAR_ERROR action when ClearError is called" duration="9"/>
+        <testCase name="UserFacade should dispatch a authActions.AUTO_LOGIN action when AutoLogin is called" duration="13"/>
     </file>
     <file path="E:\My Work\Shoppable\projects\authentication\src\lib\+store\auth.reducer.spec.ts">
-        <testCase name="authReducer undefined action should return the default state" duration="3"/>
+        <testCase name="authReducer undefined action should return the default state" duration="4"/>
         <testCase name="authReducer undefined action AUTHENTICATE `AUTHENTICATE_SUCCESS`, should add a user in the state" duration="1"/>
-        <testCase name="authReducer undefined action `AUTHENTICATE_FAIL`, should add error in the state if there is error" duration="0"/>
+        <testCase name="authReducer undefined action `AUTHENTICATE_FAIL`, should add error in the state if there is error" duration="1"/>
         <testCase name="authReducer LOGIN/SIGNUP `LOGIN_START`, should set loading to true in state" duration="1"/>
-        <testCase name="authReducer `SIGNUP_START`, should set Loading to false in state" duration="0"/>
+        <testCase name="authReducer `SIGNUP_START`, should set Loading to false in state" duration="1"/>
         <testCase name="authReducer LOGOUT should user state to initial state" duration="0"/>
-        <testCase name="authReducer CLEAR_ERROR should reset state to initial state" duration="1"/>
-        <testCase name="authReducer AUTO_LOGIN should reset state to initial state" duration="0"/>
+        <testCase name="authReducer CLEAR_ERROR should reset state to initial state" duration="0"/>
+        <testCase name="authReducer AUTO_LOGIN should reset state to initial state" duration="1"/>
+    </file>
+    <file path="E:\My Work\Shoppable\projects\authentication\src\lib\interceptors\auth-interceptor.service.spec.ts">
+        <testCase name="local-storage dummy local-storage dummy" duration="0"/>
     </file>
     <file path="E:\My Work\Shoppable\projects\authentication\src\lib\helpers\handleError.spec.ts">
         <testCase name="HandleError HandleError on login should extract Wrong credentials, please try again ! from response `handleError`" duration="1"/>
-        <testCase name="HandleError HanldeError on Register should extract Email is already in use ! from response `handleError`" duration="1"/>
-        <testCase name="HandleError HanldeError on Register should extract Passwords must match ! from response `handleError`" duration="0"/>
-        <testCase name="HandleError HanldeError on Register should extract This handle is already taken ! from response `handleError`" duration="1"/>
-    </file>
-    <file path="E:\My Work\Shoppable\projects\authentication\src\lib\interceptors\auth-interceptor.service.spec.ts">
-        <testCase name="local-storage dummy local-storage dummy" duration="1"/>
+        <testCase name="HandleError HanldeError on Register should extract Email is already in use ! from response `handleError`" duration="0"/>
+        <testCase name="HandleError HanldeError on Register should extract Passwords must match ! from response `handleError`" duration="1"/>
+        <testCase name="HandleError HanldeError on Register should extract This handle is already taken ! from response `handleError`" duration="0"/>
     </file>
     <file path="E:\My Work\Shoppable\projects\authentication\Storyshots.spec.ts">
         <testCase name="local-storage dummy local-storage dummy" duration="1"/>
     </file>
     <file path="E:\My Work\Shoppable\projects\authentication\src\lib\helpers\local-storage.helper.spec.ts">
-        <testCase name="local-storage dummy local-storage dummy" duration="1"/>
-    </file>
-    <file path="E:\My Work\Shoppable\projects\authentication\src\lib\+store\auth.effects.spec.ts">
         <testCase name="local-storage dummy local-storage dummy" duration="0"/>
     </file>
 </testExecutions>

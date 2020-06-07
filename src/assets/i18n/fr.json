@@ -5,7 +5,9 @@
             "SIGN": "Se connecter",
             "VALID_EMAIL": "Veuillez saisir un Email valide !",
             "EMAIL": "Votre Email",
-            "VALID_PASS": "Veuillez saisir votre mot de passe!",
+            "PASS_IS": "Mot de passe",
+            "EMAIL_IS": "Email est",
+            "REQUIRED": "requis",
             "PASS": "Mot de passe",
             "REMEMBER": "Rester connecté",
             "LOG_IN": "S'identifier",
@@ -26,7 +28,11 @@
             "HANDLE": "Handle",
             "AGREE": "J'accepte toutes les déclarations des",
             "TERMS": "conditions d'utilisation",
-            "REGISTER": "S'inscrire"
+            "REGISTER": "S'inscrire",
+            "NAME_IS": "Nom est ",
+            "EMAIL_IS": "Email est",
+            "PASS_IS": "Mot de passe",
+            "HANDLE_IS": "Handle est"
         }
     }
 }

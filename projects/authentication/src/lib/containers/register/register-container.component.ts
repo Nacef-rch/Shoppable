@@ -1,24 +1,18 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
+import { Subscription, Observable } from 'rxjs';
 
 import { AuthFacade } from '@authentication/+store/auth.facade';
 
 @Component({
     selector: 'lib-register-container',
     templateUrl: './register-container.component.html',
-    styleUrls: ['./register-container.component.scss']
+    styleUrls: ['./register-container.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RegisterContainerComponent implements OnInit, OnDestroy {
+export class RegisterContainerComponent implements OnDestroy {
     private storeSub: Subscription;
-    public isLoading = false;
-
+    public isLoading$: Observable<boolean> = this.authFacade.loading$;
     constructor(private authFacade: AuthFacade) {}
-
-    public ngOnInit(): void {
-        this.storeSub = this.authFacade.loading$.subscribe((loadRes) => {
-            this.isLoading = loadRes;
-        });
-    }
 
     public ngOnDestroy(): void {
         if (this.storeSub) {

@@ -4,9 +4,11 @@
             "CREATE": "Create an account",
             "SIGN": "Sign In",
             "VALID_EMAIL": "Please enter a valid email !",
-            "EMAIL": "Your Email",
-            "VALID_PASS": "Please enter you password !",
-            "PASS": "Password",
+            "EMAIL": "Email",
+            "PASS_IS": "Password is",
+            "EMAIL_IS": "Email is",
+            "REQUIRED": "required",
+            "PASS": "Enter your password",
             "REMEMBER": "Remember me",
             "LOG_IN": "Log in",
             "LOG_WITH": "Or login with"
@@ -15,9 +17,9 @@
             "SIGN": "Sign up",
             "MEMBER": "I am already member",
             "VALID_NAME": "Please enter your name !",
-            "NAME": "Your name",
+            "NAME": "Name",
             "VALID_EMAIL": "Please enter a valid email !",
-            "EMAIL": "Your Email",
+            "EMAIL": "Email",
             "VALID_PASS": "Please enter a password !",
             "PASS": "Password",
             "VALID_REPASS": "Please repeat your password !",
@@ -26,7 +28,11 @@
             "HANDLE": "Handle",
             "AGREE": "I agree all statements in",
             "TERMS": "Terms of service",
-            "REGISTER": "Register"
+            "REGISTER": "Register",
+            "NAME_IS": "Name is ",
+            "EMAIL_IS": "Email is",
+            "PASS_IS": "Password is",
+            "HANDLE_IS": "Handle is"
         }
     }
 }

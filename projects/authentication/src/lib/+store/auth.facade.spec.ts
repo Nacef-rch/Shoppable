@@ -5,7 +5,7 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import * as authActions from '@authentication/+store/auth.actions';
 import { AuthFacade } from '@authentication/+store/auth.facade';
 import { AuthStore } from '@authentication/+store/auth.reducer';
-import * as userMock from '@authentication/mocks/user.mock.json';
+import * as authMock from '@authentication/mocks/auth.mock.json';
 import { AuthenticateSuccessType } from '@authentication/models/returnTypes.model';
 
 describe('UserFacade', () => {
@@ -27,7 +27,7 @@ describe('UserFacade', () => {
     it('should dispatch a authActions.AUTHENTICATE_SUCCESS action when AuthSuccess is called', () => {
         // GIVEN
         const user: AuthenticateSuccessType = {
-            ...userMock.userGotToken,
+            ...authMock.userGotToken,
             expirationDate: new Date()
         };
         const action = authActions.AUTHENTICATE_SUCCESS(user);
@@ -46,9 +46,9 @@ describe('UserFacade', () => {
     });
     it('should dispatch a authActions.LOGIN_START action when Logout is called', () => {
         // GIVEN
-        const action = authActions.LOGIN_START(userMock.userOnLogin);
+        const action = authActions.LOGIN_START(authMock.userOnLogin);
         // WHEN
-        facade.LoginStart(userMock.userOnLogin.email, userMock.userOnLogin.password);
+        facade.LoginStart(authMock.userOnLogin.email, authMock.userOnLogin.password);
         // THEN
         expect(store.dispatch).toHaveBeenLastCalledWith(action);
     });
@@ -63,14 +63,14 @@ describe('UserFacade', () => {
     });
     it('should dispatch a authActions.SIGNUP_START action when SignupStart is called', () => {
         // GIVEN
-        const action = authActions.SIGNUP_START(userMock.userOnRegister);
+        const action = authActions.SIGNUP_START(authMock.userOnRegister);
         // WHEN
         facade.SignupStart(
-            userMock.userOnRegister.name,
-            userMock.userOnRegister.email,
-            userMock.userOnRegister.password,
-            userMock.userOnRegister.confirmPassword,
-            userMock.userOnRegister.handle
+            authMock.userOnRegister.name,
+            authMock.userOnRegister.email,
+            authMock.userOnRegister.password,
+            authMock.userOnRegister.confirmPassword,
+            authMock.userOnRegister.handle
         );
         // THEN
         expect(store.dispatch).toHaveBeenLastCalledWith(action);

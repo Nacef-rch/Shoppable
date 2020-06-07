@@ -1,49 +1,34 @@
 export const handleError = (errorRes: any, lang: string): string => {
-    if ((lang = 'en')) {
-        let errorMessage = 'Something went wrong, please try again !';
+    const errMsgValue: any = Object.values(errorRes.message);
+    const errMsgKey: any = Object.keys(errorRes.message).toString();
 
-        if (!errorRes.error) {
+    if (lang === 'en') {
+        const errorMessage = 'Something went wrong, please try again !';
+        if (!errMsgValue) {
             return errorMessage;
         }
 
-        if (errorRes.error.email) {
-            errorMessage = 'Email is already in use !';
-        }
-
-        if (errorRes.error.confirmPassword) {
-            errorMessage = 'Passwords must match !';
-        }
-
-        if (errorRes.error.handle) {
-            errorMessage = 'This handle is already taken !';
-        }
-        if (errorRes.error.general) {
-            errorMessage = 'Wrong credentials, please try again !';
-        }
-
-        return errorMessage;
-    } else {
-        return;
+        return errMsgValue;
     }
-    if ((lang = 'fr')) {
+    if (lang === 'fr') {
         let errorMessage = `Quelque chose c'est mal passé. Merci d'essayer plus tard !`;
 
-        if (!errorRes.error) {
+        if (!errMsgValue) {
             return errorMessage;
         }
 
-        if (errorRes.error.email) {
+        if (errMsgKey == 'email') {
             errorMessage = 'Cet email est déjà utilisé !';
         }
 
-        if (errorRes.error.confirmPassword) {
+        if (errMsgKey == 'confirmPassword') {
             errorMessage = 'Les mots de passe doivent correspondre !';
         }
 
-        if (errorRes.error.handle) {
+        if (errMsgKey == 'handle') {
             errorMessage = 'Cette Handle est déjà prise !';
         }
-        if (errorRes.error.general) {
+        if (errMsgKey == 'general') {
             errorMessage = 'Identifiants erronés, veuillez réessayer !';
         }
 

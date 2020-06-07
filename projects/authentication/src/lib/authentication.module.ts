@@ -15,11 +15,6 @@ import { AuthInterceptorService } from './interceptors/auth-interceptor.service'
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { initialState } from '@authentication/+store/auth.reducer';
 
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ErrorAuthComponent } from './components/error-auth/error-auth.component';
 @NgModule({
     declarations: [
@@ -32,11 +27,7 @@ import { ErrorAuthComponent } from './components/error-auth/error-auth.component
     ],
     imports: [
         AuthRoutingModule,
-        MatIconModule,
-        MatCheckboxModule,
-        MatFormFieldModule,
-        MatButtonModule,
-        MatInputModule,
+
         SharedModule,
         StoreModule.forFeature(fromAuth.authStoreName, fromAuth.authReducer, {
             initialState: initialState

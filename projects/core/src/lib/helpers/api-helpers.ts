@@ -3,11 +3,12 @@ export const handleSuccess = (res: any): object => {
 };
 
 export const handleError = (error: any): Promise<any> => {
+    console.log('in Error');
+    console.log(error);
     const err: any = error.error || error;
-    const errMsgAuth: any = Object.values(error.error);
     throw {
-        status: err.status,
-        code: err.code || err.status || -1,
-        message: err.client_message || err.message || errMsgAuth
+        status: err.status || error.status,
+        code: err.code || err.status || error.status || -1,
+        message: err.client_message || err.message || error.error
     };
 };

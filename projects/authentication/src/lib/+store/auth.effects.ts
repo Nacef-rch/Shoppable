@@ -1,20 +1,17 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from '@env/environment';
 import { Actions, ofType, Effect, createEffect } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { switchMap, catchError, map, tap } from 'rxjs/operators';
+import jwtDecode from 'jwt-decode';
 
 import * as AuthActions from '@authentication/+store/auth.actions';
 import { User, UserOnRegister, UserOnLogin } from '@authentication/models/user.model';
 import { AuthenticationService } from '@authentication/services/authentication.service';
 import { handleError } from '@authentication/helpers/handleError';
-import { AuthResponseData } from '@authentication/models/returnTypes.model';
-import { I18nService } from '@i18n/services/i18n.service';
 import { handleAuthentication } from '@authentication/helpers/local-storage.helper';
-import jwtDecode from 'jwt-decode';
 import { ApiService } from '@core/services/api/api.service';
+import { I18nService } from '@i18n/services/i18n.service';
 
 @Injectable()
 export class AuthEffects {
@@ -22,7 +19,7 @@ export class AuthEffects {
         this.actions$.pipe(
             ofType(AuthActions.SIGNUP_START),
             switchMap((signupAction: UserOnRegister) => {
-                return this.httpCall
+                return this.http
                     .post('/signup', {
                         name: signupAction.name,
                         email: signupAction.email,
@@ -55,13 +52,14 @@ export class AuthEffects {
         this.actions$.pipe(
             ofType(AuthActions.LOGIN_START),
             switchMap((authData: UserOnLogin) => {
-                return this.httpCall
+                return this.http
                     .post('/login', {
                         email: authData.email,
                         password: authData.password
                     })
                     .pipe(
                         tap((resData) => {
+                            console.log('resData');
                             console.log(resData);
                             const tokenDecoded = jwtDecode(resData.token);
 
@@ -149,10 +147,9 @@ export class AuthEffects {
     );
     constructor(
         private actions$: Actions,
-        private http: HttpClient,
         private router: Router,
         private authService: AuthenticationService,
         private translate: I18nService,
-        private httpCall: ApiService
+        private http: ApiService
     ) {}
 }

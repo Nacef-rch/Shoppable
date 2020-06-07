@@ -1,27 +1,29 @@
-<lib-lang-switcher></lib-lang-switcher>
-<div class="main">
-    <section class="signup">
-        <div class="container">
-            <div class="signup-content">
-                <div class="signup-form">
-                    <h2 class="form-title" *ngIf="!isLoading">
-                        {{ 'AUTH.REGISTER.SIGN' | translate }}
-                    </h2>
-                    <lib-register-form *ngIf="!isLoading"></lib-register-form>
-                </div>
-                <div class="signup-image" *ngIf="!isLoading">
-                    <figure>
-                        <img src="assets/auth-images/signup-image.jpg" alt="sing up image" />
-                    </figure>
+<div *ngxInit="isLoading$ | async as isLoading">
+    <lib-lang-switcher *ngIf="!isLoading"></lib-lang-switcher>
+    <div class="main">
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title" *ngIf="!isLoading">
+                            {{ 'AUTH.REGISTER.SIGN' | translate }}
+                        </h2>
+                        <lib-register-form *ngIf="!isLoading"></lib-register-form>
+                    </div>
+                    <div class="signup-image" *ngIf="!isLoading">
+                        <figure>
+                            <img src="assets/auth-images/signup-image.jpg" alt="sing up image" />
+                        </figure>
 
-                    <a routerLink="/auth/login" class="signup-image-link">{{
-                        'AUTH.REGISTER.MEMBER' | translate
-                    }}</a>
+                        <a routerLink="/auth/login" class="signup-image-link">{{
+                            'AUTH.REGISTER.MEMBER' | translate
+                        }}</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
-<div *ngIf="isLoading" style="text-align: center;">
-    <lib-loading-spinner></lib-loading-spinner>
+        </section>
+    </div>
+    <div *ngIf="isLoading" style="text-align: center;">
+        <lib-loading-spinner></lib-loading-spinner>
+    </div>
 </div>

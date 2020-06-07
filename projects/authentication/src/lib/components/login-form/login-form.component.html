@@ -1,17 +1,21 @@
 <form class="register-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-        <label for="email"
-            ><i
-                class="zmdi zmdi-email"
-                [style.color]="
-                    !loginForm.get('email').valid && loginForm.get('email').touched
-                        ? '#cc3b49'
-                        : 'black'
-                "
-            ></i
-        ></label>
-        <mat-form-field appearance="fill">
-            <mat-label>Email</mat-label>
+        <mat-form-field appearance="fill" class="mat-email">
+            <mat-label>
+                <span class="span-pos">
+                    <i
+                        class="zmdi zmdi-email"
+                        [style.color]="
+                            !loginForm.get('email').valid && loginForm.get('email').touched
+                                ? '#cc3b49'
+                                : 'black'
+                        "
+                    >
+                    </i>
+                </span>
+                {{ 'AUTH.LOGIN.EMAIL' | translate }}
+            </mat-label>
+
             <input matInput formControlName="email" placeholder="Ex. pat@example.com" />
             <mat-error
                 *ngIf="
@@ -19,43 +23,46 @@
                     !loginForm.get('email').hasError('required')
                 "
             >
-                Please enter a valid email address
+                {{ 'AUTH.LOGIN.VALID_EMAIL' | translate }}
             </mat-error>
             <mat-error *ngIf="loginForm.get('email').hasError('required')">
-                Email is <strong>required</strong>
+                {{ 'AUTH.LOGIN.EMAIL_IS' | translate }}
+                <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
             </mat-error>
         </mat-form-field>
     </div>
     <div class="form-group">
-        <label for="password"
-            ><i
-                class="zmdi zmdi-lock"
-                [style.color]="
-                    !loginForm.get('password').valid && loginForm.get('password').touched
-                        ? '#cc3b49'
-                        : 'black'
-                "
-            ></i
-        ></label>
         <mat-form-field appearance="fill">
-            <mat-label>Enter your password</mat-label>
+            <mat-label>
+                <i
+                    class="zmdi zmdi-lock"
+                    [style.color]="
+                        !loginForm.get('password').valid && loginForm.get('password').touched
+                            ? '#cc3b49'
+                            : 'black'
+                    "
+                >
+                </i>
+                {{ 'AUTH.LOGIN.PASS' | translate }}</mat-label
+            >
 
             <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
-            <button
-                mat-icon-button
+            <mat-icon
                 matSuffix
                 (click)="hide = !hide"
                 [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]="hide"
             >
                 <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
-            </button>
+            </mat-icon>
+            <mat-error *ngIf="loginForm.get('password').hasError('required')">
+                {{ 'AUTH.LOGIN.PASS_IS' | translate }}
+                <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
+            </mat-error>
         </mat-form-field>
     </div>
 
-    <div *ngIf="error" class="AnForm-error">
-        <i class="zmdi zmdi-alert-triangle" style="color: #cc3b49;"></i> {{ error }}
-    </div>
+    <lib-error-auth></lib-error-auth>
 
     <div class="form-group">
         <mat-checkbox
@@ -65,7 +72,7 @@
         >
     </div>
     <div class="form-group form-button">
-        <button mat-raised-button color="primary" [disabled]="!loginForm.valid">
+        <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid">
             {{ 'AUTH.LOGIN.LOG_IN' | translate }}
         </button>
     </div>

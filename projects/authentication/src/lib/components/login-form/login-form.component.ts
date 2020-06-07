@@ -12,18 +12,13 @@ import { UserOnLogin } from '@authentication/models/user.model';
     styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit, OnDestroy {
-    private storeSub: Subscription;
     private user: UserOnLogin;
     public loginForm: FormGroup;
-    public error: string = null;
     public hide = true;
 
     constructor(private authFacade: AuthFacade) {}
 
     public ngOnInit(): void {
-        this.storeSub = this.authFacade.error$.subscribe((errorRes) => {
-            this.error = errorRes;
-        });
         this.loginForm = new FormGroup({
             email: new FormControl(null, [Validators.required, Validators.email]),
             password: new FormControl(null, [Validators.required, Validators.minLength(6)])
@@ -43,9 +38,6 @@ export class LoginFormComponent implements OnInit, OnDestroy {
         this.loginForm.reset();
     }
     public ngOnDestroy(): void {
-        if (this.storeSub) {
-            this.storeSub.unsubscribe();
-        }
         this.authFacade.ClearError();
     }
 }

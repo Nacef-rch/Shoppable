@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import * as AuthActions from './auth.actions';
-import { authQuery } from './auth.selectors';
-import { AuthStore } from './auth.reducer';
+import * as AuthActions from '@authentication/+store/auth.actions';
+import { authQuery } from '@authentication/+store/auth.selectors';
+import { AuthStore } from '@authentication/+store/auth.reducer';
 @Injectable({
     providedIn: 'root'
 })

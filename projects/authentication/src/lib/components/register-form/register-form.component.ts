@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
 
 import { AuthFacade } from '@authentication/+store/auth.facade';
 import { UserOnRegister } from '@authentication/models/user.model';
@@ -11,9 +10,7 @@ import { UserOnRegister } from '@authentication/models/user.model';
     styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent implements OnInit, OnDestroy {
-    private storeSub: Subscription;
     private user: UserOnRegister;
-    public error: string = null;
     public registerForm: FormGroup;
     public hide = true;
     public hidee = true;
@@ -21,9 +18,6 @@ export class RegisterFormComponent implements OnInit, OnDestroy {
     constructor(private authFacade: AuthFacade) {}
 
     public ngOnInit(): void {
-        this.storeSub = this.authFacade.error$.subscribe((errorRes) => {
-            this.error = errorRes;
-        });
         this.registerForm = new FormGroup({
             name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
             email: new FormControl(null, [Validators.required, Validators.email]),
@@ -55,9 +49,6 @@ export class RegisterFormComponent implements OnInit, OnDestroy {
         this.registerForm.reset();
     }
     public ngOnDestroy(): void {
-        if (this.storeSub) {
-            this.storeSub.unsubscribe();
-        }
         this.authFacade.ClearError();
     }
 }
