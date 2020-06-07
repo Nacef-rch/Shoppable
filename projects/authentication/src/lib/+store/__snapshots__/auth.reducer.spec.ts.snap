@@ -54,7 +54,7 @@ Object {
   "loading": false,
   "user": User {
     "_token": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc0Mzg3ZGUyMDU…pefWhy_e1w88oc5VLXiXCdJV_ovfM_MgaooA4-YJZ-2PIybmQ",
-    "_tokenExpirationDate": 2020-06-05T14:41:41.099Z,
+    "_tokenExpirationDate": 2020-02-14T23:00:00.000Z,
     "email": "test@email.com",
     "id": "mQe3Nr6egJdYBHg1ETwEOtzq4FM2",
   },

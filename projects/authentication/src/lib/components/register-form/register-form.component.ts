@@ -15,6 +15,8 @@ export class RegisterFormComponent implements OnInit, OnDestroy {
     private user: UserOnRegister;
     public error: string = null;
     public registerForm: FormGroup;
+    public hide = true;
+    public hidee = true;
 
     constructor(private authFacade: AuthFacade) {}
 
@@ -23,7 +25,7 @@ export class RegisterFormComponent implements OnInit, OnDestroy {
             this.error = errorRes;
         });
         this.registerForm = new FormGroup({
-            name: new FormControl(null, [Validators.required, Validators.minLength(6)]),
+            name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
             email: new FormControl(null, [Validators.required, Validators.email]),
             password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
             confirmPassword: new FormControl(null, [Validators.required, Validators.minLength(6)]),

@@ -18,5 +18,6 @@ export const handleAuthentication = (resData: AuthResponseData): AuthenticateSuc
         redirect: true
     };
     localStorage.setItem('userData', JSON.stringify(user));
+    console.log(userSuccess);
     return userSuccess;
 };

@@ -17,7 +17,7 @@ describe('authReducer', () => {
                 // GIVEN
                 const action = authActions.AUTHENTICATE_SUCCESS({
                     ...userMock.userGotToken,
-                    expirationDate: new Date()
+                    expirationDate: new Date(2020, 1, 15)
                 });
                 // WHEN
                 const result = reducer(initialState, action);

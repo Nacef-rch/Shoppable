@@ -14,6 +14,7 @@ import { AuthResponseData } from '@authentication/models/returnTypes.model';
 import { I18nService } from '@i18n/services/i18n.service';
 import { handleAuthentication } from '@authentication/helpers/local-storage.helper';
 import jwtDecode from 'jwt-decode';
+import { ApiService } from '@core/services/api/api.service';
 
 @Injectable()
 export class AuthEffects {
@@ -21,8 +22,8 @@ export class AuthEffects {
         this.actions$.pipe(
             ofType(AuthActions.SIGNUP_START),
             switchMap((signupAction: UserOnRegister) => {
-                return this.http
-                    .post<AuthResponseData>(environment.firebaseAPIKey + '/signup', {
+                return this.httpCall
+                    .post('/signup', {
                         name: signupAction.name,
                         email: signupAction.email,
                         password: signupAction.password,
@@ -54,13 +55,14 @@ export class AuthEffects {
         this.actions$.pipe(
             ofType(AuthActions.LOGIN_START),
             switchMap((authData: UserOnLogin) => {
-                return this.http
-                    .post<AuthResponseData>(environment.firebaseAPIKey + '/login', {
+                return this.httpCall
+                    .post('/login', {
                         email: authData.email,
                         password: authData.password
                     })
                     .pipe(
                         tap((resData) => {
+                            console.log(resData);
                             const tokenDecoded = jwtDecode(resData.token);
 
                             this.authService.setLogoutTimer(
@@ -68,11 +70,13 @@ export class AuthEffects {
                             );
                         }),
                         map((resData) => {
+                            console.log('data' + resData);
                             return AuthActions.AUTHENTICATE_SUCCESS({
                                 ...handleAuthentication(resData)
                             });
                         }),
                         catchError((error) => {
+                            console.log(error);
                             const errorMessage = handleError(error, this.translate.lang);
                             return of(AuthActions.AUTHENTICATE_FAIL({ errorMessage }));
                         })
@@ -148,6 +152,7 @@ export class AuthEffects {
         private http: HttpClient,
         private router: Router,
         private authService: AuthenticationService,
-        private translate: I18nService
+        private translate: I18nService,
+        private httpCall: ApiService
     ) {}
 }

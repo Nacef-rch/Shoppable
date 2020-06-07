@@ -19,18 +19,21 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ErrorAuthComponent } from './components/error-auth/error-auth.component';
 @NgModule({
     declarations: [
         LoginContainerComponent,
         RegisterContainerComponent,
         SocialAuthComponent,
         LoginFormComponent,
-        RegisterFormComponent
+        RegisterFormComponent,
+        ErrorAuthComponent
     ],
     imports: [
         AuthRoutingModule,
         MatIconModule,
+        MatCheckboxModule,
         MatFormFieldModule,
         MatButtonModule,
         MatInputModule,

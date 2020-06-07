@@ -9,14 +9,17 @@ import { environment } from '@env/environment';
 
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
-import { InternationalizationModule } from '@i18n/internationalization.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { getTranslateModuleInstance } from '@i18n/helpers/i18n.helper';
+import { TranslateModule } from '@ngx-translate/core';
+import { CoreModule } from '@core/core.module';
 
 @NgModule({
     declarations: [AppComponent],
     imports: [
         BrowserModule,
-        //InternationalizationModule,
+        CoreModule,
+        getTranslateModuleInstance(TranslateModule.forRoot),
         AppRoutingModule,
         StoreModule.forRoot({}),
         EffectsModule.forRoot([]),

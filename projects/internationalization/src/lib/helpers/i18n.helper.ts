@@ -6,8 +6,8 @@ export function httpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-export function getTranslateModuleInstance() {
-    return TranslateModule.forRoot({
+export function getTranslateModuleInstance(fn: any) {
+    return fn({
         loader: {
             provide: TranslateLoader,
             useFactory: httpLoaderFactory,

@@ -10,16 +10,14 @@
                 "
             ></i
         ></label>
-        <input
-            type="text"
-            [placeholder]="
-                !registerForm.get('name').valid && registerForm.get('name').touched
-                    ? ('AUTH.REGISTER.VALID_NAME' | translate)
-                    : ('AUTH.REGISTER.NAME' | translate)
-            "
-            name="name"
-            formControlName="name"
-        />
+
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Ex. Mohammed" formControlName="name" />
+            <mat-error *ngIf="registerForm.get('name').hasError('required')">
+                Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
     </div>
     <div class="form-group">
         <label for="email"
@@ -32,16 +30,21 @@
                 "
             ></i
         ></label>
-        <input
-            type="email"
-            [placeholder]="
-                !registerForm.get('email').valid && registerForm.get('email').touched
-                    ? ('AUTH.REGISTER.VALID_EMAIL' | translate)
-                    : ('AUTH.REGISTER.EMAIL' | translate)
-            "
-            name="email"
-            formControlName="email"
-        />
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Ex. pat@example.com" />
+            <mat-error
+                *ngIf="
+                    registerForm.get('email').hasError('email') &&
+                    !registerForm.get('email').hasError('required')
+                "
+            >
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="registerForm.get('email').hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
     </div>
     <div class="form-group">
         <label for="password"
@@ -54,16 +57,23 @@
                 "
             ></i
         ></label>
-        <input
-            type="password"
-            [placeholder]="
-                !registerForm.get('password').valid && registerForm.get('password').touched
-                    ? ('AUTH.REGISTER.VALID_PASS' | translate)
-                    : ('AUTH.REGISTER.PASS' | translate)
-            "
-            name="password"
-            formControlName="password"
-        />
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+            <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+            >
+                <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="registerForm.get('password').hasError('required')">
+                Password is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
     </div>
     <div class="form-group">
         <label for="re-password"
@@ -77,17 +87,27 @@
                 "
             ></i
         ></label>
-        <input
-            type="password"
-            [placeholder]="
-                !registerForm.get('confirmPassword').valid &&
-                registerForm.get('confirmPassword').touched
-                    ? ('AUTH.REGISTER.VALID_REPASS' | translate)
-                    : ('AUTH.REGISTER.REPASS' | translate)
-            "
-            name="confirmPassword"
-            formControlName="confirmPassword"
-        />
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+
+            <input
+                matInput
+                [type]="hidee ? 'password' : 'text'"
+                formControlName="confirmPassword"
+            />
+            <button
+                mat-icon-button
+                matSuffix
+                (click)="hidee = !hidee"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+            >
+                <mat-icon>{{ hidee ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="registerForm.get('confirmPassword').hasError('required')">
+                Password is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
     </div>
     <div class="form-group">
         <label for="handle"
@@ -100,23 +120,21 @@
                 "
             ></i
         ></label>
-        <input
-            type="text"
-            name="handle"
-            [placeholder]="
-                !registerForm.get('handle').valid && registerForm.get('handle').touched
-                    ? ('AUTH.REGISTER.VALID_HANDLE' | translate)
-                    : ('AUTH.REGISTER.HANDLE' | translate)
-            "
-            name="handle"
-            formControlName="handle"
-        />
+
+        <mat-form-field appearance="fill">
+            <mat-label>Handle</mat-label>
+            <input matInput formControlName="handle" />
+            <mat-error *ngIf="registerForm.get('handle').hasError('required')">
+                Handle is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
     </div>
     <div class="form-group">
-        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-        <label for="agree-term" class="label-agree-term"
-            ><span><span></span></span>{{ 'AUTH.REGISTER.AGREE' | translate }}
-            <a href="#" class="term-service">{{ 'AUTH.REGISTER.TERMS' | translate }}</a></label
+        <mat-checkbox
+            ><label for="agree-term" class="label-agree-term"
+                ><span><span></span></span>{{ 'AUTH.REGISTER.AGREE' | translate }}
+                <a href="#" class="term-service">{{ 'AUTH.REGISTER.TERMS' | translate }}</a></label
+            ></mat-checkbox
         >
     </div>
 
@@ -125,12 +143,8 @@
         {{ error }}
     </div>
     <div class="form-group form-button">
-        <input
-            type="submit"
-            name="signup"
-            class="form-submit"
-            value="{{ 'AUTH.REGISTER.REGISTER' | translate }}"
-            [disabled]="!registerForm.valid"
-        />
+        <button mat-raised-button color="primary" [disabled]="!registerForm.valid">
+            {{ 'AUTH.REGISTER.REGISTER' | translate }}
+        </button>
     </div>
 </form>

@@ -11,6 +11,7 @@ import { AuthFacade } from '@authentication/+store/auth.facade';
 export class LoginContainerComponent implements OnInit, OnDestroy {
     private storeSub: Subscription;
     public isLoading = false;
+    // public isLoading$ = observable<false>; pipe asycn as is loading fel htmp !!!
     constructor(private authFacade: AuthFacade) {}
 
     public ngOnInit(): void {
