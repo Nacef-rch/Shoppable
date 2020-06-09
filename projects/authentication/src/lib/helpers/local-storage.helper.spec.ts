@@ -1,13 +1,18 @@
-// import { handleAuthentication } from '@authentication/helpers/local-storage.helper';
-// import * as userMock from '@authentication/mocks/user.mock.json';
-// describe('handleAuthentication', () => {
-//     it('should decode the token and give a user object', () => {
-//         localStorage.clear();
-//         const data: any = handleAuthentication(userMock.Token);
+import { handleAuthentication } from '@authentication/helpers/local-storage.helper';
+import * as authMock from '@authentication/mocks/auth.mock.json';
 
-//         expect(data).toBe(userMock.userGotToken);
-//     });
-// });
+describe('handleAuthentication', () => {
+    it('should decode the token and give a user object', () => {
+        localStorage.clear();
+        const data: any = handleAuthentication(authMock.Token);
+        const dataRes: any = {
+            ...authMock.userGotToken,
+            expirationDate: new Date(1591611590 * 1000)
+        };
+
+        expect(data).toStrictEqual(dataRes);
+    });
+});
 
 describe('local-storage dummy', () => {
     it('local-storage dummy', () => {

@@ -18,6 +18,8 @@
                             {{ 'AUTH.LOGIN.SIGN' | translate }}
                         </h2>
 
+                        <lib-error-auth></lib-error-auth>
+
                         <lib-login-form *ngIf="!isLoading"></lib-login-form>
 
                         <div class="social-login" *ngIf="!isLoading">

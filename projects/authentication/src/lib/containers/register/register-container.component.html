@@ -8,6 +8,7 @@
                         <h2 class="form-title" *ngIf="!isLoading">
                             {{ 'AUTH.REGISTER.SIGN' | translate }}
                         </h2>
+                        <lib-error-auth></lib-error-auth>
                         <lib-register-form *ngIf="!isLoading"></lib-register-form>
                     </div>
                     <div class="signup-image" *ngIf="!isLoading">

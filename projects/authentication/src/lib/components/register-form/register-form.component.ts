@@ -38,7 +38,7 @@ export class RegisterFormComponent implements OnInit, OnDestroy {
             confirmPassword: this.registerForm.value.confirmPassword,
             handle: this.registerForm.value.handle
         };
-        this.authFacade.SignupStart(
+        this.authFacade.signupStart(
             this.user.name,
             this.user.email,
             this.user.password,
@@ -49,6 +49,6 @@ export class RegisterFormComponent implements OnInit, OnDestroy {
         this.registerForm.reset();
     }
     public ngOnDestroy(): void {
-        this.authFacade.ClearError();
+        this.authFacade.clearError();
     }
 }

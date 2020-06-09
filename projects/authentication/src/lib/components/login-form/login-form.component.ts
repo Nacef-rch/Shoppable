@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
-import { Subscription } from 'rxjs';
 
 import { AuthFacade } from '@authentication/+store/auth.facade';
 import { UserOnLogin } from '@authentication/models/user.model';
@@ -33,11 +32,11 @@ export class LoginFormComponent implements OnInit, OnDestroy {
             email: this.loginForm.value.email,
             password: this.loginForm.value.password
         };
-        this.authFacade.LoginStart(this.user.email, this.user.password);
+        this.authFacade.loginStart(this.user.email, this.user.password);
 
         this.loginForm.reset();
     }
     public ngOnDestroy(): void {
-        this.authFacade.ClearError();
+        this.authFacade.clearError();
     }
 }

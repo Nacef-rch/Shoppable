@@ -10,6 +10,7 @@ export const handleError = (errorRes: any, lang: string): string => {
 
         return errMsgValue;
     }
+
     if (lang === 'fr') {
         let errorMessage = `Quelque chose c'est mal passé. Merci d'essayer plus tard !`;
 

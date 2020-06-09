@@ -32,7 +32,7 @@ describe('UserFacade', () => {
         };
         const action = authActions.AUTHENTICATE_SUCCESS(user);
         // WHEN
-        facade.AuthSuccess(user.email, user.userId, user.token, user.expirationDate, user.redirect);
+        facade.authSuccess(user.email, user.userId, user.token, user.expirationDate, user.redirect);
         // THEN
         expect(store.dispatch).toHaveBeenLastCalledWith(action);
     });
@@ -40,7 +40,7 @@ describe('UserFacade', () => {
         // GIVEN
         const action = authActions.LOGOUT();
         // WHEN
-        facade.Logout();
+        facade.logout();
         // THEN
         expect(store.dispatch).toHaveBeenLastCalledWith(action);
     });
@@ -48,7 +48,7 @@ describe('UserFacade', () => {
         // GIVEN
         const action = authActions.LOGIN_START(authMock.userOnLogin);
         // WHEN
-        facade.LoginStart(authMock.userOnLogin.email, authMock.userOnLogin.password);
+        facade.loginStart(authMock.userOnLogin.email, authMock.userOnLogin.password);
         // THEN
         expect(store.dispatch).toHaveBeenLastCalledWith(action);
     });
@@ -57,7 +57,7 @@ describe('UserFacade', () => {
         const errorMessage = 'Error';
         const action = authActions.AUTHENTICATE_FAIL({ errorMessage });
         // WHEN
-        facade.AuthFail(errorMessage);
+        facade.authFail(errorMessage);
         // THEN
         expect(store.dispatch).toHaveBeenLastCalledWith(action);
     });
@@ -65,7 +65,7 @@ describe('UserFacade', () => {
         // GIVEN
         const action = authActions.SIGNUP_START(authMock.userOnRegister);
         // WHEN
-        facade.SignupStart(
+        facade.signupStart(
             authMock.userOnRegister.name,
             authMock.userOnRegister.email,
             authMock.userOnRegister.password,
@@ -79,7 +79,7 @@ describe('UserFacade', () => {
         // GIVEN
         const action = authActions.CLEAR_ERROR();
         // WHEN
-        facade.ClearError();
+        facade.clearError();
         // THEN
         expect(store.dispatch).toHaveBeenLastCalledWith(action);
     });
@@ -87,7 +87,7 @@ describe('UserFacade', () => {
         // GIVEN
         const action = authActions.AUTO_LOGIN();
         // WHEN
-        facade.AutoLogin();
+        facade.autoLogin();
         // THEN
         expect(store.dispatch).toHaveBeenLastCalledWith(action);
     });

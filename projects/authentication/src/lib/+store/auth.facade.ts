@@ -13,7 +13,7 @@ export class AuthFacade {
     public loading$ = this.store.select(authQuery.getLoading);
     constructor(private store: Store<AuthStore>) {}
 
-    public AuthSuccess(
+    public authSuccess(
         email: string,
         userId: string,
         token: string,
@@ -30,10 +30,12 @@ export class AuthFacade {
             })
         );
     }
-    public Logout(): void {
+
+    public logout(): void {
         this.store.dispatch(AuthActions.LOGOUT());
     }
-    public LoginStart(email: string, password: string): void {
+
+    public loginStart(email: string, password: string): void {
         this.store.dispatch(
             AuthActions.LOGIN_START({
                 email: email,
@@ -42,7 +44,7 @@ export class AuthFacade {
         );
     }
 
-    public SignupStart(
+    public signupStart(
         name: string,
         email: string,
         password: string,
@@ -59,17 +61,20 @@ export class AuthFacade {
             })
         );
     }
-    public AuthFail(errorMessage: string): void {
+
+    public authFail(errorMessage: string): void {
         this.store.dispatch(
             AuthActions.AUTHENTICATE_FAIL({
                 errorMessage: errorMessage
             })
         );
     }
-    public ClearError(): void {
+
+    public clearError(): void {
         this.store.dispatch(AuthActions.CLEAR_ERROR());
     }
-    public AutoLogin(): void {
+
+    public autoLogin(): void {
         this.store.dispatch(AuthActions.AUTO_LOGIN());
     }
 }

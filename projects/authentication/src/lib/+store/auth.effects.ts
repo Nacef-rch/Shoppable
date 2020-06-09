@@ -59,23 +59,19 @@ export class AuthEffects {
                     })
                     .pipe(
                         tap((resData) => {
-                            console.log('resData');
-                            console.log(resData);
                             const tokenDecoded = jwtDecode(resData.token);
-
                             this.authService.setLogoutTimer(
                                 tokenDecoded.exp * 1000 - new Date().getTime()
                             );
                         }),
                         map((resData) => {
-                            console.log('data' + resData);
                             return AuthActions.AUTHENTICATE_SUCCESS({
                                 ...handleAuthentication(resData)
                             });
                         }),
                         catchError((error) => {
-                            console.log(error);
                             const errorMessage = handleError(error, this.translate.lang);
+
                             return of(AuthActions.AUTHENTICATE_FAIL({ errorMessage }));
                         })
                     );
@@ -100,6 +96,7 @@ export class AuthEffects {
             }
         )
     );
+
     @Effect()
     public autoLogin = this.actions$.pipe(
         ofType(AuthActions.AUTO_LOGIN),

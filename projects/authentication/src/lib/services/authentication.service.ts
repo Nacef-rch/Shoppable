@@ -11,7 +11,7 @@ export class AuthenticationService {
 
     public setLogoutTimer(expirationDuration: number): void {
         this.tokenExpirationTimer = setTimeout(() => {
-            this.authFacade.Logout();
+            this.authFacade.logout();
         }, expirationDuration);
     }
     public clearLogoutTimer(): void {

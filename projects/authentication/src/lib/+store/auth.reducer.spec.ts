@@ -1,6 +1,6 @@
 import * as authActions from '@authentication/+store/auth.actions';
 import { initialState, authReducer as reducer } from '@authentication/+store/auth.reducer';
-import * as userMock from '@authentication/mocks/user.mock.json';
+import * as authMock from '@authentication/mocks/auth.mock.json';
 
 describe('authReducer', () => {
     describe('undefined action', () => {
@@ -16,7 +16,7 @@ describe('authReducer', () => {
             it('`AUTHENTICATE_SUCCESS`, should add a user in the state', () => {
                 // GIVEN
                 const action = authActions.AUTHENTICATE_SUCCESS({
-                    ...userMock.userGotToken,
+                    ...authMock.userGotToken,
                     expirationDate: new Date(2020, 1, 15)
                 });
                 // WHEN
@@ -38,7 +38,7 @@ describe('authReducer', () => {
     describe('LOGIN/SIGNUP', () => {
         it('`LOGIN_START`, should set loading to true in state', () => {
             // GIVEN
-            const action = authActions.LOGIN_START(userMock.userOnLogin);
+            const action = authActions.LOGIN_START(authMock.userOnLogin);
             // WHEN
             const result = reducer(initialState, action);
             // THEN
@@ -47,7 +47,7 @@ describe('authReducer', () => {
     });
     it('`SIGNUP_START`, should set Loading to false in state', () => {
         // GIVEN
-        const action = authActions.SIGNUP_START(userMock.userOnRegister);
+        const action = authActions.SIGNUP_START(authMock.userOnRegister);
         // WHEN
         const result = reducer(initialState, action);
         // THEN
