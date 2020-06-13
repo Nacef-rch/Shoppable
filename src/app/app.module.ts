@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { getTranslateModuleInstance } from '@i18n/helpers/i18n.helper';
 import { TranslateModule } from '@ngx-translate/core';
 import { CoreModule } from '@core/core.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [AppComponent],
@@ -25,7 +26,8 @@ import { CoreModule } from '@core/core.module';
         EffectsModule.forRoot([]),
         StoreDevtoolsModule.instrument({ logOnly: environment.production }),
         StoreRouterConnectingModule.forRoot(),
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        NgbModule
     ],
 
     bootstrap: [AppComponent]
