@@ -5,5 +5,10 @@ module.exports = {
     ...baseConfig,
     rootDir: '../..',
     roots: ['<rootDir>/projects/shared'],
-    collectCoverageFrom: ['<rootDir>/projects/shared/**/*.ts', '!**/*.module.ts', '!**/*.stories.ts'],
+
+    collectCoverageFrom: [
+        '<rootDir>/projects/shared/**/*.ts',
+        '!**/*.module.ts',
+        '!**/*.stories.ts'
+    ]
 };

@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`authReducer \`SIGNUP_START\`, should set Loading to false in state 1`] = `
+Object {
+  "authError": null,
+  "loading": true,
+  "user": null,
+}
+`;
+
+exports[`authReducer AUTO_LOGIN should reset state to initial state 1`] = `
+Object {
+  "authError": null,
+  "loading": false,
+  "user": null,
+}
+`;
+
+exports[`authReducer CLEAR_ERROR should reset state to initial state 1`] = `
+Object {
+  "authError": null,
+  "loading": false,
+  "user": null,
+}
+`;
+
+exports[`authReducer LOGIN/SIGNUP \`LOGIN_START\`, should set loading to true in state 1`] = `
+Object {
+  "authError": null,
+  "loading": true,
+  "user": null,
+}
+`;
+
+exports[`authReducer LOGOUT should user state to initial state 1`] = `
+Object {
+  "authError": null,
+  "loading": false,
+  "user": null,
+}
+`;
+
+exports[`authReducer undefined action \`AUTHENTICATE_FAIL\`, should add error in the state if there is error 1`] = `
+Object {
+  "authError": "Error",
+  "loading": false,
+  "user": null,
+}
+`;
+
+exports[`authReducer undefined action AUTHENTICATE \`AUTHENTICATE_SUCCESS\`, should add a user in the state 1`] = `
+Object {
+  "authError": null,
+  "loading": false,
+  "user": User {
+    "_token": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc0Mzg3ZGUyMDUxMWNkNDgzYTIwZDIyOGQ5OTI4ZTU0YjNlZTBlMDgiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20va2lsYS0yMzUyYiIsImF1ZCI6ImtpbGEtMjM1MmIiLCJhdXRoX3RpbWUiOjE1OTE2MDc5OTAsInVzZXJfaWQiOiJiQlRlZVh2QmFHUkdpeENaNlNnaGdZOWI4TksyIiwic3ViIjoiYkJUZWVYdkJhR1JHaXhDWjZTZ2hnWTliOE5LMiIsImlhdCI6MTU5MTYwNzk5MCwiZXhwIjoxNTkxNjExNTkwLCJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbInRlc3RAZW1haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.pPjroFV4iEHXEZoXQ-aMOHJVJYCXb1gT33si9u33VNMVfScCncHRQw8-REsZ2CYbXH5wqM1a6Ig5A49g6e_b2iGvcw-yotVVX0uL3TYQMZHhFDGP16x-Rx3Q9h-8M91OM--sPEuiM8HyW4MOwwyiEXdhobLbJcVfsY67WY6-OVIsM--5mZKzwW089x1P_FSOPmvdDoyYbdS6T_cgXaTDymdqywUbHPi9Q7MFwH1skMjeqZaqsC_PiGESsFCZib2Pv9miiseOBtnWj9qUkvJJwSyJ2NrmGD9T6SSYq4wcmzHTodVi3fvRMfHoQbb4L6ZGY56Gsl8yKzBoE0rWzzmEEA",
+    "_tokenExpirationDate": 2020-02-14T23:00:00.000Z,
+    "email": "test@email.com",
+    "id": "bBTeeXvBaGRGixCZ6SghgY9b8NK2",
+  },
+}
+`;
+
+exports[`authReducer undefined action should return the default state 1`] = `
+Object {
+  "authError": null,
+  "loading": false,
+  "user": null,
+}
+`;

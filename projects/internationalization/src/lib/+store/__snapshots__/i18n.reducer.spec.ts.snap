@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`I18nReducer SET_LANGUAGE should set lang to \`fr\` in state 1`] = `
+Object {
+  "lang": "fr",
+}
+`;
+
+exports[`I18nReducer undefined action should return the default state 1`] = `
+Object {
+  "lang": "fr",
+}
+`;

@@ -1,0 +1,38 @@
+{
+    "AUTH": {
+        "LOGIN": {
+            "CREATE": "Créer un compte",
+            "SIGN": "Se connecter",
+            "VALID_EMAIL": "Veuillez saisir un Email valide !",
+            "EMAIL": "Votre Email",
+            "PASS_IS": "Mot de passe",
+            "EMAIL_IS": "Email est",
+            "REQUIRED": "requis",
+            "PASS": "Mot de passe",
+            "REMEMBER": "Rester connecté",
+            "LOG_IN": "S'identifier",
+            "LOG_WITH": "Ou connectez-vous avec"
+        },
+        "REGISTER": {
+            "SIGN": "S'inscrire",
+            "MEMBER": "J'ai un compte",
+            "VALID_NAME": "Entrez votre nom ici !",
+            "NAME": "Votre nom",
+            "VALID_EMAIL": "Veuillez saisir un email valide!",
+            "EMAIL": "Votre Email",
+            "VALID_PASS": "Veuillez entrer un mot de passe !",
+            "PASS": "Mot de passe",
+            "VALID_REPASS": "Veuillez répétez votre mot de passe!",
+            "REPASS": "Répétez votre mot de passe",
+            "VALID_HANDLE": "Veuillez entrer un Handle !",
+            "HANDLE": "Handle",
+            "AGREE": "J'accepte toutes les déclarations des",
+            "TERMS": "conditions d'utilisation",
+            "REGISTER": "S'inscrire",
+            "NAME_IS": "Nom est ",
+            "EMAIL_IS": "Email est",
+            "PASS_IS": "Mot de passe",
+            "HANDLE_IS": "Handle est"
+        }
+    }
+}

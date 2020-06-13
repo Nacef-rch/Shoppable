@@ -1,20 +1,27 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+
+import { LoginContainerComponent } from '@authentication/containers/login/login-container.component';
+import { RegisterContainerComponent } from '@authentication/containers/register/register-container.component';
 
 const routes: Routes = [
     {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full'
+    },
+    {
         path: 'login',
-        loadChildren: () => import('./containers/login/login.module').then((m) => m.LoginModule),
+        component: LoginContainerComponent
     },
     {
         path: 'register',
-        loadChildren: () => import('./containers/register/register.module').then((m) => m.RegisterModule),
-    },
+        component: RegisterContainerComponent
+    }
 ];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule],
+    exports: [RouterModule]
 })
 export class AuthRoutingModule {}

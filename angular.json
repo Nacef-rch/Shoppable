@@ -25,10 +25,18 @@
                         "aot": true,
                         "assets": ["src/favicon.ico", "src/assets"],
                         "styles": [
+                            "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
                             "src/styles.scss",
-                            "node_modules/material-design-iconic-font/dist/css/material-design-iconic-font.min.css"
+                            "src/assets/styles/theme.scss",
+                            "node_modules/material-design-iconic-font/dist/css/material-design-iconic-font.min.css",
+                            "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                            "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
                         ],
-                        "scripts": []
+
+                        "scripts": [
+                            "node_modules/jquery/dist/jquery.min.js",
+                            "src/assets/scripts/dash-main.js"
+                        ]
                     },
                     "configurations": {
                         "production": {
@@ -81,7 +89,11 @@
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
-                        "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
+                        "tsConfig": [
+                            "tsconfig.app.json",
+                            "tsconfig.spec.json",
+                            "e2e/tsconfig.json"
+                        ],
                         "exclude": ["**/node_modules/**"]
                     }
                 },
@@ -117,7 +129,6 @@
                         }
                     }
                 },
-
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
@@ -151,7 +162,10 @@
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
-                        "tsConfig": ["projects/core/tsconfig.lib.json", "projects/core/tsconfig.spec.json"],
+                        "tsConfig": [
+                            "projects/core/tsconfig.lib.json",
+                            "projects/core/tsconfig.spec.json"
+                        ],
                         "exclude": ["**/node_modules/**"]
                     }
                 }
@@ -178,7 +192,71 @@
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
-                        "tsConfig": ["projects/shared/tsconfig.lib.json", "projects/shared/tsconfig.spec.json"],
+                        "tsConfig": [
+                            "projects/shared/tsconfig.lib.json",
+                            "projects/shared/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "internationalization": {
+            "projectType": "library",
+            "root": "projects/internationalization",
+            "sourceRoot": "projects/internationalization/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "projects/internationalization/tsconfig.lib.json",
+                        "project": "projects/internationalization/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/internationalization/tsconfig.lib.prod.json"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/internationalization/tsconfig.lib.json",
+                            "projects/internationalization/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "dashboard": {
+            "projectType": "library",
+            "root": "projects/dashboard",
+            "sourceRoot": "projects/dashboard/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "projects/dashboard/tsconfig.lib.json",
+                        "project": "projects/dashboard/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/dashboard/tsconfig.lib.prod.json"
+                        }
+                    }
+                },
+
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/dashboard/tsconfig.lib.json",
+                            "projects/dashboard/tsconfig.spec.json"
+                        ],
                         "exclude": ["**/node_modules/**"]
                     }
                 }
