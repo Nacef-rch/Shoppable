@@ -21,6 +21,7 @@ module.exports = {
         '^@core/(.*)$': '<rootDir>/projects/core/src/lib/$1',
         '^@authentication/(.*)$': '<rootDir>/projects/authentication/src/lib/$1',
         '^@i18n/(.*)$': '<rootDir>/projects/internationalization/src/lib/$1',
+        '^@dash/(.*)$': '<rootDir>/projects/dashboard/src/lib/$1',
         '^@env/(.*)$': '<rootDir>/src/environments/$1'
     },
     testMatch: ['<rootDir>/**/**/*.spec.ts'],
@@ -36,7 +37,11 @@ module.exports = {
         '!<rootDir>/Jest/**',
         '!<rootDir>/reports/**',
         '!**/*.module.ts',
-        '!**/*.stories.ts'
+        '!**/*.mock.ts',
+        '!**/*.stories.ts',
+        '!**/+store/**/*.actions.ts',
+        '!**/+store/**/*.selectors.ts',
+        '!**/public-api.ts'
     ],
     coverageDirectory: '<rootDir>/reports',
     coveragePathIgnorePatterns: ['<rootDir>/node_modules']

@@ -1,8 +1,14 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { inject, TestBed } from '@angular/core/testing';
-import { TranslateService, TranslateStore } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import {
+    TranslateService,
+    TranslateStore,
+    TranslateModule,
+    TranslateLoader
+} from '@ngx-translate/core';
 
-import { getTranslateModuleInstance } from '@i18n/helpers/i18n.helper';
+import { httpLoaderFactory } from '@i18n/helpers/i18n.helper';
 import { I18nService } from '@i18n/services/i18n.service';
 
 describe('I18nService', () => {
@@ -11,7 +17,16 @@ describe('I18nService', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [HttpClientTestingModule, getTranslateModuleInstance()],
+            imports: [
+                HttpClientTestingModule,
+                TranslateModule.forRoot({
+                    loader: {
+                        provide: TranslateLoader,
+                        useFactory: httpLoaderFactory,
+                        deps: [HttpClient]
+                    }
+                })
+            ],
             providers: [I18nService, TranslateStore, TranslateService]
         });
     });

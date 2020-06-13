@@ -3,8 +3,6 @@ export const handleSuccess = (res: any): object => {
 };
 
 export const handleError = (error: any): Promise<any> => {
-    console.log('in Error');
-    console.log(error);
     const err: any = error.error || error;
     throw {
         status: err.status || error.status,

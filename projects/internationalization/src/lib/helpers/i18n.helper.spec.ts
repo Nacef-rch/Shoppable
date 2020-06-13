@@ -3,7 +3,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { inject, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 
-import { getTranslateModuleInstance, httpLoaderFactory } from '@i18n/helpers/i18n.helper';
+import { httpLoaderFactory } from '@i18n/helpers/i18n.helper';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 describe('Helper `HttpLoaderFactory`', () => {
     beforeEach(() => {
@@ -32,7 +33,13 @@ describe('Helper `HttpLoaderFactory`', () => {
     it('should return `TranslateModuleInstance`', () => {
         // GIVEN
         // WHEN
-        const obj = getTranslateModuleInstance();
+        const obj = TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: httpLoaderFactory,
+                deps: [HttpClient]
+            }
+        });
         // THEN
         expect(obj).toBeDefined();
     });

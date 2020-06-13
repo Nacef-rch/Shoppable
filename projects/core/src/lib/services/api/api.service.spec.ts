@@ -4,7 +4,7 @@ import { async, TestBed } from '@angular/core/testing';
 
 import { ApiService } from '@core/services/api/api.service';
 
-export const env = {
+export const envo = {
     baseUrl: 'https://jsonplaceholder.typicode.com'
 };
 
@@ -12,7 +12,7 @@ describe('ApiService', () => {
     let service: ApiService;
     let httpMock: HttpTestingController;
     const testEndpoint = '/test_api';
-    const url = `${env.baseUrl}${testEndpoint}`;
+    const url = `${envo.baseUrl}${testEndpoint}`;
     const mockData: any = {
         success: 'This is a success response',
         error: new Error(`500 - ERROR Http failure response for ${url}: 500 ERROR`)
@@ -25,7 +25,7 @@ describe('ApiService', () => {
     });
 
     beforeEach(() => {
-        env.baseUrl = '';
+        envo.baseUrl = '';
         service = TestBed.inject(ApiService);
         httpMock = TestBed.inject(HttpTestingController);
     });

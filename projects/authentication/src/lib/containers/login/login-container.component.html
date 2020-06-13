@@ -1,8 +1,8 @@
 <div *ngxInit="isLoading$ | async as isLoading">
-    <lib-lang-switcher *ngIf="!isLoading"></lib-lang-switcher>
     <div class="main">
         <section class="sign-in">
             <div class="container">
+                <lib-lang-switcher *ngIf="!isLoading"></lib-lang-switcher>
                 <div class="signin-content">
                     <div class="signin-image" *ngIf="!isLoading">
                         <figure>

@@ -29,10 +29,14 @@
                             "src/styles.scss",
                             "src/assets/styles/theme.scss",
                             "node_modules/material-design-iconic-font/dist/css/material-design-iconic-font.min.css",
-                            "node_modules/bootstrap/dist/css/bootstrap.min.css"
+                            "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                            "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
                         ],
 
-                        "scripts": []
+                        "scripts": [
+                            "node_modules/jquery/dist/jquery.min.js",
+                            "src/assets/scripts/dash-main.js"
+                        ]
                     },
                     "configurations": {
                         "production": {
@@ -221,6 +225,37 @@
                         "tsConfig": [
                             "projects/internationalization/tsconfig.lib.json",
                             "projects/internationalization/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        },
+        "dashboard": {
+            "projectType": "library",
+            "root": "projects/dashboard",
+            "sourceRoot": "projects/dashboard/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "projects/dashboard/tsconfig.lib.json",
+                        "project": "projects/dashboard/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/dashboard/tsconfig.lib.prod.json"
+                        }
+                    }
+                },
+
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/dashboard/tsconfig.lib.json",
+                            "projects/dashboard/tsconfig.spec.json"
                         ],
                         "exclude": ["**/node_modules/**"]
                     }
