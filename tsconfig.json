@@ -18,19 +18,11 @@
             "@app/*": ["src/app/*"],
             "@env/*": ["src/environments/*"],
             "@assets/*": ["src/assets/*"],
-<<<<<<< HEAD
-            "@authentication": ["projects/authentication"]
-=======
             "@authentication/*": ["projects/authentication/src/lib/*"],
             "@core/*": ["projects/core/src/lib/*"],
-<<<<<<< HEAD
-            "@shared/*": ["projects/shared/src/lib/*"]
->>>>>>> auth
-=======
             "@shared/*": ["projects/shared/src/lib/*"],
             "@i18n/*": ["projects/internationalization/src/lib/*"],
             "@dash/*": ["projects/dashboard/src/lib/*"]
->>>>>>> auth
         }
     },
     "angularCompilerOptions": {
