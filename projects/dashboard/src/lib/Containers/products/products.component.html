@@ -1,0 +1,109 @@
+<app-page-title heading="{{ heading }}" [subheading]="subheading" [icon]="icon"></app-page-title>
+<div class="row">
+    <div class="col-md-8">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h4 class="card-title">Product</h4>
+                <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+                    <div class="position-relative form-group">
+                        <mat-form-field appearance="outline" class="full-width-field">
+                            <mat-label>Titre</mat-label>
+                            <input
+                                matInput
+                                placeholder="Ex. short sleeve t-shirt"
+                                formControlName="Title"
+                            />
+                            <mat-error *ngIf="productForm.get('Title').hasError('required')">
+                                Titre is
+                                <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="full-width-field">
+                            <mat-label>category</mat-label>
+                            <mat-select
+                                [(ngModel)]="selectedValue"
+                                name="category"
+                                formControlName="category"
+                            >
+                                <mat-option
+                                    *ngFor="let category of categorys"
+                                    [value]="category.value"
+                                >
+                                    {{ category.viewValue }}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error
+                                *ngIf="
+                                    productForm.get('category').hasError('required') &&
+                                    productForm.get('category').touched
+                                "
+                            >
+                                Select a <strong>category !</strong>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <p *ngIf="!productForm.get('category').hasError('required')">
+                            Selected category: {{ selectedValue }}
+                        </p>
+                        <mat-form-field appearance="outline" class="full-width-field">
+                            <mat-label>Description</mat-label>
+                            <textarea
+                                matInput
+                                placeholder="Ex. short sleeve t-shirt"
+                                formControlName="Description"
+                                rows="7"
+                                cols="20"
+                            ></textarea>
+                        </mat-form-field>
+                        <div class="position-relative form-group">
+                            <label for="exampleFile">File</label
+                            ><input
+                                name="file"
+                                id="exampleFile"
+                                type="file"
+                                class="form-control-file"
+                                (change)="onFileChange($event)"
+                            />
+                            <small class="form-text text-muted"
+                                >The image must be in <strong>png</strong> or
+                                <strong>jpeg</strong> format !
+                            </small>
+                        </div>
+
+                        <mat-form-field appearance="outline" class="full-width-field">
+                            <mat-label>Price</mat-label>
+                            <input
+                                matInput
+                                type="number"
+                                class="example-right-align"
+                                formControlName="Price"
+                            />
+                            <span matPrefix>$&nbsp;</span>
+                            <span matSuffix>.00</span>
+                            <mat-error *ngIf="productForm.get('Price').hasError('required')">
+                                Price is
+                                <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <button
+                        type="submit"
+                        mat-raised-button
+                        color="primary"
+                        [disabled]="!productForm.valid"
+                    >
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h4>View</h4>
+            </div>
+        </div>
+    </div>
+</div>

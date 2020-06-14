@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { BaseLayoutComponent } from './Layout/base-layout/base-layout.component';
+import { ProductsComponent } from './containers/products/products.component';
+import { BaseLayoutComponent } from './Containers/base-layout/base-layout.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: BaseLayoutComponent
+        component: BaseLayoutComponent,
+        children: [
+            {
+                path: 'products/new',
+                component: ProductsComponent
+            }
+        ]
     }
 ];
 

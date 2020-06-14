@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
     declarations: [LoadingSpinnerComponent],
@@ -27,7 +28,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
         MatCheckboxModule,
         MatFormFieldModule,
         MatButtonModule,
-        MatInputModule
+        MatInputModule,
+        MatSelectModule
     ],
     exports: [
         LoadingSpinnerComponent,
@@ -42,7 +44,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
         MatCheckboxModule,
         MatFormFieldModule,
         MatButtonModule,
-        MatInputModule
+        MatInputModule,
+        MatSelectModule
     ]
 })
 export class SharedModule {}
