@@ -28,6 +28,7 @@ export class ApiService {
     }
 
     public post(url: string, data: any): Observable<any> {
+        console.log('postit');
         return this.http
             .post(`${environment.firebaseAPIKey}${url}`, JSON.stringify(data), {
                 headers: this.headers.set('Content-Type', 'application/json'),

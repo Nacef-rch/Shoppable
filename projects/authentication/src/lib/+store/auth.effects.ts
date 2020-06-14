@@ -91,7 +91,7 @@ export class AuthEffects {
                 redirect: boolean;
             }) => {
                 if (authSuccessAction.redirect) {
-                    this.router.navigate(['auth/register']);
+                    this.router.navigate(['admin']);
                 }
             }
         )

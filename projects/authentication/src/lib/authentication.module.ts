@@ -33,7 +33,7 @@ import { ErrorAuthComponent } from './components/error-auth/error-auth.component
         }),
         EffectsModule.forFeature([AuthEffects])
     ],
-    providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
+    // providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
     exports: [LoginContainerComponent, RegisterContainerComponent]
 })
 export class AuthenticationModule {}
