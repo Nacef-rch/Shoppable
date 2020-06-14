@@ -13,7 +13,7 @@ export interface ProductStore {
 
 export const productInitialState: ProductState = {
     productSuccess: null,
-    productError: 'hello',
+    productError: null,
     loading: false
 };
 const reducer = createReducer(

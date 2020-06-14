@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductModule } from '@product/product.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from '@authentication/interceptors/auth-interceptor.service';
+import { AuthenticationModule } from '@authentication/authentication.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -31,7 +32,8 @@ import { AuthInterceptorService } from '@authentication/interceptors/auth-interc
         StoreRouterConnectingModule.forRoot(),
         BrowserAnimationsModule,
         NgbModule,
-        ProductModule
+        ProductModule,
+        AuthenticationModule
     ],
     providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
 
