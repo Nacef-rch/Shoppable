@@ -27,7 +27,6 @@ import { ErrorAuthComponent } from './components/error-auth/error-auth.component
     ],
     imports: [
         AuthRoutingModule,
-
         SharedModule,
         StoreModule.forFeature(fromAuth.authStoreName, fromAuth.authReducer, {
             initialState: initialState

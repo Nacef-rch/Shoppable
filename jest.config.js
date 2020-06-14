@@ -22,6 +22,7 @@ module.exports = {
         '^@authentication/(.*)$': '<rootDir>/projects/authentication/src/lib/$1',
         '^@i18n/(.*)$': '<rootDir>/projects/internationalization/src/lib/$1',
         '^@dash/(.*)$': '<rootDir>/projects/dashboard/src/lib/$1',
+        '^@product/(.*)$': '<rootDir>/projects/product/src/lib/$1',
         '^@env/(.*)$': '<rootDir>/src/environments/$1'
     },
     testMatch: ['<rootDir>/**/**/*.spec.ts'],

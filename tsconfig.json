@@ -22,7 +22,8 @@
             "@core/*": ["projects/core/src/lib/*"],
             "@shared/*": ["projects/shared/src/lib/*"],
             "@i18n/*": ["projects/internationalization/src/lib/*"],
-            "@dash/*": ["projects/dashboard/src/lib/*"]
+            "@dash/*": ["projects/dashboard/src/lib/*"],
+            "@product/*": ["projects/product/src/lib/*"]
         }
     },
     "angularCompilerOptions": {

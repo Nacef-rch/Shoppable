@@ -14,6 +14,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+    PerfectScrollbarModule,
+    PerfectScrollbarConfigInterface,
+    PERFECT_SCROLLBAR_CONFIG
+} from 'ngx-perfect-scrollbar';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+    suppressScrollX: true
+};
 
 @NgModule({
     declarations: [LoadingSpinnerComponent],
@@ -29,7 +39,17 @@ import { MatSelectModule } from '@angular/material/select';
         MatFormFieldModule,
         MatButtonModule,
         MatInputModule,
-        MatSelectModule
+        MatSelectModule,
+        NgbModule,
+        PerfectScrollbarModule
+    ],
+    providers: [
+        {
+            provide: PERFECT_SCROLLBAR_CONFIG,
+            // DROPZONE_CONFIG,
+            useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+            // DEFAULT_DROPZONE_CONFIG,
+        }
     ],
     exports: [
         LoadingSpinnerComponent,
@@ -45,7 +65,9 @@ import { MatSelectModule } from '@angular/material/select';
         MatFormFieldModule,
         MatButtonModule,
         MatInputModule,
-        MatSelectModule
+        MatSelectModule,
+        NgbModule,
+        PerfectScrollbarModule
     ]
 })
 export class SharedModule {}
