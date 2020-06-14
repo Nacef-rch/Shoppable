@@ -20,6 +20,13 @@ import {
     PerfectScrollbarConfigInterface,
     PERFECT_SCROLLBAR_CONFIG
 } from 'ngx-perfect-scrollbar';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '@env/environment';
+import {
+    AngularFireStorageModule,
+    AngularFireStorageReference,
+    AngularFireUploadTask
+} from '@angular/fire/storage';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true
@@ -41,7 +48,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         MatInputModule,
         MatSelectModule,
         NgbModule,
-        PerfectScrollbarModule
+        PerfectScrollbarModule,
+        AngularFireStorageModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig, 'cloud')
     ],
     providers: [
         {
