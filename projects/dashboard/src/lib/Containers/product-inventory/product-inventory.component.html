@@ -1,24 +1,29 @@
 <app-page-title heading="{{ heading }}" [subheading]="subheading" [icon]="icon"></app-page-title>
-<div class="row">
-    <div class="col-md-8">
-        <div class="main-card mb-3 card">
-            <div class="card-body">
-                <h4 class="card-title">Product</h4>
-                <lib-get-products></lib-get-products>
+<div *ngxInit="isLoading$ | async as isLoading">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <h4 class="card-title">Product</h4>
+                    <lib-get-products *ngIf="!isLoading"></lib-get-products>
+                </div>
+                <div *ngIf="isLoading" style="text-align: center;" class="load-center">
+                    <lib-loading-spinner></lib-loading-spinner>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="main-card mb-3 card">
-            <div class="card-body">
-                <h2>Card view</h2>
-                <lib-product-view
-                    imgUrl=""
-                    titre=""
-                    description=""
-                    category=""
-                    price=""
-                ></lib-product-view>
+        <div class="col-md-4">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <h2>Card view</h2>
+                    <lib-product-view
+                        imgUrl=""
+                        titre=""
+                        description=""
+                        category=""
+                        price=""
+                    ></lib-product-view>
+                </div>
             </div>
         </div>
     </div>

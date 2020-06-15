@@ -11,6 +11,7 @@ export class Product {
     ) {}
 }
 export interface StoreProducts {
+    position: number;
     productId: string;
     categoryId: string;
     name: string;
