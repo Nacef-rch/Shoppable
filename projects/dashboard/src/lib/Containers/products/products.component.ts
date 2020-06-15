@@ -44,32 +44,37 @@ export class ProductsComponent implements OnInit {
             Title: new FormControl(null, [Validators.required, Validators.minLength(4)]),
             Description: new FormControl(null),
             Media: new FormControl(null),
-            Price: new FormControl(null, [Validators.required]),
-            category: new FormControl(null, [Validators.required])
+
+            category: new FormControl(null, [Validators.required]),
+            unitPrice: new FormControl(null, [Validators.required]),
+            quantityInStock: new FormControl(null, [Validators.required])
         });
     }
     public onSubmit(): void {
         const ImageUrl = this.imageUp.fb;
         if (ImageUrl) {
-               this.productForm.patchValue({
-            Media: ImageUrl
-        });
-        this.product = {
-            categoryId: this.productForm.value.category,
-            name: this.productForm.value.Title,
-            description: this.productForm.value.Description,
-            imageUrl: this.productForm.value.Media
-        };
-        console.log(ImageUrl);
-        console.log(this.product);
-        this.prodFacade.importStart(
-            this.product.categoryId,
-            this.product.name,
-            this.product.description,
-            this.product.imageUrl
-        )
+            this.productForm.patchValue({
+                Media: ImageUrl
+            });
+            this.product = {
+                categoryId: this.productForm.value.category,
+                name: this.productForm.value.Title,
+                description: this.productForm.value.Description,
+                imageUrl: this.productForm.value.Media,
+                unitPrice: this.productForm.value.unitPrice,
+                quantityInStock: this.productForm.value.quantityInStock
+            };
+
+            console.log(this.product);
+            this.prodFacade.importStart(
+                this.product.categoryId,
+                this.product.name,
+                this.product.description,
+                this.product.imageUrl,
+                this.product.unitPrice,
+                this.product.quantityInStock
+            );
         }
-     
     }
     public ngOnDestroy(): void {
         this.prodFacade.clearError();
@@ -77,8 +82,5 @@ export class ProductsComponent implements OnInit {
     }
     onFileChange(event) {
         this.imageUp.onFileSelected(event);
-      
-       
-        
     }
 }

@@ -29,7 +29,9 @@ export class ProductEffects {
                         categoryId: ImportAction.categoryId,
                         name: ImportAction.name,
                         description: ImportAction.description,
-                        imageUrl: ImportAction.imageUrl
+                        imageUrl: ImportAction.imageUrl,
+                        unitPrice: ImportAction.unitPrice,
+                        quantityInStock: ImportAction.quantityInStock
                     })
                     .pipe(
                         map((resData) => {
@@ -64,6 +66,28 @@ export class ProductEffects {
                         return of(ProductActions.IMPORT_FAIL({ errorMessage }));
                     })
                 );
+            })
+        )
+    );
+    public productStock$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(ProductActions.CHANGE_PRODUCT_STOCK),
+            switchMap((StockAction: { productId: string; quantityInStock: number }) => {
+                return this.http
+                    .post(`/products/${StockAction.productId}/stock`, {
+                        quantityInStock: StockAction.quantityInStock
+                    })
+                    .pipe(
+                        map((resData) => {
+                            return ProductActions.IMPORT_SUCCESS({
+                                successMessage: 'success!'
+                            });
+                        }),
+                        catchError((error) => {
+                            const errorMessage = handleError(error, this.translate.lang);
+                            return of(ProductActions.IMPORT_FAIL({ errorMessage }));
+                        })
+                    );
             })
         )
     );

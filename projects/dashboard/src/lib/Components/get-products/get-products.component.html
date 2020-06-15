@@ -59,7 +59,7 @@
             <th mat-header-cell *matHeaderCellDef>Incoming</th>
             <td mat-cell *matCellDef="let element">
                 <!-- {{ element.Incoming }} -->
-                <span class="text-center-product">253$</span>
+                <span class="text-center-product">{{ element.unitPrice }}</span>
             </td>
         </ng-container>
 
@@ -68,7 +68,7 @@
             <th mat-header-cell *matHeaderCellDef>Available</th>
             <td mat-cell *matCellDef="let element">
                 <!-- {{ element.quantityInStock }} -->
-                <span class="text-center-product">26</span>
+                <span class="text-center-product">{{ element.quantityInStock }}</span>
             </td>
         </ng-container>
 
@@ -78,15 +78,20 @@
             <td mat-cell *matCellDef="let element">
                 <div class="input-group input-group-product">
                     <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary btn-max-size" type="button">
+                        <button
+                            class="btn btn-outline-secondary btn-max-size"
+                            type="button"
+                            (click)="changeStock(element.productId, StockNum.value)"
+                        >
                             Save
                         </button>
                     </div>
                     <input
                         class="form-control"
                         type="number"
-                        value="42"
+                        value="{{ element.quantityInStock }}"
                         id="example-number-input"
+                        #StockNum
                     />
                 </div>
             </td>
@@ -96,7 +101,8 @@
         <tr
             mat-row
             *matRowDef="let row; columns: displayedColumns"
-            (click)="selection.toggle(row)"
+            (click)="selection.toggle(row); passClick(row)"
+            class="row-hover-product"
         ></tr>
     </table>
 </div>

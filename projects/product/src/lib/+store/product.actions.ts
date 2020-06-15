@@ -8,7 +8,14 @@ export const IMPORT_SUCCESS = createAction(
 
 export const IMPORT_START = createAction(
     '[Product] Import Start',
-    props<{ categoryId: string; name: string; description: string; imageUrl: string }>()
+    props<{
+        categoryId: string;
+        name: string;
+        description: string;
+        imageUrl: string;
+        unitPrice: number;
+        quantityInStock: number;
+    }>()
 );
 
 export const DELETE_PRODUCT = createAction(
@@ -23,6 +30,10 @@ export const FETCH_STORE_PRODUCTS_SUCCESS = createAction(
     props<{ products: StoreProducts[] }>()
 );
 export const FETCH_STORE_PRODUCTS_START = createAction('[Product] Fetch Store products Start');
+export const CHANGE_PRODUCT_STOCK = createAction(
+    '[Product] change product stock',
+    props<{ productId: string; quantityInStock: number }>()
+);
 
 export const CLEAR_ERROR = createAction('[Product] Clear Error');
 export const CLEAR_SUCCESS = createAction('[Product] Clear SUCCESS');

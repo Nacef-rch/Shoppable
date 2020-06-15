@@ -8,7 +8,11 @@ import { Observable, of } from 'rxjs';
     styleUrls: ['./product-inventory.component.scss']
 })
 export class ProductInventoryComponent implements OnInit {
-    //public isLoading$: Observable<boolean> = of(false);
+    imgUrl;
+    titre;
+    description;
+    category;
+    price;
     public isLoading$: Observable<boolean> = this.productFacade.loading$;
     heading = 'Add product';
     subheading =
@@ -17,5 +21,12 @@ export class ProductInventoryComponent implements OnInit {
     constructor(private productFacade: ProductFacade) {}
     ngOnInit(): void {
         this.productFacade.fetchStoreStart();
+    }
+    viewProduct(event) {
+        this.imgUrl = event.imageUrl;
+        this.titre = event.name;
+        this.description = event.description;
+        this.category = event.categoryId;
+        this.price = event.unitPrice;
     }
 }

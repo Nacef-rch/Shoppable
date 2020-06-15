@@ -3,7 +3,10 @@
     <div class="row">
         <div class="col-md-8">
             <div class="main-card mb-3 card">
-                <lib-get-products *ngIf="!isLoading"></lib-get-products>
+                <lib-get-products
+                    *ngIf="!isLoading"
+                    (pressedProduct)="viewProduct($event)"
+                ></lib-get-products>
                 <div *ngIf="isLoading" style="text-align: center;" class="load-center">
                     <lib-loading-spinner></lib-loading-spinner>
                 </div>
@@ -12,13 +15,17 @@
         <div class="col-md-4">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <h2>Card view</h2>
+                    <h2>
+                        Card view<small
+                            ><i><sub>select a product</sub></i></small
+                        >
+                    </h2>
                     <lib-product-view
-                        imgUrl=""
-                        titre=""
-                        description=""
-                        category=""
-                        price=""
+                        imgUrl="{{ imgUrl }}"
+                        titre="{{ titre }}"
+                        description="{{ description }}"
+                        category="{{ category }}"
+                        price="{{ price }}"
                     ></lib-product-view>
                 </div>
             </div>

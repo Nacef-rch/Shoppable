@@ -29,19 +29,31 @@ export class ProductFacade {
             })
         );
     }
+    public productStock(deleteId: string, quantityInStock: number): void {
+        this.store.dispatch(
+            productActions.CHANGE_PRODUCT_STOCK({
+                productId: deleteId,
+                quantityInStock: quantityInStock
+            })
+        );
+    }
 
     public importStart(
         categoryId: string,
         name: string,
         description: string,
-        imageUrl: string
+        imageUrl: string,
+        unitPrice: number,
+        quantityInStock: number
     ): void {
         this.store.dispatch(
             productActions.IMPORT_START({
                 categoryId: categoryId,
                 name: name,
                 description: description,
-                imageUrl: imageUrl
+                imageUrl: imageUrl,
+                unitPrice: unitPrice,
+                quantityInStock: quantityInStock
             })
         );
     }

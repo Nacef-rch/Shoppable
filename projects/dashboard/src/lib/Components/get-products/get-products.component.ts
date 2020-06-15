@@ -1,8 +1,8 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, EventEmitter, Output } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ProductFacade } from '@product/+store/product.facade';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { StoreProducts } from '@product/models/product.model';
 
 @Component({
@@ -12,6 +12,7 @@ import { StoreProducts } from '@product/models/product.model';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GetProductsComponent implements OnInit {
+    @Output() pressedProduct = new EventEmitter<any>();
     displayedColumns: string[] = [
         'select',
         'Product',
@@ -37,6 +38,18 @@ export class GetProductsComponent implements OnInit {
         const numSelected = this.selection.selected.length;
         const numRows = this.dataSource.data.length;
         return numSelected === numRows;
+    }
+    passClick(row) {
+        this.pressedProduct.emit(row);
+    }
+    changeStock(productId, StockNum) {
+        this.data.forEach((element) => {
+            if (element.productId == productId) {
+                element.quantityInStock = StockNum;
+            }
+        });
+        this.dataSource = new MatTableDataSource<StoreProducts>(this.data);
+        this.ProductFacade.productStock(productId, StockNum);
     }
 
     /** Selects all rows if they are not all selected; otherwise clear selection. */

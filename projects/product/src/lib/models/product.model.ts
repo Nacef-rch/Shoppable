@@ -17,6 +17,8 @@ export interface StoreProducts {
     name: string;
     description: string;
     imageUrl: string;
+    unitPrice: number;
+    quantityInStock: number;
     storeId: string;
     userHandle: string;
 }
@@ -26,4 +28,6 @@ export interface ProductImport {
     name: string;
     description: string;
     imageUrl: string;
+    unitPrice: number;
+    quantityInStock: number;
 }

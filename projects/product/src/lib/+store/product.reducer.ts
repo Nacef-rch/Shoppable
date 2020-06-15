@@ -39,7 +39,7 @@ const reducer = createReducer(
         productError: null,
         loading: true
     })),
-    on(ProductActions.DELETE_PRODUCT, (state, _) => ({
+    on(ProductActions.DELETE_PRODUCT, ProductActions.CHANGE_PRODUCT_STOCK, (state, _) => ({
         ...state
     })),
 
