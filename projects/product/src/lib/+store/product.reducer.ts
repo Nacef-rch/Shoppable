@@ -39,6 +39,10 @@ const reducer = createReducer(
         productError: null,
         loading: true
     })),
+    on(ProductActions.DELETE_PRODUCT, (state, _) => ({
+        ...state
+    })),
+
     on(ProductActions.IMPORT_FAIL, (state, action) => ({
         ...state,
         productSuccess: null,

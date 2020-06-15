@@ -26,7 +26,18 @@ import { AuthenticationModule } from '@authentication/authentication.module';
         CoreModule,
         getTranslateModuleInstance(TranslateModule.forRoot),
         AppRoutingModule,
-        StoreModule.forRoot({}),
+        StoreModule.forRoot(
+            {},
+
+            {
+                runtimeChecks: {
+                    strictStateImmutability: false,
+                    strictActionImmutability: false,
+                    strictStateSerializability: false,
+                    strictActionSerializability: false
+                }
+            }
+        ),
         EffectsModule.forRoot([]),
         StoreDevtoolsModule.instrument({ logOnly: environment.production }),
         StoreRouterConnectingModule.forRoot(),

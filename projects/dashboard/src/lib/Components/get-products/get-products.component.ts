@@ -1,29 +1,37 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ProductFacade } from '@product/+store/product.facade';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { StoreProducts } from '@product/models/product.model';
 
 @Component({
     selector: 'lib-get-products',
     templateUrl: './get-products.component.html',
-    styleUrls: ['./get-products.component.scss']
+    styleUrls: ['./get-products.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GetProductsComponent implements OnInit {
-    displayedColumns: string[] = ['select', 'Product', 'Category', 'UserHandle', 'Available'];
+    displayedColumns: string[] = [
+        'select',
+        'Product',
+        'Category',
+        'UserHandle',
+        'Available',
+        'Incoming',
+        'Edit'
+    ];
     dataSource;
+    data;
     public Products$: Observable<StoreProducts[]> = this.ProductFacade.storeProducts$;
-    AllProducts: StoreProducts[];
 
     selection = new SelectionModel<StoreProducts>(true, []);
     constructor(private ProductFacade: ProductFacade) {}
     ngOnInit(): void {
         this.Products$.subscribe((resData) => {
-            this.AllProducts = resData;
             this.dataSource = new MatTableDataSource<StoreProducts>(resData);
+            this.data = Object.assign(resData);
         });
-        console.log(this.AllProducts);
     }
     isAllSelected() {
         const numSelected = this.selection.selected.length;
@@ -37,9 +45,19 @@ export class GetProductsComponent implements OnInit {
             ? this.selection.clear()
             : this.dataSource.data.forEach((row) => this.selection.select(row));
     }
-    selected() {
-        console.log(this.selection.selected);
+    removeSelectedRows() {
+        this.selection.selected.forEach((item, i) => {
+            const index: number = this.data.findIndex((d) => d === item);
+            console.log(this.data.findIndex((d) => d === item));
+            this.data.splice(index, 1);
+            this.dataSource = new MatTableDataSource<StoreProducts>(this.data);
+            setTimeout(() => {
+                this.ProductFacade.productDelete(item.productId);
+            }, i * 1000);
+        });
+        this.selection = new SelectionModel<StoreProducts>(true, []);
     }
+
     /** The label for the checkbox on the passed row */
     checkboxLabel(row?: StoreProducts): string {
         if (!row) {

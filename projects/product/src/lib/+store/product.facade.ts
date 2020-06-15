@@ -22,6 +22,13 @@ export class ProductFacade {
             })
         );
     }
+    public productDelete(deleteId: string): void {
+        this.store.dispatch(
+            productActions.DELETE_PRODUCT({
+                productId: deleteId
+            })
+        );
+    }
 
     public importStart(
         categoryId: string,

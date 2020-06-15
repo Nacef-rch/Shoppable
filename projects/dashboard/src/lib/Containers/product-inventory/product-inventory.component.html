@@ -3,10 +3,7 @@
     <div class="row">
         <div class="col-md-8">
             <div class="main-card mb-3 card">
-                <div class="card-body">
-                    <h4 class="card-title">Product</h4>
-                    <lib-get-products *ngIf="!isLoading"></lib-get-products>
-                </div>
+                <lib-get-products *ngIf="!isLoading"></lib-get-products>
                 <div *ngIf="isLoading" style="text-align: center;" class="load-center">
                     <lib-loading-spinner></lib-loading-spinner>
                 </div>

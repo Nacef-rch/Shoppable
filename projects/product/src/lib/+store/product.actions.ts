@@ -10,6 +10,12 @@ export const IMPORT_START = createAction(
     '[Product] Import Start',
     props<{ categoryId: string; name: string; description: string; imageUrl: string }>()
 );
+
+export const DELETE_PRODUCT = createAction(
+    '[Product] Delete product',
+    props<{ productId: string }>()
+);
+
 export const IMPORT_FAIL = createAction('[Product] Import Fail', props<{ errorMessage: string }>());
 
 export const FETCH_STORE_PRODUCTS_SUCCESS = createAction(

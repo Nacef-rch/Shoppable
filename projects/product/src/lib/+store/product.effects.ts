@@ -49,6 +49,25 @@ export class ProductEffects {
             })
         )
     );
+    public productDelete$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(ProductActions.DELETE_PRODUCT),
+            switchMap((Url: { productId: string }) => {
+                return this.http.delete(`/products/${Url.productId}`).pipe(
+                    map((resData) => {
+                        return ProductActions.IMPORT_SUCCESS({
+                            successMessage: 'success!'
+                        });
+                    }),
+                    catchError((error) => {
+                        const errorMessage = handleError(error, this.translate.lang);
+                        return of(ProductActions.IMPORT_FAIL({ errorMessage }));
+                    })
+                );
+            })
+        )
+    );
+
     public fetchStoreProducts$ = createEffect(() =>
         this.actions$.pipe(
             ofType(ProductActions.FETCH_STORE_PRODUCTS_START),
