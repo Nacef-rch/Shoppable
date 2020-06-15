@@ -11,6 +11,8 @@ export class ProductFacade {
     public success$ = this.store.select(productQuery.getProductSuccess); // <== observable
     public error$ = this.store.select(productQuery.getProductError);
     public loading$ = this.store.select(productQuery.getLoading);
+    public storeProducts$ = this.store.select(productQuery.getStoreProducts);
+
     constructor(private store: Store<ProductStore>) {}
 
     public productSuccess(successMessage: string): void {
@@ -35,6 +37,9 @@ export class ProductFacade {
                 imageUrl: imageUrl
             })
         );
+    }
+    public fetchStoreStart(): void {
+        this.store.dispatch(productActions.FETCH_STORE_PRODUCTS_START());
     }
 
     public importFail(errorMessage: string): void {

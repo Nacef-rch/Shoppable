@@ -27,15 +27,15 @@ export class ImageUploadService {
                     this.downloadURL.subscribe((url) => {
                         if (url) {
                             this.fb = url;
+                            return url;
                         }
-                        console.log(this.fb);
+                        //console.log(this.fb);
                     });
                 })
             )
             .subscribe((url) => {
                 if (url) {
-                    console.log(url);
-                    return url;
+                    // console.log(url);
                 }
             });
     }

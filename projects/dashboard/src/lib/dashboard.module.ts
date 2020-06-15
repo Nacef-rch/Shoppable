@@ -12,6 +12,9 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { ProductsComponent } from './containers/products/products.component';
 import { BaseLayoutComponent } from './Containers/base-layout/base-layout.component';
 import { SharedModule } from '@shared/shared.module';
+import { ProductViewComponent } from './components/product-view/product-view.component';
+import { ProductInventoryComponent } from './Containers/product-inventory/product-inventory.component';
+import { GetProductsComponent } from './Components/get-products/get-products.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +26,10 @@ import { SharedModule } from '@shared/shared.module';
         SidebarComponent,
         LogoComponent,
         FooterComponent,
-        ProductsComponent
+        ProductsComponent,
+        ProductViewComponent,
+        ProductInventoryComponent,
+        GetProductsComponent
     ],
     imports: [DashRoutingModule, SharedModule],
 

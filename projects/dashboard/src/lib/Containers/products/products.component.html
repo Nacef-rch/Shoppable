@@ -13,6 +13,7 @@
                                 matInput
                                 placeholder="Ex. short sleeve t-shirt"
                                 formControlName="Title"
+                                #Titre
                             />
                             <mat-error *ngIf="productForm.get('Title').hasError('required')">
                                 Titre is
@@ -25,6 +26,7 @@
                                 [(ngModel)]="selectedValue"
                                 name="category"
                                 formControlName="category"
+                                #Category
                             >
                                 <mat-option
                                     *ngFor="let category of categorys"
@@ -54,6 +56,7 @@
                                 formControlName="Description"
                                 rows="7"
                                 cols="20"
+                                #Description
                             ></textarea>
                         </mat-form-field>
                         <div class="position-relative form-group">
@@ -78,6 +81,7 @@
                                 type="number"
                                 class="example-right-align"
                                 formControlName="Price"
+                                #Price
                             />
                             <span matPrefix>$&nbsp;</span>
                             <span matSuffix>.00</span>
@@ -101,10 +105,14 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="main-card mb-3 card">
-            <div class="card-body">
-                <h4>View</h4>
-            </div>
-        </div>
+        <h2>Card view</h2>
+
+        <lib-product-view
+            imgUrl="{{ imgUrlTest | async }}"
+            titre="{{ Titre.value }}"
+            description="{{ Description.value }}"
+            category="{{ Category.value }}"
+            price="{{ Price.value }}"
+        ></lib-product-view>
     </div>
 </div>

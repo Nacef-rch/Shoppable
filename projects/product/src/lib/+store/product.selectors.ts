@@ -3,7 +3,10 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { productStoreName, ProductState } from '@product/+store/product.reducer';
 
 export const getState = createFeatureSelector<ProductState>(productStoreName);
-
+export const getStoreProducts = createSelector(
+    getState,
+    (state: ProductState) => state.storeProducts
+);
 export const getProductSuccess = createSelector(
     getState,
     (state: ProductState) => state.productSuccess
@@ -18,5 +21,6 @@ export const productQuery = {
     getState,
     getProductSuccess,
     getProductError,
+    getStoreProducts,
     getLoading
 };

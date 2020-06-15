@@ -27,6 +27,8 @@ import {
     AngularFireStorageReference,
     AngularFireUploadTask
 } from '@angular/fire/storage';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true
@@ -50,7 +52,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         NgbModule,
         PerfectScrollbarModule,
         AngularFireStorageModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig, 'cloud')
+        AngularFireModule.initializeApp(environment.firebaseConfig, 'cloud'),
+        MatTableModule,
+        MatPaginatorModule
     ],
     providers: [
         {
@@ -76,7 +80,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         MatInputModule,
         MatSelectModule,
         NgbModule,
-        PerfectScrollbarModule
+        PerfectScrollbarModule,
+        MatTableModule,
+        MatPaginatorModule
     ]
 })
 export class SharedModule {}

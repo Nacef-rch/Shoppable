@@ -10,6 +10,15 @@ export class Product {
         private userHandle: string
     ) {}
 }
+export interface StoreProducts {
+    productId: string;
+    categoryId: string;
+    name: string;
+    description: string;
+    imageUrl: string;
+    storeId: string;
+    userHandle: string;
+}
 
 export interface ProductImport {
     categoryId: string;

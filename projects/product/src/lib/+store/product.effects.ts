@@ -32,9 +32,6 @@ export class ProductEffects {
                         imageUrl: ImportAction.imageUrl
                     })
                     .pipe(
-                        tap(() => {
-                            console.log('object');
-                        }),
                         map((resData) => {
                             console.log('success');
                             console.log(resData);
@@ -49,6 +46,32 @@ export class ProductEffects {
                             return of(ProductActions.IMPORT_FAIL({ errorMessage }));
                         })
                     );
+            })
+        )
+    );
+    public fetchStoreProducts$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(ProductActions.FETCH_STORE_PRODUCTS_START),
+
+            switchMap(() => {
+                return this.http.get('/products/store').pipe(
+                    map((products) => {
+                        console.log('success');
+                        console.log(products);
+                        ProductActions.IMPORT_SUCCESS({
+                            successMessage: 'success!'
+                        });
+                        return ProductActions.FETCH_STORE_PRODUCTS_SUCCESS({
+                            products
+                        });
+                    }),
+                    catchError((error) => {
+                        console.log('error');
+                        console.log(error);
+                        const errorMessage = handleError(error, this.translate.lang);
+                        return of(ProductActions.IMPORT_FAIL({ errorMessage }));
+                    })
+                );
             })
         )
     );

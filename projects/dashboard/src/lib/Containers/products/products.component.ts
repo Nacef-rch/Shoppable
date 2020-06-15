@@ -19,6 +19,8 @@ export class ProductsComponent implements OnInit {
     product: ProductImport;
     selectedValue: string;
     public productForm: FormGroup;
+    // public imgUrlTest: Observable<string> = this.imageUp.downloadURL;
+    public imgUrlTest;
     heading = 'Add product';
     subheading =
         'Tabs are used to split content between multiple sections. Wide variety available.';
@@ -28,6 +30,8 @@ export class ProductsComponent implements OnInit {
         { value: 'Second', viewValue: 'Second' },
         { value: 'Third', viewValue: 'Third' }
     ];
+    titre = 'short sleeve t-sirt';
+
     public error$: Observable<string> = this.prodFacade.error$;
 
     constructor(
@@ -46,8 +50,8 @@ export class ProductsComponent implements OnInit {
     }
     public onSubmit(): void {
         const ImageUrl = this.imageUp.fb;
-        console.log(ImageUrl);
-        this.productForm.patchValue({
+        if (ImageUrl) {
+               this.productForm.patchValue({
             Media: ImageUrl
         });
         this.product = {
@@ -56,13 +60,16 @@ export class ProductsComponent implements OnInit {
             description: this.productForm.value.Description,
             imageUrl: this.productForm.value.Media
         };
+        console.log(ImageUrl);
         console.log(this.product);
         this.prodFacade.importStart(
             this.product.categoryId,
             this.product.name,
             this.product.description,
             this.product.imageUrl
-        );
+        )
+        }
+     
     }
     public ngOnDestroy(): void {
         this.prodFacade.clearError();
@@ -70,6 +77,8 @@ export class ProductsComponent implements OnInit {
     }
     onFileChange(event) {
         this.imageUp.onFileSelected(event);
-        //todo add is loading !
+      
+       
+        
     }
 }
