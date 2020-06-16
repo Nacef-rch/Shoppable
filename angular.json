@@ -33,10 +33,7 @@
                             "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
                         ],
 
-                        "scripts": [
-                            "node_modules/jquery/dist/jquery.min.js",
-                            "src/assets/scripts/dash-main.js"
-                        ]
+                        "scripts": ["node_modules/jquery/dist/jquery.min.js"]
                     },
                     "configurations": {
                         "production": {
