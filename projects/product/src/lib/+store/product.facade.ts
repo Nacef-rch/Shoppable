@@ -80,4 +80,10 @@ export class ProductFacade {
     public clearSuccess(): void {
         this.store.dispatch(productActions.CLEAR_SUCCESS());
     }
+    public loadingStart(): void {
+        this.store.dispatch(productActions.LOADING_START());
+    }
+    public loadingStop(): void {
+        this.store.dispatch(productActions.LOADING_STOP());
+    }
 }

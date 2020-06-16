@@ -63,6 +63,7 @@
                                 #Description
                             ></textarea>
                         </mat-form-field>
+
                         <div class="position-relative form-group">
                             <label for="exampleFile">File</label
                             ><input
@@ -72,51 +73,64 @@
                                 class="form-control-file"
                                 (change)="onFileChange($event)"
                             />
+                            <div
+                                class="spinner-border loading-spin spin-pos-product"
+                                role="status"
+                                *ngIf="isLoading"
+                            ></div>
+
                             <small class="form-text text-muted"
                                 >The image must be in <strong>png</strong> or
                                 <strong>jpeg</strong> format !
                             </small>
                         </div>
+
                         <hr />
-                        <label>Pricing & Quantity</label>
                         <br />
+                        <label>Pricing</label><label class="quantity-pos-product">Quantity</label>
 
-                        <mat-form-field appearance="outline" class="half-width-field">
-                            <mat-label>Price</mat-label>
-                            <input
-                                matInput
-                                type="number"
-                                class="example-right-align"
-                                formControlName="unitPrice"
-                                #Price
-                            />
-                            <span matPrefix>TND </span>
+                        <br />
+                        <div class="product-center">
+                            <mat-form-field appearance="outline" class="half-width-field">
+                                <mat-label>Price</mat-label>
+                                <input
+                                    matInput
+                                    type="number"
+                                    class="example-right-align"
+                                    formControlName="unitPrice"
+                                    #Price
+                                />
+                                <span matPrefix>TND </span>
 
-                            <mat-error *ngIf="productForm.get('unitPrice').hasError('required')">
-                                Price is
-                                <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
-                            </mat-error>
-                        </mat-form-field>
-                        <mat-form-field
-                            appearance="outline"
-                            class="half-width-field margin-left-product"
-                        >
-                            <mat-label>Available</mat-label>
-                            <input
-                                matInput
-                                type="number"
-                                class="example-right-align"
-                                formControlName="quantityInStock"
-                                #quantityInStock
-                            />
+                                <mat-error
+                                    *ngIf="productForm.get('unitPrice').hasError('required')"
+                                >
+                                    Price is
+                                    <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
+                                </mat-error>
+                            </mat-form-field>
 
-                            <mat-error
-                                *ngIf="productForm.get('quantityInStock').hasError('required')"
+                            <mat-form-field
+                                appearance="outline"
+                                class="half-width-field margin-left-product"
                             >
-                                Available is
-                                <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
-                            </mat-error>
-                        </mat-form-field>
+                                <mat-label>Available</mat-label>
+                                <input
+                                    matInput
+                                    type="number"
+                                    class="example-right-align"
+                                    formControlName="quantityInStock"
+                                    #quantityInStock
+                                />
+
+                                <mat-error
+                                    *ngIf="productForm.get('quantityInStock').hasError('required')"
+                                >
+                                    Available is
+                                    <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
                     </div>
 
                     <button
@@ -135,12 +149,11 @@
         <h2>Card preview</h2>
 
         <lib-product-view
-            imgUrl="{{ imgUrlTest | async }}"
+            imgUrl="{{ productForm.get('Media').value }}"
             titre="{{ Titre.value }}"
             description="{{ Description.value }}"
             category="{{ Category.value }}"
             price="{{ Price.value }}"
         ></lib-product-view>
     </div>
-    <button (click)="onClick()">click me</button>
 </div>

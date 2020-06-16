@@ -37,7 +37,8 @@ export class ProductsComponent implements OnInit {
     titre = 'short sleeve t-sirt';
 
     public error$: Observable<string> = this.prodFacade.error$;
-
+    public isLoading$: Observable<boolean> = this.prodFacade.loading$;
+    isLoading;
     constructor(
         private cd: ChangeDetectorRef,
         public prodFacade: ProductFacade,
@@ -69,30 +70,24 @@ export class ProductsComponent implements OnInit {
         });
     }
     public onSubmit(): void {
-        const ImageUrl = this.imageUp.fb;
-        if (ImageUrl) {
-            this.productForm.patchValue({
-                Media: ImageUrl
-            });
-            this.product = {
-                categoryId: this.productForm.value.category,
-                name: this.productForm.value.Title,
-                description: this.productForm.value.Description,
-                imageUrl: this.productForm.value.Media,
-                unitPrice: this.productForm.value.unitPrice,
-                quantityInStock: this.productForm.value.quantityInStock
-            };
+        this.product = {
+            categoryId: this.productForm.value.category,
+            name: this.productForm.value.Title,
+            description: this.productForm.value.Description,
+            imageUrl: this.productForm.value.Media,
+            unitPrice: this.productForm.value.unitPrice,
+            quantityInStock: this.productForm.value.quantityInStock
+        };
 
-            console.log(this.product);
-            this.prodFacade.importStart(
-                this.product.categoryId,
-                this.product.name,
-                this.product.description,
-                this.product.imageUrl,
-                this.product.unitPrice,
-                this.product.quantityInStock
-            );
-        }
+        console.log(this.product);
+        this.prodFacade.importStart(
+            this.product.categoryId,
+            this.product.name,
+            this.product.description,
+            this.product.imageUrl,
+            this.product.unitPrice,
+            this.product.quantityInStock
+        );
     }
     public ngOnDestroy(): void {
         this.prodFacade.clearError();
@@ -100,13 +95,24 @@ export class ProductsComponent implements OnInit {
     }
     onFileChange(event) {
         this.imageUp.onFileSelected(event);
+        this.isLoading = true;
+        setTimeout(() => {
+            this.isLoading$.subscribe((res) => {
+                if (res == false) {
+                    this.isLoading = false;
+                    const ImageUrl = this.imageUp.fb;
+                    if (ImageUrl) {
+                        this.productForm.patchValue({
+                            Media: ImageUrl
+                        });
+                    }
+                }
+            });
+        }, 1000);
     }
     private _filter(value: string): string[] {
         const filterValue = value.toLowerCase();
 
         return this.options.filter((option) => option.toLowerCase().indexOf(filterValue) === 0);
-    }
-    onClick() {
-        console.log(this.options);
     }
 }

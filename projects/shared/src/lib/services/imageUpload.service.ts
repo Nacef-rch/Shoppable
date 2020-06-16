@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFireStorage } from '@angular/fire/storage';
-import { finalize } from 'rxjs/operators';
+import { finalize, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { ProductFacade } from '@product/+store/product.facade';
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +13,7 @@ export class ImageUploadService {
     selectedFile: File = null;
     fb;
     downloadURL: Observable<string>;
-    constructor(private storage: AngularFireStorage) {}
+    constructor(private storage: AngularFireStorage, private productLoad: ProductFacade) {}
 
     public onFileSelected(event) {
         const n = Date.now();
@@ -22,11 +23,16 @@ export class ImageUploadService {
         const task = this.storage.upload(`RoomsImages/${n}`, file);
         task.snapshotChanges()
             .pipe(
+                tap(() => {
+                    this.productLoad.loadingStart();
+                }),
                 finalize(() => {
                     this.downloadURL = fileRef.getDownloadURL();
                     this.downloadURL.subscribe((url) => {
                         if (url) {
                             this.fb = url;
+                            this.productLoad.loadingStop();
+                            console.log(url);
                             return url;
                         }
                         //console.log(this.fb);

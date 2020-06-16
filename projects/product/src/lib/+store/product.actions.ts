@@ -43,5 +43,7 @@ export const CHANGE_PRODUCT_STOCK = createAction(
 );
 
 export const CLEAR_ERROR = createAction('[Product] Clear Error');
+export const LOADING_START = createAction('[Product] loading start');
+export const LOADING_STOP = createAction('[Product] loading  stop');
 
 export const CLEAR_SUCCESS = createAction('[Product] Clear SUCCESS');

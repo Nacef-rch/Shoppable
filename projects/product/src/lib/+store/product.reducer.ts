@@ -69,6 +69,14 @@ const reducer = createReducer(
     on(ProductActions.CLEAR_SUCCESS, (state, _) => ({
         ...state,
         productSuccess: null
+    })),
+    on(ProductActions.LOADING_START, (state, _) => ({
+        ...state,
+        loading: true
+    })),
+    on(ProductActions.LOADING_STOP, (state, _) => ({
+        ...state,
+        loading: false
     }))
 );
 export function productReducer(state: ProductState | undefined, action: Action): ProductState {
