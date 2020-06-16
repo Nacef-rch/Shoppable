@@ -99,13 +99,33 @@ export class ProductEffects {
             switchMap(() => {
                 return this.http.get('/products/store').pipe(
                     map((products) => {
-                        console.log('success');
-                        console.log(products);
                         ProductActions.IMPORT_SUCCESS({
                             successMessage: 'success!'
                         });
                         return ProductActions.FETCH_STORE_PRODUCTS_SUCCESS({
                             products
+                        });
+                    }),
+                    catchError((error) => {
+                        const errorMessage = handleError(error, this.translate.lang);
+                        return of(ProductActions.IMPORT_FAIL({ errorMessage }));
+                    })
+                );
+            })
+        )
+    );
+    public fetchStoreCategories$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(ProductActions.FETCH_STORE_CATEGORY_START),
+
+            switchMap(() => {
+                return this.http.get('/stores/categories').pipe(
+                    map((category) => {
+                        ProductActions.IMPORT_SUCCESS({
+                            successMessage: 'success!'
+                        });
+                        return ProductActions.FETCH_STORE_CATEGORY_SUCCESS({
+                            category
                         });
                     }),
                     catchError((error) => {

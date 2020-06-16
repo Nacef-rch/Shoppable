@@ -29,6 +29,7 @@ import {
 } from '@angular/fire/storage';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true
@@ -54,7 +55,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         AngularFireStorageModule,
         AngularFireModule.initializeApp(environment.firebaseConfig, 'cloud'),
         MatTableModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatAutocompleteModule
     ],
     providers: [
         {
@@ -82,7 +84,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         NgbModule,
         PerfectScrollbarModule,
         MatTableModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatAutocompleteModule
     ]
 })
 export class SharedModule {}

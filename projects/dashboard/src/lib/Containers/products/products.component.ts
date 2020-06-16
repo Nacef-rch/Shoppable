@@ -4,6 +4,7 @@ import { ProductFacade } from '@product/+store/product.facade';
 import { ProductImport } from '@product/models/product.model';
 import { Observable } from 'rxjs';
 import { ImageUploadService } from '@shared/services/imageUpload.service';
+import { startWith, map, timeout } from 'rxjs/operators';
 
 interface Category {
     value: string;
@@ -16,6 +17,9 @@ interface Category {
     styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+    options: any[] = [];
+    filteredOptions: Observable<string[]>;
+
     product: ProductImport;
     selectedValue: string;
     public productForm: FormGroup;
@@ -40,14 +44,28 @@ export class ProductsComponent implements OnInit {
         public imageUp: ImageUploadService
     ) {}
     public ngOnInit(): void {
-        this.productForm = new FormGroup({
-            Title: new FormControl(null, [Validators.required, Validators.minLength(4)]),
-            Description: new FormControl(null),
-            Media: new FormControl(null),
+        this.prodFacade.storeCategories$.subscribe((data) => {
+            data.forEach((categoryRes) => {
+                this.options.push(categoryRes);
+            });
+            this.productForm = new FormGroup({
+                Title: new FormControl(null, [Validators.required, Validators.minLength(4)]),
+                Description: new FormControl(null),
+                Media: new FormControl(null),
 
-            category: new FormControl(null, [Validators.required]),
-            unitPrice: new FormControl(null, [Validators.required]),
-            quantityInStock: new FormControl(null, [Validators.required])
+                category: new FormControl(null, [Validators.required]),
+                unitPrice: new FormControl(null, [Validators.required]),
+                quantityInStock: new FormControl(null, [Validators.required])
+            });
+
+            this.filteredOptions = this.productForm.get('category').valueChanges.pipe(
+                startWith(''),
+                map((value) => this._filter(value))
+            );
+            //this.options.push();
+
+            //this.options.push(test[0]);
+            // console.log(data);
         });
     }
     public onSubmit(): void {
@@ -82,5 +100,13 @@ export class ProductsComponent implements OnInit {
     }
     onFileChange(event) {
         this.imageUp.onFileSelected(event);
+    }
+    private _filter(value: string): string[] {
+        const filterValue = value.toLowerCase();
+
+        return this.options.filter((option) => option.toLowerCase().indexOf(filterValue) === 0);
+    }
+    onClick() {
+        console.log(this.options);
     }
 }

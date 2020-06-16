@@ -23,6 +23,12 @@ export interface StoreProducts {
     userHandle: string;
 }
 
+export interface StoreCategories {
+    lostOfCategories: string[];
+
+    storeId: string;
+}
+
 export interface ProductImport {
     categoryId: string;
     name: string;

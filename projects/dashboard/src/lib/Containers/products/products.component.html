@@ -20,8 +20,9 @@
                                 <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
                             </mat-error>
                         </mat-form-field>
+
                         <mat-form-field appearance="outline" class="full-width-field">
-                            <mat-label>category</mat-label>
+                            <mat-label>Product type</mat-label>
                             <mat-select
                                 [(ngModel)]="selectedValue"
                                 name="category"
@@ -73,8 +74,11 @@
                                 <strong>jpeg</strong> format !
                             </small>
                         </div>
+                        <hr />
+                        <label>Pricing & Quantity</label>
+                        <br />
 
-                        <mat-form-field appearance="outline" class="full-width-field">
+                        <mat-form-field appearance="outline" class="half-width-field">
                             <mat-label>Price</mat-label>
                             <input
                                 matInput
@@ -83,15 +87,18 @@
                                 formControlName="unitPrice"
                                 #Price
                             />
-                            <span matPrefix>$&nbsp;</span>
-                            <span matSuffix>.00</span>
+                            <span matPrefix>TND </span>
+
                             <mat-error *ngIf="productForm.get('unitPrice').hasError('required')">
                                 Price is
                                 <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
                             </mat-error>
                         </mat-form-field>
-                        <mat-form-field appearance="outline" class="full-width-field">
-                            <mat-label>quantityInStock</mat-label>
+                        <mat-form-field
+                            appearance="outline"
+                            class="half-width-field margin-left-product"
+                        >
+                            <mat-label>Available</mat-label>
                             <input
                                 matInput
                                 type="number"
@@ -99,14 +106,32 @@
                                 formControlName="quantityInStock"
                                 #quantityInStock
                             />
-                            <span matPrefix>$&nbsp;</span>
-                            <span matSuffix>.00</span>
+
                             <mat-error
                                 *ngIf="productForm.get('quantityInStock').hasError('required')"
                             >
-                                Price is
+                                Available is
                                 <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
                             </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <input
+                                type="text"
+                                placeholder="Pick one"
+                                aria-label="Number"
+                                matInput
+                                formControlName="category"
+                                [matAutocomplete]="auto"
+                            />
+                            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                <mat-option
+                                    *ngFor="let option of filteredOptions | async"
+                                    [value]="option"
+                                >
+                                    {{ option }}
+                                </mat-option>
+                            </mat-autocomplete>
                         </mat-form-field>
                     </div>
 
@@ -123,7 +148,7 @@
         </div>
     </div>
     <div class="col-md-4">
-        <h2>Card view</h2>
+        <h2>Card preview</h2>
 
         <lib-product-view
             imgUrl="{{ imgUrlTest | async }}"
@@ -133,4 +158,5 @@
             price="{{ Price.value }}"
         ></lib-product-view>
     </div>
+    <button (click)="onClick()">click me</button>
 </div>

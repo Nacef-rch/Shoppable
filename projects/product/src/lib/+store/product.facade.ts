@@ -12,6 +12,7 @@ export class ProductFacade {
     public error$ = this.store.select(productQuery.getProductError);
     public loading$ = this.store.select(productQuery.getLoading);
     public storeProducts$ = this.store.select(productQuery.getStoreProducts);
+    public storeCategories$ = this.store.select(productQuery.getStoreCategories);
 
     constructor(private store: Store<ProductStore>) {}
 
@@ -61,6 +62,9 @@ export class ProductFacade {
         this.store.dispatch(productActions.FETCH_STORE_PRODUCTS_START());
     }
 
+    public fetchCategoryStart(): void {
+        this.store.dispatch(productActions.FETCH_STORE_CATEGORY_START());
+    }
     public importFail(errorMessage: string): void {
         this.store.dispatch(
             productActions.IMPORT_FAIL({

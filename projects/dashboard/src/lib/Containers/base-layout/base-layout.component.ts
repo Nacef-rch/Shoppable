@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
 import { ThemeOptions } from '../../theme-options';
 import { animate, query, style, transition, trigger } from '@angular/animations';
+import { ProductFacade } from '@product/+store/product.facade';
 
 @Component({
     selector: 'app-base-layout',
@@ -33,8 +34,11 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
         ])
     ]
 })
-export class BaseLayoutComponent {
-    constructor(public globals: ThemeOptions) {}
+export class BaseLayoutComponent implements OnInit {
+    constructor(public globals: ThemeOptions, public prodFacade: ProductFacade) {}
+    ngOnInit() {
+        this.prodFacade.fetchCategoryStart();
+    }
 
     toggleSidebarMobile() {
         this.globals.toggleSidebarMobile = !this.globals.toggleSidebarMobile;
