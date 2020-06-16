@@ -8,7 +8,7 @@ import { ProductStore } from '@product/+store/product.reducer';
     providedIn: 'root'
 })
 export class ProductFacade {
-    public success$ = this.store.select(productQuery.getProductSuccess); // <== observable
+    public success$ = this.store.select(productQuery.getProductSuccess);
     public error$ = this.store.select(productQuery.getProductError);
     public loading$ = this.store.select(productQuery.getLoading);
     public storeProducts$ = this.store.select(productQuery.getStoreProducts);

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
 import { ProductFacade } from '@product/+store/product.facade';
-import { Observable, of } from 'rxjs';
+import { InventoryModel } from '@dash/constants/page-titre.constant';
 
 @Component({
     selector: 'lib-product-inventory',
@@ -8,21 +10,22 @@ import { Observable, of } from 'rxjs';
     styleUrls: ['./product-inventory.component.scss']
 })
 export class ProductInventoryComponent implements OnInit {
-    imgUrl;
-    titre;
-    description;
-    category;
-    price;
     public isLoading$: Observable<boolean> = this.productFacade.loading$;
-    heading = 'Add product';
-    subheading =
-        'Tabs are used to split content between multiple sections. Wide variety available.';
-    icon = 'pe-7s-drawer icon-gradient bg-happy-itmeo';
+    imgUrl: string;
+    titre: string;
+    description: string;
+    category: string;
+    price: number;
+
+    heading: string = InventoryModel.heading;
+    subheading: string = InventoryModel.subheading;
+    icon: string = InventoryModel.icon;
+
     constructor(private productFacade: ProductFacade) {}
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.productFacade.fetchStoreStart();
     }
-    viewProduct(event) {
+    public viewProduct(event): void {
         this.imgUrl = event.imageUrl;
         this.titre = event.name;
         this.description = event.description;

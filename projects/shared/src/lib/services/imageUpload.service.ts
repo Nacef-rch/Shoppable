@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+
 import { ProductFacade } from '@product/+store/product.facade';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ImageUploadService {
-    title = 'cloudsSorage';
-    selectedFile: File = null;
-    fb;
-    downloadURL: Observable<string>;
+    public title = 'cloudsSorage';
+    public selectedFile: File = null;
+    public fb: string;
+    public downloadURL: Observable<string>;
     constructor(private storage: AngularFireStorage, private productLoad: ProductFacade) {}
 
-    public onFileSelected(event) {
+    public onFileSelected(event): void {
         const n = Date.now();
         const file = event.target.files[0];
         const filePath = `RoomsImages/${n}`;
@@ -33,15 +33,12 @@ export class ImageUploadService {
                             this.fb = url;
                             this.productLoad.loadingStop();
                             console.log(url);
-                            return url;
                         }
-                        //console.log(this.fb);
                     });
                 })
             )
             .subscribe((url) => {
                 if (url) {
-                    // console.log(url);
                 }
             });
     }

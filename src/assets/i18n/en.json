@@ -34,5 +34,60 @@
             "PASS_IS": "Password is",
             "HANDLE_IS": "Handle is"
         }
+    },
+    "DASH": {
+        "FOOTER": {
+            "COPY_RIGHTS": "Copyright 2020",
+            "HOME": "Store"
+        },
+        "GET_PRODUCTS": {
+            "PRODUCT": "Product",
+            "PRODUCTS": "Products",
+            "CATEGORY": "Category",
+            "ADD": "Added by",
+            "INCOMING": "Incoming",
+            "AVAILABLE": "Available",
+            "EDIT": "Edit quantity available",
+            "SAVE": "Save"
+        },
+        "USER_BOX": {
+            "SETT": "Settings",
+            "ACT": "Actions"
+        },
+        "SIDE_BAR": {
+            "PRODUCTS": "Products",
+            "ALL": "All Products",
+            "ADD": "Add your products",
+            "INVENTORY": "Inventory",
+            "ORDERS": "Purchase orders",
+            "GIFT": "Gift Card",
+            "ANALYTICS": "Analytics",
+            "DASHBOARDS": "Dashboards",
+            "REPORTS": "Reports"
+        },
+        "INVENTORY": {
+            "CARD": "Card view",
+            "SELECT": "select a product"
+        },
+        "IMPORT_PRODUCTS": {
+            "PRODUCT": "Product",
+            "TITLE": "Title",
+            "FIELD": "This field",
+            "TYPE": "Product type",
+            "SELECT": " Select a",
+            "CATEGORY": "category !",
+            "SELECTED_CATEGORY": "Selected category :",
+            "DESCRIPTION": "Description",
+            "FILE": "File",
+            "IMAGE": "The image must be in ",
+            "OR": "or",
+            "FORMAT": "format !",
+            "PRICING": "Pricing",
+            "QUANTITY": "Quantity",
+            "PRICE": "Price",
+            "AVAILABLE": "Available",
+            "SUBMIT": "Submit",
+            "CARD": "Card preview"
+        }
     }
 }

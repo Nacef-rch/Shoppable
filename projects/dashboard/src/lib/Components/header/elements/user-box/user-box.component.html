@@ -17,12 +17,16 @@
                             </span>
                         </button>
                         <div ngbDropdownMenu>
-                            <button class="dropdown-item">Menus</button>
-                            <button class="dropdown-item">Settings</button>
-                            <h6 class="dropdown-header">Header</h6>
-                            <button class="dropdown-item">Actions</button>
-                            <div class="dropdown-divider"></div>
-                            <button class="dropdown-item">Dividers</button>
+                            <!-- <button class="dropdown-item">Menus</button> -->
+                            <button class="dropdown-item">
+                                {{ 'DASH.USER_BOX.SETT' | translate }}
+                            </button>
+                            <!-- <h6 class="dropdown-header">Header</h6> -->
+                            <button class="dropdown-item">
+                                {{ 'DASH.USER_BOX.ACT' | translate }}
+                            </button>
+                            <!-- <div class="dropdown-divider"></div>
+                            <button class="dropdown-item">Dividers</button> -->
                         </div>
                     </div>
                 </div>
@@ -42,6 +46,7 @@
                         <i class="fa text-white fa-calendar pr-1 pl-1"></i>
                     </button>
                 </div>
+                <lib-lang-switcher></lib-lang-switcher>
             </div>
         </div>
     </div>

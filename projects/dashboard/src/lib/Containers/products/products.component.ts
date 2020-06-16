@@ -1,15 +1,12 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { startWith, map } from 'rxjs/operators';
+import { Observable, Subscription } from 'rxjs';
+
 import { ProductFacade } from '@product/+store/product.facade';
 import { ProductImport } from '@product/models/product.model';
-import { Observable } from 'rxjs';
+import { ImportProductModel } from '@dash/constants/page-titre.constant';
 import { ImageUploadService } from '@shared/services/imageUpload.service';
-import { startWith, map, timeout } from 'rxjs/operators';
-
-interface Category {
-    value: string;
-    viewValue: string;
-}
 
 @Component({
     selector: 'lib-products',
@@ -17,43 +14,34 @@ interface Category {
     styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-    options: any[] = [];
-    filteredOptions: Observable<string[]>;
-
-    product: ProductImport;
-    selectedValue: string;
-    public productForm: FormGroup;
-    // public imgUrlTest: Observable<string> = this.imageUp.downloadURL;
-    public imgUrlTest;
-    heading = 'Add product';
-    subheading =
-        'Tabs are used to split content between multiple sections. Wide variety available.';
-    icon = 'pe-7s-drawer icon-gradient bg-happy-itmeo';
-    categorys: Category[] = [
-        { value: 'First', viewValue: 'First' },
-        { value: 'Second', viewValue: 'Second' },
-        { value: 'Third', viewValue: 'Third' }
-    ];
-    titre = 'short sleeve t-sirt';
-
-    public error$: Observable<string> = this.prodFacade.error$;
+    private CategorySub: Subscription;
+    private LoadSub: Subscription;
     public isLoading$: Observable<boolean> = this.prodFacade.loading$;
-    isLoading;
+    public productForm: FormGroup;
+    public options: any[] = [];
+    public filteredOptions: Observable<string[]>;
+    public product: ProductImport;
+    public selectedValue: string;
+    public heading: string = ImportProductModel.heading;
+    public subheading: string = ImportProductModel.subheading;
+    public icon: string = ImportProductModel.icon;
+    public isLoading: boolean;
+
     constructor(
         private cd: ChangeDetectorRef,
         public prodFacade: ProductFacade,
         public imageUp: ImageUploadService
     ) {}
     public ngOnInit(): void {
-        this.prodFacade.storeCategories$.subscribe((data) => {
+        this.CategorySub = this.prodFacade.storeCategories$.subscribe((data) => {
             data.forEach((categoryRes) => {
                 this.options.push(categoryRes);
             });
+
             this.productForm = new FormGroup({
                 Title: new FormControl(null, [Validators.required, Validators.minLength(4)]),
                 Description: new FormControl(null),
                 Media: new FormControl(null),
-
                 category: new FormControl(null, [Validators.required]),
                 unitPrice: new FormControl(null, [Validators.required]),
                 quantityInStock: new FormControl(null, [Validators.required])
@@ -63,10 +51,6 @@ export class ProductsComponent implements OnInit {
                 startWith(''),
                 map((value) => this._filter(value))
             );
-            //this.options.push();
-
-            //this.options.push(test[0]);
-            // console.log(data);
         });
     }
     public onSubmit(): void {
@@ -92,12 +76,14 @@ export class ProductsComponent implements OnInit {
     public ngOnDestroy(): void {
         this.prodFacade.clearError();
         this.prodFacade.clearSuccess();
+        this.CategorySub.unsubscribe();
+        this.LoadSub.unsubscribe();
     }
-    onFileChange(event) {
+    public onFileChange(event): void {
         this.imageUp.onFileSelected(event);
         this.isLoading = true;
         setTimeout(() => {
-            this.isLoading$.subscribe((res) => {
+            this.LoadSub = this.isLoading$.subscribe((res) => {
                 if (res == false) {
                     this.isLoading = false;
                     const ImageUrl = this.imageUp.fb;

@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
 
-import { DashRoutingModule } from './dash-routing.module';
-
-import { PageTitleComponent } from './Components/page-title/page-title.component';
-import { HeaderComponent } from './Components/header/header.component';
-import { SearchBoxComponent } from './Components/header/elements/search-box/search-box.component';
-import { UserBoxComponent } from './Components/header/elements/user-box/user-box.component';
-import { SidebarComponent } from './Components/sidebar/sidebar.component';
-import { LogoComponent } from './Components/sidebar/elements/logo/logo.component';
-import { FooterComponent } from './Components/footer/footer.component';
-import { ProductsComponent } from './containers/products/products.component';
-import { BaseLayoutComponent } from './Containers/base-layout/base-layout.component';
+//Modules
+import { DashRoutingModule } from '@dash/dash-routing.module';
 import { SharedModule } from '@shared/shared.module';
-import { ProductViewComponent } from './components/product-view/product-view.component';
-import { ProductInventoryComponent } from './Containers/product-inventory/product-inventory.component';
-import { GetProductsComponent } from './Components/get-products/get-products.component';
+
+//Containers
+import { BaseLayoutComponent } from '@dash/Containers/base-layout/base-layout.component';
+import { ProductsComponent } from '@dash/containers/products/products.component';
+
+//Components
+import { PageTitleComponent } from '@dash/Components/page-title/page-title.component';
+import { HeaderComponent } from '@dash/Components/header/header.component';
+import { SearchBoxComponent } from '@dash/Components/header/elements/search-box/search-box.component';
+import { UserBoxComponent } from '@dash/Components/header/elements/user-box/user-box.component';
+import { SidebarComponent } from '@dash/Components/sidebar/sidebar.component';
+import { FooterComponent } from '@dash/Components/footer/footer.component';
+import { ProductViewComponent } from '@dash/components/product-view/product-view.component';
+import { ProductInventoryComponent } from '@dash/Containers/product-inventory/product-inventory.component';
+import { GetProductsComponent } from '@dash/Components/get-products/get-products.component';
 
 @NgModule({
     declarations: [
@@ -24,7 +27,6 @@ import { GetProductsComponent } from './Components/get-products/get-products.com
         SearchBoxComponent,
         UserBoxComponent,
         SidebarComponent,
-        LogoComponent,
         FooterComponent,
         ProductsComponent,
         ProductViewComponent,

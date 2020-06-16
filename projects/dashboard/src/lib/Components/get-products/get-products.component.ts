@@ -1,8 +1,9 @@
-import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit, ChangeDetectionStrategy, EventEmitter, Output } from '@angular/core';
+import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
-import { ProductFacade } from '@product/+store/product.facade';
 import { Observable } from 'rxjs';
+
+import { ProductFacade } from '@product/+store/product.facade';
 import { StoreProducts } from '@product/models/product.model';
 
 @Component({
@@ -22,8 +23,8 @@ export class GetProductsComponent implements OnInit {
         'Incoming',
         'Edit'
     ];
-    dataSource;
-    data;
+    dataSource: MatTableDataSource<StoreProducts>;
+    data: StoreProducts[];
     public Products$: Observable<StoreProducts[]> = this.ProductFacade.storeProducts$;
 
     selection = new SelectionModel<StoreProducts>(true, []);
@@ -34,15 +35,15 @@ export class GetProductsComponent implements OnInit {
             this.data = Object.assign(resData);
         });
     }
-    isAllSelected() {
+    public isAllSelected(): boolean {
         const numSelected = this.selection.selected.length;
         const numRows = this.dataSource.data.length;
         return numSelected === numRows;
     }
-    passClick(row) {
+    public passClick(row): void {
         this.pressedProduct.emit(row);
     }
-    changeStock(productId, StockNum) {
+    public changeStock(productId, StockNum): void {
         this.data.forEach((element) => {
             if (element.productId == productId) {
                 element.quantityInStock = StockNum;
@@ -53,12 +54,12 @@ export class GetProductsComponent implements OnInit {
     }
 
     /** Selects all rows if they are not all selected; otherwise clear selection. */
-    masterToggle() {
+    public masterToggle(): void {
         this.isAllSelected()
             ? this.selection.clear()
             : this.dataSource.data.forEach((row) => this.selection.select(row));
     }
-    removeSelectedRows() {
+    public removeSelectedRows(): void {
         this.selection.selected.forEach((item, i) => {
             const index: number = this.data.findIndex((d) => d === item);
             console.log(this.data.findIndex((d) => d === item));
@@ -72,7 +73,7 @@ export class GetProductsComponent implements OnInit {
     }
 
     /** The label for the checkbox on the passed row */
-    checkboxLabel(row?: StoreProducts): string {
+    public checkboxLabel(row?: StoreProducts): string {
         if (!row) {
             return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
         }

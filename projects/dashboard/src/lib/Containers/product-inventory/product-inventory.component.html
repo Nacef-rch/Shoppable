@@ -16,8 +16,11 @@
             <div class="main-card mb-3 card">
                 <div class="card-body">
                     <h2>
-                        Card view<small
-                            ><i><sub>select a product</sub></i></small
+                        {{ 'DASH.INVENTORY.CARD' | translate
+                        }}<small
+                            ><i
+                                ><sub> {{ 'DASH.INVENTORY.SELECT' | translate }}</sub></i
+                            ></small
                         >
                     </h2>
                     <lib-product-view

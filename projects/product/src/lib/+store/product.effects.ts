@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
-
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { switchMap, catchError, map, tap } from 'rxjs/operators';
+import { switchMap, catchError, map } from 'rxjs/operators';
 
 import * as ProductActions from '@product/+store/product.actions';
+import { ProductImport } from '@product/models/product.model';
 
 import { handleError } from '@authentication/helpers/handleError';
-
 import { ApiService } from '@core/services/api/api.service';
 import { I18nService } from '@i18n/services/i18n.service';
-import { ProductImport } from '@product/models/product.model';
 
 @Injectable()
 export class ProductEffects {

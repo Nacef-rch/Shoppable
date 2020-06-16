@@ -1,20 +1,15 @@
 <div class="main-card mb-3 card">
-    <!--Card-->
-
     <div class="card card-cascade card-ecommerce wider">
         <br />
-        <!--Card image-->
+
         <div class="view view-cascade overlay">
             <img class="card-img-top" src="{{ imgUrl ? imgUrl : imgUrlFill }}" alt="" />
             <a>
                 <div class="mask rgba-white-slight"></div>
             </a>
         </div>
-        <!--/.Card image-->
 
-        <!--Card content-->
         <div class="card-body card-body-cascade text-center">
-            <!--Category & Title-->
             <h5>{{ category ? category : categoryFill }}</h5>
             <h4 class="card-title">
                 <strong
@@ -22,12 +17,10 @@
                 >
             </h4>
 
-            <!--Description-->
             <p class="card-text">
                 {{ description ? description : descriptionFill }}
             </p>
 
-            <!--Card footer-->
             <div class="card-footer">
                 <span class="float-left">{{ price ? price : priceFill }}$</span>
                 <span class="float-right">
@@ -44,7 +37,5 @@
                 </span>
             </div>
         </div>
-        <!--/.Card content-->
     </div>
-    <!--/.Card-->
 </div>

@@ -1,91 +1,73 @@
+//ANGULAR MODULES
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoadingSpinnerComponent } from '@shared/components/loading-spinner/loading-spinner.component';
 import { CommonModule } from '@angular/common';
-import { NotifierModule } from 'angular-notifier';
+import { environment } from '@env/environment';
 
-import { InternationalizationModule } from '@i18n/internationalization.module';
-import { customNotifierOptions } from '@shared/helpers/module-import.helper';
-import { DirectivesModule } from './directives/directives.module';
+//ANGULAR MATERIAL MODULES
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {
-    PerfectScrollbarModule,
-    PerfectScrollbarConfigInterface,
-    PERFECT_SCROLLBAR_CONFIG
-} from 'ngx-perfect-scrollbar';
-import { AngularFireModule } from '@angular/fire';
-import { environment } from '@env/environment';
-import {
-    AngularFireStorageModule,
-    AngularFireStorageReference,
-    AngularFireUploadTask
-} from '@angular/fire/storage';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-    suppressScrollX: true
-};
+//BOOTSTRAP MODULES
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+//FIREBASE
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
+//OTHER MODULES
+import { PerfectScrollbarModule, PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { NotifierModule } from 'angular-notifier';
+
+//LIBS
+import { LoadingSpinnerComponent } from '@shared/components/loading-spinner/loading-spinner.component';
+import {
+    customNotifierOptions,
+    DEFAULT_PERFECT_SCROLLBAR_CONFIG
+} from '@shared/helpers/module-import.helper';
+import { DirectivesModule } from '@shared/directives/directives.module';
+import { InternationalizationModule } from '@i18n/internationalization.module';
+
+const sharedModules: any[] = [
+    HttpClientModule,
+    FormsModule,
+    CommonModule,
+    DirectivesModule,
+    ReactiveFormsModule,
+    NotifierModule.withConfig(customNotifierOptions),
+    MatIconModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSelectModule,
+    NgbModule,
+    InternationalizationModule,
+    PerfectScrollbarModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'cloud'),
+    MatTableModule,
+    MatPaginatorModule,
+    MatAutocompleteModule
+];
 
 @NgModule({
     declarations: [LoadingSpinnerComponent],
-    imports: [
-        HttpClientModule,
-        FormsModule,
-        CommonModule,
-        DirectivesModule,
-        ReactiveFormsModule,
-        NotifierModule.withConfig(customNotifierOptions),
-        MatIconModule,
-        MatCheckboxModule,
-        MatFormFieldModule,
-        MatButtonModule,
-        MatInputModule,
-        MatSelectModule,
-        NgbModule,
-        PerfectScrollbarModule,
-        AngularFireStorageModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig, 'cloud'),
-        MatTableModule,
-        MatPaginatorModule,
-        MatAutocompleteModule
-    ],
+    imports: sharedModules,
     providers: [
         {
             provide: PERFECT_SCROLLBAR_CONFIG,
-            // DROPZONE_CONFIG,
             useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-            // DEFAULT_DROPZONE_CONFIG,
         }
     ],
-    exports: [
-        LoadingSpinnerComponent,
-        HttpClientModule,
-        FormsModule,
-        CommonModule,
-        ReactiveFormsModule,
-        InternationalizationModule,
-        NotifierModule,
-        DirectivesModule,
-        MatIconModule,
-        MatCheckboxModule,
-        MatFormFieldModule,
-        MatButtonModule,
-        MatInputModule,
-        MatSelectModule,
-        NgbModule,
-        PerfectScrollbarModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatAutocompleteModule
-    ]
+    exports: [LoadingSpinnerComponent, ...sharedModules]
 })
 export class SharedModule {}

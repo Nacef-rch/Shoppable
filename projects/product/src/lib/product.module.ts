@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
-
-import { StoreModule } from '@ngrx/store';
-
-import { EffectsModule } from '@ngrx/effects';
-
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { productStoreName, productReducer, productInitialState } from './+store/product.reducer';
-import { ProductEffects } from './+store/product.effects';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+
+import {
+    productStoreName,
+    productReducer,
+    productInitialState
+} from '@product/+store/product.reducer';
+import { ProductEffects } from '@product/+store/product.effects';
 
 @NgModule({
     declarations: [],

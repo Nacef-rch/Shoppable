@@ -26,14 +26,18 @@
                         <ngb-accordion>
                             <ngb-panel>
                                 <ng-template ngbPanelHeader>
-                                    <div class="vsm-header">Products</div>
+                                    <div class="vsm-header">
+                                        {{ 'DASH.SIDE_BAR.PRODUCTS' | translate }}
+                                    </div>
                                 </ng-template>
                             </ngb-panel>
                             <ngb-panel id="elementsMenu">
                                 <ng-template ngbPanelHeader>
                                     <button ngbPanelToggle class="vsm-link">
                                         <i class="vsm-icon pe-7s-diamond"></i>
-                                        <span class="vsm-title">All Products</span>
+                                        <span class="vsm-title">{{
+                                            'DASH.SIDE_BAR.ALL' | translate
+                                        }}</span>
                                         <i class="vsm-arrow"></i>
                                     </button>
                                 </ng-template>
@@ -46,9 +50,9 @@
                                                     routerLink="/admin/products/new"
                                                     class="vsm-link"
                                                 >
-                                                    <span class="vsm-title"
-                                                        >Add your products</span
-                                                    ></a
+                                                    <span class="vsm-title">{{
+                                                        'DASH.SIDE_BAR.ADD' | translate
+                                                    }}</span></a
                                                 >
                                             </div>
                                             <div class="vsm-item">
@@ -57,7 +61,9 @@
                                                     routerLink="/admin/products/inventory"
                                                     class="vsm-link"
                                                 >
-                                                    <span class="vsm-title">Inventory</span></a
+                                                    <span class="vsm-title">{{
+                                                        'DASH.SIDE_BAR.INVENTORY' | translate
+                                                    }}</span></a
                                                 >
                                             </div>
                                         </div>
@@ -72,7 +78,9 @@
                                 class="vsm-link"
                             >
                                 <i class="vsm-icon pe-7s-graph2"></i>
-                                <span class="vsm-title">Purchase orders</span>
+                                <span class="vsm-title">{{
+                                    'DASH.SIDE_BAR.ORDERS' | translate
+                                }}</span>
                             </a>
                         </div>
                         <div class="vsm-item">
@@ -82,10 +90,12 @@
                                 class="vsm-link"
                             >
                                 <i class="vsm-icon pe-7s-graph2"></i>
-                                <span class="vsm-title">Gift Cards</span>
+                                <span class="vsm-title">{{
+                                    'DASH.SIDE_BAR.GIFT' | translate
+                                }}</span>
                             </a>
                         </div>
-                        <div class="vsm-header">Analytics</div>
+                        <div class="vsm-header">{{ 'DASH.SIDE_BAR.ANALYTICS' | translate }}</div>
                         <div class="vsm-item">
                             <a
                                 routerLink="/charts/chartjs"
@@ -93,7 +103,9 @@
                                 class="vsm-link"
                             >
                                 <i class="vsm-icon pe-7s-graph2"></i>
-                                <span class="vsm-title">Dashboards</span>
+                                <span class="vsm-title">{{
+                                    'DASH.SIDE_BAR.DASHBOARDS' | translate
+                                }}</span>
                             </a>
                         </div>
                         <div class="vsm-item">
@@ -103,7 +115,9 @@
                                 class="vsm-link"
                             >
                                 <i class="vsm-icon pe-7s-graph2"></i>
-                                <span class="vsm-title">Reports</span>
+                                <span class="vsm-title">{{
+                                    'DASH.SIDE_BAR.REPORTS' | translate
+                                }}</span>
                             </a>
                         </div>
                     </div>

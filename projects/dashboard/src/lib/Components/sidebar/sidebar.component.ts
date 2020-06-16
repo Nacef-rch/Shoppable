@@ -1,30 +1,30 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { ThemeOptions } from '../../theme-options';
-
 import { ActivatedRoute } from '@angular/router';
+
+import { ThemeOptions } from '@dash/constants/theme-options';
 
 @Component({
     selector: 'app-sidebar',
     templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
+    @HostListener('window:resize', ['$event'])
     public extraParameter: any;
-
-    constructor(public globals: ThemeOptions, private activatedRoute: ActivatedRoute) {}
-
     private newInnerWidth: number;
     private innerWidth: number;
     activeId = 'dashboardsMenu';
 
-    toggleSidebar() {
+    constructor(public globals: ThemeOptions, private activatedRoute: ActivatedRoute) {}
+
+    public toggleSidebar(): void {
         this.globals.toggleSidebar = !this.globals.toggleSidebar;
     }
 
-    sidebarHover() {
+    public sidebarHover(): void {
         this.globals.sidebarHover = !this.globals.sidebarHover;
     }
 
-    ngOnInit() {
+    public ngOnInit(): void {
         setTimeout(() => {
             this.innerWidth = window.innerWidth;
             if (this.innerWidth < 1200) {
@@ -35,8 +35,7 @@ export class SidebarComponent implements OnInit {
         this.extraParameter = this.activatedRoute.snapshot.firstChild.data.extraParameter;
     }
 
-    @HostListener('window:resize', ['$event'])
-    onResize(event) {
+    public onResize(event): void {
         this.newInnerWidth = event.target.innerWidth;
 
         if (this.newInnerWidth < 1200) {

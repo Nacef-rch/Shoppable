@@ -1,6 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
 
-import { ThemeOptions } from '../../theme-options';
+import { ThemeOptions } from '@dash/constants/theme-options';
 
 @Component({
     selector: 'app-header',
@@ -10,17 +10,17 @@ export class HeaderComponent {
     constructor(public globals: ThemeOptions) {}
 
     @HostBinding('class.isActive')
-    get isActiveAsGetter() {
+    public get isActiveAsGetter(): boolean {
         return this.isActive;
     }
 
     isActive: boolean;
 
-    toggleSidebarMobile() {
+    public toggleSidebarMobile(): void {
         this.globals.toggleSidebarMobile = !this.globals.toggleSidebarMobile;
     }
 
-    toggleHeaderMobile() {
+    public toggleHeaderMobile(): void {
         this.globals.toggleHeaderMobile = !this.globals.toggleHeaderMobile;
     }
 }

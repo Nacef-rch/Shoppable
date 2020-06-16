@@ -1,4 +1,5 @@
 import { NotifierOptions } from 'angular-notifier';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 export const customNotifierOptions: NotifierOptions = {
     position: {
@@ -39,4 +40,7 @@ export const customNotifierOptions: NotifierOptions = {
         },
         overlap: 150
     }
+};
+export const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+    suppressScrollX: true
 };
