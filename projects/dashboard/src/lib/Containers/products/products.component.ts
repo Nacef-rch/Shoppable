@@ -76,8 +76,8 @@ export class ProductsComponent implements OnInit {
     public ngOnDestroy(): void {
         this.prodFacade.clearError();
         this.prodFacade.clearSuccess();
-        this.CategorySub.unsubscribe();
-        this.LoadSub.unsubscribe();
+        // this.CategorySub.unsubscribe();
+        // this.LoadSub.unsubscribe();
     }
     public onFileChange(event): void {
         this.imageUp.onFileSelected(event);

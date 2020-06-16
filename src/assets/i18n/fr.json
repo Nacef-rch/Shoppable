@@ -47,7 +47,7 @@
             "ADD": "Ajouté par",
             "INCOMING": "revenu",
             "AVAILABLE": "Disponible",
-            "EDIT": "Modifier la quantité disponible",
+            "EDIT": "Modifier la quantité",
             "SAVE": "Enregistrer"
         },
         "USER_BOX": {
@@ -79,7 +79,7 @@
             "SELECTED_CATEGORY": "Catégorie sélectionnée:",
             "DESCRIPTION": "Description",
             "FILE": "Fichier",
-            "IMAGE": "L'image doit être au format",
+            "IMAGE": "L'image doit être au format ",
             "OR": "ou",
             "FORMAT": "",
             "PRICING": "Tarification",
