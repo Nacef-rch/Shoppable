@@ -76,6 +76,7 @@ export class ProductFacade {
     public clearError(): void {
         this.store.dispatch(productActions.CLEAR_ERROR());
     }
+
     public clearSuccess(): void {
         this.store.dispatch(productActions.CLEAR_SUCCESS());
     }

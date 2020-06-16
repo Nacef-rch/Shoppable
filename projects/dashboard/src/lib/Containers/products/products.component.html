@@ -20,22 +20,25 @@
                                 <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
                             </mat-error>
                         </mat-form-field>
-
                         <mat-form-field appearance="outline" class="full-width-field">
                             <mat-label>Product type</mat-label>
-                            <mat-select
-                                [(ngModel)]="selectedValue"
-                                name="category"
+                            <input
+                                type="text"
+                                placeholder="Pick one"
+                                aria-label="Number"
+                                matInput
                                 formControlName="category"
+                                [matAutocomplete]="auto"
                                 #Category
-                            >
+                            />
+                            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                                 <mat-option
-                                    *ngFor="let category of categorys"
-                                    [value]="category.value"
+                                    *ngFor="let option of filteredOptions | async"
+                                    [value]="option"
                                 >
-                                    {{ category.viewValue }}
+                                    {{ option }}
                                 </mat-option>
-                            </mat-select>
+                            </mat-autocomplete>
                             <mat-error
                                 *ngIf="
                                     productForm.get('category').hasError('required') &&
@@ -47,7 +50,7 @@
                         </mat-form-field>
 
                         <p *ngIf="!productForm.get('category').hasError('required')">
-                            Selected category: {{ selectedValue }}
+                            Selected category: {{ Category.value }}
                         </p>
                         <mat-form-field appearance="outline" class="full-width-field">
                             <mat-label>Description</mat-label>
@@ -113,25 +116,6 @@
                                 Available is
                                 <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
                             </mat-error>
-                        </mat-form-field>
-
-                        <mat-form-field class="example-full-width">
-                            <input
-                                type="text"
-                                placeholder="Pick one"
-                                aria-label="Number"
-                                matInput
-                                formControlName="category"
-                                [matAutocomplete]="auto"
-                            />
-                            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                                <mat-option
-                                    *ngFor="let option of filteredOptions | async"
-                                    [value]="option"
-                                >
-                                    {{ option }}
-                                </mat-option>
-                            </mat-autocomplete>
                         </mat-form-field>
                     </div>
 
