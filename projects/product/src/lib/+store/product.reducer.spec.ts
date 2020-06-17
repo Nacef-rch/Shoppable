@@ -1,6 +1,5 @@
 import * as productAction from '@product/+store/product.actions';
 import { productInitialState, productReducer as reducer } from '@product/+store/product.reducer';
-
 import * as productMock from '@product/mocks/products.mock.json';
 
 describe('productReducer', () => {

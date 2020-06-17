@@ -1,10 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { Store } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
+
 import * as productAction from '@product/+store/product.actions';
 import { ProductFacade } from '@product/+store/product.facade';
 import { ProductStore } from '@product/+store/product.reducer';
-
 import * as mockProduct from '@product/mocks/products.mock.json';
 
 describe('UserFacade', () => {

@@ -52,5 +52,18 @@
     "QuantitySock": {
         "productId": "string",
         "quantityInStock": 26
+    },
+    "productResMock": {
+        "addedAt": "TueJ",
+        "categoryId": "t-shirt",
+        "commentCount": 0,
+        "description": "eazeaze",
+        "imageUrl": "aeazeaze",
+        "likeCount": 0,
+        "name": "eazeazeaze",
+        "quantityInStock": 64684,
+        "storeId": "Mirra",
+        "unitPrice": 164,
+        "userHandle": "eazeaz"
     }
 }

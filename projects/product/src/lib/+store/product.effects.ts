@@ -127,8 +127,7 @@ export class ProductEffects {
                         });
                     }),
                     catchError((error) => {
-                        console.log('error');
-                        console.log(error);
+                        
                         const errorMessage = handleError(error, this.translate.lang);
                         return of(ProductActions.IMPORT_FAIL({ errorMessage }));
                     })
