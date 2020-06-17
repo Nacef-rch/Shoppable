@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`productReducer CHANGE_PRODUCT_STOCK CHANGE_PRODUCT_STOCK 1`] = `
+Object {
+  "loading": false,
+  "productError": null,
+  "productSuccess": null,
+  "storeCategories": Array [],
+  "storeProducts": Array [],
+}
+`;
+
+exports[`productReducer DELETE_PRODUCT DELETE_PRODUCT 1`] = `
+Object {
+  "loading": false,
+  "productError": null,
+  "productSuccess": null,
+  "storeCategories": Array [],
+  "storeProducts": Array [],
+}
+`;
+
+exports[`productReducer ERROR+SUCESS CLEAR_ERROR 1`] = `
+Object {
+  "loading": false,
+  "productError": null,
+  "productSuccess": null,
+  "storeCategories": Array [],
+  "storeProducts": Array [],
+}
+`;
+
+exports[`productReducer ERROR+SUCESS CLEAR_SUCCESS 1`] = `
+Object {
+  "loading": false,
+  "productError": null,
+  "productSuccess": null,
+  "storeCategories": Array [],
+  "storeProducts": Array [],
+}
+`;
+
+exports[`productReducer FETECH CATEGORY SUCESS & START FETCH_STORE_CATEGORY_START 1`] = `
+Object {
+  "loading": true,
+  "productError": null,
+  "productSuccess": null,
+  "storeCategories": Array [],
+  "storeProducts": Array [],
+}
+`;
+
+exports[`productReducer FETECH CATEGORY SUCESS & START FETCH_STORE_CATEGORY_SUCCESS 1`] = `
+Object {
+  "loading": false,
+  "productError": null,
+  "productSuccess": null,
+  "storeCategories": Array [
+    Object {
+      "lostOfCategories": Array [
+        "firs",
+        "second",
+      ],
+      "storeId": "string",
+    },
+  ],
+  "storeProducts": Array [],
+}
+`;
+
+exports[`productReducer FETECH STORE SUCESS & START FETCH_STORE_PRODUCTS_START 1`] = `
+Object {
+  "loading": true,
+  "productError": null,
+  "productSuccess": null,
+  "storeCategories": Array [],
+  "storeProducts": Array [],
+}
+`;
+
+exports[`productReducer FETECH STORE SUCESS & START FETCH_STORE_PRODUCTS_SUCCESS 1`] = `
+Object {
+  "loading": false,
+  "productError": null,
+  "productSuccess": null,
+  "storeCategories": Array [],
+  "storeProducts": Array [
+    Object {
+      "categoryId": "string",
+      "description": "string",
+      "imageUrl": "string",
+      "name": "string",
+      "position": 1,
+      "productId": "string",
+      "quantityInStock": 27,
+      "storeId": "string",
+      "unitPrice": 26,
+      "userHandle": "string",
+    },
+    Object {
+      "categoryId": "string",
+      "description": "string",
+      "imageUrl": "string",
+      "name": "string",
+      "position": 2,
+      "productId": "string",
+      "quantityInStock": 27,
+      "storeId": "string",
+      "unitPrice": 26,
+      "userHandle": "string",
+    },
+  ],
+}
+`;
+
+exports[`productReducer LOADING LOADING_START 1`] = `
+Object {
+  "loading": true,
+  "productError": null,
+  "productSuccess": null,
+  "storeCategories": Array [],
+  "storeProducts": Array [],
+}
+`;
+
+exports[`productReducer LOADING LOADING_STOP 1`] = `
+Object {
+  "loading": false,
+  "productError": null,
+  "productSuccess": null,
+  "storeCategories": Array [],
+  "storeProducts": Array [],
+}
+`;
+
+exports[`productReducer undefined action \`IMPORT_FAIL\` 1`] = `
+Object {
+  "loading": false,
+  "productError": "Error",
+  "productSuccess": null,
+  "storeCategories": Array [],
+  "storeProducts": Array [],
+}
+`;
+
+exports[`productReducer undefined action IMPORT_START 1`] = `
+Object {
+  "loading": true,
+  "productError": null,
+  "productSuccess": null,
+  "storeCategories": Array [],
+  "storeProducts": Array [],
+}
+`;
+
+exports[`productReducer undefined action PRODUCT IMPORT SUCCESS , START AND FAIL \`IMPORT_SUCCESS\` 1`] = `
+Object {
+  "loading": false,
+  "productError": null,
+  "productSuccess": "success",
+  "storeCategories": Array [],
+  "storeProducts": Array [],
+}
+`;
+
+exports[`productReducer undefined action should return the default state 1`] = `
+Object {
+  "loading": false,
+  "productError": null,
+  "productSuccess": null,
+  "storeCategories": Array [],
+  "storeProducts": Array [],
+}
+`;

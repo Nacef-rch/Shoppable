@@ -1,51 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-    <file path="E:\My Work\Shoppable\projects\authentication\src\lib\helpers\local-storage.helper.spec.ts">
-        <testCase name="handleAuthentication should decode the token and give a user object" duration="6"/>
-        <testCase name="local-storage dummy local-storage dummy" duration="0"/>
+    <file path="E:\My Work\Shoppable\projects\product\Storyshots.spec.ts">
+        <testCase name="local-storage dummy local-storage dummy" duration="3"/>
     </file>
-    <file path="E:\My Work\Shoppable\projects\authentication\src\lib\authentication.module.spec.ts">
-        <testCase name="authModule should create an instance" duration="1"/>
+    <file path="E:\My Work\Shoppable\projects\product\src\lib\+store\product.facade.spec.ts">
+        <testCase name="UserFacade should be created" duration="25"/>
+        <testCase name="UserFacade should dispatch a productAction.IMPORT_SUCCESS action when productSuccess is called" duration="9"/>
+        <testCase name="UserFacade should dispatch a productAction.DELETE_PRODUCT action when productDelete is called" duration="13"/>
+        <testCase name="UserFacade should dispatch a productAction.CHANGE_PRODUCT_STOCK action when productStock is called" duration="8"/>
+        <testCase name="UserFacade should dispatch a productAction.IMPORT_START action when importStart is called" duration="8"/>
+        <testCase name="UserFacade should dispatch a productAction.FETCH_STORE_PRODUCTS_START action when fetchStoreStart is called" duration="9"/>
+        <testCase name="UserFacade should dispatch a productAction.FETCH_STORE_CATEGORY_START action when fetchCategoryStart is called" duration="7"/>
+        <testCase name="UserFacade should dispatch a productAction.CLEAR_ERROR action when clearError is called" duration="7"/>
+        <testCase name="UserFacade should dispatch a productAction.CLEAR_SUCCESS action when clearSuccess is called" duration="7"/>
+        <testCase name="UserFacade should dispatch a productAction.LOADING_START action when loadingStart is called" duration="9"/>
+        <testCase name="UserFacade should dispatch a productAction.LOADING_STOP action when loadingStop is called" duration="6"/>
+        <testCase name="UserFacade should dispatch a productAction.IMPORT_FAIL action when importFail is called" duration="6"/>
     </file>
-    <file path="E:\My Work\Shoppable\projects\authentication\src\lib\+store\auth.facade.spec.ts">
-        <testCase name="UserFacade should be created" duration="32"/>
-        <testCase name="UserFacade should dispatch a authActions.AUTHENTICATE_SUCCESS action when AuthSuccess is called" duration="12"/>
-        <testCase name="UserFacade should dispatch a authActions.LOGOUT action when Logout is called" duration="13"/>
-        <testCase name="UserFacade should dispatch a authActions.LOGIN_START action when Logout is called" duration="17"/>
-        <testCase name="UserFacade should dispatch a authActions.AUTHENTICATE_FAIL action when AuthFail is called" duration="12"/>
-        <testCase name="UserFacade should dispatch a authActions.SIGNUP_START action when SignupStart is called" duration="14"/>
-        <testCase name="UserFacade should dispatch a authActions.CLEAR_ERROR action when ClearError is called" duration="18"/>
-        <testCase name="UserFacade should dispatch a authActions.AUTO_LOGIN action when AutoLogin is called" duration="23"/>
+    <file path="E:\My Work\Shoppable\projects\product\src\lib\+store\product.reducer.spec.ts">
+        <testCase name="productReducer undefined action should return the default state" duration="3"/>
+        <testCase name="productReducer undefined action PRODUCT IMPORT SUCCESS , START AND FAIL `IMPORT_SUCCESS`" duration="0"/>
+        <testCase name="productReducer undefined action `IMPORT_FAIL`" duration="1"/>
+        <testCase name="productReducer undefined action IMPORT_START" duration="0"/>
+        <testCase name="productReducer DELETE_PRODUCT DELETE_PRODUCT" duration="1"/>
+        <testCase name="productReducer FETECH STORE SUCESS &amp; START FETCH_STORE_PRODUCTS_SUCCESS" duration="0"/>
+        <testCase name="productReducer FETECH STORE SUCESS &amp; START FETCH_STORE_PRODUCTS_START" duration="0"/>
+        <testCase name="productReducer FETECH CATEGORY SUCESS &amp; START FETCH_STORE_CATEGORY_SUCCESS" duration="0"/>
+        <testCase name="productReducer FETECH CATEGORY SUCESS &amp; START FETCH_STORE_CATEGORY_START" duration="1"/>
+        <testCase name="productReducer CHANGE_PRODUCT_STOCK CHANGE_PRODUCT_STOCK" duration="0"/>
+        <testCase name="productReducer LOADING LOADING_START" duration="1"/>
+        <testCase name="productReducer LOADING LOADING_STOP" duration="0"/>
+        <testCase name="productReducer ERROR+SUCESS CLEAR_ERROR" duration="1"/>
+        <testCase name="productReducer ERROR+SUCESS CLEAR_SUCCESS" duration="0"/>
     </file>
-    <file path="E:\My Work\Shoppable\projects\authentication\src\lib\+store\auth.effects.spec.ts">
-        <testCase name="UserEffects should be created" duration="29"/>
-        <testCase name="UserEffects [LOGIN] Should return authAction.AUTHENTICATE_SUCCESS, with the user, on success" duration="40"/>
-        <testCase name="UserEffects [LOGIN] Should return authAction.AUTHENTICATE_FAIL, with an Error, on Fail" duration="19"/>
-        <testCase name="UserEffects [SIGNUP] Should return authAction.AUTHENTICATE_SUCCESS, with the user, on success" duration="22"/>
-        <testCase name="UserEffects [SIGNUP] Should return authAction.AUTHENTICATE_FAIL, with an Error, on Fail" duration="16"/>
-        <testCase name="local-storage dummy local-storage dummy" duration="1"/>
-    </file>
-    <file path="E:\My Work\Shoppable\projects\authentication\src\lib\helpers\handleError.spec.ts">
-        <testCase name="HandleError HandleError on login should extract Wrong credentials, please try again ! from response `handleError`" duration="5"/>
-        <testCase name="HandleError HanldeError on Register should extract Email is already in use ! from response `handleError`" duration="0"/>
-        <testCase name="HandleError HanldeError on Register should extract Passwords must match ! from response `handleError`" duration="1"/>
-        <testCase name="HandleError HanldeError on Register should extract This handle is already taken ! from response `handleError`" duration="0"/>
-    </file>
-    <file path="E:\My Work\Shoppable\projects\authentication\src\lib\guards\auth.guard.spec.ts">
-        <testCase name="Auth Guard should be created" duration="20"/>
-        <testCase name="Auth Guard should return true if the user state is  logged in" duration="14"/>
-    </file>
-    <file path="E:\My Work\Shoppable\projects\authentication\src\lib\+store\auth.reducer.spec.ts">
-        <testCase name="authReducer undefined action should return the default state" duration="4"/>
-        <testCase name="authReducer undefined action AUTHENTICATE `AUTHENTICATE_SUCCESS`, should add a user in the state" duration="0"/>
-        <testCase name="authReducer undefined action `AUTHENTICATE_FAIL`, should add error in the state if there is error" duration="1"/>
-        <testCase name="authReducer LOGIN/SIGNUP `LOGIN_START`, should set loading to true in state" duration="0"/>
-        <testCase name="authReducer `SIGNUP_START`, should set Loading to false in state" duration="1"/>
-        <testCase name="authReducer LOGOUT should user state to initial state" duration="1"/>
-        <testCase name="authReducer CLEAR_ERROR should reset state to initial state" duration="0"/>
-        <testCase name="authReducer AUTO_LOGIN should reset state to initial state" duration="0"/>
-    </file>
-    <file path="E:\My Work\Shoppable\projects\authentication\Storyshots.spec.ts">
-        <testCase name="local-storage dummy local-storage dummy" duration="1"/>
+    <file path="E:\My Work\Shoppable\projects\product\src\lib\product.module.spec.ts">
+        <testCase name="InternationalizationModule should create an instance" duration="1"/>
     </file>
 </testExecutions>
