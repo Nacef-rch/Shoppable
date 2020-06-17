@@ -18,6 +18,7 @@ import { FooterComponent } from '@dash/Components/footer/footer.component';
 import { ProductViewComponent } from '@dash/components/product-view/product-view.component';
 import { ProductInventoryComponent } from '@dash/Containers/product-inventory/product-inventory.component';
 import { GetProductsComponent } from '@dash/Components/get-products/get-products.component';
+import { AllProductsComponent } from '@dash/Containers/all-products/all-products.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { GetProductsComponent } from '@dash/Components/get-products/get-products
         ProductsComponent,
         ProductViewComponent,
         ProductInventoryComponent,
-        GetProductsComponent
+        GetProductsComponent,
+        AllProductsComponent
     ],
     imports: [DashRoutingModule, SharedModule],
 

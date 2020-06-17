@@ -88,6 +88,11 @@
             "AVAILABLE": "Available",
             "SUBMIT": "Submit",
             "CARD": "Card preview"
+        },
+        "WELCOME": {
+            "YOUR": "Add your products",
+            "GET": "Get closer to your first sale by adding products, or import your existing product inventory.",
+            "ADD": "Add product"
         }
     }
 }

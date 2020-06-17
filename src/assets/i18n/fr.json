@@ -88,6 +88,11 @@
             "AVAILABLE": "Disponible",
             "SUBMIT": "Envoyé",
             "CARD": "Aperçu de la carte"
+        },
+        "WELCOME": {
+            "YOUR": "Ajoutez vos produits",
+            "GET": "Rapprochez-vous de votre première vente en ajoutant des produits ou importez votre inventaire de produits existant.",
+            "ADD": "Ajouter"
         }
     }
 }
