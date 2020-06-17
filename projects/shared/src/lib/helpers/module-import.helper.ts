@@ -4,7 +4,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 export const customNotifierOptions: NotifierOptions = {
     position: {
         horizontal: {
-            position: 'left',
+            position: 'right',
             distance: 12
         },
         vertical: {

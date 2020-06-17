@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, EventEmitter, Output } from
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
+import { NotifierService } from 'angular-notifier';
 
 import { ProductFacade } from '@product/+store/product.facade';
 import { StoreProducts } from '@product/models/product.model';
@@ -13,6 +14,7 @@ import { StoreProducts } from '@product/models/product.model';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GetProductsComponent implements OnInit {
+    private readonly notifier: NotifierService;
     @Output() pressedProduct = new EventEmitter<any>();
     displayedColumns: string[] = [
         'select',
@@ -26,11 +28,17 @@ export class GetProductsComponent implements OnInit {
     dataSource: MatTableDataSource<StoreProducts>;
     data: StoreProducts[];
     public Products$: Observable<StoreProducts[]> = this.ProductFacade.storeProducts$;
+    public success$: Observable<string> = this.ProductFacade.success$;
+    public error$: Observable<string> = this.ProductFacade.error$;
 
     selection = new SelectionModel<StoreProducts>(true, []);
-    constructor(private ProductFacade: ProductFacade) {}
+    constructor(private ProductFacade: ProductFacade, public notifierService: NotifierService) {
+        this.notifier = notifierService;
+    }
     ngOnInit(): void {
         this.Products$.subscribe((resData) => {
+            console.log(resData);
+
             this.dataSource = new MatTableDataSource<StoreProducts>(resData);
             this.data = Object.assign(resData);
         });
@@ -47,6 +55,16 @@ export class GetProductsComponent implements OnInit {
         this.data.forEach((element) => {
             if (element.productId == productId) {
                 element.quantityInStock = StockNum;
+            }
+        });
+        this.success$.subscribe((res) => {
+            if (res) {
+                this.notifier.notify('success', res);
+            }
+        });
+        this.error$.subscribe((res) => {
+            if (res) {
+                this.notifier.notify('error', res);
             }
         });
         this.dataSource = new MatTableDataSource<StoreProducts>(this.data);
@@ -68,6 +86,17 @@ export class GetProductsComponent implements OnInit {
             setTimeout(() => {
                 this.ProductFacade.productDelete(item.productId);
             }, i * 1000);
+        });
+        this.success$.subscribe((res) => {
+            if (res) {
+                console.log(res);
+                this.notifier.notify('success', res);
+            }
+        });
+        this.error$.subscribe((res) => {
+            if (res) {
+                this.notifier.notify('error', res);
+            }
         });
         this.selection = new SelectionModel<StoreProducts>(true, []);
     }

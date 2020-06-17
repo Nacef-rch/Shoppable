@@ -33,12 +33,14 @@ export class I18nService {
         if (this.switchMade) {
             this.setLanguage('en');
             this.lang = 'en';
+
             this.switchMade = false;
             return of(true);
         }
         this.switchMade = true;
         this.setLanguage('fr');
         this.lang = 'fr';
+
         return of(true);
     }
 }

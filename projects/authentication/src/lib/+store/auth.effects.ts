@@ -91,7 +91,8 @@ export class AuthEffects {
                 redirect: boolean;
             }) => {
                 if (authSuccessAction.redirect) {
-                    this.router.navigate(['admin']);
+                    console.log(authSuccessAction.redirect);
+                    this.router.navigate(['/']);
                 }
             }
         )
@@ -139,7 +140,7 @@ export class AuthEffects {
         tap(() => {
             this.authService.clearLogoutTimer();
             localStorage.removeItem('userData');
-            this.router.navigate(['auth/login']);
+            this.router.navigate(['/auth/login']);
         })
     );
     constructor(

@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { startWith, map } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
+import { NotifierService } from 'angular-notifier';
 
 import { ProductFacade } from '@product/+store/product.facade';
 import { ProductImport } from '@product/models/product.model';
@@ -14,9 +15,12 @@ import { ImageUploadService } from '@shared/services/imageUpload.service';
     styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+    private readonly notifier: NotifierService;
     private CategorySub: Subscription;
     private LoadSub: Subscription;
     public isLoading$: Observable<boolean> = this.prodFacade.loading$;
+    public success$: Observable<string> = this.prodFacade.success$;
+    public error$: Observable<string> = this.prodFacade.error$;
     public productForm: FormGroup;
     public options: any[] = [];
     public filteredOptions: Observable<string[]>;
@@ -26,12 +30,16 @@ export class ProductsComponent implements OnInit {
     public subheading: string = ImportProductModel.subheading;
     public icon: string = ImportProductModel.icon;
     public isLoading: boolean;
+    public MsgSuccess: string;
 
     constructor(
         private cd: ChangeDetectorRef,
         public prodFacade: ProductFacade,
-        public imageUp: ImageUploadService
-    ) {}
+        public imageUp: ImageUploadService,
+        public notifierService: NotifierService
+    ) {
+        this.notifier = notifierService;
+    }
     public ngOnInit(): void {
         this.CategorySub = this.prodFacade.storeCategories$.subscribe((data) => {
             data.forEach((categoryRes) => {
@@ -41,7 +49,7 @@ export class ProductsComponent implements OnInit {
             this.productForm = new FormGroup({
                 Title: new FormControl(null, [Validators.required, Validators.minLength(4)]),
                 Description: new FormControl(null),
-                Media: new FormControl(null),
+                Media: new FormControl(null, [Validators.required]),
                 category: new FormControl(null, [Validators.required]),
                 unitPrice: new FormControl(null, [Validators.required]),
                 quantityInStock: new FormControl(null, [Validators.required])
@@ -63,7 +71,6 @@ export class ProductsComponent implements OnInit {
             quantityInStock: this.productForm.value.quantityInStock
         };
 
-        console.log(this.product);
         this.prodFacade.importStart(
             this.product.categoryId,
             this.product.name,
@@ -72,6 +79,16 @@ export class ProductsComponent implements OnInit {
             this.product.unitPrice,
             this.product.quantityInStock
         );
+        this.success$.subscribe((res) => {
+            if (res) {
+                this.notifier.notify('success', res);
+            }
+        });
+        this.error$.subscribe((res) => {
+            if (res) {
+                this.notifier.notify('error', res);
+            }
+        });
     }
     public ngOnDestroy(): void {
         this.prodFacade.clearError();

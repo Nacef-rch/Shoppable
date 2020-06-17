@@ -52,7 +52,7 @@
         },
         "USER_BOX": {
             "SETT": "Settings",
-            "ACT": "Actions"
+            "LOG": "Logout"
         },
         "SIDE_BAR": {
             "PRODUCTS": "Products",

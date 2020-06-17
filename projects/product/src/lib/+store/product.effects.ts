@@ -9,13 +9,15 @@ import { ProductImport } from '@product/models/product.model';
 import { handleError } from '@authentication/helpers/handleError';
 import { ApiService } from '@core/services/api/api.service';
 import { I18nService } from '@i18n/services/i18n.service';
+import { I18nFacade } from '@i18n/+store/i18n.facade';
 
 @Injectable()
 export class ProductEffects {
     constructor(
         private actions$: Actions,
         private translate: I18nService,
-        private http: ApiService
+        private http: ApiService,
+        private i18nFacade: I18nFacade
     ) {}
     public productImport$ = createEffect(() =>
         this.actions$.pipe(
@@ -33,16 +35,21 @@ export class ProductEffects {
                     })
                     .pipe(
                         map((resData) => {
-                            console.log('success');
-                            console.log(resData);
+                            const currentLang = this.translate.currentLang;
+                            let successMessage = 'Votre produit a été importé avec succès';
+                            if (currentLang == 'en') {
+                                successMessage = 'Your product imported successfully';
+                            }
                             return ProductActions.IMPORT_SUCCESS({
-                                successMessage: 'success!'
+                                successMessage: successMessage
                             });
                         }),
                         catchError((error) => {
-                            console.log('error');
-                            console.log(error);
-                            const errorMessage = handleError(error, this.translate.lang);
+                            const currentLang = this.translate.currentLang;
+                            let errorMessage = `Quelque chose s'est mal passé essaie encore.`;
+                            if (currentLang == 'en') {
+                                errorMessage = 'Something went wrong , try again.';
+                            }
                             return of(ProductActions.IMPORT_FAIL({ errorMessage }));
                         })
                     );
@@ -55,12 +62,21 @@ export class ProductEffects {
             switchMap((Url: { productId: string }) => {
                 return this.http.delete(`/products/${Url.productId}`).pipe(
                     map((resData) => {
+                        const currentLang = this.translate.currentLang;
+                        let successMessage = 'Produit(s) supprimé(s) avec succès';
+                        if (currentLang == 'en') {
+                            successMessage = 'Product(s) deleted successfully';
+                        }
                         return ProductActions.IMPORT_SUCCESS({
-                            successMessage: 'success!'
+                            successMessage: successMessage
                         });
                     }),
                     catchError((error) => {
-                        const errorMessage = handleError(error, this.translate.lang);
+                        const currentLang = this.translate.currentLang;
+                        let errorMessage = `Quelque chose s'est mal passé essaie encore.`;
+                        if (currentLang == 'en') {
+                            errorMessage = 'Something went wrong , try again.';
+                        }
                         return of(ProductActions.IMPORT_FAIL({ errorMessage }));
                     })
                 );
@@ -77,12 +93,21 @@ export class ProductEffects {
                     })
                     .pipe(
                         map((resData) => {
+                            const currentLang = this.translate.currentLang;
+                            let successMessage = 'Stock mis à jour';
+                            if (currentLang == 'en') {
+                                successMessage = 'Stock get updated';
+                            }
                             return ProductActions.IMPORT_SUCCESS({
-                                successMessage: 'success!'
+                                successMessage: successMessage
                             });
                         }),
                         catchError((error) => {
-                            const errorMessage = handleError(error, this.translate.lang);
+                            const currentLang = this.translate.currentLang;
+                            let errorMessage = `Quelque chose s'est mal passé essaie encore.`;
+                            if (currentLang == 'en') {
+                                errorMessage = 'Something went wrong , try again.';
+                            }
                             return of(ProductActions.IMPORT_FAIL({ errorMessage }));
                         })
                     );
@@ -127,7 +152,6 @@ export class ProductEffects {
                         });
                     }),
                     catchError((error) => {
-                        
                         const errorMessage = handleError(error, this.translate.lang);
                         return of(ProductActions.IMPORT_FAIL({ errorMessage }));
                     })
