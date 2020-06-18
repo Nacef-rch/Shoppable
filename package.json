@@ -21,6 +21,8 @@
         "test:shared:coverage": "jest --coverage --config ./projects/shared/jest.config.js",
         "test:product:lib": "jest --runInBand --config ./projects/product/jest.config.js",
         "test:product:coverage": "jest --coverage --config ./projects/product/jest.config.js",
+        "test:store:lib": "jest --runInBand --config ./projects/store/jest.config.js",
+        "test:store:coverage": "jest --coverage --config ./projects/store/jest.config.js",
         "test:i18n:lib": "jest --runInBand --config ./projects/internationalization/jest.config.js",
         "test:i18n:coverage": "jest --coverage --config ./projects/internationalization/jest.config.js",
         "test:app": "jest --config ./jest.app.config.js",
