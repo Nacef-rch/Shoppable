@@ -16,9 +16,6 @@ export class ProductInventoryComponent implements OnInit {
     description: string;
     category: string;
     price: number;
-
-    heading: string = InventoryModel.heading;
-    subheading: string = InventoryModel.subheading;
     icon: string = InventoryModel.icon;
 
     constructor(private productFacade: ProductFacade) {}

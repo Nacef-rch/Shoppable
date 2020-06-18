@@ -26,8 +26,6 @@ export class ProductsComponent implements OnInit {
     public filteredOptions: Observable<string[]>;
     public product: ProductImport;
     public selectedValue: string;
-    public heading: string = ImportProductModel.heading;
-    public subheading: string = ImportProductModel.subheading;
     public icon: string = ImportProductModel.icon;
     public isLoading: boolean;
     public MsgSuccess: string;

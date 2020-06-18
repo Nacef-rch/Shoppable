@@ -67,7 +67,9 @@
         },
         "INVENTORY": {
             "CARD": "Card view",
-            "SELECT": "select a product"
+            "SELECT": "select a product",
+            "HEAD": "Inventory",
+            "SUB": "In this page you can organize all of your products"
         },
         "IMPORT_PRODUCTS": {
             "PRODUCT": "Product",
@@ -87,12 +89,20 @@
             "PRICE": "Price",
             "AVAILABLE": "Available",
             "SUBMIT": "Submit",
-            "CARD": "Card preview"
+            "CARD": "Card preview",
+            "HEAD": "Add product",
+            "SUB": "In this page you can add your products"
         },
         "WELCOME": {
             "YOUR": "Add your products",
             "GET": "Get closer to your first sale by adding products, or import your existing product inventory.",
             "ADD": "Add product"
+        },
+        "SEARCH": { "SEARCH": "Type to search" },
+        "LIST": {
+            "INV": "Inventory",
+            "STAT": "Statistics",
+            "SET": "Settings"
         }
     }
 }

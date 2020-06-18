@@ -67,7 +67,9 @@
         },
         "INVENTORY": {
             "CARD": "Aperçu de la carte",
-            "SELECT": "choisissez un produit"
+            "SELECT": "choisissez un produit",
+            "HEAD": "Inventaire",
+            "SUB": "Dans cette page, vous pouvez organiser tous vos produits"
         },
         "IMPORT_PRODUCTS": {
             "PRODUCT": "Produit",
@@ -87,12 +89,21 @@
             "PRICE": "Prix",
             "AVAILABLE": "Disponible",
             "SUBMIT": "Envoyé",
-            "CARD": "Aperçu de la carte"
+            "CARD": "Aperçu de la carte",
+            "HEAD": "Ajouter un produit",
+            "SUB": "Dans cette page, vous pouvez ajouter vos produits"
         },
         "WELCOME": {
             "YOUR": "Ajoutez vos produits",
             "GET": "Rapprochez-vous de votre première vente en ajoutant des produits ou importez votre inventaire de produits existant.",
             "ADD": "Ajouter"
+        },
+        "SEARCH": { "SEARCH": "Tapez pour rechercher" },
+
+        "LIST": {
+            "INV": "Inventaire",
+            "STAT": "Statistiques",
+            "SET": "Réglages"
         }
     }
 }

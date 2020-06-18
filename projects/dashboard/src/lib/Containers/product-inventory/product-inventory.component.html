@@ -1,4 +1,8 @@
-<app-page-title heading="{{ heading }}" [subheading]="subheading" [icon]="icon"></app-page-title>
+<app-page-title
+    heading="{{ 'DASH.INVENTORY.HEAD' | translate }}"
+    subheading="{{ 'DASH.INVENTORY.SUB' | translate }}"
+    [icon]="icon"
+></app-page-title>
 <div *ngxInit="isLoading$ | async as isLoading">
     <div class="row">
         <div class="col-md-8">

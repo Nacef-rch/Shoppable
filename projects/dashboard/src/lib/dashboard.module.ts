@@ -19,6 +19,7 @@ import { ProductViewComponent } from '@dash/components/product-view/product-view
 import { ProductInventoryComponent } from '@dash/Containers/product-inventory/product-inventory.component';
 import { GetProductsComponent } from '@dash/Components/get-products/get-products.component';
 import { AllProductsComponent } from '@dash/Containers/all-products/all-products.component';
+import { ItemListComponent } from './Components/header/elements/item-list/item-list.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,8 @@ import { AllProductsComponent } from '@dash/Containers/all-products/all-products
         ProductViewComponent,
         ProductInventoryComponent,
         GetProductsComponent,
-        AllProductsComponent
+        AllProductsComponent,
+        ItemListComponent
     ],
     imports: [DashRoutingModule, SharedModule],
 
