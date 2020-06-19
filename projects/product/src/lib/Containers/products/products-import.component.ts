@@ -11,10 +11,10 @@ import { ImageUploadService } from '@shared/services/imageUpload.service';
 
 @Component({
     selector: 'lib-products',
-    templateUrl: './products.component.html',
-    styleUrls: ['./products.component.scss']
+    templateUrl: './products-import.component.html',
+    styleUrls: ['./products-import.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsImportComponent implements OnInit {
     private readonly notifier: NotifierService;
     private CategorySub: Subscription;
     private LoadSub: Subscription;
