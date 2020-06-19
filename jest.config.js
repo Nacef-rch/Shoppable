@@ -24,6 +24,7 @@ module.exports = {
         '^@dash/(.*)$': '<rootDir>/projects/dashboard/src/lib/$1',
         '^@product/(.*)$': '<rootDir>/projects/product/src/lib/$1',
         '^@store/(.*)$': '<rootDir>/projects/store/src/lib/$1',
+        '^@layout/(.*)$': '<rootDir>/projects/store/src/lib/$1',
         '^@env/(.*)$': '<rootDir>/src/environments/$1'
     },
     testMatch: ['<rootDir>/**/**/*.spec.ts'],

@@ -24,7 +24,8 @@
             "@i18n/*": ["projects/internationalization/src/lib/*"],
             "@dash/*": ["projects/dashboard/src/lib/*"],
             "@product/*": ["projects/product/src/lib/*"],
-            "@store/*": ["projects/store/src/lib/*"]
+            "@store/*": ["projects/store/src/lib/*"],
+            "@layout/*": ["projects/layout/src/lib/*"]
         }
     },
     "angularCompilerOptions": {
