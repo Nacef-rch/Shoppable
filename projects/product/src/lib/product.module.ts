@@ -34,8 +34,10 @@ import { ProductRoutingModule } from './product-routing.module';
     imports: [
         CommonModule,
         HttpClientModule,
+        DashboardModule,
         SharedModule,
         ProductRoutingModule,
+
         StoreModule.forFeature(productStoreName, productReducer, {
             initialState: productInitialState
         }),

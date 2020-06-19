@@ -10,6 +10,6 @@ export class AllProductsComponent {
     constructor(private router: Router) {}
 
     public onClick(): void {
-        this.router.navigate(['/admin/products/new']);
+        this.router.navigate(['/products/new']);
     }
 }

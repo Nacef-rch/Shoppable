@@ -5,21 +5,31 @@ import { ProductsImportComponent } from '@product/Containers/products/products-i
 import { ProductInventoryComponent } from '@product/Containers/product-inventory/product-inventory.component';
 
 import { AllProductsComponent } from '@product/Containers/all-products/all-products.component';
+import { AuthGuard } from '@authentication/guards/auth.guard';
+import { BaseLayoutComponent } from '@dash/Containers/base-layout/base-layout.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: AllProductsComponent,
-        pathMatch: 'full'
-    },
+        component: BaseLayoutComponent,
+        canActivate: [AuthGuard],
+        children: [
+            {
+                path: '',
+                canActivate: [AuthGuard],
+                component: AllProductsComponent,
+                pathMatch: 'full'
+            },
 
-    {
-        path: 'new',
-        component: ProductsImportComponent
-    },
-    {
-        path: 'inventory',
-        component: ProductInventoryComponent
+            {
+                path: 'new',
+                component: ProductsImportComponent
+            },
+            {
+                path: 'inventory',
+                component: ProductInventoryComponent
+            }
+        ]
     }
 ];
 

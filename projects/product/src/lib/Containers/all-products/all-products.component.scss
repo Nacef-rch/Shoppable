@@ -43,6 +43,7 @@ body {
 }
 
 button {
+    z-index: 99;
     position: relative;
     display: inline-block;
     cursor: pointer;
