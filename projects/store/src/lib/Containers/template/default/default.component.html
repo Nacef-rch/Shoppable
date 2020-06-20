@@ -79,8 +79,7 @@
                             <li class="mb-1" *ngFor="let category of categories">
                                 <a (click)="onClick(category)" class="d-flex a-product"
                                     ><span>{{ category }}</span>
-                                    <span class="text-black ml-auto">(2,220)</span></a
-                                >
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -91,13 +90,31 @@
                                 Filter by Price
                             </h3>
                             <div id="slider-range" class="border-primary"></div>
-                            <input
-                                type="text"
-                                name="text"
-                                id="amount"
-                                class="form-control border-0 pl-0 bg-white"
-                                disabled=""
-                            />
+                            <span class="text-black ml-auto">Min : </span>
+                            <br />
+                            <mat-slider
+                                thumbLabel
+                                [displayWith]="SliderValue"
+                                tickInterval="1"
+                                min="1"
+                                max="100"
+                                (change)="minValueSlider($event)"
+                                #minSlider
+                            ></mat-slider
+                            ><span class="text-black ml-auto">{{ minSlider.value }} TND</span><br />
+                            <span class="text-black ml-auto">Max : </span>
+                            <br />
+                            <mat-slider
+                                thumbLabel
+                                [displayWith]="SliderValue"
+                                tickInterval="1"
+                                min="1"
+                                max="100"
+                                value="100"
+                                (change)="maxValueSlider($event)"
+                                #maxSlider
+                            ></mat-slider
+                            ><span class="text-black ml-auto">{{ maxSlider.value }} TND</span>
                         </div>
 
                         <div class="mb-4">

@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSliderModule } from '@angular/material/slider';
 
 //BOOTSTRAP MODULES
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -56,7 +57,8 @@ const sharedModules: any[] = [
     AngularFireModule.initializeApp(environment.firebaseConfig, 'cloud'),
     MatTableModule,
     MatPaginatorModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatSliderModule
 ];
 
 @NgModule({
