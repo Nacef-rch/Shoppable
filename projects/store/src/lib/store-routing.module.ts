@@ -5,7 +5,7 @@ import { DefaultComponent } from './Containers/template/default/default.componen
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'login',
+        redirectTo: 'test',
         pathMatch: 'full'
     },
     {

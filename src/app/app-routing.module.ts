@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'products', pathMatch: 'full' },
+    { path: '', redirectTo: 'store', pathMatch: 'full' },
     {
         path: 'auth',
         loadChildren: () =>
