@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { StoreProducts } from '@product/models/product.model';
-import { Observable } from 'rxjs/internal/Observable';
+
 import { ProductFacade } from '@product/+store/product.facade';
 
 @Component({
@@ -14,17 +14,15 @@ export class CardComponent implements OnInit {
     test;
     pageStart = 0;
     pageEnd = 6;
-    public Products$: Observable<StoreProducts[]> = this.productFacade.storeProducts$;
+
     products: StoreProducts[];
     counter = Array;
     constructor(private productFacade: ProductFacade) {}
 
     ngOnInit(): void {
-        this.Products$.subscribe((resData) => {
-            this.products = resData;
-            this.test = Math.ceil(resData.length / 6);
-            console.log(this.test);
-        });
+        this.products = this.productsTab;
+
+        this.test = Math.ceil(this.productsTab.length / 6);
     }
 
     pageData(i) {
@@ -36,5 +34,9 @@ export class CardComponent implements OnInit {
     topFunction() {
         document.body.scrollTop = 300; // For Safari
         document.documentElement.scrollTop = 300; // For Chrome, Firefox, IE and Opera
+    }
+    ngOnChanges(changes: SimpleChanges) {
+        this.products = changes.productsTab.currentValue;
+        this.test = Math.ceil(this.productsTab.length / 6);
     }
 }

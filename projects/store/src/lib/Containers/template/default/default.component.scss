@@ -11,7 +11,11 @@ body {
     background: #000;
     color: #fff;
 }
-
+.a-product:hover {
+    cursor: pointer;
+    color: #7971ea;
+    border-left: 5px #7971ea solid;
+}
 ::selection {
     background: #000;
     color: #fff;

@@ -62,8 +62,12 @@
                             </div>
                         </div>
                     </div>
-
-                    <lib-card></lib-card>
+                    <div *ngxInit="isLoading$ | async as isLoading">
+                        <lib-card [productsTab]="products" *ngIf="!isLoading"></lib-card>
+                        <div *ngIf="isLoading" style="text-align: center;">
+                            <lib-loading-spinner></lib-loading-spinner>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-md-3 order-1 mb-5 mb-md-0">
@@ -73,19 +77,19 @@
                         </h3>
                         <ul class="list-unstyled mb-0">
                             <li class="mb-1">
-                                <a href="#" class="d-flex"
+                                <a (click)="onClick()" class="d-flex a-product"
                                     ><span>Men</span>
                                     <span class="text-black ml-auto">(2,220)</span></a
                                 >
                             </li>
                             <li class="mb-1">
-                                <a href="#" class="d-flex"
+                                <a (click)="onClick()" class="d-flex a-product"
                                     ><span>Women</span>
                                     <span class="text-black ml-auto">(2,550)</span></a
                                 >
                             </li>
                             <li class="mb-1">
-                                <a href="#" class="d-flex"
+                                <a (click)="onClick()" class="d-flex a-product"
                                     ><span>Children</span>
                                     <span class="text-black ml-auto">(2,124)</span></a
                                 >
