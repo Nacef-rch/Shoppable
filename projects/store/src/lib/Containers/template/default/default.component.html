@@ -76,22 +76,10 @@
                             Categories
                         </h3>
                         <ul class="list-unstyled mb-0">
-                            <li class="mb-1">
-                                <a (click)="onClick()" class="d-flex a-product"
-                                    ><span>Men</span>
+                            <li class="mb-1" *ngFor="let category of categories">
+                                <a (click)="onClick(category)" class="d-flex a-product"
+                                    ><span>{{ category }}</span>
                                     <span class="text-black ml-auto">(2,220)</span></a
-                                >
-                            </li>
-                            <li class="mb-1">
-                                <a (click)="onClick()" class="d-flex a-product"
-                                    ><span>Women</span>
-                                    <span class="text-black ml-auto">(2,550)</span></a
-                                >
-                            </li>
-                            <li class="mb-1">
-                                <a (click)="onClick()" class="d-flex a-product"
-                                    ><span>Children</span>
-                                    <span class="text-black ml-auto">(2,124)</span></a
                                 >
                             </li>
                         </ul>
