@@ -20,5 +20,18 @@
         </div>
     </div>
 </div>
-<button *ngIf="pageStart >= 3" (click)="prevData()">Previous</button>
-<button *ngIf="pageStart < products.length" (click)="nextData()">Next</button>
+
+<div class="row" data-aos="fade-up">
+    <div class="col-md-12 text-center">
+        <div class="site-block-27">
+            <button
+                mat-mini-fab
+                *ngFor="let loop of counter(test); let i = index"
+                color="success"
+                (click)="pageData(i + 1); topFunction()"
+            >
+                {{ i + 1 }}
+            </button>
+        </div>
+    </div>
+</div>

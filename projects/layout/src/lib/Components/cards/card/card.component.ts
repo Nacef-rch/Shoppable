@@ -9,30 +9,32 @@ import { ProductFacade } from '@product/+store/product.facade';
     styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-    @Input() image;
-    @Input() name;
-    @Input() quantityInStock;
-    @Input() unitPrice;
+    @Input() productsTab;
+
+    test;
     pageStart = 0;
-    pageEnd = 3;
-    public Products$: Observable<StoreProducts[]> = this.ProductFacade.storeProducts$;
+    pageEnd = 6;
+    public Products$: Observable<StoreProducts[]> = this.productFacade.storeProducts$;
     products: StoreProducts[];
-    constructor(private ProductFacade: ProductFacade) {}
+    counter = Array;
+    constructor(private productFacade: ProductFacade) {}
 
     ngOnInit(): void {
         this.Products$.subscribe((resData) => {
             this.products = resData;
-            console.log(this.products);
+            this.test = Math.ceil(resData.length / 6);
+            console.log(this.test);
         });
     }
-    nextData() {
-        this.pageStart += 3;
-        this.pageEnd += 3;
-        console.log(this.pageStart);
+
+    pageData(i) {
+        this.pageStart = 6 * (i - 1);
+        this.pageEnd = 6 * i;
+        console.log(this.products.length);
     }
 
-    prevData() {
-        this.pageStart -= 3;
-        this.pageEnd -= 3;
+    topFunction() {
+        document.body.scrollTop = 300; // For Safari
+        document.documentElement.scrollTop = 300; // For Chrome, Firefox, IE and Opera
     }
 }

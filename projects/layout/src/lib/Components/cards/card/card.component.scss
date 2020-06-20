@@ -1,1 +1,10 @@
 @import '../../../../../../store/src/lib/Containers/template/default/default.component.scss';
+
+.mat-success {
+    background-color: #7971ea;
+    color: #fff;
+}
+a,
+p {
+    color: #7971ea !important;
+}
