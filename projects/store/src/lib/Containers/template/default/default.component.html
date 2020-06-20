@@ -18,7 +18,9 @@
                     <div class="row">
                         <div class="col-md-12 mb-5">
                             <div class="float-md-left mb-4">
-                                <h2 class="text-black h5">Shop All</h2>
+                                <h2 class="text-black h5">
+                                    Shop / {{ shopTitle }} / {{ numPage }}
+                                </h2>
                             </div>
                             <div class="d-flex">
                                 <div class="dropdown mr-1 ml-md-auto">
@@ -63,7 +65,11 @@
                         </div>
                     </div>
                     <div *ngxInit="isLoading$ | async as isLoading">
-                        <lib-card [productsTab]="products" *ngIf="!isLoading"></lib-card>
+                        <lib-card
+                            [productsTab]="products"
+                            *ngIf="!isLoading"
+                            (pageNumber)="onPageNumber($event)"
+                        ></lib-card>
                         <div *ngIf="isLoading" style="text-align: center;">
                             <lib-loading-spinner></lib-loading-spinner>
                         </div>

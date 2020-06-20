@@ -13,9 +13,10 @@ export class DefaultComponent implements OnInit {
     public Products$: Observable<StoreProducts[]> = this.productFacade.storeProducts$;
     products: StoreProducts[];
     productsArray: StoreProducts[];
-
+    shopTitle = 'All';
     sliderMinValue = 0;
     sliderMaxValue = 100;
+    numPage = 1;
 
     categories = [];
     public isLoading$: Observable<boolean> = this.productFacade.loading$;
@@ -36,6 +37,7 @@ export class DefaultComponent implements OnInit {
         });
     }
     categoryClick(category) {
+        this.shopTitle = category;
         this.products = this.productsArray;
         console.log(category);
         const newArray = this.products.filter(function (el) {
@@ -86,7 +88,12 @@ export class DefaultComponent implements OnInit {
     }
     categoryAll() {
         this.products = this.productsArray;
+        this.shopTitle = 'All';
         this.sliderMinValue = 0;
         this.sliderMaxValue = 100;
+    }
+    onPageNumber(event) {
+        this.numPage = event;
+        console.log(event);
     }
 }

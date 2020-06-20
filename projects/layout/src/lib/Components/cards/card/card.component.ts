@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { StoreProducts } from '@product/models/product.model';
 
 import { ProductFacade } from '@product/+store/product.facade';
@@ -10,6 +10,7 @@ import { ProductFacade } from '@product/+store/product.facade';
 })
 export class CardComponent implements OnInit {
     @Input() productsTab;
+    @Output() pageNumber = new EventEmitter<number>();
 
     test;
     pageStart = 0;
@@ -26,9 +27,9 @@ export class CardComponent implements OnInit {
     }
 
     pageData(i) {
+        this.pageNumber.emit(i);
         this.pageStart = 6 * (i - 1);
         this.pageEnd = 6 * i;
-        console.log(this.products.length);
     }
 
     topFunction() {
