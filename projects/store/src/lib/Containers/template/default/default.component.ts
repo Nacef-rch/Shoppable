@@ -13,9 +13,10 @@ export class DefaultComponent implements OnInit {
     public Products$: Observable<StoreProducts[]> = this.productFacade.storeProducts$;
     products: StoreProducts[];
     productsArray: StoreProducts[];
+
     sliderMinValue = 0;
     sliderMaxValue = 100;
-    sliderValueArray: StoreProducts[];
+
     categories = [];
     public isLoading$: Observable<boolean> = this.productFacade.loading$;
     constructor(private productFacade: ProductFacade) {}
@@ -34,14 +35,16 @@ export class DefaultComponent implements OnInit {
             });
         });
     }
-    onClick(category) {
+    categoryClick(category) {
         this.products = this.productsArray;
         console.log(category);
         const newArray = this.products.filter(function (el) {
             return el.categoryId == category;
         });
         this.products = newArray;
-        console.log(this.products);
+
+        this.sliderMinValue = 0;
+        this.sliderMaxValue = 100;
     }
     SliderValue(value: number) {
         if (value >= 1000) {
@@ -80,5 +83,10 @@ export class DefaultComponent implements OnInit {
         console.log(newArray);
         this.products = newArray;
         this.sliderMaxValue = event.value;
+    }
+    categoryAll() {
+        this.products = this.productsArray;
+        this.sliderMinValue = 0;
+        this.sliderMaxValue = 100;
     }
 }

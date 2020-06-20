@@ -77,8 +77,15 @@
                         </h3>
                         <ul class="list-unstyled mb-0">
                             <li class="mb-1" *ngFor="let category of categories">
-                                <a (click)="onClick(category)" class="d-flex a-product"
+                                <a (click)="categoryClick(category)" class="d-flex a-product"
                                     ><span>{{ category }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-1">
+                                <a (click)="categoryAll()" class="d-flex a-product"
+                                    ><span>All</span>
                                 </a>
                             </li>
                         </ul>
@@ -98,6 +105,7 @@
                                 tickInterval="1"
                                 min="1"
                                 max="100"
+                                value="{{ sliderMinValue }}"
                                 (change)="minValueSlider($event)"
                                 #minSlider
                             ></mat-slider
@@ -110,7 +118,7 @@
                                 tickInterval="1"
                                 min="1"
                                 max="100"
-                                value="100"
+                                value="{{ sliderMaxValue }}"
                                 (change)="maxValueSlider($event)"
                                 #maxSlider
                             ></mat-slider
