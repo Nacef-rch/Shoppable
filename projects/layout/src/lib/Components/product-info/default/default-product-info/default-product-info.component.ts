@@ -19,6 +19,7 @@ export class DefaultProductInfoComponent implements OnInit, OnDestroy {
     productId;
     category;
     like = false;
+    comment = true;
     product: StoreProducts = null;
     constructor(
         private route: ActivatedRoute,
@@ -74,5 +75,8 @@ export class DefaultProductInfoComponent implements OnInit, OnDestroy {
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         this.like = false;
         this.productQuantity = 1;
+    }
+    onComment() {
+        this.comment = !this.comment;
     }
 }
