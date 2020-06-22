@@ -3,9 +3,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-0">
-                    <a routerLink="/store/shop" routerLinkActive="active">Home</a>
+                    <a routerLink="/store/shop" routerLinkActive="active">Shop</a>
                     <span class="mx-2 mb-0">/</span>
-                    <strong class="text-black">{{ product.name }}</strong>
+                    <i
+                        ><strong class="text-black">{{ product.name }}</strong></i
+                    >
                 </div>
             </div>
         </div>
@@ -174,7 +176,15 @@
                     <div class="nonloop-block-3 owl-carousel">
                         <div class="row">
                             <div class="col-md-3" *ngFor="let productBox of products | slice: 1:5">
-                                <div class="item">
+                                <div
+                                    class="item"
+                                    (click)="
+                                        otherProductClicked(
+                                            productBox.categoryId,
+                                            productBox.productId
+                                        )
+                                    "
+                                >
                                     <div class="block-4 text-center">
                                         <figure class="block-4-image container-image">
                                             <img
