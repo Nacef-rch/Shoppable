@@ -8,7 +8,7 @@
 
                 <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
                     <div class="site-logo">
-                        <a href="#" class="js-logo-clone">Shoppers</a>
+                        <a class="js-logo-clone">Shoppers</a>
                     </div>
                 </div>
 
@@ -16,7 +16,7 @@
                     <div class="site-top-icons">
                         <ul>
                             <li>
-                                <a href="#"
+                                <a
                                     ><span class="icon"
                                         ><svg
                                             class="bi bi-person"
@@ -33,7 +33,7 @@
                                 ></a>
                             </li>
                             <li>
-                                <a href="#"
+                                <a
                                     ><span class="icon">
                                         <svg
                                             class="bi bi-heart"
@@ -85,7 +85,7 @@
     <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
             <ul class="site-menu js-clone-nav d-none d-md-block">
-                <li class="has-children">
+                <!-- <li class="has-children">
                     <a href="index.html">Home</a>
                     <ul class="dropdown">
                         <li><a href="#">Menu One</a></li>
@@ -108,11 +108,13 @@
                         <li><a href="#">Menu Two</a></li>
                         <li><a href="#">Menu Three</a></li>
                     </ul>
+                </li> -->
+                <li routerLinkActive="active">
+                    <a routerLink="/store/shop">Shop</a>
                 </li>
-                <li class="active"><a href="shop.html">Shop</a></li>
-                <li><a href="#">Catalogue</a></li>
-                <li><a href="#">New Arrivals</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a>About</a></li>
+                <li routerLinkActive="active"><a routerLink="/store/shop/cart">basket</a></li>
+                <li><a>Contact </a></li>
             </ul>
         </div>
     </nav>

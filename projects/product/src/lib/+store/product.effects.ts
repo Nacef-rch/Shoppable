@@ -137,18 +137,15 @@ export class ProductEffects {
             })
         )
     );
-    public fetchStoreCategories$ = createEffect(() =>
+    public likeProduct$ = createEffect(() =>
         this.actions$.pipe(
-            ofType(ProductActions.FETCH_STORE_CATEGORY_START),
+            ofType(ProductActions.LIKE_PRODUCTS),
 
-            switchMap(() => {
-                return this.http.get('/stores/categories').pipe(
-                    map((category) => {
-                        ProductActions.IMPORT_SUCCESS({
+            switchMap((Url: { productId: string }) => {
+                return this.http.get(`/products/${Url.productId}/stock`).pipe(
+                    map((products) => {
+                        return ProductActions.IMPORT_SUCCESS({
                             successMessage: 'success!'
-                        });
-                        return ProductActions.FETCH_STORE_CATEGORY_SUCCESS({
-                            category
                         });
                     }),
                     catchError((error) => {

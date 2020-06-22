@@ -11,6 +11,7 @@ export class DefaultCartComponent implements OnInit {
     products: CartProducts[];
     SubTotal = 0;
     Delivery = 0;
+    QuantityTotal = 0;
 
     constructor(private prodFacade: ProductFacade) {}
 
@@ -19,6 +20,7 @@ export class DefaultCartComponent implements OnInit {
             this.products = resData;
             resData.forEach((item) => {
                 this.SubTotal = this.SubTotal + item.unitPrice * item.quantitySelected;
+                this.QuantityTotal = this.QuantityTotal + item.quantitySelected;
             });
             this.Delivery = 7.99;
         });
@@ -29,9 +31,9 @@ export class DefaultCartComponent implements OnInit {
                 this.SubTotal = this.SubTotal - item.unitPrice * item.quantitySelected;
                 item.quantitySelected++;
                 this.SubTotal = this.SubTotal + item.unitPrice * item.quantitySelected;
-                //this.SubTotal = this.SubTotal + item.unitPrice * item.quantitySelected;
             }
         });
+        console.log(this.QuantityTotal);
     }
     onClickMinus(position: number) {
         this.products.forEach((item) => {
@@ -44,11 +46,18 @@ export class DefaultCartComponent implements OnInit {
     }
     deleteProduct(position: number) {
         this.SubTotal = 0;
+        this.QuantityTotal = 0;
         this.products = this.products.filter((item) => {
             if (item.position !== position) {
                 this.SubTotal = this.SubTotal + item.unitPrice * item.quantitySelected;
+
                 return item;
             }
         });
+        this.products.forEach((item) => {
+            this.QuantityTotal = this.QuantityTotal + item.quantitySelected;
+        });
+        console.log(this.QuantityTotal);
+        this.prodFacade.removeFromCart(this.products, this.QuantityTotal);
     }
 }

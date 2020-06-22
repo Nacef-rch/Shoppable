@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lib-default-order',
-  templateUrl: './default-order.component.html',
-  styleUrls: ['./default-order.component.scss']
+    selector: 'lib-default-order',
+    templateUrl: './default-order.component.html',
+    styleUrls: ['./default-order.component.scss']
 })
-export class DefaultOrderComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class DefaultOrderComponent {}

@@ -56,8 +56,15 @@ export const LOADING_STOP = createAction('[Product] loading  stop');
 export const CLEAR_ERROR = createAction('[Product] Clear Error');
 export const CLEAR_SUCCESS = createAction('[Product] Clear SUCCESS');
 
-//FETCH PRODUCTS FROM USER STORE
+//ADD PRODUCTS TO USER BASKET
 export const CART_PRODUCTS = createAction(
     '[Product] Add products to cart',
     props<{ product: CartProducts }>()
 );
+//REMOVE PRODUCTS FROM USER BASKET
+export const REMOVE_CART_PRODUCTS = createAction(
+    '[Product] Remove products from cart',
+    props<{ product: CartProducts[]; quantity: number }>()
+);
+
+export const LIKE_PRODUCTS = createAction('[Product] like product', props<{ productId: string }>());

@@ -1,12 +1,18 @@
 @import '../../../../../../store/src/lib/Containers/template/default/default.component.scss';
 
 .mat-success {
-    background-color: #7971ea;
+    background-color: #222;
+    color: #fff;
+    margin-right: 5px;
+}
+.mat-success:hover {
+    background-color: #555555;
     color: #fff;
 }
+
 a,
 p {
-    color: #7971ea !important;
+    color: #222 !important;
 }
 a {
     cursor: pointer;

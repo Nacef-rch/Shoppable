@@ -34,10 +34,26 @@ export class ProductFacade {
             })
         );
     }
+
+    public removeFromCart(product: CartProducts[], quantity: number): void {
+        this.store.dispatch(
+            productActions.REMOVE_CART_PRODUCTS({
+                product: product,
+                quantity: quantity
+            })
+        );
+    }
     public productDelete(deleteId: string): void {
         this.store.dispatch(
             productActions.DELETE_PRODUCT({
                 productId: deleteId
+            })
+        );
+    }
+    public productLike(productId: string): void {
+        this.store.dispatch(
+            productActions.LIKE_PRODUCTS({
+                productId: productId
             })
         );
     }

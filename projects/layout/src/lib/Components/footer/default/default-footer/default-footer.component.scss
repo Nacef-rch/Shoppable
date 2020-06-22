@@ -69,3 +69,21 @@ body {
 .margin-right-footer {
     padding-left: 20px;
 }
+a {
+    color: #7971ea;
+}
+.btn-primary {
+    color: #fff;
+    //background-color: #007bff;
+    background: #222;
+    border: 1px solid #222;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #555555;
+    border-color: #555555;
+}
+
+.text-primary-footer {
+    color: #7971ea;
+}

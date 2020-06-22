@@ -52,6 +52,15 @@ const reducer = createReducer(
             loading: false
         };
     }),
+    on(ProductActions.REMOVE_CART_PRODUCTS, (state, action) => {
+        return {
+            ...state,
+            productError: null,
+            cartProduct: action.product,
+            cartProductQuantity: action.quantity,
+            loading: false
+        };
+    }),
     on(ProductActions.FETCH_STORE_CATEGORY_SUCCESS, (state, action) => ({
         ...state,
         productError: null,
@@ -69,9 +78,14 @@ const reducer = createReducer(
             loading: true
         })
     ),
-    on(ProductActions.DELETE_PRODUCT, ProductActions.CHANGE_PRODUCT_STOCK, (state, _) => ({
-        ...state
-    })),
+    on(
+        ProductActions.DELETE_PRODUCT,
+        ProductActions.CHANGE_PRODUCT_STOCK,
+        ProductActions.LIKE_PRODUCTS,
+        (state, _) => ({
+            ...state
+        })
+    ),
 
     on(ProductActions.IMPORT_FAIL, (state, action) => ({
         ...state,

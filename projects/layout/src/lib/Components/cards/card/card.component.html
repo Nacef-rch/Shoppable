@@ -12,12 +12,14 @@
             </figure>
             <div class="block-4-text p-4">
                 <h3>
-                    <a (click)="clickCard(product.categoryId, product.productId)">{{
-                        product.name
-                    }}</a>
+                    <a (click)="clickCard(product.categoryId, product.productId)"
+                        ><i>{{ product.name }}</i></a
+                    >
                 </h3>
-                <p class="mb-0">{{ product.quantityInStock }}</p>
-                <p class="text-primary font-weight-bold">{{ product.unitPrice }} TND</p>
+                <br />
+                <p class="text-primary font-weight-bold">
+                    <i>{{ product.unitPrice }} TND</i>
+                </p>
             </div>
         </div>
     </div>
