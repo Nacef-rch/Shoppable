@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import * as productActions from '@product/+store/product.actions';
 import { productQuery } from '@product/+store/product.selectors';
 import { ProductStore } from '@product/+store/product.reducer';
+import { CartProducts } from '@product/models/product.model';
 @Injectable({
     providedIn: 'root'
 })
@@ -12,7 +13,9 @@ export class ProductFacade {
     public error$ = this.store.select(productQuery.getProductError);
     public loading$ = this.store.select(productQuery.getLoading);
     public storeProducts$ = this.store.select(productQuery.getStoreProducts);
+    public cartProducts$ = this.store.select(productQuery.getCartProducts);
     public storeCategories$ = this.store.select(productQuery.getStoreCategories);
+    public cartQuantity$ = this.store.select(productQuery.getCartQuantity);
 
     constructor(private store: Store<ProductStore>) {}
 
@@ -20,6 +23,14 @@ export class ProductFacade {
         this.store.dispatch(
             productActions.IMPORT_SUCCESS({
                 successMessage: successMessage
+            })
+        );
+    }
+
+    public addToCart(product: CartProducts): void {
+        this.store.dispatch(
+            productActions.CART_PRODUCTS({
+                product: product
             })
         );
     }

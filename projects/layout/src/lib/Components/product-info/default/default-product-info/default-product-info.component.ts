@@ -19,7 +19,7 @@ export class DefaultProductInfoComponent implements OnInit, OnDestroy {
     productId;
     category;
     like = false;
-    comment = true;
+    comment = false;
     product: StoreProducts = null;
     constructor(
         private route: ActivatedRoute,
@@ -78,5 +78,8 @@ export class DefaultProductInfoComponent implements OnInit, OnDestroy {
     }
     onComment() {
         this.comment = !this.comment;
+    }
+    AddToCart() {
+        this.productFacade.addToCart({ ...this.product, quantitySelected: this.productQuantity });
     }
 }

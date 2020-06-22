@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-import { StoreProducts, StoreCategories } from '@product/models/product.model';
+import { StoreProducts, StoreCategories, CartProducts } from '@product/models/product.model';
 
 //IMPORT PRODUCT
 export const IMPORT_SUCCESS = createAction(
@@ -55,3 +55,9 @@ export const LOADING_STOP = createAction('[Product] loading  stop');
 //CLEAR MESSAGES
 export const CLEAR_ERROR = createAction('[Product] Clear Error');
 export const CLEAR_SUCCESS = createAction('[Product] Clear SUCCESS');
+
+//FETCH PRODUCTS FROM USER STORE
+export const CART_PRODUCTS = createAction(
+    '[Product] Add products to cart',
+    props<{ product: CartProducts }>()
+);

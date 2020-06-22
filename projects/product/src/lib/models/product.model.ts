@@ -38,3 +38,18 @@ export interface ProductImport {
     unitPrice: number;
     quantityInStock: number;
 }
+
+export interface CartProducts {
+    position: number;
+    productId: string;
+    categoryId: string;
+    name: string;
+    description: string;
+    imageUrl: string;
+    unitPrice: number;
+    quantityInStock: number;
+    storeId: string;
+    userHandle: string;
+    likeCount: number;
+    quantitySelected: number;
+}

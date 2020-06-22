@@ -1,11 +1,13 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
 import * as ProductActions from '@product/+store/product.actions';
-import { StoreProducts, StoreCategories } from '@product/models/product.model';
+import { StoreProducts, StoreCategories, CartProducts } from '@product/models/product.model';
 
 export interface ProductState {
     storeProducts: StoreProducts[];
     storeCategories: StoreCategories[];
+    cartProduct: CartProducts[];
+    cartProductQuantity: number;
     productSuccess: string;
     productError: string;
     loading: boolean;
@@ -17,6 +19,8 @@ export interface ProductStore {
 export const productInitialState: ProductState = {
     storeProducts: [],
     storeCategories: [],
+    cartProduct: [],
+    cartProductQuantity: 0,
     productSuccess: null,
     productError: null,
     loading: false
@@ -35,6 +39,19 @@ const reducer = createReducer(
         storeProducts: action.products,
         loading: false
     })),
+    on(ProductActions.CART_PRODUCTS, (state, action) => {
+        const cartProductsArray = state.cartProduct;
+        const Quantity = state.cartProductQuantity + action.product.quantitySelected;
+
+        cartProductsArray.push(action.product);
+        return {
+            ...state,
+            productError: null,
+            cartProduct: cartProductsArray,
+            cartProductQuantity: Quantity,
+            loading: false
+        };
+    }),
     on(ProductActions.FETCH_STORE_CATEGORY_SUCCESS, (state, action) => ({
         ...state,
         productError: null,
