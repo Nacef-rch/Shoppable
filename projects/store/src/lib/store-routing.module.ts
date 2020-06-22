@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from './Containers/template/default/default.component';
 import { DefaultProductInfoComponent } from '@layout/Components/product-info/default/default-product-info/default-product-info.component';
 import { DefaultSideBarComponent } from '@layout/Components/side-bar/default-side-bar/default-side-bar.component';
+import { DefaultCartComponent } from '@layout/Container/cart/default/default-cart/default-cart.component';
+import { DefaultOrderComponent } from '@layout/Container/order-sucess/default/default-order/default-order.component';
 
 const routes: Routes = [
     {
@@ -17,6 +19,14 @@ const routes: Routes = [
             {
                 path: '',
                 component: DefaultSideBarComponent
+            },
+            {
+                path: 'cart',
+                component: DefaultCartComponent
+            },
+            {
+                path: 'thankyou',
+                component: DefaultOrderComponent
             },
             {
                 path: ':category/:id',

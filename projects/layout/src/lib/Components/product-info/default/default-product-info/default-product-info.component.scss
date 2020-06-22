@@ -1,18 +1,24 @@
 @import '../../../../../../../store/src/lib/Containers/template/default/default.component.scss';
 .btn-color-product {
     color: #fff;
-    background-color: #7971ea !important;
-    border-color: #7971ea !important;
+    background: #222;
+    border: 1px solid #222;
+}
+.btn-color-product:hover {
+    color: #fff;
+    background: #555555;
+    border-color: #555555;
 }
 .btn-outline-primary {
-    color: #7971ea;
-    border-color: #7971ea;
+    color: #222;
+    border-color: #222;
 }
 .btn-outline-primary:hover {
     color: #fff;
-    background-color: #7971ea !important;
-    border-color: #7971ea;
+    background-color: #555555 !important;
+    border-color: #555555;
 }
+
 .sticky-biki {
     position: sticky;
     position: -webkit-sticky;
@@ -111,75 +117,7 @@
 .container-image:hover .overlayBoxFill {
     opacity: 1;
 }
+
 a {
     color: #7971ea;
-}
-
-.detailBox {
-    width: 320px;
-    border: 1px solid #bbb;
-    margin: 50px;
-}
-.titleBox {
-    background-color: #fdfdfd;
-    padding: 10px;
-}
-.titleBox label {
-    color: #444;
-    margin: 0;
-    display: inline-block;
-}
-
-.commentBox {
-    padding: 10px;
-    border-top: 1px dotted #bbb;
-}
-.commentBox .form-group:first-child,
-.actionBox .form-group:first-child {
-    width: 80%;
-}
-.commentBox .form-group:nth-child(2),
-.actionBox .form-group:nth-child(2) {
-    width: 18%;
-}
-.actionBox .form-group * {
-    width: 100%;
-}
-.taskDescription {
-    margin-top: 10px 0;
-}
-.commentList {
-    padding: 0;
-    list-style: none;
-    max-height: 200px;
-    overflow: auto;
-}
-.commentList li {
-    margin: 0;
-    margin-top: 10px;
-}
-.commentList li > div {
-    display: table-cell;
-}
-.commenterImage {
-    width: 30px;
-    margin-right: 5px;
-    height: 100%;
-    float: left;
-}
-.commenterImage img {
-    width: 100%;
-    border-radius: 50%;
-}
-.commentText p {
-    margin: 0;
-}
-.sub-text {
-    color: #aaa;
-    font-family: verdana;
-    font-size: 11px;
-}
-.actionBox {
-    border-top: 1px dotted #bbb;
-    padding: 10px;
 }

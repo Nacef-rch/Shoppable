@@ -18,8 +18,7 @@ export class DefaultProductInfoComponent implements OnInit, OnDestroy {
     products: StoreProducts[];
     productId;
     category;
-    like = false;
-    comment = false;
+
     product: StoreProducts = null;
     constructor(
         private route: ActivatedRoute,
@@ -66,19 +65,15 @@ export class DefaultProductInfoComponent implements OnInit, OnDestroy {
             this.productQuantity--;
         }
     }
-    onLike() {
-        this.like = !this.like;
-    }
+
     otherProductClicked(category, product) {
         this.router.navigate([`store/shop/${category}/${product}`]);
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        this.like = false;
+
         this.productQuantity = 1;
     }
-    onComment() {
-        this.comment = !this.comment;
-    }
+
     AddToCart() {
         this.productFacade.addToCart({ ...this.product, quantitySelected: this.productQuantity });
     }

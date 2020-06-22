@@ -10,6 +10,9 @@ import { DefaultFooterComponent } from './Components/footer/default/default-foot
 import { DefaultProductInfoComponent } from './Components/product-info/default/default-product-info/default-product-info.component';
 import { DefaultSideBarComponent } from './Components/side-bar/default-side-bar/default-side-bar.component';
 import { RouterModule } from '@angular/router';
+import { DefaultCartComponent } from './Container/cart/default/default-cart/default-cart.component';
+import { DefaultOrderComponent } from './Container/order-sucess/default/default-order/default-order.component';
+import { InstagramComponent } from './Components/user-interaction/instagram/instagram.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +21,10 @@ import { RouterModule } from '@angular/router';
         DefaultSearchBoxComponent,
         DefaultFooterComponent,
         DefaultProductInfoComponent,
-        DefaultSideBarComponent
+        DefaultSideBarComponent,
+        DefaultCartComponent,
+        DefaultOrderComponent,
+        InstagramComponent
     ],
     imports: [CommonModule, HttpClientModule, SharedModule, RouterModule],
 
@@ -26,7 +32,9 @@ import { RouterModule } from '@angular/router';
         DefaultHeaderComponent,
         DefaultFooterComponent,
         DefaultProductInfoComponent,
-        DefaultSideBarComponent
+        DefaultSideBarComponent,
+        DefaultCartComponent,
+        DefaultOrderComponent
     ]
 })
 export class LayoutModule {}
