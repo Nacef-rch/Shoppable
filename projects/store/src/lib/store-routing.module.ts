@@ -1,16 +1,28 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from './Containers/template/default/default.component';
+import { DefaultProductInfoComponent } from '@layout/Components/product-info/default/default-product-info/default-product-info.component';
+import { DefaultSideBarComponent } from '@layout/Components/side-bar/default-side-bar/default-side-bar.component';
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'test',
+        redirectTo: 'shop',
         pathMatch: 'full'
     },
     {
-        path: 'test',
-        component: DefaultComponent
+        path: 'shop',
+        component: DefaultComponent,
+        children: [
+            {
+                path: '',
+                component: DefaultSideBarComponent
+            },
+            {
+                path: ':category/:id',
+                component: DefaultProductInfoComponent
+            }
+        ]
     }
 ];
 

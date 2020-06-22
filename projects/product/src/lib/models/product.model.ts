@@ -21,6 +21,7 @@ export interface StoreProducts {
     quantityInStock: number;
     storeId: string;
     userHandle: string;
+    likeCount: number;
 }
 
 export interface StoreCategories {

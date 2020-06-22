@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { StoreProducts } from '@product/models/product.model';
-
-import { ProductFacade } from '@product/+store/product.facade';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'lib-card',
@@ -18,7 +17,7 @@ export class CardComponent implements OnInit {
 
     products: StoreProducts[];
     counter = Array;
-    constructor(private productFacade: ProductFacade) {}
+    constructor(private router: Router, private route: ActivatedRoute) {}
 
     ngOnInit(): void {
         this.products = this.productsTab;
@@ -39,5 +38,10 @@ export class CardComponent implements OnInit {
     ngOnChanges(changes: SimpleChanges) {
         this.products = changes.productsTab.currentValue;
         this.test = Math.ceil(this.productsTab.length / 6);
+    }
+    clickCard(category, product) {
+        this.router.navigate([`${category}/${product}`], { relativeTo: this.route });
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
 }

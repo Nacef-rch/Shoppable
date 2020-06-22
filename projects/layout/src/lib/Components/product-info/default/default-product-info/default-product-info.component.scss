@@ -1,0 +1,113 @@
+@import '../../../../../../../store/src/lib/Containers/template/default/default.component.scss';
+.btn-color-product {
+    color: #fff;
+    background-color: #7971ea !important;
+    border-color: #7971ea !important;
+}
+.btn-outline-primary {
+    color: #7971ea;
+    border-color: #7971ea;
+}
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #7971ea !important;
+    border-color: #7971ea;
+}
+.sticky-biki {
+    position: sticky;
+    position: -webkit-sticky;
+
+    top: 70px;
+}
+.container-image {
+    position: relative;
+    width: 100%;
+}
+
+.img-on-hover {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: #000000;
+}
+
+.container-image:hover .overlay {
+    opacity: 0.3;
+}
+
+.likeCountImg {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 5%;
+    right: 2%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.moreProductsBox {
+    text-align: left;
+}
+.overlayMoreBox {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+}
+.likeCountImgBox {
+    color: black;
+    font-size: 20px;
+    position: absolute;
+    bottom: 1%;
+    right: 2%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.overlayBoxFill {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: #00000025;
+}
+.likeCountImgBoxFill {
+    color: black;
+    font-size: 20px;
+    position: absolute;
+    bottom: 1%;
+    z-index: 9;
+    right: 2%;
+
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.container-image:hover .overlayBoxFill {
+    opacity: 1;
+}
