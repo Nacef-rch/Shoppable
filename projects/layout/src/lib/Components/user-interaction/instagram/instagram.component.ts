@@ -50,10 +50,16 @@ export class InstagramComponent implements OnInit {
     }
 
     onComment() {
+        this.show = false;
+        this.noComments = true;
+        console.log(this.product);
         this.comment = !this.comment;
+        if (this.product.comments.length > 3) {
+            this.show = true;
+            this.noComments = false;
+        }
         this.pageStart = 0;
-    this.pageEnd = 3;
-    this.show = true;
+        this.pageEnd = 3;
     }
     onLike() {
         this.like = !this.like;
@@ -66,8 +72,8 @@ export class InstagramComponent implements OnInit {
         this.productFacade.productUnLike(this.instaProductId);
     }
     postComment(body: string) {
-        const date = new Date()
-        let dateString = date.toUTCString();
+        const date = new Date();
+        const dateString = date.toUTCString();
         const commentMessageSuccess = {
             createdAt: dateString,
             productId: this.productId,
@@ -79,7 +85,6 @@ export class InstagramComponent implements OnInit {
         this.noComments = false;
 
         this.productFacade.postComment(this.instaProductId, body);
-        
     }
     showMoreComments() {
         if (this.product.commentCount <= this.pageEnd + 3) {

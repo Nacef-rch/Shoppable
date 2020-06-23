@@ -62,7 +62,7 @@
 
 <div class="detailBox float-left" *ngIf="comment">
     <div class="actionBox">
-        <ul class="commentList" >
+        <ul class="commentList">
             <li *ngFor="let comment of product.comments | slice: pageStart:pageEnd; let i = index">
                 <div class="commenterImage">
                     <img src="./assets/images/avatars/1.jpg" />
@@ -99,7 +99,10 @@
                 <input class="form-control" type="text" placeholder="Your comments" #commentBody />
             </div>
             <div class="form-group">
-                <button (click)="postComment(commentBody.value)" class="btn btn-default">
+                <button
+                    (click)="postComment(commentBody.value)"
+                    class="btn btn-default btn-color-product"
+                >
                     Add
                 </button>
             </div>
