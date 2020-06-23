@@ -14,7 +14,17 @@
                 <div class="row">
                     <div class="col-md-12 mb-5">
                         <div class="float-md-left mb-4">
-                            <h2 class="text-black h5">Shop / {{ shopTitle }} / {{ numPage }}</h2>
+                            <h2 class="text-black h5">
+                                <form action="" class="site-block-top-search">
+                                    <span class="icon fa fa-search search-span"></span>
+                                    <input
+                                        type="text"
+                                        class="form-control border-0"
+                                        placeholder="Search"
+                                        (input)="searchFilter($event.target.value)"
+                                    />
+                                </form>
+                            </h2>
                         </div>
                         <div class="d-flex">
                             <div class="dropdown mr-1 ml-md-auto">

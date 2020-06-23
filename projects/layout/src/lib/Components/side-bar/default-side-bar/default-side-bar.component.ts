@@ -93,4 +93,17 @@ export class DefaultSideBarComponent implements OnInit {
     onPageNumber(event) {
         this.numPage = event;
     }
+    searchFilter(value: string) {
+        const searchText = value;
+
+        this.products = this.productsArray;
+
+        this.products = this.products.filter((item) => {
+            const itemText = item.name;
+
+            if (itemText.includes(searchText)) {
+                return item;
+            }
+        });
+    }
 }
