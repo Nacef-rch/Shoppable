@@ -1,6 +1,11 @@
 import { createAction, props } from '@ngrx/store';
 
-import { StoreProducts, StoreCategories, CartProducts } from '@product/models/product.model';
+import {
+    StoreProducts,
+    StoreCategories,
+    CartProducts,
+    OneProduct
+} from '@product/models/product.model';
 
 //IMPORT PRODUCT
 export const IMPORT_SUCCESS = createAction(
@@ -68,3 +73,20 @@ export const REMOVE_CART_PRODUCTS = createAction(
 );
 
 export const LIKE_PRODUCTS = createAction('[Product] like product', props<{ productId: string }>());
+export const UNLIKE_PRODUCTS = createAction(
+    '[Product] unlike product',
+    props<{ productId: string }>()
+);
+
+export const GET_ONE_PRODUCT_START = createAction(
+    '[Product] get one product start ',
+    props<{ productId: string }>()
+);
+export const GET_ONE_PRODUCT_SUCCESS = createAction(
+    '[Product] get one product success',
+    props<{ product: OneProduct }>()
+);
+export const POST_ONE_COMMENT_START = createAction(
+    '[Product] post a comment success',
+    props<{ productId: string; body: string }>()
+);

@@ -26,6 +26,7 @@ export const getProductError = createSelector(
     (state: ProductState) => state.productError
 );
 export const getLoading = createSelector(getState, (state: ProductState) => state.loading);
+export const getProduct = createSelector(getState, (state: ProductState) => state.product);
 
 export const productQuery = {
     getState,
@@ -35,5 +36,6 @@ export const productQuery = {
     getLoading,
     getStoreCategories,
     getCartProducts,
-    getCartQuantity
+    getCartQuantity,
+    getProduct
 };

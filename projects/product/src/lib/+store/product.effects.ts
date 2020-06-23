@@ -142,7 +142,7 @@ export class ProductEffects {
             ofType(ProductActions.LIKE_PRODUCTS),
 
             switchMap((Url: { productId: string }) => {
-                return this.http.get(`/products/${Url.productId}/stock`).pipe(
+                return this.http.get(`/products/${Url.productId}/like`).pipe(
                     map((products) => {
                         return ProductActions.IMPORT_SUCCESS({
                             successMessage: 'success!'
@@ -153,6 +153,70 @@ export class ProductEffects {
                         return of(ProductActions.IMPORT_FAIL({ errorMessage }));
                     })
                 );
+            })
+        )
+    );
+    public unlikeProduct$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(ProductActions.UNLIKE_PRODUCTS),
+
+            switchMap((Url: { productId: string }) => {
+                return this.http.get(`/products/${Url.productId}/unlike`).pipe(
+                    map((products) => {
+                        return ProductActions.IMPORT_SUCCESS({
+                            successMessage: 'success!'
+                        });
+                    }),
+                    catchError((error) => {
+                        const errorMessage = handleError(error, this.translate.lang);
+                        return of(ProductActions.IMPORT_FAIL({ errorMessage }));
+                    })
+                );
+            })
+        )
+    );
+    public getOneProduct$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(ProductActions.GET_ONE_PRODUCT_START),
+
+            switchMap((Url: { productId: string }) => {
+                return this.http.get(`/products/${Url.productId}`).pipe(
+                    map((productData) => {
+                        ProductActions.IMPORT_SUCCESS({
+                            successMessage: 'success!'
+                        });
+                        return ProductActions.GET_ONE_PRODUCT_SUCCESS({
+                            product: productData
+                        });
+                    }),
+                    catchError((error) => {
+                        const errorMessage = handleError(error, this.translate.lang);
+                        return of(ProductActions.IMPORT_FAIL({ errorMessage }));
+                    })
+                );
+            })
+        )
+    );
+
+    public productComment$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(ProductActions.POST_ONE_COMMENT_START),
+            switchMap((comment: { productId: string; body: string }) => {
+                return this.http
+                    .post(`/products/${comment.productId}/comment`, {
+                        body: comment.body
+                    })
+                    .pipe(
+                        map((resData) => {
+                            return ProductActions.IMPORT_SUCCESS({
+                                successMessage: resData
+                            });
+                        }),
+                        catchError((error) => {
+                            const errorMessage = handleError(error, this.translate.lang);
+                            return of(ProductActions.IMPORT_FAIL({ errorMessage }));
+                        })
+                    );
             })
         )
     );

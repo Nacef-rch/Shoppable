@@ -53,3 +53,26 @@ export interface CartProducts {
     likeCount: number;
     quantitySelected: number;
 }
+export interface OneProduct {
+    position: number;
+    productId: string;
+    categoryId: string;
+    name: string;
+    description: string;
+    imageUrl: string;
+    unitPrice: number;
+    quantityInStock: number;
+    storeId: string;
+    userHandle: string;
+    likeCount: number;
+
+    commentCount: number;
+    comments: [
+        {
+            createdAt: string;
+            productId: string;
+            userHandle: string;
+            body: string;
+        }
+    ];
+}

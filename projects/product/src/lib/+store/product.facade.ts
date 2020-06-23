@@ -16,6 +16,7 @@ export class ProductFacade {
     public cartProducts$ = this.store.select(productQuery.getCartProducts);
     public storeCategories$ = this.store.select(productQuery.getStoreCategories);
     public cartQuantity$ = this.store.select(productQuery.getCartQuantity);
+    public oneProduct$ = this.store.select(productQuery.getProduct);
 
     constructor(private store: Store<ProductStore>) {}
 
@@ -54,6 +55,28 @@ export class ProductFacade {
         this.store.dispatch(
             productActions.LIKE_PRODUCTS({
                 productId: productId
+            })
+        );
+    }
+    public productUnLike(productId: string): void {
+        this.store.dispatch(
+            productActions.UNLIKE_PRODUCTS({
+                productId: productId
+            })
+        );
+    }
+    public productComment(productId: string): void {
+        this.store.dispatch(
+            productActions.GET_ONE_PRODUCT_START({
+                productId: productId
+            })
+        );
+    }
+    public postComment(productId: string, body: string): void {
+        this.store.dispatch(
+            productActions.POST_ONE_COMMENT_START({
+                productId: productId,
+                body: body
             })
         );
     }

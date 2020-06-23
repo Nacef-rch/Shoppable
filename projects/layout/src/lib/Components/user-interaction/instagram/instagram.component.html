@@ -18,7 +18,7 @@
         *ngIf="like"
         class="bi bi-heart-fill float-right"
         width="1.5em"
-        (click)="onLike()"
+        (click)="onDisLike()"
         height="1.5em"
         viewBox="0 0 16 16"
         fill="currentColor"
@@ -59,50 +59,49 @@
     </svg>
 </div>
 <br />
+
 <div class="detailBox float-left" *ngIf="comment">
     <div class="actionBox">
-        <ul class="commentList">
-            <li>
+        <ul class="commentList" >
+            <li *ngFor="let comment of product.comments | slice: pageStart:pageEnd; let i = index">
                 <div class="commenterImage">
                     <img src="./assets/images/avatars/1.jpg" />
                 </div>
                 <div class="commentText">
                     <p class="">
-                        <b><i>Nacef : </i></b> Hello this is a test comment.
+                        <b
+                            ><i>{{ comment.userHandle }} : </i></b
+                        >
+                        {{ comment.body }}
                     </p>
-                    <span class="date sub-text">on juillet 22th, 2020</span>
-                </div>
-            </li>
-            <li>
-                <div class="commenterImage">
-                    <img src="./assets/images/avatars/1.jpg" />
-                </div>
-                <div class="commentText">
-                    <p class="">
-                        <b><i>Nacef : </i></b> Hello this is a test comment and this comment is
-                        particularly very long and it goes on and on and on.
-                    </p>
-                    <span class="date sub-text">on juillet 22th, 2020</span>
-                </div>
-            </li>
-            <li>
-                <div class="commenterImage">
-                    <img src="./assets/images/avatars/1.jpg" />
-                </div>
-                <div class="commentText">
-                    <p class="">
-                        <b><i>Nacef : </i></b> Hello this is a test comment.
-                    </p>
-                    <span class="date sub-text">on juillet 22th, 2020</span>
+                    <span class="date sub-text">{{ comment.createdAt }}</span>
                 </div>
             </li>
         </ul>
+        <p class="showMore" (click)="showMoreComments()" *ngIf="show">Show more</p>
+        <p class="showMore" *ngIf="noComments">
+            there is no comments on this product<svg
+                class="bi bi-filter"
+                width="1em"
+                height="1em"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    fill-rule="evenodd"
+                    d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
+                />
+            </svg>
+        </p>
         <form class="form-inline" role="form">
             <div class="form-group">
-                <input class="form-control" type="text" placeholder="Your comments" />
+                <input class="form-control" type="text" placeholder="Your comments" #commentBody />
             </div>
             <div class="form-group">
-                <button class="btn btn-default">Add</button>
+                <button (click)="postComment(commentBody.value)" class="btn btn-default">
+                    Add
+                </button>
             </div>
         </form>
     </div>
