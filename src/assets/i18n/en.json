@@ -116,7 +116,8 @@
             "FOLLOW": "Follow us",
             "MEDIA": "Social media",
             "INFO": "Contact Info",
-            "SUB": "Subscribe"
+            "SUB": "Subscribe",
+            "SEND": "Send"
         },
         "DEFAULT_HEADER": {
             "SHOP": "Shop",
@@ -128,7 +129,8 @@
             "SHOP": "Shop",
             "WEAR": "To wear with",
             "BASKET": "Basket",
-            "CONTACT": "Contact"
+            "CONTACT": "Contact",
+            "ADD": "Add To Cart"
         },
         "DEFAULT_SIDE_BAR": {
             "SHOP": "Shop",

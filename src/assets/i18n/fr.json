@@ -105,5 +105,73 @@
             "STAT": "Statistiques",
             "SET": "Réglages"
         }
+    },
+    "LAYOUT": {
+        "DEFAULT_FOOTER": {
+            "NAV": "Navigations",
+            "SELL": "Vendre en ligne",
+            "FEATURE": "Traits",
+            "CART": "Panier",
+            "CONTACT": "Nous contacter",
+            "ABOUT": "À propos de nous",
+            "FOLLOW": "Suivez nous",
+            "MEDIA": "Médias sociaux",
+            "INFO": "Informations de contact",
+            "SUB": "S'abonner",
+            "SEND": "Envoyer"
+        },
+        "DEFAULT_HEADER": {
+            "SHOP": "Boutique",
+            "ABOUT": "À propos",
+            "BASKET": "Panier",
+            "CONTACT": "Contact"
+        },
+        "DEFAULT_PRODUCT_INFO": {
+            "SHOP": "Boutique",
+            "WEAR": "A porter avec",
+            "BASKET": "Panier",
+            "CONTACT": "Contact",
+            "ADD": "Ajouter au panier"
+        },
+        "DEFAULT_SIDE_BAR": {
+            "SHOP": "Boutique",
+            "LATEST": "Collection",
+            "REF": "Référence",
+            "CATEGORIES": "Catégories",
+            "FILTER": "Filtrer par prix",
+            "MIN": "Min : ",
+            "MAX": "Max : "
+        },
+        "INSTA": {
+            "SHOW": "Affiche plus",
+            "THERE": "Il n'y a aucun commentaire sur ce produit",
+            "ADD": "Ajouter"
+        },
+        "DEFAULT_CART": {
+            "SHOP": "Boutique",
+            "CART": "Panier",
+            "IMG": "Image",
+            "PRODUCT": "Produit",
+            "PRICE": "Prix",
+            "QUANTITY": "Quantité",
+            "TOTAL": "Total",
+            "REMOVE": "Retirer",
+            "UPDATE": "Mise à jour panier",
+            "CONTINUE": "Continuer vos achats",
+            "COUPON": "Coupon",
+            "ENTER": "Entrez votre code promo si vous en avez un.",
+            "APPLY": "Appliquer Coupon",
+            "CART_TOTAL": "Totaux du panier",
+            "ORDER": "Valeur de la commande",
+            "DELIVERY": "Livraison",
+            "FINISH": "Terminer ma commande"
+        },
+        "DEFAULT_ORDER": {
+            "SHOP": "Boutique",
+            "CONTACT": "Contact",
+            "THANK": "Merci!",
+            "ORDER": "Votre commande s'est terminée avec succès.",
+            "BACK": "Retour à la boutique"
+        }
     }
 }
