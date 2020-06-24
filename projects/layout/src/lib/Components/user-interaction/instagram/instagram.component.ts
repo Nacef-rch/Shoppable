@@ -1,9 +1,10 @@
 import { Component, OnInit, SimpleChanges, ChangeDetectionStrategy, Input } from '@angular/core';
-import { ProductFacade } from '@product/+store/product.facade';
-import { OneProduct } from '@product/models/product.model';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, Params } from '@angular/router';
+
+import { ProductFacade } from '@product/+store/product.facade';
+import { OneProduct } from '@product/models/product.model';
 
 @Component({
     selector: 'lib-instagram',
@@ -15,20 +16,19 @@ export class InstagramComponent implements OnInit {
     public Product$: Observable<OneProduct> = this.productFacade.oneProduct$;
     public Success$: Observable<string> = this.productFacade.success$;
     @Input() productId;
-    paramsSubscription: Subscription;
-    productsSubscription: Subscription;
-    product: OneProduct;
-    instaProductId;
-    pageStart = 0;
-    pageEnd = 3;
-    comment = false;
-    like = false;
-    show = true;
-    noComments = false;
-    commentBox;
+    private paramsSubscription: Subscription;
+    private productsSubscription: Subscription;
+    public product: OneProduct;
+    public instaProductId: string;
+    public pageStart = 0;
+    public pageEnd = 3;
+    public comment = false;
+    public like = false;
+    public show = true;
+    public noComments = false;
 
     constructor(private productFacade: ProductFacade, private route: ActivatedRoute) {}
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.paramsSubscription = this.route.params.subscribe((params: Params) => {
             this.instaProductId = params['id'];
 
@@ -49,7 +49,7 @@ export class InstagramComponent implements OnInit {
         });
     }
 
-    onComment() {
+    public onComment(): void {
         this.show = false;
         this.noComments = true;
         console.log(this.product);
@@ -61,17 +61,17 @@ export class InstagramComponent implements OnInit {
         this.pageStart = 0;
         this.pageEnd = 3;
     }
-    onLike() {
+    public onLike(): void {
         this.like = !this.like;
 
         this.productFacade.productLike(this.instaProductId);
     }
-    onDisLike() {
+    public onDisLike(): void {
         this.like = !this.like;
 
         this.productFacade.productUnLike(this.instaProductId);
     }
-    postComment(body: string) {
+    public postComment(body: string): void {
         const date = new Date();
         const dateString = date.toUTCString();
         const commentMessageSuccess = {
@@ -86,14 +86,14 @@ export class InstagramComponent implements OnInit {
 
         this.productFacade.postComment(this.instaProductId, body);
     }
-    showMoreComments() {
+    public showMoreComments(): void {
         if (this.product.commentCount <= this.pageEnd + 3) {
             this.show = false;
         }
         this.pageStart = this.pageStart + 2;
         this.pageEnd = this.pageEnd + 2;
     }
-    ngOnChanges(changes: SimpleChanges): void {
+    public ngOnChanges(changes: SimpleChanges): void {
         this.productsSubscription.unsubscribe();
         this.like = false;
         this.comment = false;

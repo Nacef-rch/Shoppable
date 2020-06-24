@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ProductFacade } from '@product/+store/product.facade';
 import { Observable } from 'rxjs';
+
+import { ProductFacade } from '@product/+store/product.facade';
 
 @Component({
     selector: 'lib-default-header',

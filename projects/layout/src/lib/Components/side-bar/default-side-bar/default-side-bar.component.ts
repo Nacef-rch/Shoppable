@@ -1,7 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { ProductFacade } from '@product/+store/product.facade';
 import { Observable } from 'rxjs';
+
 import { StoreProducts } from '@product/models/product.model';
+import { ProductFacade } from '@product/+store/product.facade';
 
 @Component({
     selector: 'lib-default-side-bar',
@@ -11,18 +12,17 @@ import { StoreProducts } from '@product/models/product.model';
 })
 export class DefaultSideBarComponent implements OnInit {
     public Products$: Observable<StoreProducts[]> = this.productFacade.storeProducts$;
-    products: StoreProducts[];
-    productsArray: StoreProducts[];
-    shopTitle = 'All';
-    sliderMinValue = 0;
-    sliderMaxValue = 100;
-    numPage = 1;
-
-    categories = [];
+    public products: StoreProducts[];
+    public productsArray: StoreProducts[];
+    public shopTitle = 'All';
+    public sliderMinValue = 0;
+    public sliderMaxValue = 100;
+    public numPage = 1;
+    public categories = [];
     public isLoading$: Observable<boolean> = this.productFacade.loading$;
     constructor(private productFacade: ProductFacade) {}
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.Products$.subscribe((resData) => {
             this.products = resData;
             this.productsArray = resData;
@@ -34,7 +34,7 @@ export class DefaultSideBarComponent implements OnInit {
             });
         });
     }
-    categoryClick(category) {
+    public categoryClick(category): any {
         this.shopTitle = category;
         this.products = this.productsArray;
         console.log(category);
@@ -46,7 +46,7 @@ export class DefaultSideBarComponent implements OnInit {
         this.sliderMinValue = 0;
         this.sliderMaxValue = 100;
     }
-    SliderValue(value: number) {
+    public SliderValue(value: number): any {
         if (value >= 1000) {
             return Math.round(value / 1000) + 'k';
         }
@@ -60,7 +60,7 @@ export class DefaultSideBarComponent implements OnInit {
         return value;
     }
 
-    minValueSlider(event) {
+    public minValueSlider(event): any {
         if (this.sliderMinValue > event.value) {
             this.products = this.productsArray;
             this.sliderMinValue = 0;
@@ -72,7 +72,7 @@ export class DefaultSideBarComponent implements OnInit {
         this.products = newArray;
         this.sliderMinValue = event.value;
     }
-    maxValueSlider(event) {
+    public maxValueSlider(event): any {
         if (this.sliderMaxValue < event.value) {
             this.products = this.productsArray;
             this.sliderMaxValue = 100;
@@ -84,16 +84,16 @@ export class DefaultSideBarComponent implements OnInit {
         this.products = newArray;
         this.sliderMaxValue = event.value;
     }
-    categoryAll() {
+    public categoryAll(): void {
         this.products = this.productsArray;
         this.shopTitle = 'All';
         this.sliderMinValue = 0;
         this.sliderMaxValue = 100;
     }
-    onPageNumber(event) {
+    public onPageNumber(event): void {
         this.numPage = event;
     }
-    searchFilter(value: string) {
+    public searchFilter(value: string): void {
         const searchText = value;
 
         this.products = this.productsArray;

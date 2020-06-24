@@ -110,11 +110,19 @@
                     </ul>
                 </li> -->
                 <li routerLinkActive="active">
-                    <a routerLink="/store/shop">Shop</a>
+                    <a routerLink="/store/shop">{{ 'LAYOUT.DEFAULT_HEADER.SHOP' | translate }}</a>
                 </li>
-                <li><a>About</a></li>
-                <li routerLinkActive="active"><a routerLink="/store/shop/cart">basket</a></li>
-                <li><a>Contact </a></li>
+                <li>
+                    <a>{{ 'LAYOUT.DEFAULT_HEADER.ABOUT' | translate }}</a>
+                </li>
+                <li routerLinkActive="active">
+                    <a routerLink="/store/shop/cart">{{
+                        'LAYOUT.DEFAULT_HEADER.BASKET' | translate
+                    }}</a>
+                </li>
+                <li>
+                    <a>{{ 'LAYOUT.DEFAULT_HEADER.CONTACT' | translate }} </a>
+                </li>
             </ul>
         </div>
     </nav>

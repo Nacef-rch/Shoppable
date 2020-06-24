@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
-import { StoreProducts } from '@product/models/product.model';
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { StoreProducts } from '@product/models/product.model';
 
 @Component({
     selector: 'lib-card',
@@ -10,38 +11,36 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class CardComponent implements OnInit {
     @Input() productsTab;
     @Output() pageNumber = new EventEmitter<number>();
+    public test: number;
+    public pageStart = 0;
+    public pageEnd = 6;
+    public products: StoreProducts[];
+    public counter = Array;
 
-    test;
-    pageStart = 0;
-    pageEnd = 6;
-
-    products: StoreProducts[];
-    counter = Array;
     constructor(private router: Router, private route: ActivatedRoute) {}
 
     ngOnInit(): void {
         this.products = this.productsTab;
-
         this.test = Math.ceil(this.productsTab.length / 6);
     }
 
-    pageData(i) {
+    public pageData(i): void {
         this.pageNumber.emit(i);
         this.pageStart = 6 * (i - 1);
         this.pageEnd = 6 * i;
     }
 
-    topFunction() {
-        document.body.scrollTop = 300; // For Safari
-        document.documentElement.scrollTop = 300; // For Chrome, Firefox, IE and Opera
+    public topFunction(): void {
+        document.body.scrollTop = 300;
+        document.documentElement.scrollTop = 300;
     }
-    ngOnChanges(changes: SimpleChanges) {
+    public ngOnChanges(changes: SimpleChanges): void {
         this.products = changes.productsTab.currentValue;
         this.test = Math.ceil(this.productsTab.length / 6);
     }
-    clickCard(category, product) {
+    public clickCard(category, product): void {
         this.router.navigate([`${category}/${product}`], { relativeTo: this.route });
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }
 }

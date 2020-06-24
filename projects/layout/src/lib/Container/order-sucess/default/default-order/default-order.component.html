@@ -2,8 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mb-0">
-                <a routerLink="/store/shop">shop</a> <span class="mx-2 mb-0">/</span>
-                <strong class="text-black">Contact</strong>
+                <a routerLink="/store/shop"> {{ 'LAYOUT.DEFAULT_ORDER.SHOP' | translate }}</a>
+                <span class="mx-2 mb-0">/</span>
+                <strong class="text-black">{{ 'LAYOUT.DEFAULT_ORDER.CONTACT' | translate }}</strong>
             </div>
         </div>
     </div>
@@ -28,9 +29,13 @@
                         />
                     </svg>
                 </span>
-                <h2 class="display-3 text-black">Thank you!</h2>
-                <p class="lead mb-5 wasSucc">You order was successfuly completed.</p>
-                <p><a routerLink="/store/shop" class="btn btn-sm btn-primary">Back to shop</a></p>
+                <h2 class="display-3 text-black">{{ 'LAYOUT.DEFAULT_ORDER.THANK' | translate }}</h2>
+                <p class="lead mb-5 wasSucc">{{ 'LAYOUT.DEFAULT_ORDER.ORDER' | translate }}</p>
+                <p>
+                    <a routerLink="/store/shop" class="btn btn-sm btn-primary">{{
+                        'LAYOUT.DEFAULT_ORDER.BACK' | translate
+                    }}</a>
+                </p>
             </div>
         </div>
     </div>

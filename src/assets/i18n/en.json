@@ -104,5 +104,71 @@
             "STAT": "Statistics",
             "SET": "Settings"
         }
+    },
+    "LAYOUT": {
+        "DEFAULT_FOOTER": {
+            "NAV": "Navigations",
+            "SELL": "Sell online",
+            "FEATURE": "Features",
+            "CART": "Shopping cart",
+            "CONTACT": "Contact us",
+            "ABOUT": "About us",
+            "FOLLOW": "Follow us",
+            "MEDIA": "Social media",
+            "INFO": "Contact Info",
+            "SUB": "Subscribe"
+        },
+        "DEFAULT_HEADER": {
+            "SHOP": "Shop",
+            "ABOUT": "About",
+            "BASKET": "Basket",
+            "CONTACT": "Contact"
+        },
+        "DEFAULT_PRODUCT_INFO": {
+            "SHOP": "Shop",
+            "WEAR": "To wear with",
+            "BASKET": "Basket",
+            "CONTACT": "Contact"
+        },
+        "DEFAULT_SIDE_BAR": {
+            "SHOP": "Shop",
+            "LATEST": "Latest",
+            "REF": "Reference",
+            "CATEGORIES": "Categories",
+            "FILTER": "Filter by Price",
+            "MIN": "Min : ",
+            "MAX": "Max : "
+        },
+        "INSTA": {
+            "SHOW": "Show more",
+            "THERE": "There is no comments on this product",
+            "ADD": "Add"
+        },
+        "DEFAULT_CART": {
+            "SHOP": "Shop",
+            "CART": "Cart",
+            "IMG": "Image",
+            "PRODUCT": "Product",
+            "PRICE": "Price",
+            "QUANTITY": "Quantity",
+            "TOTAL": "Total",
+            "REMOVE": "Remove",
+            "UPDATE": "Update Cart",
+            "CONTINUE": "Continue Shopping",
+            "COUPON": "Coupon",
+            "ENTER": "Enter your coupon code if you have one.",
+            "APPLY": "Apply Coupon",
+            "CART_TOTAL": "Cart Totals",
+            "ORDER": "Order value",
+            "DELIVERY": "Delivery",
+            "FINISH": "Finish my order"
+        },
+        "DEFAULT_ORDER": {
+            "SHOP": "shop",
+            "CONTACT": "Contact",
+            "THANK": "Thank you!",
+            "ORDER": "You order was successfuly completed.",
+            "BACK": "Back to shop"
+        }
     }
 }

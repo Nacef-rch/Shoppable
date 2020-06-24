@@ -78,9 +78,12 @@
                 </div>
             </li>
         </ul>
-        <p class="showMore" (click)="showMoreComments()" *ngIf="show">Show more</p>
+        <p class="showMore" (click)="showMoreComments()" *ngIf="show">
+            {{ 'LAYOUT.INSTA.SHOW' | translate }}
+        </p>
         <p class="showMore" *ngIf="noComments">
-            there is no comments on this product<svg
+            {{ 'LAYOUT.INSTA.THERE' | translate
+            }}<svg
                 class="bi bi-filter"
                 width="1em"
                 height="1em"
@@ -103,7 +106,7 @@
                     (click)="postComment(commentBody.value)"
                     class="btn btn-default btn-color-product"
                 >
-                    Add
+                    {{ 'LAYOUT.INSTA.ADD' | translate }}
                 </button>
             </div>
         </form>

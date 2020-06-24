@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mb-0">
-                <strong class="text-black">Shop</strong>
+                <strong class="text-black">{{ 'LAYOUT.DEFAULT_SIDE_BAR.SHOP' | translate }}</strong>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
                                     aria-haspopup="true"
                                     aria-expanded="false"
                                 >
-                                    Latest
+                                    {{ 'LAYOUT.DEFAULT_SIDE_BAR.LATEST' | translate }}
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
                                     <a class="dropdown-item" href="#">Men</a>
@@ -51,7 +51,7 @@
                                     id="dropdownMenuReference"
                                     data-toggle="dropdown"
                                 >
-                                    Reference
+                                    {{ 'LAYOUT.DEFAULT_SIDE_BAR.REF' | translate }}
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
                                     <a class="dropdown-item" href="#">Relevance</a>
@@ -80,7 +80,7 @@
             <div class="col-md-3 order-1 mb-5 mb-md-0">
                 <div class="border p-4 rounded mb-4">
                     <h3 class="mb-3 h6 text-uppercase text-black d-block">
-                        Categories
+                        {{ 'LAYOUT.DEFAULT_SIDE_BAR.CATEGORIES' | translate }}
                     </h3>
                     <ul class="list-unstyled mb-0">
                         <li class="mb-1" *ngFor="let category of categories">
@@ -101,10 +101,12 @@
                 <div class="border p-4 rounded mb-4">
                     <div class="mb-4">
                         <h3 class="mb-3 h6 text-uppercase text-black d-block">
-                            Filter by Price
+                            {{ 'LAYOUT.DEFAULT_SIDE_BAR.FILTER' | translate }}
                         </h3>
                         <div id="slider-range" class="border-primary"></div>
-                        <span class="text-black ml-auto">Min : </span>
+                        <span class="text-black ml-auto">
+                            {{ 'LAYOUT.DEFAULT_SIDE_BAR.MIN' | translate }}</span
+                        >
                         <br />
                         <mat-slider
                             thumbLabel
@@ -117,7 +119,9 @@
                             #minSlider
                         ></mat-slider
                         ><span class="text-black ml-auto">{{ minSlider.value }} TND</span><br />
-                        <span class="text-black ml-auto">Max : </span>
+                        <span class="text-black ml-auto">
+                            {{ 'LAYOUT.DEFAULT_SIDE_BAR.MAX' | translate }}</span
+                        >
                         <br />
                         <mat-slider
                             thumbLabel

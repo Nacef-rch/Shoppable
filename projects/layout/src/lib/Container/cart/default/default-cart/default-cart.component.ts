@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { CartProducts } from '@product/models/product.model';
 import { ProductFacade } from '@product/+store/product.facade';
 
@@ -8,14 +9,14 @@ import { ProductFacade } from '@product/+store/product.facade';
     styleUrls: ['./default-cart.component.scss']
 })
 export class DefaultCartComponent implements OnInit {
-    products: CartProducts[];
-    SubTotal = 0;
-    Delivery = 0;
-    QuantityTotal = 0;
+    public products: CartProducts[];
+    public SubTotal = 0;
+    public Delivery = 0;
+    public QuantityTotal = 0;
 
     constructor(private prodFacade: ProductFacade) {}
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.prodFacade.cartProducts$.subscribe((resData) => {
             this.products = resData;
             resData.forEach((item) => {
@@ -25,7 +26,7 @@ export class DefaultCartComponent implements OnInit {
             this.Delivery = 7.99;
         });
     }
-    onClickPlus(position: number) {
+    public onClickPlus(position: number): void {
         this.products.forEach((item) => {
             if (item.position == position) {
                 this.SubTotal = this.SubTotal - item.unitPrice * item.quantitySelected;
@@ -33,9 +34,8 @@ export class DefaultCartComponent implements OnInit {
                 this.SubTotal = this.SubTotal + item.unitPrice * item.quantitySelected;
             }
         });
-        console.log(this.QuantityTotal);
     }
-    onClickMinus(position: number) {
+    public onClickMinus(position: number): void {
         this.products.forEach((item) => {
             if (item.position == position && item.quantitySelected > 1) {
                 this.SubTotal = this.SubTotal - item.unitPrice * item.quantitySelected;
@@ -44,7 +44,7 @@ export class DefaultCartComponent implements OnInit {
             }
         });
     }
-    deleteProduct(position: number) {
+    public deleteProduct(position: number): void {
         this.SubTotal = 0;
         this.QuantityTotal = 0;
         this.products = this.products.filter((item) => {

@@ -3,7 +3,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-0">
-                    <a routerLink="/store/shop" routerLinkActive="active">Shop</a>
+                    <a routerLink="/store/shop" routerLinkActive="active">{{
+                        'LAYOUT.DEFAULT_PRODUCT_INFO.SHOP' | translate
+                    }}</a>
                     <span class="mx-2 mb-0">/</span>
                     <i
                         ><strong class="text-black">{{ product.name }}</strong></i
@@ -140,7 +142,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-7 site-section-heading text-center pt-4">
-                    <h2>To wear with</h2>
+                    <h2>{{ 'LAYOUT.DEFAULT_PRODUCT_INFO.WEAR' | translate }}</h2>
                 </div>
             </div>
             <div class="row">
