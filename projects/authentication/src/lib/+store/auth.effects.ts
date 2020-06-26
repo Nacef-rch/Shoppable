@@ -12,6 +12,7 @@ import { handleError } from '@authentication/helpers/handleError';
 import { handleAuthentication } from '@authentication/helpers/local-storage.helper';
 import { ApiService } from '@core/services/api/api.service';
 import { I18nService } from '@i18n/services/i18n.service';
+import { FirebaseApi } from '@core/constants/api-constants';
 
 @Injectable()
 export class AuthEffects {
@@ -20,7 +21,7 @@ export class AuthEffects {
             ofType(AuthActions.SIGNUP_START),
             switchMap((signupAction: UserOnRegister) => {
                 return this.http
-                    .post('/signup', {
+                    .post(FirebaseApi.auth.authSignup, {
                         name: signupAction.name,
                         email: signupAction.email,
                         password: signupAction.password,
@@ -53,7 +54,7 @@ export class AuthEffects {
             ofType(AuthActions.LOGIN_START),
             switchMap((authData: UserOnLogin) => {
                 return this.http
-                    .post('/login', {
+                    .post(FirebaseApi.auth.authLogin, {
                         email: authData.email,
                         password: authData.password
                     })

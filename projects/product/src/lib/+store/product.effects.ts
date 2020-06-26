@@ -10,6 +10,7 @@ import { handleError } from '@authentication/helpers/handleError';
 import { ApiService } from '@core/services/api/api.service';
 import { I18nService } from '@i18n/services/i18n.service';
 import { I18nFacade } from '@i18n/+store/i18n.facade';
+import { FirebaseApi } from '@core/constants/api-constants';
 
 @Injectable()
 export class ProductEffects {
@@ -25,7 +26,7 @@ export class ProductEffects {
 
             switchMap((ImportAction: ProductImport) => {
                 return this.http
-                    .post('/products', {
+                    .post(FirebaseApi.products, {
                         categoryId: ImportAction.categoryId,
                         name: ImportAction.name,
                         description: ImportAction.description,
@@ -60,7 +61,7 @@ export class ProductEffects {
         this.actions$.pipe(
             ofType(ProductActions.DELETE_PRODUCT),
             switchMap((Url: { productId: string }) => {
-                return this.http.delete(`/products/${Url.productId}`).pipe(
+                return this.http.delete(`${FirebaseApi.products}/${Url.productId}`).pipe(
                     map((resData) => {
                         const currentLang = this.translate.currentLang;
                         let successMessage = 'Produit(s) supprimé(s) avec succès';
@@ -88,7 +89,7 @@ export class ProductEffects {
             ofType(ProductActions.CHANGE_PRODUCT_STOCK),
             switchMap((StockAction: { productId: string; quantityInStock: number }) => {
                 return this.http
-                    .post(`/products/${StockAction.productId}/stock`, {
+                    .post(`${FirebaseApi.products}//${StockAction.productId}/stock`, {
                         quantityInStock: StockAction.quantityInStock
                     })
                     .pipe(
@@ -120,7 +121,7 @@ export class ProductEffects {
             ofType(ProductActions.FETCH_STORE_PRODUCTS_START),
 
             switchMap(() => {
-                return this.http.get('/products/store').pipe(
+                return this.http.get(FirebaseApi.productsStore).pipe(
                     map((products) => {
                         ProductActions.IMPORT_SUCCESS({
                             successMessage: 'success!'
@@ -142,7 +143,7 @@ export class ProductEffects {
             ofType(ProductActions.LIKE_PRODUCTS),
 
             switchMap((Url: { productId: string }) => {
-                return this.http.get(`/products/${Url.productId}/like`).pipe(
+                return this.http.get(`${FirebaseApi.products}/${Url.productId}/like`).pipe(
                     map((products) => {
                         return ProductActions.IMPORT_SUCCESS({
                             successMessage: 'success!'
@@ -161,7 +162,7 @@ export class ProductEffects {
             ofType(ProductActions.UNLIKE_PRODUCTS),
 
             switchMap((Url: { productId: string }) => {
-                return this.http.get(`/products/${Url.productId}/unlike`).pipe(
+                return this.http.get(`${FirebaseApi.products}/${Url.productId}/unlike`).pipe(
                     map((products) => {
                         return ProductActions.IMPORT_SUCCESS({
                             successMessage: 'success!'
@@ -180,7 +181,7 @@ export class ProductEffects {
             ofType(ProductActions.GET_ONE_PRODUCT_START),
 
             switchMap((Url: { productId: string }) => {
-                return this.http.get(`/products/${Url.productId}`).pipe(
+                return this.http.get(`${FirebaseApi.products}/${Url.productId}`).pipe(
                     map((productData) => {
                         ProductActions.IMPORT_SUCCESS({
                             successMessage: 'success!'
@@ -203,7 +204,7 @@ export class ProductEffects {
             ofType(ProductActions.POST_ONE_COMMENT_START),
             switchMap((comment: { productId: string; body: string }) => {
                 return this.http
-                    .post(`/products/${comment.productId}/comment`, {
+                    .post(`${FirebaseApi.products}/${comment.productId}/comment`, {
                         body: comment.body
                     })
                     .pipe(
