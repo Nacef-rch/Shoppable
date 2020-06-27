@@ -15,9 +15,9 @@ import { CardComponent } from '@layout/Components/cards/card/card.component';
 import { DefaultHeaderComponent } from '@layout/Components/header/default/default-header.component';
 import { DefaultSearchBoxComponent } from '@layout/Components/header/default/elements/default-search-box/default-search-box.component';
 import { DefaultFooterComponent } from '@layout/Components/footer/default/default-footer/default-footer.component';
-import { DefaultProductInfoComponent } from '@layout/Components/product-info/default/default-product-info/default-product-info.component';
+
 import { DefaultSideBarComponent } from '@layout/Components/side-bar/default-side-bar/default-side-bar.component';
-import { InstagramComponent } from '@layout/Components/user-interaction/instagram/instagram.component';
+import { InstaInteractionComponent } from '@layout/Components/user-interaction/instagram/insta-interaction.component';
 
 @NgModule({
     declarations: [
@@ -25,18 +25,19 @@ import { InstagramComponent } from '@layout/Components/user-interaction/instagra
         DefaultHeaderComponent,
         DefaultSearchBoxComponent,
         DefaultFooterComponent,
-        DefaultProductInfoComponent,
+
         DefaultSideBarComponent,
         DefaultCartComponent,
         DefaultOrderComponent,
-        InstagramComponent
+        InstaInteractionComponent
     ],
     imports: [CommonModule, HttpClientModule, SharedModule, RouterModule],
 
     exports: [
         DefaultHeaderComponent,
         DefaultFooterComponent,
-        DefaultProductInfoComponent,
+        InstaInteractionComponent,
+
         DefaultSideBarComponent,
         DefaultCartComponent,
         DefaultOrderComponent

@@ -8,11 +8,11 @@ import { OneProduct } from '@product/models/product.model';
 
 @Component({
     selector: 'lib-instagram',
-    templateUrl: './instagram.component.html',
-    styleUrls: ['./instagram.component.scss'],
+    templateUrl: './insta-interaction.component.html',
+    styleUrls: ['./insta-interaction.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class InstagramComponent implements OnInit {
+export class InstaInteractionComponent implements OnInit {
     public Product$: Observable<OneProduct> = this.productFacade.oneProduct$;
     public Success$: Observable<string> = this.productFacade.success$;
     @Input() productId;

@@ -20,6 +20,8 @@ import { AllProductsComponent } from './Containers/all-products/all-products.com
 import { DashboardModule } from '@admin/dashboard.module';
 import { PageTitleComponent } from './Components/page-title/page-title.component';
 import { ProductRoutingModule } from './product-routing.module';
+import { DefaultProductInfoComponent } from './Components/product-info/default/default-product-info/default-product-info.component';
+import { LayoutModule } from '@layout/layout.module';
 
 @NgModule({
     declarations: [
@@ -28,7 +30,7 @@ import { ProductRoutingModule } from './product-routing.module';
         ProductsImportComponent,
         PageTitleComponent,
         ProductInventoryComponent,
-
+        DefaultProductInfoComponent,
         AllProductsComponent
     ],
     imports: [
@@ -37,6 +39,7 @@ import { ProductRoutingModule } from './product-routing.module';
         DashboardModule,
         SharedModule,
         ProductRoutingModule,
+        LayoutModule,
 
         StoreModule.forFeature(productStoreName, productReducer, {
             initialState: productInitialState
