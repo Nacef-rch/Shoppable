@@ -17,7 +17,7 @@ import { SharedModule } from '@shared/shared.module';
 import { ProductsImportComponent } from './Containers/products/products-import.component';
 import { ProductInventoryComponent } from './Containers/product-inventory/product-inventory.component';
 import { AllProductsComponent } from './Containers/all-products/all-products.component';
-import { DashboardModule } from '@dash/dashboard.module';
+import { DashboardModule } from '@admin/dashboard.module';
 import { PageTitleComponent } from './Components/page-title/page-title.component';
 import { ProductRoutingModule } from './product-routing.module';
 

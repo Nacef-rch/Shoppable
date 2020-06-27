@@ -21,7 +21,7 @@ module.exports = {
         '^@core/(.*)$': '<rootDir>/projects/core/src/lib/$1',
         '^@authentication/(.*)$': '<rootDir>/projects/authentication/src/lib/$1',
         '^@i18n/(.*)$': '<rootDir>/projects/internationalization/src/lib/$1',
-        '^@dash/(.*)$': '<rootDir>/projects/dashboard/src/lib/$1',
+        '^@admin/(.*)$': '<rootDir>/projects/admin/src/lib/$1',
         '^@product/(.*)$': '<rootDir>/projects/product/src/lib/$1',
         '^@store/(.*)$': '<rootDir>/projects/store/src/lib/$1',
         '^@layout/(.*)$': '<rootDir>/projects/store/src/lib/$1',

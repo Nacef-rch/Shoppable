@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { animate, query, style, transition, trigger } from '@angular/animations';
 
-import { ThemeOptions } from '@dash/constants/theme-options';
+import { ThemeOptions } from '@admin/constants/theme-options';
 import { ProductFacade } from '@product/+store/product.facade';
 
 @Component({

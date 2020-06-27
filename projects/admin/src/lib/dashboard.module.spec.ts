@@ -1,4 +1,4 @@
-import { DashboardModule } from '@dash/dashboard.module';
+import { DashboardModule } from '@admin/dashboard.module';
 
 describe('InternationalizationModule', () => {
     let dashboardModule: DashboardModule;

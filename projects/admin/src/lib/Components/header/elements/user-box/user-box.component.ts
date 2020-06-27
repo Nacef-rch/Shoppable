@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ThemeOptions } from '@dash/constants/theme-options';
+import { ThemeOptions } from '@admin/constants/theme-options';
 import { AuthFacade } from '@authentication/+store/auth.facade';
 
 @Component({

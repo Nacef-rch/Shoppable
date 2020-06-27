@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ProductFacade } from '@product/+store/product.facade';
-import { InventoryModel } from '@dash/constants/page-titre.constant';
+import { InventoryModel } from '@admin/constants/page-titre.constant';
 
 @Component({
     selector: 'lib-product-inventory',

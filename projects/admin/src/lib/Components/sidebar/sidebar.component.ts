@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { ThemeOptions } from '@dash/constants/theme-options';
+import { ThemeOptions } from '@admin/constants/theme-options';
 
 @Component({
     selector: 'app-sidebar',

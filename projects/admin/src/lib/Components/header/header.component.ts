@@ -1,6 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
 
-import { ThemeOptions } from '@dash/constants/theme-options';
+import { ThemeOptions } from '@admin/constants/theme-options';
 
 @Component({
     selector: 'app-header',

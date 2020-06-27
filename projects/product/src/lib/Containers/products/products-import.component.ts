@@ -6,7 +6,7 @@ import { NotifierService } from 'angular-notifier';
 
 import { ProductFacade } from '@product/+store/product.facade';
 import { ProductImport } from '@product/models/product.model';
-import { ImportProductModel } from '@dash/constants/page-titre.constant';
+import { ImportProductModel } from '@admin/constants/page-titre.constant';
 import { ImageUploadService } from '@shared/services/imageUpload.service';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PreviewModel } from '@dash/constants/product-preview.constant';
+import { PreviewModel } from '@admin/constants/product-preview.constant';
 
 @Component({
     selector: 'lib-product-view',

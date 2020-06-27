@@ -228,21 +228,21 @@
                 }
             }
         },
-        "dashboard": {
+        "admin": {
             "projectType": "library",
-            "root": "projects/dashboard",
-            "sourceRoot": "projects/dashboard/src",
+            "root": "projects/admin",
+            "sourceRoot": "projects/admin/src",
             "prefix": "lib",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-ng-packagr:build",
                     "options": {
-                        "tsConfig": "projects/dashboard/tsconfig.lib.json",
-                        "project": "projects/dashboard/ng-package.json"
+                        "tsConfig": "projects/admin/tsconfig.lib.json",
+                        "project": "projects/admin/ng-package.json"
                     },
                     "configurations": {
                         "production": {
-                            "tsConfig": "projects/dashboard/tsconfig.lib.prod.json"
+                            "tsConfig": "projects/admin/tsconfig.lib.prod.json"
                         }
                     }
                 },
@@ -251,8 +251,8 @@
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
                         "tsConfig": [
-                            "projects/dashboard/tsconfig.lib.json",
-                            "projects/dashboard/tsconfig.spec.json"
+                            "projects/admin/tsconfig.lib.json",
+                            "projects/admin/tsconfig.spec.json"
                         ],
                         "exclude": ["**/node_modules/**"]
                     }

@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '@shared/shared.module';
 
 //Containers
-import { BaseLayoutComponent } from '@dash/Containers/base-layout/base-layout.component';
+import { BaseLayoutComponent } from '@admin/Containers/base-layout/base-layout.component';
 
 //Components
 
