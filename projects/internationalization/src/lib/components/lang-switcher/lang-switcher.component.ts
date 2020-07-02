@@ -10,15 +10,19 @@ import { I18nFacade } from '@i18n/+store/i18n.facade';
 })
 export class LangSwitcherComponent {
     constructor(public translate: I18nService, public i18nFacade: I18nFacade) {}
+    lang = 'EN';
 
-    onClick(): void {
-        this.translate.switchLanguage();
+    onClick(langu: string): void {
         const currentLang = this.translate.currentLang;
-        if (currentLang == 'en') {
+        if (langu == 'fr' && currentLang == 'en') {
+            this.translate.switchLanguage();
             this.i18nFacade.setLanguage('fr');
+            this.lang = 'FR';
         }
-        if (currentLang == 'fr') {
+        if (langu == 'en' && currentLang == 'fr') {
+            this.translate.switchLanguage();
             this.i18nFacade.setLanguage('en');
+            this.lang = 'EN';
         }
     }
 }

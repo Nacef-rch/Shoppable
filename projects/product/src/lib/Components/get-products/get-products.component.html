@@ -6,7 +6,9 @@
             class="mr-2 btn-icon btn-icon-only btn btn-outline-danger"
             (click)="removeSelectedRows()"
         >
-            <i class="pe-7s-trash btn-icon-wrapper"> </i>
+            <i class="pe-7s-trash btn-icon-wrapper">
+                <dialog-elements-example></dialog-elements-example>
+            </i>
         </button>
     </div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

@@ -37,6 +37,9 @@ import {
 import { DirectivesModule } from '@shared/directives/directives.module';
 import { InternationalizationModule } from '@i18n/internationalization.module';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogElementsExample } from './Components/dialog-content-example/dialog-content-example.component';
+
 const sharedModules: any[] = [
     HttpClientModule,
     FormsModule,
@@ -58,11 +61,12 @@ const sharedModules: any[] = [
     MatTableModule,
     MatPaginatorModule,
     MatAutocompleteModule,
-    MatSliderModule
+    MatSliderModule,
+    MatDialogModule
 ];
 
 @NgModule({
-    declarations: [LoadingSpinnerComponent],
+    declarations: [LoadingSpinnerComponent, DialogElementsExample],
     imports: sharedModules,
     providers: [
         {
@@ -70,6 +74,6 @@ const sharedModules: any[] = [
             useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
         }
     ],
-    exports: [LoadingSpinnerComponent, ...sharedModules]
+    exports: [LoadingSpinnerComponent, DialogElementsExample, ...sharedModules]
 })
 export class SharedModule {}

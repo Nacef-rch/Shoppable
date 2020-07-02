@@ -1,1 +1,14 @@
-<i class="zmdi zmdi-translate glob" (click)="onClick()"></i>
+<div class="dropdown">
+    <button class="dropbtn">
+        <i
+            class="zmdi zmdi-translate glob"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="{{ lang }}"
+        ></i>
+    </button>
+    <div class="dropdown-content">
+        <a (click)="onClick('fr')">Francais</a>
+        <a (click)="onClick('en')">Anglais</a>
+    </div>
+</div>

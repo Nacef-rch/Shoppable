@@ -87,6 +87,7 @@ export class ProductsImportComponent implements OnInit {
                 this.notifier.notify('error', res);
             }
         });
+        //this.productForm.reset();
     }
     public ngOnDestroy(): void {
         this.prodFacade.clearError();

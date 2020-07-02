@@ -78,27 +78,27 @@ export class GetProductsComponent implements OnInit {
             : this.dataSource.data.forEach((row) => this.selection.select(row));
     }
     public removeSelectedRows(): void {
-        this.selection.selected.forEach((item, i) => {
-            const index: number = this.data.findIndex((d) => d === item);
-            console.log(this.data.findIndex((d) => d === item));
-            this.data.splice(index, 1);
-            this.dataSource = new MatTableDataSource<StoreProducts>(this.data);
-            setTimeout(() => {
-                this.ProductFacade.productDelete(item.productId);
-            }, i * 1000);
-        });
-        this.success$.subscribe((res) => {
-            if (res) {
-                console.log(res);
-                this.notifier.notify('success', res);
-            }
-        });
-        this.error$.subscribe((res) => {
-            if (res) {
-                this.notifier.notify('error', res);
-            }
-        });
-        this.selection = new SelectionModel<StoreProducts>(true, []);
+        // this.selection.selected.forEach((item, i) => {
+        //     const index: number = this.data.findIndex((d) => d === item);
+        //     console.log(this.data.findIndex((d) => d === item));
+        //     this.data.splice(index, 1);
+        //     this.dataSource = new MatTableDataSource<StoreProducts>(this.data);
+        //     setTimeout(() => {
+        //         this.ProductFacade.productDelete(item.productId);
+        //     }, i * 1000);
+        // });
+        // this.success$.subscribe((res) => {
+        //     if (res) {
+        //         console.log(res);
+        //         this.notifier.notify('success', res);
+        //     }
+        // });
+        // this.error$.subscribe((res) => {
+        //     if (res) {
+        //         this.notifier.notify('error', res);
+        //     }
+        // });
+        // this.selection = new SelectionModel<StoreProducts>(true, []);
     }
 
     /** The label for the checkbox on the passed row */

@@ -89,7 +89,7 @@ export class ProductEffects {
             ofType(ProductActions.CHANGE_PRODUCT_STOCK),
             switchMap((StockAction: { productId: string; quantityInStock: number }) => {
                 return this.http
-                    .post(`${FirebaseApi.products}//${StockAction.productId}/stock`, {
+                    .post(`${FirebaseApi.products}/${StockAction.productId}/stock`, {
                         quantityInStock: StockAction.quantityInStock
                     })
                     .pipe(
@@ -128,6 +128,28 @@ export class ProductEffects {
                         });
                         return ProductActions.FETCH_STORE_PRODUCTS_SUCCESS({
                             products
+                        });
+                    }),
+                    catchError((error) => {
+                        const errorMessage = handleError(error, this.translate.lang);
+                        return of(ProductActions.IMPORT_FAIL({ errorMessage }));
+                    })
+                );
+            })
+        )
+    );
+    public fetchStoreCategories$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(ProductActions.FETCH_STORE_CATEGORY_START),
+
+            switchMap(() => {
+                return this.http.get(`/stores/categories`).pipe(
+                    map((category) => {
+                        ProductActions.IMPORT_SUCCESS({
+                            successMessage: 'success!'
+                        });
+                        return ProductActions.FETCH_STORE_CATEGORY_SUCCESS({
+                            category
                         });
                     }),
                     catchError((error) => {
