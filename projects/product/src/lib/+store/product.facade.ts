@@ -108,6 +108,9 @@ export class ProductFacade {
             })
         );
     }
+    public fetchASpecStoreStart(storeId: string): void {
+        this.store.dispatch(productActions.FETCH_THIS_STORE_PRODUCTS_START({ storeId: storeId }));
+    }
     public fetchStoreStart(): void {
         this.store.dispatch(productActions.FETCH_STORE_PRODUCTS_START());
     }

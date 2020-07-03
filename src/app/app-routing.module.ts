@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'store', pathMatch: 'full' },
+    { path: '', redirectTo: 'products', pathMatch: 'full' },
     {
         path: 'auth',
         loadChildren: () =>
@@ -14,7 +14,7 @@ const routes: Routes = [
     },
 
     {
-        path: 'store',
+        path: ':store',
         loadChildren: () => import('@store/store.module').then((m) => m.StoreModule)
     }
 ];

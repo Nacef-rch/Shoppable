@@ -84,6 +84,7 @@ const reducer = createReducer(
     on(
         ProductActions.IMPORT_START,
         ProductActions.FETCH_STORE_PRODUCTS_START,
+        ProductActions.FETCH_THIS_STORE_PRODUCTS_START,
         ProductActions.FETCH_STORE_CATEGORY_START,
         ProductActions.GET_ONE_PRODUCT_START,
         (state, _) => ({

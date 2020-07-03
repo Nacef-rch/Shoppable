@@ -40,6 +40,11 @@ export const FETCH_STORE_PRODUCTS_SUCCESS = createAction(
 );
 export const FETCH_STORE_PRODUCTS_START = createAction('[Product] Fetch Store products Start');
 
+export const FETCH_THIS_STORE_PRODUCTS_START = createAction(
+    '[Product] Fetch A specific Store products Start',
+    props<{ storeId: string }>()
+);
+
 //FETCH CATEGORIES FROM USER STORE
 export const FETCH_STORE_CATEGORY_SUCCESS = createAction(
     '[Product] Fetch store category success',

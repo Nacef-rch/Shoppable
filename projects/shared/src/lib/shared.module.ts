@@ -39,6 +39,7 @@ import { InternationalizationModule } from '@i18n/internationalization.module';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogElementsExample } from './Components/dialog-content-example/dialog-content-example.component';
+import { ShopNotFoundComponent } from './Components/not-found/shop-not-found/shop-not-found.component';
 
 const sharedModules: any[] = [
     HttpClientModule,
@@ -66,7 +67,7 @@ const sharedModules: any[] = [
 ];
 
 @NgModule({
-    declarations: [LoadingSpinnerComponent, DialogElementsExample],
+    declarations: [LoadingSpinnerComponent, DialogElementsExample, ShopNotFoundComponent],
     imports: sharedModules,
     providers: [
         {
@@ -74,6 +75,11 @@ const sharedModules: any[] = [
             useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
         }
     ],
-    exports: [LoadingSpinnerComponent, DialogElementsExample, ...sharedModules]
+    exports: [
+        LoadingSpinnerComponent,
+        DialogElementsExample,
+        ShopNotFoundComponent,
+        ...sharedModules
+    ]
 })
 export class SharedModule {}

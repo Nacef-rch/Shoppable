@@ -1,7 +1,12 @@
-<div class="site-wrap">
-    <lib-default-header></lib-default-header>
+<div *ngxInit="error$ | async as error">
+    <div class="site-wrap" *ngIf="!error">
+        <lib-default-header></lib-default-header>
 
-    <router-outlet></router-outlet>
+        <router-outlet></router-outlet>
 
-    <lib-default-footer></lib-default-footer>
+        <lib-default-footer></lib-default-footer>
+    </div>
+    <div *ngIf="error">
+        <lib-shop-not-found></lib-shop-not-found>
+    </div>
 </div>
