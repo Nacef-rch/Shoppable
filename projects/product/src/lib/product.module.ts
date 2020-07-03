@@ -22,6 +22,7 @@ import { PageTitleComponent } from './Components/page-title/page-title.component
 import { ProductRoutingModule } from './product-routing.module';
 import { DefaultProductInfoComponent } from './Components/product-info/default/default-product-info/default-product-info.component';
 import { LayoutModule } from '@layout/layout.module';
+import { DefaultCheckoutComponent } from './Containers/checkout/default-checkout/default-checkout.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { LayoutModule } from '@layout/layout.module';
         PageTitleComponent,
         ProductInventoryComponent,
         DefaultProductInfoComponent,
-        AllProductsComponent
+        AllProductsComponent,
+        DefaultCheckoutComponent
     ],
     imports: [
         CommonModule,
@@ -54,7 +56,7 @@ import { LayoutModule } from '@layout/layout.module';
         SharedModule,
 
         ProductInventoryComponent,
-
+        DefaultCheckoutComponent,
         AllProductsComponent
     ]
 })

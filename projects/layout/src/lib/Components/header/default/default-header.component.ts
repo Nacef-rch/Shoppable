@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ProductFacade } from '@product/+store/product.facade';
 import { I18nService } from '@i18n/services/i18n.service';
 import { I18nFacade } from '@i18n/+store/i18n.facade';
+import { AuthFacade } from '@authentication/+store/auth.facade';
 
 @Component({
     selector: 'lib-default-header',
@@ -13,6 +14,7 @@ import { I18nFacade } from '@i18n/+store/i18n.facade';
 })
 export class DefaultHeaderComponent {
     public productQuantity$: Observable<number> = this.prodFacade.cartQuantity$;
+
     lang = 'EN';
     constructor(
         private prodFacade: ProductFacade,

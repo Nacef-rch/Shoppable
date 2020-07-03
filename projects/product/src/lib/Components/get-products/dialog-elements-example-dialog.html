@@ -25,7 +25,13 @@
                     <button mat-button (click)="onNoClick()" class="btn btn-secondary">
                         Cancel
                     </button>
-                    <button mat-button (click)="onNoClick()" class="btn btn-danger">
+                    <button
+                        mat-button
+                        (click)="onNoClick()"
+                        class="btn btn-danger"
+                        mat-dialog-close="true"
+                        cdkFocusInitial
+                    >
                         Delete
                     </button>
                 </div>

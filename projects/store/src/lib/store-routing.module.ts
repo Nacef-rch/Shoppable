@@ -7,6 +7,7 @@ import { DefaultSideBarComponent } from '@layout/Components/side-bar/default-sid
 import { DefaultCartComponent } from '@layout/Container/cart/default/default-cart/default-cart.component';
 import { DefaultOrderComponent } from '@layout/Container/order-sucess/default/default-order/default-order.component';
 import { DefaultProductInfoComponent } from '@product/Components/product-info/default/default-product-info/default-product-info.component';
+import { DefaultCheckoutComponent } from '@product/Containers/checkout/default-checkout/default-checkout.component';
 
 const routes: Routes = [
     {
@@ -33,6 +34,11 @@ const routes: Routes = [
             {
                 path: ':category/:id',
                 component: DefaultProductInfoComponent
+            },
+
+            {
+                path: 'checkout',
+                component: DefaultCheckoutComponent
             }
         ]
     }

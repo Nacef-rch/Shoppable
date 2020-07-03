@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, EventEmitter, Output } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { NotifierService } from 'angular-notifier';
 
@@ -32,7 +33,11 @@ export class GetProductsComponent implements OnInit {
     public error$: Observable<string> = this.ProductFacade.error$;
 
     selection = new SelectionModel<StoreProducts>(true, []);
-    constructor(private ProductFacade: ProductFacade, public notifierService: NotifierService) {
+    constructor(
+        private ProductFacade: ProductFacade,
+        public notifierService: NotifierService,
+        public dialog: MatDialog
+    ) {
         this.notifier = notifierService;
     }
     ngOnInit(): void {
@@ -78,27 +83,32 @@ export class GetProductsComponent implements OnInit {
             : this.dataSource.data.forEach((row) => this.selection.select(row));
     }
     public removeSelectedRows(): void {
-        // this.selection.selected.forEach((item, i) => {
-        //     const index: number = this.data.findIndex((d) => d === item);
-        //     console.log(this.data.findIndex((d) => d === item));
-        //     this.data.splice(index, 1);
-        //     this.dataSource = new MatTableDataSource<StoreProducts>(this.data);
-        //     setTimeout(() => {
-        //         this.ProductFacade.productDelete(item.productId);
-        //     }, i * 1000);
-        // });
-        // this.success$.subscribe((res) => {
-        //     if (res) {
-        //         console.log(res);
-        //         this.notifier.notify('success', res);
-        //     }
-        // });
-        // this.error$.subscribe((res) => {
-        //     if (res) {
-        //         this.notifier.notify('error', res);
-        //     }
-        // });
-        // this.selection = new SelectionModel<StoreProducts>(true, []);
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
+        const dialogRef = this.dialog.open(DialogElementsExampleDialog);
+
+        dialogRef.afterClosed().subscribe((result) => {
+            this.selection.selected.forEach((item, i) => {
+                const index: number = this.data.findIndex((d) => d === item);
+                console.log(this.data.findIndex((d) => d === item));
+                this.data.splice(index, 1);
+                this.dataSource = new MatTableDataSource<StoreProducts>(this.data);
+                setTimeout(() => {
+                    this.ProductFacade.productDelete(item.productId);
+                }, i * 1000);
+            });
+            this.success$.subscribe((res) => {
+                if (res) {
+                    console.log(res);
+                    this.notifier.notify('success', res);
+                }
+            });
+            this.error$.subscribe((res) => {
+                if (res) {
+                    this.notifier.notify('error', res);
+                }
+            });
+            this.selection = new SelectionModel<StoreProducts>(true, []);
+        });
     }
 
     /** The label for the checkbox on the passed row */
@@ -107,5 +117,17 @@ export class GetProductsComponent implements OnInit {
             return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
         }
         return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
+    }
+}
+@Component({
+    selector: 'dialog-elements-example-dialog',
+    templateUrl: 'dialog-elements-example-dialog.html',
+    styleUrls: ['dialog-elements-example.css']
+})
+export class DialogElementsExampleDialog {
+    constructor(public dialogRef: MatDialogRef<DialogElementsExampleDialog>) {}
+
+    onNoClick(): void {
+        this.dialogRef.close();
     }
 }
