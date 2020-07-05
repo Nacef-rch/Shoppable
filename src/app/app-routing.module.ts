@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'products', pathMatch: 'full' },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     {
         path: 'auth',
         loadChildren: () =>
@@ -13,6 +13,10 @@ const routes: Routes = [
         loadChildren: () => import('@product/product.module').then((m) => m.ProductModule)
     },
 
+    {
+        path: 'home',
+        loadChildren: () => import('@home/home.module').then((m) => m.HomeModule)
+    },
     {
         path: ':store',
         loadChildren: () => import('@store/store.module').then((m) => m.StoreModule)

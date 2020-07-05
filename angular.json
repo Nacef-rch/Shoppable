@@ -351,6 +351,36 @@
                     }
                 }
             }
+        },
+        "home": {
+            "projectType": "library",
+            "root": "projects/home",
+            "sourceRoot": "projects/home/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "projects/home/tsconfig.lib.json",
+                        "project": "projects/home/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/home/tsconfig.lib.prod.json"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/home/tsconfig.lib.json",
+                            "projects/home/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
         }
     },
     "defaultProject": "Shoppable"

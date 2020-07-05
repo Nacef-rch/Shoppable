@@ -10,7 +10,7 @@ export class ShopNotFoundComponent implements OnInit {
     constructor(private router: Router) {}
     ngOnInit(): void {
         setTimeout(() => {
-            this.router.navigate([`auth/login`]);
+            this.router.navigate([`home`]);
         }, 3000);
     }
 }

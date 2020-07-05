@@ -24,7 +24,8 @@ module.exports = {
         '^@admin/(.*)$': '<rootDir>/projects/admin/src/lib/$1',
         '^@product/(.*)$': '<rootDir>/projects/product/src/lib/$1',
         '^@store/(.*)$': '<rootDir>/projects/store/src/lib/$1',
-        '^@layout/(.*)$': '<rootDir>/projects/store/src/lib/$1',
+        '^@layout/(.*)$': '<rootDir>/projects/layout/src/lib/$1',
+        '^@home/(.*)$': '<rootDir>/projects/home/src/lib/$1',
         '^@env/(.*)$': '<rootDir>/src/environments/$1'
     },
     testMatch: ['<rootDir>/**/**/*.spec.ts'],

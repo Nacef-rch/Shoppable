@@ -7,8 +7,6 @@ import { ProductInventoryComponent } from '@product/Containers/product-inventory
 import { AllProductsComponent } from '@product/Containers/all-products/all-products.component';
 import { AuthGuard } from '@authentication/guards/auth.guard';
 import { BaseLayoutComponent } from '@admin/Containers/base-layout/base-layout.component';
-import { DefaultCheckoutComponent } from './Containers/checkout/default-checkout/default-checkout.component';
-import { HomeComponent } from '@layout/Container/main/home/home.component';
 
 const routes: Routes = [
     {
@@ -32,10 +30,6 @@ const routes: Routes = [
                 component: ProductInventoryComponent
             }
         ]
-    },
-    {
-        path: 'home',
-        component: HomeComponent
     }
 ];
 
