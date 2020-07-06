@@ -17,7 +17,6 @@ export class HomeProductsComponent implements OnInit {
     constructor(private productFacade: ProductFacade) {}
 
     ngOnInit(): void {
-        this.productFacade.fetchASpecStoreStart('Mirra');
         this.Products$.subscribe((resData) => {
             this.products = resData;
             this.productsArray = resData;
