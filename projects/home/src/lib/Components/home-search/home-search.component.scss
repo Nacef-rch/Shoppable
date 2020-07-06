@@ -14,8 +14,10 @@
 
 .site-block-top-search {
     padding-top: 0;
-    margin-top: 0;
+    margin-top: -20px;
+    left: 45%;
     position: relative;
+    margin-bottom: 30px;
 }
 .site-block-top-search .icon {
     position: absolute;
@@ -34,4 +36,7 @@
 .site-block-top-search input:focus,
 .site-block-top-search input:active {
     padding-left: 25px;
+}
+.center-el {
+    margin: auto !important;
 }

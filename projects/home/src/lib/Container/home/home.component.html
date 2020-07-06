@@ -21,13 +21,13 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"
+                        <a class="nav-link nav-linkk" href="#"
                             >Start <span class="sr-only">(current)</span></a
                         >
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sell</a>
+                        <a class="nav-link nav-linkk" href="#">Sell</a>
                     </li>
                     <li class="nav-item">
                         <div class="dropdown">
@@ -40,21 +40,26 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Market</a>
+                        <a class="nav-link nav-linkk" href="#">Market</a>
                     </li>
                 </ul>
                 <span class="navbar-text">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active ul-nav-font">
-                            <a routerLink="/auth/register" class="nav-link get-link" href="#"
+                            <a
+                                routerLink="/auth/register"
+                                class="nav-link get-link nav-linkk"
+                                href="#"
                                 >GET STARTED</a
                             >
                         </li>
                         <li class="nav-item ul-nav-font">
-                            <a routerLink="/auth/login" class="nav-link" href="#">LOG IN</a>
+                            <a routerLink="/auth/login" class="nav-link nav-linkk" href="#"
+                                >LOG IN</a
+                            >
                         </li>
                         <li class="nav-item ul-nav-font">
-                            <span class="icon fa fa-search search-span"></span>
+                            <lib-translate-home></lib-translate-home>
                         </li>
                     </ul>
                 </span>
@@ -75,7 +80,9 @@
                         </b>
                     </p>
                     <br />
-                    <button class="btn-log log">START A NEW STORE</button>
+                    <button routerLink="/auth/register" class="btn-log log">
+                        START A NEW STORE
+                    </button>
                 </div>
                 <div class="col-sm">
                     <div class="row">
@@ -169,9 +176,7 @@
                             >
                         </li>
                     </ul>
-                    <span class="nav-item" style="margin-right: 20px;">
-                        Navbar text with an inline element
-                    </span>
+                    <span class="nav-item" style="margin-right: 20px;"> </span>
                 </div>
             </nav>
             <div class="jumbotron d-flex">
@@ -188,9 +193,9 @@
                                 The easiest way <br />to build<b> websites online</b>
                             </h2>
                             <p class="section-sub-title">
-                                Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-                                Nulla vitae elit libero, a <br />
-                                pharetra augue. Donec id elit non mi porta gravida at eget metus.
+                                Make the website you’ve always wanted. Whether you’re new to website
+                                design or a seasoned pro,<br />
+                                our website builder makes it easy to build a beautiful website.
                             </p>
                         </div>
 
@@ -198,61 +203,46 @@
                             <div class="col-md-4 col-sm-6">
                                 <img
                                     class="rounded-circle"
-                                    src="icons/animat-checkmark.gif"
+                                    src="assets/home/icons/animat-checkmark.gif"
                                     alt="Generic placeholder image"
                                     width="140"
                                     height="140"
                                 />
                                 <h5 class="mb-4">Simple and Clean</h5>
                                 <p>
-                                    Donec sed odio dui. Etiam porta sem malesuada magna mollis
-                                    euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                                </p>
-                                <p>
-                                    <a class="btn btn-link" href="#" role="button">View details</a>
+                                    you never feel like it's your first time building a website.
                                 </p>
                             </div>
                             <!-- /.col-md-4 col-sm-6  -->
                             <div class="col-md-4 col-sm-6">
                                 <img
                                     class="rounded-circle"
-                                    src="icons/animat-customize.gif"
+                                    src="assets/home/icons/animat-customize.gif"
                                     alt="Generic placeholder image"
                                     width="140"
                                     height="140"
                                 />
                                 <h5 class="mb-4">Easy to Customize</h5>
                                 <p>
-                                    Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
-                                    eget lacinia odio sem nec elit. Vestibulum id ligula porta
-                                    felis.
-                                </p>
-                                <p>
-                                    <a class="btn btn-link" href="#" role="button">View details</a>
+                                    Change, customize or add anything to your site.
                                 </p>
                             </div>
                             <!-- /.col-md-4 col-sm-6  -->
                             <div class="col-md-4 col-sm-6">
                                 <img
                                     class="rounded-circle"
-                                    src="icons/animat-responsive.gif"
+                                    src="assets/home/icons/animat-responsive.gif"
                                     alt="Generic placeholder image"
                                     width="140"
                                     height="140"
                                 />
                                 <h5 class="mb-4">Fully Responsive</h5>
                                 <p>
-                                    Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-                                    egestas eget quam. Vestibulum id ligula porta felis euismod
-                                    semper.
-                                </p>
-                                <p>
-                                    <a class="btn btn-link" href="#" role="button">View details</a>
+                                    Look amazing on every screen with a mobile-friendly version of
+                                    your website.
                                 </p>
                             </div>
-                            <!-- /.col-md-4 col-sm-6  -->
                         </div>
-                        <!-- /.row -->
                     </div>
                 </div>
             </section>
@@ -263,7 +253,21 @@
                         <div class="row">
                             <!-- Counter Item -->
                             <div class="col-md-3 col-sm-6 counter-item">
-                                <i class="lnr lnr-users"></i>
+                                <i class="lnr lnr-users">
+                                    <svg
+                                        width="1em"
+                                        height="1em"
+                                        viewBox="0 0 16 16"
+                                        class="bi bi-person"
+                                        fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"
+                                        />
+                                    </svg>
+                                </i>
                                 <span
                                     class="number"
                                     data-from="0"
@@ -276,41 +280,101 @@
                             <!-- End of Counter Item -->
                             <!-- Counter Item -->
                             <div class="col-md-3 col-sm-6 counter-item">
-                                <i class="lnr lnr-briefcase"></i>
+                                <i class="lnr lnr-briefcase">
+                                    <svg
+                                        width="1em"
+                                        height="1em"
+                                        viewBox="0 0 16 16"
+                                        class="bi bi-shop"
+                                        fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M0 15.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zM3.12 1.175A.5.5 0 0 1 3.5 1h9a.5.5 0 0 1 .38.175l2.759 3.219A1.5 1.5 0 0 1 16 5.37v.13h-1v-.13a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.13H0v-.13a1.5 1.5 0 0 1 .361-.976l2.76-3.22z"
+                                        />
+                                        <path
+                                            d="M2.375 6.875c.76 0 1.375-.616 1.375-1.375h1a1.375 1.375 0 0 0 2.75 0h1a1.375 1.375 0 0 0 2.75 0h1a1.375 1.375 0 1 0 2.75 0h1a2.375 2.375 0 0 1-4.25 1.458 2.371 2.371 0 0 1-1.875.917A2.37 2.37 0 0 1 8 6.958a2.37 2.37 0 0 1-1.875.917 2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.5h1c0 .76.616 1.375 1.375 1.375z"
+                                        />
+                                        <path
+                                            d="M4.75 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm3.75 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm3.75 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"
+                                        />
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M2 7.846V7H1v.437c.291.207.632.35 1 .409zm-1 .737c.311.14.647.232 1 .271V15H1V8.583zm13 .271a3.354 3.354 0 0 0 1-.27V15h-1V8.854zm1-1.417c-.291.207-.632.35-1 .409V7h1v.437zM3 9.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5V15H7v-5H4v5H3V9.5zm6 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4zm1 .5v3h2v-3h-2z"
+                                        />
+                                    </svg>
+                                </i>
                                 <span
                                     class="number"
                                     data-from="0"
                                     data-to="32"
                                     data-refresh-interval="100"
-                                    >32</span
+                                    >18</span
                                 >
-                                <h4>Projects</h4>
+                                <h4>Stores</h4>
                             </div>
                             <!-- End of Counter Item -->
                             <!-- Counter Item -->
                             <div class="col-md-3 col-sm-6 counter-item">
-                                <i class="lnr lnr-heart"></i>
+                                <i class="lnr lnr-heart">
+                                    <svg
+                                        width="1em"
+                                        height="1em"
+                                        viewBox="0 0 16 16"
+                                        class="bi bi-box-seam"
+                                        fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"
+                                        />
+                                    </svg>
+                                </i>
                                 <span
                                     class="number"
                                     data-from="0"
                                     data-to="38"
                                     data-refresh-interval="100"
-                                    >38</span
+                                    >169</span
                                 >
-                                <h4>Positive Feedbacks</h4>
+                                <h4>Products</h4>
                             </div>
                             <!-- End of Counter Item -->
                             <!-- Counter Item -->
                             <div class="col-md-3 col-sm-6 counter-item">
-                                <i class="lnr lnr-rocket"></i>
+                                <i class="lnr lnr-rocket">
+                                    <svg
+                                        width="1em"
+                                        height="1em"
+                                        viewBox="0 0 16 16"
+                                        class="bi bi-truck"
+                                        fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5v7h-1v-7a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5v1A1.5 1.5 0 0 1 0 10.5v-7zM4.5 11h6v1h-6v-1z"
+                                        />
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M11 5h2.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5h-1v-1h1a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4.5h-1V5zm-8 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
+                                        />
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
+                                        />
+                                    </svg>
+                                </i>
                                 <span
                                     class="number"
                                     data-from="0"
                                     data-to="29"
                                     data-refresh-interval="100"
-                                    >29</span
+                                    >225</span
                                 >
-                                <h4>Website Launch</h4>
+                                <h4>sells</h4>
                             </div>
                             <!-- End of Counter Item -->
                         </div>
@@ -319,116 +383,7 @@
             </section>
             <!-- End of Counter Section -->
             <!-- Features Section-->
-            <section id="gtco-features" class="bg-white">
-                <div class="container">
-                    <div class="section-content">
-                        <!-- Section Title -->
-                        <div class="title-wrap">
-                            <h2 class="section-title">
-                                All the <span>need </span>that you <span>want</span>
-                            </h2>
-                            <p class="section-sub-title">
-                                Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-                                <br />
-                                pharetra augue. Donec id elit non mi.
-                            </p>
-                        </div>
-                        <!-- End of Section Title -->
-                        <div class="row">
-                            <!-- Features Holder-->
-                            <div class="col-md-12 features-holder">
-                                <div class="row">
-                                    <!-- Features Item -->
-                                    <div
-                                        class="col-md-4 col-sm-6 feature-item item mb-3 mb-3 text-center"
-                                    >
-                                        <div class="my-4">
-                                            <i class="lnr lnr-cog fs-40"></i>
-                                        </div>
-                                        <h4>Easy to Customize</h4>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                                            elit, sed do eiusmod.
-                                        </p>
-                                    </div>
-                                    <!-- End of Feature Item -->
-                                    <!-- Features Item -->
-                                    <div
-                                        class="col-md-4 col-sm-6 feature-item item mb-3 text-center"
-                                    >
-                                        <div class="my-4">
-                                            <i class="lnr lnr-frame-contract fs-40"></i>
-                                        </div>
-                                        <h4>Pixel Perfect</h4>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                                            elit, sed do eiusmod.
-                                        </p>
-                                    </div>
-                                    <!-- End of Feature Item -->
-                                    <!-- Features Item -->
-                                    <div
-                                        class="col-md-4 col-sm-6 feature-item item mb-3 text-center"
-                                    >
-                                        <div class="my-4">
-                                            <i class="lnr lnr-bubble fs-40"></i>
-                                        </div>
-                                        <h4>Full Support</h4>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                                            elit, sed do eiusmod.
-                                        </p>
-                                    </div>
-                                    <!-- End of Feature Item -->
-                                    <!-- Features Item -->
-                                    <div
-                                        class="col-md-4 col-sm-6 feature-item item mb-3 text-center"
-                                    >
-                                        <div class="my-4">
-                                            <i class="lnr lnr-magic-wand fs-40"></i>
-                                        </div>
-                                        <h4>Clean Design</h4>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                                            elit, sed do eiusmod.
-                                        </p>
-                                    </div>
-                                    <!-- End of Feature Item -->
-                                    <!-- Features Item -->
-                                    <div
-                                        class="col-md-4 col-sm-6 feature-item item mb-3 text-center"
-                                    >
-                                        <div class="my-4">
-                                            <i class="lnr lnr-clock fs-40"></i>
-                                        </div>
-                                        <h4>Ontime Project</h4>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                                            elit, sed do eiusmod.
-                                        </p>
-                                    </div>
-                                    <!-- End of Feature Item -->
-                                    <!-- Features Item -->
-                                    <div
-                                        class="col-md-4 col-sm-6 feature-item item mb-3 text-center"
-                                    >
-                                        <div class="my-4">
-                                            <i class="lnr lnr-thumbs-up fs-40"></i>
-                                        </div>
-                                        <h4>Built with SASS</h4>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                                            elit, sed do eiusmod.
-                                        </p>
-                                    </div>
-                                    <!-- End of Feature Item -->
-                                </div>
-                            </div>
-                            <!-- End of Features Holder-->
-                        </div>
-                    </div>
-                </div>
-            </section>
+
             <!-- End of Features Section-->
             <section id="gtco-section-featurettes" class="featurettes bg-white">
                 <div class="container">
@@ -438,42 +393,38 @@
                                 <!-- Section Title -->
                                 <div class="title-wrap">
                                     <h2 class="section-title">
-                                        <b>Brand new</b> social media,<br />
-                                        different than any other one
+                                        <b>With you wherever you’re going</b>
                                     </h2>
                                     <p class="section-sub-title">
-                                        Praesent commodo cursus magna, vel scelerisque nisl
-                                        consectetur et. Nulla vitae elit libero, a
-                                        <br />pharetra augue. Donec id elit non mi porta gravida at
-                                        eget metus.
+                                        One platform with all the ecommerce and point of sale<br />
+                                        features you need to start, run, and grow your business.
                                     </p>
                                 </div>
                                 <!-- End of Section Title -->
 
                                 <div class="featurettes-wrap text-left mb-4">
-                                    <div class="row featurettes-item">
-                                        <div class="col-md-4 offset-md-2 col-sm-6">
+                                    <div class="row">
+                                        <div class="col-md-4 offset-md-2 col-sm-4 featurettes-item">
                                             <div class="my-5">
                                                 <span
                                                     class="lnr lnr-camera fs-40 color-primary"
                                                 ></span>
                                             </div>
-                                            <h4 class="mb-4">
-                                                Capture every moments and share it to all your
-                                                friends
-                                            </h4>
+                                            <h3 class="mb-3">
+                                                Market your business
+                                            </h3>
                                             <p>
-                                                Nulla vitae elit libero, a pharetra augue. Maecenas
-                                                sed diam eget risus varius blandit sit amet non
-                                                magna. Cras mattis consectetur purus sit amet.
+                                                Take the guesswork out of marketing with built-in
+                                                tools that help you create, execute, and analyze
+                                                digital marketing campaigns.
                                             </p>
                                         </div>
                                         <!--/ .col-md-4.col-md-offset-2.col-sm-6 -->
 
-                                        <div class="col-md-4 offset-md-right-2 col-sm-6">
+                                        <div class="col-md-4 offset-md-right-2 col-sm-8">
                                             <img
-                                                class="my-5"
-                                                src="assets/home/app-profile-mockup.png"
+                                                class="my-5 img-fluid"
+                                                src="assets/home/app-chat-mockup.jpg"
                                                 alt=""
                                             />
                                         </div>
@@ -484,30 +435,32 @@
                                 <!--/ .featurettes-wrap -->
 
                                 <div class="featurettes-wrap text-left">
-                                    <div class="row featurettes-item">
+                                    <div class="row">
                                         <div class="col-md-4 offset-md-2 col-sm-6">
                                             <img
                                                 class="my-4"
-                                                src="assets/home/app-chat-mockup.png"
+                                                src="assets/home/app-chat-mockup2.png"
                                                 alt=""
                                             />
                                         </div>
                                         <!--/ .col-md-4.col-md-offset-2.col-sm-6 -->
 
-                                        <div class="col-md-4 offset-md-right-2 col-sm-6 mb-5">
+                                        <div
+                                            class="col-md-4 offset-md-right-2 col-sm-6 mb-5 featurettes-item2"
+                                        >
                                             <div class="my-4">
                                                 <span
                                                     class="lnr lnr-bubble fs-40 color-primary"
                                                 ></span>
                                             </div>
-                                            <h4 class="mb-4">
-                                                Send private messages to your friend or make a chat
-                                                group
-                                            </h4>
+                                            <h3 class="mb-3">
+                                                Sell everywhere
+                                            </h3>
                                             <p>
-                                                Nulla vitae elit libero, a pharetra augue. Maecenas
-                                                sed diam eget risus varius blandit sit amet non
-                                                magna. Cras mattis consectetur purus sit amet.
+                                                Use one platform to sell products to anyone,
+                                                anywhere—in person with Point of Sale and online
+                                                through your website, social media, and online
+                                                marketplaces.
                                             </p>
                                         </div>
                                         <!--/ .col-md-4.col-md-offset-right-2.col-sm-6 -->
@@ -516,41 +469,6 @@
                                 </div>
                                 <!--/ .featurettes-wrap -->
 
-                                <div class="featurettes-wrap text-left">
-                                    <div class="row featurettes-item">
-                                        <div class="col-md-4 offset-md-2 col-sm-6 offset-sm-0">
-                                            <h4 class="mb-4">
-                                                Ready to join our App for your advance social
-                                                experience?
-                                            </h4>
-                                            <p>
-                                                Nulla vitae elit libero, a pharetra augue. Maecenas
-                                                sed diam eget risus varius blandit sit amet non
-                                                magna. Cras mattis consectetur purus sit amet.
-                                            </p>
-                                        </div>
-                                        <!--/ .col-md-4.col-md-offset-2.col-sm-6 -->
-
-                                        <div
-                                            class="col-md-4 offset-md-right-2 col-sm-6 text-center"
-                                        >
-                                            <a href="#0"
-                                                ><img
-                                                    class="btn-img my-4"
-                                                    src="assets/home/appstore-btn.png"
-                                                    alt=""
-                                            /></a>
-                                            <a href="#0"
-                                                ><img
-                                                    class="btn-img"
-                                                    src="assets/home/playstore-btn.png"
-                                                    alt=""
-                                            /></a>
-                                        </div>
-                                        <!--/ .col-md-4.col-md-offset-right-2.col-sm-6 -->
-                                    </div>
-                                    <!--/ .featurettes-item -->
-                                </div>
                                 <!--/ .featurettes-wrap -->
                             </div>
                             <!--/ .col-md-12 -->
@@ -564,647 +482,226 @@
             <section id="gtco-blog" class="bg-grey">
                 <div class="container">
                     <div class="section-content">
-                        <div class="title-wrap mb-5">
-                            <h2 class="section-title">Latest <b>news</b></h2>
-                            <p class="section-sub-title">
-                                Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+                        <div class="title-wrap mb-4">
+                            <h2 class="section-title bot-text">
+                                Start your business journey with Shoppable
+                            </h2>
+                            <p class="section-sub-title bot-text">
+                                Try Shoppable for free, and explore all the tools and services you
+                                need to start, run, and grow
+                                <br />your business.
                             </p>
-                        </div>
-                        <div class="row">
-                            <!-- Blog -->
-                            <div class="col-md-12 blog-holder">
-                                <div class="row">
-                                    <!-- Blog Item -->
-                                    <div class="col-md-4 blog-item-wrapper">
-                                        <div class="blog-item">
-                                            <div class="blog-img">
-                                                <a href="single.html"
-                                                    ><img src="assets/home/blog-1.jpg" alt=""
-                                                /></a>
-                                            </div>
-                                            <div class="blog-text">
-                                                <div class="blog-tag">
-                                                    <a href="#"
-                                                        ><h6><small>CODE</small></h6></a
-                                                    >
-                                                </div>
-                                                <div class="blog-title">
-                                                    <a href="single.html"
-                                                        ><h4>Amazing Blog Title</h4></a
-                                                    >
-                                                </div>
-                                                <div class="blog-meta">
-                                                    <p class="blog-date">30 May 2016</p>
-                                                    /
-                                                    <p class="blog-comment">
-                                                        <a href="">23 Comments</a>
-                                                    </p>
-                                                </div>
-                                                <div class="blog-desc">
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet con sectetur
-                                                        adipiscing elit sed do eiu smod tempor
-                                                        incididunt ut labore et dolore magna aliqua.
-                                                    </p>
-                                                </div>
-                                                <div class="blog-author">
-                                                    <p>by John Doe</p>
-                                                </div>
-                                                <div class="blog-share-wrapper">
-                                                    <a class="blog-share" href="google.com">
-                                                        <i class="fab fa-facebook-square"></i>
-                                                    </a>
-                                                    <a class="blog-share" href="google.com">
-                                                        <i class="fab fa-twitter-square"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End of Blog Item -->
-                                    <!-- Blog Item -->
-                                    <div class="col-md-4 blog-item-wrapper">
-                                        <div class="blog-item">
-                                            <div class="blog-img">
-                                                <a href="#"
-                                                    ><img src="assets/home/blog-2.jpg" alt=""
-                                                /></a>
-                                            </div>
-                                            <div class="blog-text">
-                                                <div class="blog-tag">
-                                                    <a href="#"
-                                                        ><h6><small>SPORTS</small></h6></a
-                                                    >
-                                                </div>
-                                                <div class="blog-title">
-                                                    <a href="#"><h4>Amazing Blog Title</h4></a>
-                                                </div>
-                                                <div class="blog-meta">
-                                                    <p class="blog-date">30 May 2016</p>
-                                                    /
-                                                    <p class="blog-comment">
-                                                        <a href="">23 Comments</a>
-                                                    </p>
-                                                </div>
-                                                <div class="blog-desc">
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet con sectetur
-                                                        adipiscing elit sed do eiu smod tempor
-                                                        incididunt ut labore et dolore magna aliqua.
-                                                    </p>
-                                                </div>
-                                                <div class="blog-author">
-                                                    <p>by John Doe</p>
-                                                </div>
-                                                <div class="blog-share-wrapper">
-                                                    <a class="blog-share" href="google.com">
-                                                        <i class="fab fa-facebook-square"></i>
-                                                    </a>
-                                                    <a class="blog-share" href="google.com">
-                                                        <i class="fab fa-twitter-square"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End of Blog Item -->
-                                    <!-- Blog Item -->
-                                    <div class="col-md-4 blog-item-wrapper">
-                                        <div class="blog-item">
-                                            <div class="blog-img">
-                                                <a href="#"
-                                                    ><img src="assets/home/blog-3.jpg" alt=""
-                                                /></a>
-                                            </div>
-                                            <div class="blog-text">
-                                                <div class="blog-tag">
-                                                    <a href="#"
-                                                        ><h6><small>ECONOMY</small></h6></a
-                                                    >
-                                                </div>
-                                                <div class="blog-title">
-                                                    <a href="#"><h4>Amazing Blog Title</h4></a>
-                                                </div>
-                                                <div class="blog-meta">
-                                                    <p class="blog-date">30 May 2016</p>
-                                                    /
-                                                    <p class="blog-comment">
-                                                        <a href="">23 Comments</a>
-                                                    </p>
-                                                </div>
-                                                <div class="blog-desc">
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet con sectetur
-                                                        adipiscing elit sed do eiu smod tempor
-                                                        incididunt ut labore et dolore magna aliqua.
-                                                    </p>
-                                                </div>
-                                                <div class="blog-author">
-                                                    <p>by John Doe</p>
-                                                </div>
-                                                <div class="blog-share-wrapper">
-                                                    <a class="blog-share" href="google.com">
-                                                        <i class="fab fa-facebook-square"></i>
-                                                    </a>
-                                                    <a class="blog-share" href="google.com">
-                                                        <i class="fab fa-twitter-square"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End of Blog Item -->
-                                </div>
-                            </div>
-                            <!-- End of Blog -->
+                            <button class="btn-logg log">Get Started</button>
                         </div>
                     </div>
                 </div>
             </section>
             <!-- End of Blog Section -->
-            <!-- Portfolio Section -->
-            <section id="gtco-portfolio" class="bg-white">
-                <div class="container">
-                    <div class="section-content">
-                        <!-- Section Title -->
-                        <div class="title-wrap">
-                            <h2 class="section-title">Our <b>Awesome</b> Works</h2>
-                            <p class="section-sub-title">
-                                Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-                                <br />
-                                pharetra augue. Donec id elit non mi.
-                            </p>
-                        </div>
-                        <!-- End of Section Title -->
-                        <div class="row">
-                            <!-- Portfolio Holder -->
-                            <div class="col-md-12 portfolio-holder">
-                                <!-- Btn Filter -->
-                                <div
-                                    class="filter-button-group btn-filter d-flex justify-content-center"
-                                >
-                                    <a tabindex="0" class="is-checked" data-filter="*">Show All</a>
-                                    <a tabindex="0" data-filter=".minimalism">Minimalism</a>
-                                    <a tabindex="0" data-filter=".vintage">Vintage</a>
-                                    <a tabindex="0" data-filter=".creative">Creative</a>
-                                </div>
-                                <!-- End of Btn Filter -->
-                                <!-- Portfolio Content -->
-                                <div class="grid-portfolio">
-                                    <div class="grid-sizer"></div>
-                                    <div class="gutter-sizer"></div>
-                                    <!-- Portfolio Item -->
-                                    <div class="grid-item minimalism">
-                                        <div class="grid-item-wrapper">
-                                            <img
-                                                src="assets/home/photo-1.jpg"
-                                                alt="portfolio-img"
-                                                class="portfolio-item"
-                                            />
-                                            <div class="grid-info">
-                                                <div
-                                                    class="grid-link d-flex justify-content-center"
-                                                >
-                                                    <a
-                                                        class="img-pop"
-                                                        data-rel="lightcase"
-                                                        href="assets/home/photo-1.jpg"
-                                                        title="Photo-1"
-                                                    >
-                                                        <span class="lnr lnr-move"></span>
-                                                    </a>
-                                                    <a
-                                                        class="ext-link"
-                                                        href="https://unsplash.com/"
-                                                        target="_blank"
-                                                    >
-                                                        <span class="lnr lnr-link"></span>
-                                                    </a>
-                                                </div>
-                                                <div class="grid-title">
-                                                    <h4>Camera</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End of Portfolio Item -->
-                                    <!-- Portfolio Item -->
-                                    <div class="grid-item vintage">
-                                        <div class="grid-item-wrapper">
-                                            <img
-                                                src="assets/home/photo-6.jpg"
-                                                alt="portfolio-img"
-                                                class="portfolio-item"
-                                            />
-                                            <div class="grid-info">
-                                                <div
-                                                    class="grid-link d-flex justify-content-center"
-                                                >
-                                                    <a
-                                                        class="img-pop"
-                                                        data-rel="lightcase"
-                                                        href="assets/home/photo-6.jpg"
-                                                        title="Ship"
-                                                    >
-                                                        <span class="lnr lnr-move"></span>
-                                                    </a>
-                                                    <a
-                                                        class="ext-link"
-                                                        href="https://unsplash.com/"
-                                                        target="_blank"
-                                                    >
-                                                        <span class="lnr lnr-link"></span>
-                                                    </a>
-                                                </div>
-                                                <div class="grid-title">
-                                                    <h4>Flower</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End of Portfolio Item -->
-                                    <!-- Portfolio Item -->
-                                    <div class="grid-item creative grid-item-height">
-                                        <div class="grid-item-wrapper">
-                                            <img
-                                                src="assets/home/photo-2.jpg"
-                                                alt="portfolio-img"
-                                                class="portfolio-item"
-                                            />
-                                            <div class="grid-info">
-                                                <div
-                                                    class="grid-link d-flex justify-content-center"
-                                                >
-                                                    <a
-                                                        class="img-pop"
-                                                        data-rel="lightcase"
-                                                        href="assets/home/photo-2.jpg"
-                                                        title="Tracy Portrait"
-                                                    >
-                                                        <span class="lnr lnr-move"></span>
-                                                    </a>
-                                                    <a
-                                                        class="ext-link"
-                                                        href="https://unsplash.com/"
-                                                        target="_blank"
-                                                    >
-                                                        <span class="lnr lnr-link"></span>
-                                                    </a>
-                                                </div>
-                                                <div class="grid-title">
-                                                    <h4>Breakfast</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End of Portfolio Item -->
-                                    <!-- Portfolio Item -->
-                                    <div class="grid-item creative">
-                                        <div class="grid-item-wrapper">
-                                            <img
-                                                src="assets/home/photo-7.jpg"
-                                                alt="portfolio-img"
-                                                class="portfolio-item"
-                                            />
-                                            <div class="grid-info">
-                                                <div
-                                                    class="grid-link d-flex justify-content-center"
-                                                >
-                                                    <a
-                                                        class="img-pop"
-                                                        data-rel="lightcase"
-                                                        href="assets/home/photo-7.jpg"
-                                                        title="Guitar"
-                                                    >
-                                                        <span class="lnr lnr-move"></span>
-                                                    </a>
-                                                    <a
-                                                        class="ext-link"
-                                                        href="https://unsplash.com/"
-                                                        target="_blank"
-                                                    >
-                                                        <span class="lnr lnr-link"></span>
-                                                    </a>
-                                                </div>
-                                                <div class="grid-title">
-                                                    <h4>Chair</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End of Portfolio Item -->
-                                    <!-- Portfolio Item -->
-                                    <!-- <div class="grid-item minimalism">
-                            <div class="grid-item-wrapper">
-                                <img src="assets/home/photo-3.jpg" alt="portfolio-img" class="portfolio-item">
-                                <div class="grid-info">
-                                    <div class="grid-link d-flex justify-content-center">
-                                        <a class="img-pop" data-rel="lightcase" href="assets/home/photo-3.jpg" title="Clock">
-                                            <span class="lnr lnr-move"></span>
-                                        </a>
-                                        <a class="ext-link" href="https://unsplash.com/" target="_blank">
-                                            <span class="lnr lnr-link"></span>
-                                        </a>
-                                    </div>
-                                    <div class="grid-title">
-                                        <h4>Clock</h4>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div> -->
-                                    <!-- End of Portfolio Item -->
-                                    <!-- Portfolio Item -->
-                                    <div class="grid-item vintage">
-                                        <div class="grid-item-wrapper">
-                                            <img
-                                                src="assets/home/photo-4.jpg"
-                                                alt="portfolio-img"
-                                                class="portfolio-item"
-                                            />
-                                            <div class="grid-info">
-                                                <div
-                                                    class="grid-link d-flex justify-content-center"
-                                                >
-                                                    <a
-                                                        class="img-pop"
-                                                        data-rel="lightcase"
-                                                        href="assets/home/photo-4.jpg"
-                                                        title="Bookself"
-                                                    >
-                                                        <span class="lnr lnr-move"></span>
-                                                    </a>
-                                                    <a
-                                                        class="ext-link"
-                                                        href="https://unsplash.com/"
-                                                        target="_blank"
-                                                    >
-                                                        <span class="lnr lnr-link"></span>
-                                                    </a>
-                                                </div>
-                                                <div class="grid-title">
-                                                    <h4>Hidden Book</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End of Portfolio Item -->
-                                    <!-- Portfolio Item -->
-                                    <div class="grid-item creative">
-                                        <div class="grid-item-wrapper">
-                                            <img
-                                                src="assets/home/photo-9.jpg"
-                                                alt="portfolio-img"
-                                                class="portfolio-item"
-                                            />
-                                            <div class="grid-info">
-                                                <div
-                                                    class="grid-link d-flex justify-content-center"
-                                                >
-                                                    <a
-                                                        class="img-pop"
-                                                        data-rel="lightcase"
-                                                        href="assets/home/photo-9.jpg"
-                                                        title="Guitar"
-                                                    >
-                                                        <span class="lnr lnr-move"></span>
-                                                    </a>
-                                                    <a
-                                                        class="ext-link"
-                                                        href="https://unsplash.com/"
-                                                        target="_blank"
-                                                    >
-                                                        <span class="lnr lnr-link"></span>
-                                                    </a>
-                                                </div>
-                                                <div class="grid-title">
-                                                    <h4>Red</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End of Portfolio Item -->
-                                </div>
-                                <!-- End of Portfolio Content -->
-                            </div>
-                            <!-- End of Portfolio Holder -->
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End of Portfolio Section -->
-            <section id="gtco-pricing" class="bg-grey">
-                <div class="container">
-                    <div class="section-content">
-                        <!-- Section Title -->
-                        <div class="title-wrap">
-                            <h2 class="section-title">Pricing</h2>
-                            <p class="section-sub-title">
-                                Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-                                <br />
-                                pharetra augue. Donec id elit non mi.
-                            </p>
-                        </div>
-                        <!-- End of Section Title -->
-                        <div class="card-deck mb-3 text-center">
-                            <div class="price-box card mb-4 box-shadow">
-                                <div class="card-header p-4">
-                                    <h6 class="mb-0 text-orange font-weight-bold">BASIC</h6>
-                                    <h2 class="display-4 p-2 mb-0 font-weight-bold">
-                                        50<small class="align-top">GB</small>
-                                    </h2>
-                                    <p class="mb-0">Perfect for the beginning</p>
-                                </div>
-                                <div class="card-body p-4">
-                                    <ul class="price-box-list list-unstyled mt-3 mb-4">
-                                        <li>Unlimited Traffic</li>
-                                        <li>Full Platform Applications</li>
-                                        <li>Email support</li>
-                                    </ul>
-                                    <h2 class="card-title pricing-card-title mb-0 font-weight-bold">
-                                        $0,99
-                                    </h2>
-                                    <p>/month</p>
-                                    <a href="#" class="btn btn-block btn-secondary btn-orange mt-4"
-                                        >Buy Now</a
-                                    >
-                                </div>
-                            </div>
-                            <div class="price-box card mb-4 box-shadow">
-                                <div class="card-header p-4">
-                                    <h6 class="mb-0 text-cyan font-weight-bold">PRO</h6>
-                                    <h2 class="display-4 p-2 mb-0 font-weight-bold">
-                                        250<small class="align-top">GB</small>
-                                    </h2>
-                                    <p class="mb-0">For Professionals</p>
-                                </div>
-                                <div class="card-body p-4">
-                                    <ul class="price-box-list list-unstyled mt-3 mb-4">
-                                        <li>1 Domain Free</li>
-                                        <li>Unlimited Traffic</li>
-                                        <li>Full Platform Applications</li>
-                                        <li>Premium support</li>
-                                    </ul>
-                                    <h2 class="card-title pricing-card-title mb-0 font-weight-bold">
-                                        $4,99
-                                    </h2>
-                                    <p>/month</p>
-                                    <a href="#" class="btn btn-block btn-secondary btn-cyan mt-4"
-                                        >Buy Now</a
-                                    >
-                                </div>
-                            </div>
-                            <div class="price-box card mb-4 box-shadow">
-                                <div class="card-header p-4">
-                                    <h6 class="mb-0 text-red font-weight-bold">PERFORMANCE</h6>
-                                    <h2 class="display-4 p-2 mb-0 font-weight-bold">
-                                        500<small class="align-top">GB</small>
-                                    </h2>
-                                    <p class="mb-0">For Business</p>
-                                </div>
-                                <div class="card-body p-4">
-                                    <ul class="price-box-list list-unstyled mt-3 mb-4">
-                                        <li>1 Domain Free</li>
-                                        <li>Unlimited Traffic</li>
-                                        <li>Full Platform Applications</li>
-                                        <li>SSL Certificate</li>
-                                        <li>Premium support</li>
-                                    </ul>
-                                    <h2 class="card-title pricing-card-title mb-0 font-weight-bold">
-                                        $9,99
-                                    </h2>
-                                    <p>/month</p>
-                                    <a href="#" class="btn btn-block btn-secondary btn-red mt-4"
-                                        >Buy Now</a
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /END PRICING -->
-            </section>
-            <!-- Client Section -->
-            <section id="gtco-client" class="bg-white">
-                <div class="container">
-                    <div class="section-content">
-                        <!-- Section Title -->
-                        <div class="title-wrap">
-                            <h2 class="section-title">Who love to <b> work</b> with us</h2>
-                        </div>
-                        <!-- End of Section Title -->
-                        <div class="row">
-                            <div class="col-md-2">
-                                <!-- Client Item -->
-                                <div class="client-item">
-                                    <img
-                                        class="img-responsive"
-                                        src="assets/home/client-1.png"
-                                        alt=" "
-                                    />
-                                </div>
-                                <!-- End of Client Item  -->
-                            </div>
-                            <div class="col-md-2">
-                                <!-- Client Item -->
-                                <div class="client-item">
-                                    <img
-                                        class="img-responsive"
-                                        src="assets/home/client-2.png"
-                                        alt=" "
-                                    />
-                                </div>
-                                <!-- End of Client Item -->
-                            </div>
-                            <div class="col-md-2">
-                                <!-- Client Item  -->
-                                <div class="client-item">
-                                    <img
-                                        class="img-responsive"
-                                        src="assets/home/client-3.png"
-                                        alt=" "
-                                    />
-                                </div>
-                                <!-- End of Client Item -->
-                            </div>
-                            <div class="col-md-2">
-                                <!-- Client Item  -->
-                                <div class="client-item">
-                                    <img
-                                        class="img-responsive"
-                                        src="assets/home/client-4.png"
-                                        alt=" "
-                                    />
-                                </div>
-                                <!-- End of Client Item  -->
-                            </div>
-                            <div class="col-md-2">
-                                <!-- Client Item  -->
-                                <div class="client-item">
-                                    <img
-                                        class="img-responsive"
-                                        src="assets/home/client-5.png"
-                                        alt=" "
-                                    />
-                                </div>
-                                <!-- End of Client Item  -->
-                            </div>
-                            <div class="col-md-2">
-                                <!-- Client Item  -->
-                                <div class="client-item">
-                                    <img
-                                        class="img-responsive"
-                                        src="assets/home/client-6.png"
-                                        alt=" "
-                                    />
-                                </div>
-                                <!-- End of Client Item -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End of Client Section -->
-            <footer class="mastfoot mb-3 bg-white py-4 border-top">
-                <div class="inner container">
-                    <div class="row">
-                        <div
-                            class="col-md-6 d-flex align-items-center justify-content-md-start justify-content-center"
-                        >
-                            <p class="mb-0">
-                                &copy; 2019 Moon. All Right Reserved. Design by
-                                <a href="https://gettemplates.co" target="_blank">GetTemplates.co</a
-                                >.
-                            </p>
-                        </div>
-
-                        <div class="col-md-6">
-                            <nav
-                                class="nav nav-mastfoot justify-content-md-end justify-content-center"
-                            >
-                                <a class="nav-link" href="#">
-                                    <i class="icon-facebook"></i>
-                                </a>
-                                <a class="nav-link" href="#">
-                                    <i class="icon-twitter"></i>
-                                </a>
-                                <a class="nav-link" href="#">
-                                    <i class="icon-instagram"></i>
-                                </a>
-                                <a class="nav-link" href="#">
-                                    <i class="icon-linkedin"></i>
-                                </a>
-                                <a class="nav-link" href="#">
-                                    <i class="icon-youtube"></i>
-                                </a>
-                                <a class="nav-link" href="#">
-                                    <i class="icon-pinterest"></i>
-                                </a>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
 </div>
+<footer>
+    <div class="container" style="max-width: 80vw;">
+        <div class="row justify-content-md-center">
+            <div class="col-sm">
+                <div class="Footer-icons">
+                    <svg
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        class="bi bi-cash"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M15 4H1v8h14V4zM1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1z"
+                        />
+                        <path
+                            d="M13 4a2 2 0 0 0 2 2V4h-2zM3 4a2 2 0 0 1-2 2V4h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 12a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"
+                        />
+                    </svg>
+                </div>
+                <p class="Footer-icons-text">
+                    <span style="color: #8186d5; font-weight: 900;">Free</span>
+                    no money charge at all
+                </p>
+            </div>
+            <div class="col-sm">
+                <div class="Footer-icons">
+                    <svg
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        class="bi bi-life-preserver"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                        />
+                        <path
+                            fill-rule="evenodd"
+                            d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
+                        />
+                        <path
+                            d="M11.642 6.343L15 5v6l-3.358-1.343A3.99 3.99 0 0 0 12 8a3.99 3.99 0 0 0-.358-1.657zM9.657 4.358L11 1H5l1.343 3.358A3.985 3.985 0 0 1 8 4c.59 0 1.152.128 1.657.358zM4.358 6.343L1 5v6l3.358-1.343A3.985 3.985 0 0 1 4 8c0-.59.128-1.152.358-1.657zm1.985 5.299L5 15h6l-1.343-3.358A3.984 3.984 0 0 1 8 12a3.99 3.99 0 0 1-1.657-.358z"
+                        />
+                    </svg>
+                </div>
+                <p class="Footer-icons-text">
+                    <span style="color: #8186d5; font-weight: 900;">Support</span>
+                    teams across the world
+                </p>
+            </div>
+            <div class="col-sm">
+                <div class="Footer-icons">
+                    <svg
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        class="bi bi-shield-check"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M5.443 1.991a60.17 60.17 0 0 0-2.725.802.454.454 0 0 0-.315.366C1.87 7.056 3.1 9.9 4.567 11.773c.736.94 1.533 1.636 2.197 2.093.333.228.626.394.857.5.116.053.21.089.282.11A.73.73 0 0 0 8 14.5c.007-.001.038-.005.097-.023.072-.022.166-.058.282-.111.23-.106.525-.272.857-.5a10.197 10.197 0 0 0 2.197-2.093C12.9 9.9 14.13 7.056 13.597 3.159a.454.454 0 0 0-.315-.366c-.626-.2-1.682-.526-2.725-.802C9.491 1.71 8.51 1.5 8 1.5c-.51 0-1.49.21-2.557.491zm-.256-.966C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 0 1 2.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 0 1-2.418 2.3 6.942 6.942 0 0 1-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 0 1-1.007-.586 11.192 11.192 0 0 1-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 0 1 2.415 1.84a61.11 61.11 0 0 1 2.772-.815z"
+                        />
+                        <path
+                            fill-rule="evenodd"
+                            d="M10.854 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708 0z"
+                        />
+                    </svg>
+                </div>
+                <p class="Footer-icons-text">
+                    <span style="color: #8186d5; font-weight: 900;">Safe & Secure</span>
+                    online payment
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-md-center" style="margin-bottom: 100px;">
+            <div class="col-lg-3 mb-5 mb-lg-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="footer-heading mb-4">
+                            <span style="font-weight: 900; color: rgb(132, 141, 206);"
+                                >WHO WE ARE</span
+                            >
+                        </h4>
+                    </div>
+                    <div class="col-md-12 col-lg-12">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a>About</a>
+                            </li>
+                            <li>
+                                <a>Team</a>
+                            </li>
+                            <li>
+                                <a>Work With Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-5 mb-lg-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="footer-heading mb-4">
+                            <span style="font-weight: 900; color: rgb(132, 141, 206);"
+                                >SHOPPABLE</span
+                            >
+                        </h4>
+                    </div>
+                    <div class="col-md-12 col-lg-12">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a>Features</a>
+                            </li>
+                            <li>
+                                <a>Payments</a>
+                            </li>
+                            <li>
+                                <a>Marketing</a>
+                            </li>
+                            <li>
+                                <a>Shipping</a>
+                            </li>
+                            <li>
+                                <a>Extension Store</a>
+                            </li>
+                            <li>
+                                <a>Ideas Board</a>
+                            </li>
+                            <li>
+                                <a>Mobile App</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-5 mb-lg-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="footer-heading mb-4">
+                            <span style="font-weight: 900; color: rgb(132, 141, 206);"
+                                >SUPPORT</span
+                            >
+                        </h4>
+                    </div>
+                    <div class="col-md-12 col-lg-12">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a>Documentation</a>
+                            </li>
+                            <li>
+                                <a>Customization</a>
+                            </li>
+                            <li>
+                                <a>Support Policy</a>
+                            </li>
+                            <li>
+                                <a>Contact</a>
+                            </li>
+                            <li>
+                                <a>COVID-19 REsources</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-5 mb-lg-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="footer-heading mb-4">
+                            <span style="font-weight: 900; color: rgb(132, 141, 206);"
+                                >WE RECOMMEND</span
+                            >
+                        </h4>
+                    </div>
+                    <div class="col-md-12 col-lg-12">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a>ShoppableExperts</a>
+                            </li>
+                            <li>
+                                <a>Hosting Solutions</a>
+                            </li>
+                            <li>
+                                <a>Pre-sales FAQ</a>
+                            </li>
+                            <li>
+                                <a>Success Stories</a>
+                            </li>
+                            <li>
+                                <a>Design Feedback Group</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

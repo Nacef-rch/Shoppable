@@ -9,9 +9,10 @@ import { HomeProductsComponent } from './Container/home-products/home-products.c
 import { LayoutModule } from '@layout/layout.module';
 import { HomeStoresComponent } from './Container/home-stores/home-stores.component';
 import { HomeSearchComponent } from './Components/home-search/home-search.component';
+import { TranslateHomeComponent } from './Components/translate-home/translate-home.component';
 
 @NgModule({
-    declarations: [HomeComponent, HomeProductsComponent, HomeStoresComponent, HomeSearchComponent],
+    declarations: [HomeComponent, HomeProductsComponent, HomeStoresComponent, HomeSearchComponent, TranslateHomeComponent],
     imports: [
         CommonModule,
         HttpClientModule,
