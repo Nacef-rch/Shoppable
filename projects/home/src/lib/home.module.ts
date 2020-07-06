@@ -12,7 +12,13 @@ import { HomeSearchComponent } from './Components/home-search/home-search.compon
 import { TranslateHomeComponent } from './Components/translate-home/translate-home.component';
 
 @NgModule({
-    declarations: [HomeComponent, HomeProductsComponent, HomeStoresComponent, HomeSearchComponent, TranslateHomeComponent],
+    declarations: [
+        HomeComponent,
+        HomeProductsComponent,
+        HomeStoresComponent,
+        HomeSearchComponent,
+        TranslateHomeComponent
+    ],
     imports: [
         CommonModule,
         HttpClientModule,
