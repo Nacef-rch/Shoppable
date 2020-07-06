@@ -4,6 +4,7 @@ import { ProductFacade } from '@product/+store/product.facade';
 import { AuthFacade } from '@authentication/+store/auth.facade';
 import { Observable } from 'rxjs';
 import { User } from '@authentication/models/user.model';
+import { StoreFacade } from '@store/+store/store.facade';
 
 @Component({
     selector: 'lib-default-checkout',
@@ -17,8 +18,15 @@ export class DefaultCheckoutComponent implements OnInit {
     public Delivery = 0;
     public DifferentAddress = false;
     public Register = false;
+    public linkUrl;
+    public shopUrl;
+    public cartUrl;
 
-    constructor(private prodFacade: ProductFacade, private authFacade: AuthFacade) {}
+    constructor(
+        private prodFacade: ProductFacade,
+        private authFacade: AuthFacade,
+        private storeFacade: StoreFacade
+    ) {}
 
     public ngOnInit(): void {
         this.prodFacade.cartProducts$.subscribe((resData) => {
@@ -27,6 +35,11 @@ export class DefaultCheckoutComponent implements OnInit {
                 this.SubTotal = this.SubTotal + item.unitPrice * item.quantitySelected;
             });
             this.Delivery = 7.99;
+        });
+        this.storeFacade.ActiveStore$.subscribe((resData) => {
+            this.linkUrl = `/${resData}/shop/thankyou`;
+            this.shopUrl = `/${resData}/shop`;
+            this.cartUrl = `/${resData}/shop/cart`;
         });
     }
     public showDifAddress(): void {

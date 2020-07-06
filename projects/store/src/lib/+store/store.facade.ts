@@ -13,6 +13,7 @@ export class StoreFacade {
     public stores$ = this.store.select(storeQuery.getStores);
     public error$ = this.store.select(storeQuery.getError);
     public loading$ = this.store.select(storeQuery.getLoading);
+    public ActiveStore$ = this.store.select(storeQuery.getActiveStore);
 
     constructor(private store: Store<StoreStore>) {}
 
@@ -24,6 +25,13 @@ export class StoreFacade {
         this.store.dispatch(
             storeActions.IMPORT_FAIL({
                 errorMessage: errorMessage
+            })
+        );
+    }
+    public setActiveStore(store: string): void {
+        this.store.dispatch(
+            storeActions.ACTIVE_STORES({
+                store: store
             })
         );
     }

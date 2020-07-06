@@ -5,7 +5,7 @@ import { StoreModel } from '@store/models/store.model';
 
 export interface StoreState {
     stores: StoreModel[];
-
+    ActiveStore: string;
     storeError: string;
     loading: boolean;
 }
@@ -15,7 +15,7 @@ export interface StoreStore {
 
 export const StoreInitialState: StoreState = {
     stores: [],
-
+    ActiveStore: null,
     storeError: null,
     loading: false
 };
@@ -38,7 +38,12 @@ const reducer = createReducer(
         ...state,
         storeError: action.errorMessage,
         loading: false
+    })),
+    on(StoreActions.ACTIVE_STORES, (state, action) => ({
+        ...state,
+        ActiveStore: action.store
     }))
+    //
 );
 export function StoreReducer(state: StoreState | undefined, action: Action): StoreState {
     return reducer(state, action);

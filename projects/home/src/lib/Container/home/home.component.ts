@@ -10,6 +10,6 @@ import { ProductFacade } from '@product/+store/product.facade';
 export class HomeComponent implements OnInit {
     constructor(private storesFacade: StoreFacade, private productsFacade: ProductFacade) {}
     ngOnInit(): void {
-        //this.productsFacade.fetchASpecStoreStart('Mirra');
+        this.productsFacade.fetchASpecStoreStart('Mirra');
     }
 }

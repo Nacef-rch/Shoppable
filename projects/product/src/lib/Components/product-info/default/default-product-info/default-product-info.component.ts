@@ -4,6 +4,7 @@ import { Subscription, Observable } from 'rxjs';
 
 import { ProductFacade } from '@product/+store/product.facade';
 import { StoreProducts } from '@product/models/product.model';
+import { StoreFacade } from '@store/+store/store.facade';
 
 @Component({
     selector: 'lib-default-product-info',
@@ -19,12 +20,14 @@ export class DefaultProductInfoComponent implements OnInit, OnDestroy {
     public products: StoreProducts[];
     public productId;
     public category;
+    public storeId;
 
     product: StoreProducts = null;
     constructor(
         private route: ActivatedRoute,
         private productFacade: ProductFacade,
-        private router: Router
+        private router: Router,
+        private storeFacade: StoreFacade
     ) {}
 
     public ngOnInit(): void {
@@ -52,6 +55,9 @@ export class DefaultProductInfoComponent implements OnInit, OnDestroy {
                 });
             });
         });
+        this.storeFacade.ActiveStore$.subscribe((resData) => {
+            this.storeId = resData;
+        });
     }
 
     public clickPlus(): void {
@@ -64,7 +70,7 @@ export class DefaultProductInfoComponent implements OnInit, OnDestroy {
     }
 
     public otherProductClicked(category, product): void {
-        this.router.navigate([`store/shop/${category}/${product}`]);
+        this.router.navigate([`${this.storeId}/shop/${category}/${product}`]);
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 

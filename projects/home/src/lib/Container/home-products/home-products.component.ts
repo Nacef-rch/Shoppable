@@ -26,12 +26,12 @@ export class HomeProductsComponent implements OnInit {
         this.numPage = event;
     }
     public searchFilter(value: string): void {
-        const searchText = value;
+        const searchText = value.toUpperCase();
 
         this.products = this.productsArray;
 
         this.products = this.products.filter((item) => {
-            const itemText = item.name;
+            const itemText = item.name.toUpperCase();
 
             if (itemText.includes(searchText)) {
                 return item;

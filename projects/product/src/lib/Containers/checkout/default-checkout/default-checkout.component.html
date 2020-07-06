@@ -2,9 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mb-0">
-                <a routerLink="/store/shop"> {{ 'LAYOUT.DEFAULT_CART.SHOP' | translate }}</a>
+                <a routerLink="{{shopUrl}}"> {{ 'LAYOUT.DEFAULT_CART.SHOP' | translate }}</a>
                 <span class="mx-2 mb-0">/</span>
-                <a routerLink="/store/cart">{{ 'LAYOUT.DEFAULT_CHECKOUT.CART' | translate }}</a>
+                <a routerLink="{{cartUrl}}">{{ 'LAYOUT.DEFAULT_CHECKOUT.CART' | translate }}</a>
                 <span class="mx-2 mb-0">/</span>
                 <strong class="text-black">{{
                     'LAYOUT.DEFAULT_CHECKOUT.CHECKOUT' | translate
@@ -565,7 +565,7 @@
                             <div class="form-group">
                                 <button
                                     class="btn btn-primary btn-lg py-3 btn-block"
-                                    routerLink="/store/shop/thankyou"
+                                    routerLink="{{ linkUrl }}"
                                 >
                                     {{ 'LAYOUT.DEFAULT_CHECKOUT.PLACE_OR' | translate }}
                                 </button>
