@@ -1,0 +1,121 @@
+main {
+    width: 100vw;
+    height: 100vh;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.verticals-container {
+    width: 50%;
+    min-width: 720px;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    color: #121416;
+}
+.text {
+    display: block;
+    text-align: left;
+}
+h1 {
+    font-size: 72px;
+    font-size: 3.75vmax;
+    line-height: 95px;
+    line-height: 4.9vmax;
+
+    letter-spacing: 0.08vmax;
+    font-weight: 100;
+    text-align: center;
+    margin: 0 0 7.8vh;
+}
+@media (max-width: 1440px) {
+    .verticals-container h1,
+    .verticals-container h2 {
+        font-size: 54px;
+    }
+    .verticals-container nav li {
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 28px;
+    }
+}
+.verticals-container nav {
+    width: 92%;
+    margin: 0 auto;
+}
+.verticals-container nav .verticals-list-group {
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 100%;
+}
+.verticals-container nav ul {
+    margin: 0;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+.verticals-container nav li {
+    font-size: 22px;
+    font-size: 1.15vmax;
+    line-height: 36px;
+    line-height: 1.92vmax;
+    list-style: none;
+    letter-spacing: 0.01vmax;
+    text-align: left;
+    margin-bottom: 2.8vh;
+    cursor: pointer;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+i,
+a,
+.home button {
+    -webkit-font-smoothing: antialiased;
+}
+.verticals-container a {
+    color: #121416;
+    font-weight: 400;
+    padding-right: 0.2vw;
+    transition: color 0.1s;
+}
+a {
+    text-decoration: none;
+    color: #3899ec;
+}
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.verticals-container nav svg {
+    height: 10px;
+    width: 10px;
+    transition: left 0.3s linear;
+    color: rgba(18, 20, 22, 0.9);
+    position: relative;
+    left: 0;
+}
+svg:not(:root) {
+    overflow: hidden;
+}

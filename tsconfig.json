@@ -26,7 +26,9 @@
             "@product/*": ["projects/product/src/lib/*"],
             "@store/*": ["projects/store/src/lib/*"],
             "@layout/*": ["projects/layout/src/lib/*"],
-            "@home/*": ["projects/home/src/lib/*"]
+            "@home/*": ["projects/home/src/lib/*"],
+
+            "@webuilder/*": ["projects/webuilder/src/lib/*"]
         }
     },
     "angularCompilerOptions": {

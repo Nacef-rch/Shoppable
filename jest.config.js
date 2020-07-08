@@ -26,6 +26,7 @@ module.exports = {
         '^@store/(.*)$': '<rootDir>/projects/store/src/lib/$1',
         '^@layout/(.*)$': '<rootDir>/projects/layout/src/lib/$1',
         '^@home/(.*)$': '<rootDir>/projects/home/src/lib/$1',
+        '^@webuilder/(.*)$': '<rootDir>/projects/webuilder/src/lib/$1',
         '^@env/(.*)$': '<rootDir>/src/environments/$1'
     },
     testMatch: ['<rootDir>/**/**/*.spec.ts'],

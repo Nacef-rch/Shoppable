@@ -18,9 +18,8 @@ import { DefaultFooterComponent } from '@layout/Components/footer/default/defaul
 
 import { DefaultSideBarComponent } from '@layout/Components/side-bar/default-side-bar/default-side-bar.component';
 import { InstaInteractionComponent } from '@layout/Components/user-interaction/instagram/insta-interaction.component';
-import { StartBuildComponent } from './Container/start-build/start-build.component';
-import { TypeBuildComponent } from './Container/type-build/type-build.component';
-import { NameBuildComponent } from './Container/name-build/name-build.component';
+
+import { FirstTemplateHomeComponent } from './Container/first-template-home/first-template-home.component';
 
 @NgModule({
     declarations: [
@@ -33,9 +32,8 @@ import { NameBuildComponent } from './Container/name-build/name-build.component'
         DefaultCartComponent,
         DefaultOrderComponent,
         InstaInteractionComponent,
-        StartBuildComponent,
-        TypeBuildComponent,
-        NameBuildComponent
+
+        FirstTemplateHomeComponent
     ],
     imports: [CommonModule, HttpClientModule, SharedModule, RouterModule],
 
@@ -48,9 +46,7 @@ import { NameBuildComponent } from './Container/name-build/name-build.component'
         DefaultSideBarComponent,
         DefaultCartComponent,
         DefaultOrderComponent,
-        StartBuildComponent,
-        TypeBuildComponent,
-        NameBuildComponent
+        FirstTemplateHomeComponent
     ]
 })
 export class LayoutModule {}

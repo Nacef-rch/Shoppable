@@ -18,6 +18,10 @@ const routes: Routes = [
         loadChildren: () => import('@home/home.module').then((m) => m.HomeModule)
     },
     {
+        path: 'website',
+        loadChildren: () => import('@webuilder/webuilder.module').then((m) => m.WebuilderModule)
+    },
+    {
         path: ':store',
         loadChildren: () => import('@store/store.module').then((m) => m.StoresModule)
     }

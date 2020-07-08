@@ -381,6 +381,36 @@
                     }
                 }
             }
+        },
+        "webuilder": {
+            "projectType": "library",
+            "root": "projects/webuilder",
+            "sourceRoot": "projects/webuilder/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "projects/webuilder/tsconfig.lib.json",
+                        "project": "projects/webuilder/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/webuilder/tsconfig.lib.prod.json"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/webuilder/tsconfig.lib.json",
+                            "projects/webuilder/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
         }
     },
     "defaultProject": "Shoppable"

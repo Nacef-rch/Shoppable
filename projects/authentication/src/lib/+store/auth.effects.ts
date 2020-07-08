@@ -93,7 +93,7 @@ export class AuthEffects {
             }) => {
                 if (authSuccessAction.redirect) {
                     console.log(authSuccessAction.redirect);
-                    this.router.navigate(['/products']);
+                    this.router.navigate(['/website']);
                 }
             }
         )
