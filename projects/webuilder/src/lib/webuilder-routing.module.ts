@@ -1,10 +1,12 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { StartBuildComponent } from './containers/start-build/start-build.component';
 import { TypeBuildComponent } from './containers/type-build/type-build.component';
 import { NameBuildComponent } from './containers/name-build/name-build.component';
 import { TypeToEditComponent } from './containers/type-to-edit/type-to-edit.component';
 import { FirstTemplateHomeComponent } from '@layout/Container/first-template-home/first-template-home.component';
+import { WebuilderSidebarComponent } from './components/webuilder-sidebar/webuilder-sidebar.component';
+import { BuilderBaseComponent } from './containers/builder-base/builder-base.component';
 
 const routes: Routes = [
     {
@@ -15,6 +17,17 @@ const routes: Routes = [
     {
         path: 'new',
         component: StartBuildComponent
+    },
+    {
+        path: 'config',
+        component: BuilderBaseComponent,
+        children: [
+            {
+                path: '',
+                component: FirstTemplateHomeComponent,
+                pathMatch: 'full'
+            }
+        ]
     },
     {
         path: 'intro',
@@ -31,6 +44,10 @@ const routes: Routes = [
     {
         path: 'site',
         component: FirstTemplateHomeComponent
+    },
+    {
+        path: 'test2',
+        component: WebuilderSidebarComponent
     }
 ];
 

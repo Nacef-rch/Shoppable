@@ -22,7 +22,9 @@
         font-size: calc(1.2vw + 1rem);
     }
 }
-
+.mock_body {
+    background-color: white;
+}
 .a-link-nav {
     display: block;
     padding: 0.5rem 1rem;
@@ -93,7 +95,10 @@ ul li a:hover .count {
     margin-top: -10px;
 }
 .nav-container {
-    max-width: 90vw;
+    max-width: 100%;
+    padding-right: 5vw;
+    background-color: white;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2);
 }
 .double-box-first {
     margin-left: -30vw;
@@ -112,4 +117,7 @@ ul li a:hover .count {
 
 .img_header_up {
     margin-top: -65vh;
+}
+.mr-auto {
+    margin-right: 23vw !important;
 }

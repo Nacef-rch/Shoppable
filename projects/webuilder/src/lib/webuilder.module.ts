@@ -9,13 +9,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { LayoutModule } from '@layout/layout.module';
 import { TypeToEditComponent } from './containers/type-to-edit/type-to-edit.component';
+import { WebuilderSidebarComponent } from './components/webuilder-sidebar/webuilder-sidebar.component';
+import { BuilderBaseComponent } from './containers/builder-base/builder-base.component';
 
 @NgModule({
     declarations: [
         StartBuildComponent,
         TypeBuildComponent,
         NameBuildComponent,
-        TypeToEditComponent
+        TypeToEditComponent,
+        WebuilderSidebarComponent,
+        BuilderBaseComponent
     ],
     imports: [
         WebuilderRoutingModule,
