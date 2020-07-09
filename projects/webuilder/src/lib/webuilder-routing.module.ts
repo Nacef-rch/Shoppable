@@ -7,6 +7,7 @@ import { TypeToEditComponent } from './containers/type-to-edit/type-to-edit.comp
 import { FirstTemplateHomeComponent } from '@layout/Container/first-template-home/first-template-home.component';
 import { WebuilderSidebarComponent } from './components/webuilder-sidebar/webuilder-sidebar.component';
 import { BuilderBaseComponent } from './containers/builder-base/builder-base.component';
+import { LogoBuilderComponent } from './components/logo-builder/logo-builder.component';
 
 const routes: Routes = [
     {
@@ -18,13 +19,24 @@ const routes: Routes = [
         path: 'new',
         component: StartBuildComponent
     },
+    // {
+    //     path: 'config',
+    //     component: BuilderBaseComponent,
+    //     children: [
+    //         {
+    //             path: 'name',
+    //             component: LogoBuilderComponent,
+    //             pathMatch: 'full'
+    //         }
+    //     ]
+    // },
     {
         path: 'config',
         component: BuilderBaseComponent,
         children: [
             {
                 path: '',
-                component: FirstTemplateHomeComponent,
+                component: LogoBuilderComponent,
                 pathMatch: 'full'
             }
         ]

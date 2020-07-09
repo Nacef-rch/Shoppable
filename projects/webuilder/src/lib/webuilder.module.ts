@@ -11,6 +11,14 @@ import { LayoutModule } from '@layout/layout.module';
 import { TypeToEditComponent } from './containers/type-to-edit/type-to-edit.component';
 import { WebuilderSidebarComponent } from './components/webuilder-sidebar/webuilder-sidebar.component';
 import { BuilderBaseComponent } from './containers/builder-base/builder-base.component';
+import { LogoBuilderComponent } from './components/logo-builder/logo-builder.component';
+import { StoreModule } from '@ngrx/store';
+import {
+    webuilderStoreName,
+    webuilderReducer,
+    initialState
+} from '@webuilder/+store/webuilder.reducer';
+import { ThemeBuilderComponent } from './components/theme-builder/theme-builder.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +27,9 @@ import { BuilderBaseComponent } from './containers/builder-base/builder-base.com
         NameBuildComponent,
         TypeToEditComponent,
         WebuilderSidebarComponent,
-        BuilderBaseComponent
+        BuilderBaseComponent,
+        LogoBuilderComponent,
+        ThemeBuilderComponent
     ],
     imports: [
         WebuilderRoutingModule,
@@ -29,7 +39,11 @@ import { BuilderBaseComponent } from './containers/builder-base/builder-base.com
         SharedModule,
         RouterModule,
 
-        LayoutModule
+        LayoutModule,
+        StoreModule.forFeature(webuilderStoreName, webuilderReducer, {
+            initialState: initialState
+        })
+        //EffectsModule.forFeature([WebuilderEffects])
     ],
     exports: []
 })

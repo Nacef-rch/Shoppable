@@ -5,22 +5,16 @@
                 class="navbar navbar-expand-sm sticky-top navbar-light"
                 style="z-index: 9 !important;"
             >
-                <a
-                    class="navbar-brand header-title-text"
-                    [ngClass]="logo_class"
-                    [ngStyle]="{ color: nav_a_color }"
-                    href="#"
-                    *ngIf="true"
-                    >{{ nav_logo }}</a
-                >
-                <a
-                    class="navbar-brand header-title-text-cadre"
-                    [ngClass]="logo_class"
-                    [ngStyle]="{ color: nav_a_color }"
-                    href="#"
-                    *ngIf="false"
-                    >{{ nav_logo }}</a
-                >
+                <span *ngxInit="logo$ | async as logo">
+                    <a
+                        class="navbar-brand header-title-text"
+                        [ngClass]="logo.style"
+                        [ngStyle]="{ color: logo.color }"
+                        href="#"
+                        *ngIf="true"
+                        >{{ logo.text }}</a
+                    >
+                </span>
 
                 <button
                     class="navbar-toggler"

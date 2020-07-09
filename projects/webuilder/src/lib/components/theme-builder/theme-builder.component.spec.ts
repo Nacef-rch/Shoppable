@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BuilderBaseComponent } from './builder-base.component';
+import { ThemeBuilderComponent } from './theme-builder.component';
 
-describe('BuilderBaseComponent', () => {
-  let component: BuilderBaseComponent;
-  let fixture: ComponentFixture<BuilderBaseComponent>;
+describe('ThemeBuilderComponent', () => {
+  let component: ThemeBuilderComponent;
+  let fixture: ComponentFixture<ThemeBuilderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BuilderBaseComponent ]
+      declarations: [ ThemeBuilderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BuilderBaseComponent);
+    fixture = TestBed.createComponent(ThemeBuilderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

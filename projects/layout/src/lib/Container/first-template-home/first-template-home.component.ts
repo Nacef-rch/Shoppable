@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { WebuilderFacade } from '@webuilder/+store/webuilder.facade';
+import { Observable } from 'rxjs';
+import { Logo } from '@webuilder/models/webuilder.model';
 
 @Component({
     selector: 'lib-first-template-home',
@@ -6,6 +9,9 @@ import { Component } from '@angular/core';
     styleUrls: ['./first-template-home.component.scss']
 })
 export class FirstTemplateHomeComponent {
+    public logo$: Observable<Logo> = this.webFacade.logo$;
+    constructor(private webFacade: WebuilderFacade) {}
+
     web_text_FH4 = 'Shop is fun';
     web_text_FH1 = 'Browse Our Premium Product';
     web_text_FP =

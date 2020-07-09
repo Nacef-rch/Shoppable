@@ -33,7 +33,7 @@
 }
 .header-title-text {
     margin-left: 5vw !important;
-    font-weight: 700 !important;
+    font-weight: 700;
     font-style: normal;
     letter-spacing: 0em;
     text-transform: none;
@@ -41,21 +41,19 @@
     font-size: 2rem;
 }
 .header-title-text-1 {
-    font-weight: 700 !important;
     text-transform: uppercase;
 }
 .header-title-text-2 {
     font-weight: 300 !important;
 }
 .header-title-text-3 {
-    font-weight: 300 !important;
-    text-transform: uppercase;
+    font-weight: 700 !important;
 }
 
 .header-title-text-cadre {
     margin-left: 5vw !important;
-    text-transform: uppercase;
-    color: #25262a;
+    font-weight: 300;
+
     letter-spacing: 0.2em;
     font-size: 20px;
     padding-left: 10px;
