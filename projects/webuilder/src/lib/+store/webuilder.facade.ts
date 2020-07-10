@@ -27,4 +27,7 @@ export class WebuilderFacade {
     public addButton(button: ButtonsWeb): void {
         this.store.dispatch(webActions.ADD_BUTTONS({ button: button }));
     }
+    public addText(sectionText: string, webText: any): void {
+        this.store.dispatch(webActions.ADD_TEXT({ sectionText: sectionText, webText: webText }));
+    }
 }

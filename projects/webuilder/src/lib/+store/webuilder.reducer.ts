@@ -43,7 +43,64 @@ const reducer = createReducer(
     on(webActions.ADD_BUTTONS, (state, action) => ({
         ...state,
         button: action.button
-    }))
+    })),
+    on(webActions.ADD_TEXT, (state, action) => {
+        if (action.sectionText === 'firstSection') {
+            const firstSection = action.webText;
+
+            return {
+                ...state,
+                text: {
+                    ...state.text,
+                    firstSection
+                }
+            };
+        }
+        if (action.sectionText === 'secondSection') {
+            const secondSection = action.webText;
+
+            return {
+                ...state,
+                text: {
+                    ...state.text,
+                    secondSection
+                }
+            };
+        }
+        if (action.sectionText === 'thirdSection') {
+            const thirdSection = action.webText;
+
+            return {
+                ...state,
+                text: {
+                    ...state.text,
+                    thirdSection
+                }
+            };
+        }
+        if (action.sectionText === 'fourthSection') {
+            const fourthSection = action.webText;
+
+            return {
+                ...state,
+                text: {
+                    ...state.text,
+                    fourthSection
+                }
+            };
+        }
+        if (action.sectionText === 'fifthSection') {
+            const fifthSection = action.webText;
+
+            return {
+                ...state,
+                text: {
+                    ...state.text,
+                    fifthSection
+                }
+            };
+        }
+    })
 );
 export function webuilderReducer(
     state: WebuilderState | undefined,

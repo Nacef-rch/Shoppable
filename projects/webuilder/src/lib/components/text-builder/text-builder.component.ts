@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WebuilderFacade } from '@webuilder/+store/webuilder.facade';
 
 @Component({
     selector: 'lib-text-builder',
@@ -16,9 +17,11 @@ export class TextBuilderComponent implements OnInit {
     ThirdSection = false;
     FourthSection = false;
     FifthSection = false;
-    constructor() {}
-
-    ngOnInit(): void {}
+    activeSection = 'FirstSection';
+    constructor(private webFacade: WebuilderFacade) {}
+    ngOnInit(): void {
+        throw new Error('Method not implemented.');
+    }
 
     goToSection2() {
         this.FirstSection = false;
@@ -84,5 +87,22 @@ export class TextBuilderComponent implements OnInit {
     backTop() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
+    }
+    onClick() {
+        const firstSection = {
+            firstText: 'Shop is fun',
+            secondText: 'Browse Our Premium Product',
+            thirdText:
+                'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry is standard dummy text ever since the 1500s, when an unknown printer took a galley',
+            fourthText: 'Browse Now'
+        };
+
+        this.webFacade.addText('test', firstSection);
+    }
+    firstText(event) {
+        if (this.activeSection === 'FirstSection') {
+            console.log('FirstSection');
+            console.log(event);
+        }
     }
 }

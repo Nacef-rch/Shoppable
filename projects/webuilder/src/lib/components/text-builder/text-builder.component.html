@@ -14,7 +14,13 @@
             <h2 style="margin-bottom: 0px;">First Section</h2>
             <mat-form-field class="example-form-field">
                 <mat-label>Shop is fun</mat-label>
-                <input matInput type="text" [(ngModel)]="value1" style="font-size: 130%;" />
+                <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="value1"
+                    style="font-size: 130%;"
+                    (input)="firstText($event.target.value)"
+                />
                 <button
                     mat-button
                     *ngIf="value1"
@@ -277,6 +283,7 @@
             <br />
             <button class="btn-section" (click)="goToSection4()">Prev Section</button>
         </div>
+        <button (click)="onClick()">Clickkkk</button>
         <nav class="navButtons">
             <button
                 class="NavButton-Button"
