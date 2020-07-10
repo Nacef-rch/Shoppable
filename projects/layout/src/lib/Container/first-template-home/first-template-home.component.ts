@@ -1,16 +1,47 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WebuilderFacade } from '@webuilder/+store/webuilder.facade';
 import { Observable } from 'rxjs';
-import { Logo } from '@webuilder/models/webuilder.model';
+import { Logo, ThemeWeb, ButtonsWeb } from '@webuilder/models/webuilder.model';
 
 @Component({
     selector: 'lib-first-template-home',
     templateUrl: './first-template-home.component.html',
     styleUrls: ['./first-template-home.component.scss']
 })
-export class FirstTemplateHomeComponent {
+export class FirstTemplateHomeComponent implements OnInit {
     public logo$: Observable<Logo> = this.webFacade.logo$;
+    public theme$: Observable<ThemeWeb> = this.webFacade.theme$;
+    public button$: Observable<ButtonsWeb> = this.webFacade.button$;
+    main_color = 'white';
+    secondary_color = '#84a9ac';
+    main_bg_color = this.main_color;
+    nav_bar_color = this.main_color;
+    btn_bg_color = this.secondary_color;
+    card_bg_color = this.main_color;
+    btn_bg_text = this.main_color;
+    sub_btn_colors = `1px solid ${this.main_bg_color}`;
+
+    btn_border_color = `1px solid ${this.secondary_color}`;
+    text_border_bottom = `2px solid ${this.secondary_color}`;
+    nav_a_color = 'black';
+
     constructor(private webFacade: WebuilderFacade) {}
+    ngOnInit(): void {
+        this.theme$.subscribe((resData) => {
+            this.main_color = resData.mainColor;
+            this.secondary_color = resData.secondColor;
+            this.main_bg_color = resData.mainColor;
+            this.nav_bar_color = resData.mainColor;
+            this.btn_bg_color = resData.secondColor;
+            this.card_bg_color = resData.mainColor;
+            this.btn_bg_text = resData.mainColor;
+            this.sub_btn_colors = `1px solid ${this.main_bg_color}`;
+
+            this.btn_border_color = `1px solid ${resData.secondColor}`;
+            this.text_border_bottom = `2px solid ${resData.secondColor}`;
+            this.nav_a_color = resData.thirdColor;
+        });
+    }
 
     web_text_FH4 = 'Shop is fun';
     web_text_FH1 = 'Browse Our Premium Product';
@@ -47,21 +78,12 @@ export class FirstTemplateHomeComponent {
         'https://firebasestorage.googleapis.com/v0/b/kila-2352b.appspot.com/o/RoomsImages%2F1594239874379?alt=media&token=199409f9-d98a-490b-800c-346df5dcbb71';
     nav_logo = 'Nacef Store';
     logo_class = 'header-title-text';
-    btn_class = '';
-    //button-square
+    btn_class = 'button-rounded';
+
     //header-title-text-1 2 3
-    main_color = 'white';
-    secondary_color = '#84a9ac';
-    nav_a_color = 'black';
+
     // #384aeb
-    main_bg_color = this.main_color;
-    nav_bar_color = this.main_color;
-    btn_bg_color = this.secondary_color;
-    btn_bg_text = this.main_color;
-    sub_btn_colors = `1px solid ${this.main_bg_color}`;
-    card_bg_color = 'white';
-    btn_border_color = `1px solid ${this.secondary_color}`;
-    text_border_bottom = `2px solid ${this.secondary_color}`;
+
     offer_img_url =
         'url(https://firebasestorage.googleapis.com/v0/b/kila-2352b.appspot.com/o/RoomsImages%2F1594247568882?alt=media&token=e5972990-f84c-4f41-b92f-3f2e312bb2b1) right center no-repeat';
 }

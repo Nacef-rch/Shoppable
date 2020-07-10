@@ -28,14 +28,14 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="#"></a>
                         </li>
                     </ul>
 
                     <span class="navbar-text">
-                        <ul class="navbar-nav mr-auto" [ngClass]="{ 'mr-auto-fix': true }">
+                        <ul class="navbar-nav mr-auto-nav" [ngClass]="{ 'mr-auto-fix': true }">
                             <!-- Change it between builder and site !!! -->
                             <li class="nav-item active">
                                 <a class="a-link-nav" [ngStyle]="{ color: nav_a_color }"
@@ -125,17 +125,20 @@
                             <p>
                                 {{ web_text_FP }}
                             </p>
-                            <a
-                                class="button"
-                                href="#"
-                                [ngStyle]="{
-                                    border: btn_border_color,
-                                    background: btn_bg_color,
-                                    color: this.main_color
-                                }"
-                                [ngClass]="btn_class"
-                                >{{ web_text_FB }}</a
-                            >
+
+                            <span *ngxInit="button$ | async as button">
+                                <a
+                                    class="button"
+                                    href="#"
+                                    [ngStyle]="{
+                                        border: btn_border_color,
+                                        background: btn_bg_color,
+                                        color: this.main_color
+                                    }"
+                                    [ngClass]="button.style"
+                                    >{{ web_text_FB }}</a
+                                >
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -496,17 +499,20 @@
                             <h3>{{ web_text_TH3 }}</h3>
                             <h4>{{ web_text_TH4 }}</h4>
                             <p>{{ web_text_TP }}</p>
-                            <a
-                                class="button mt-3 mt-xl-4"
-                                href="#"
-                                [ngStyle]="{
-                                    border: btn_border_color,
-                                    background: btn_bg_color,
-                                    color: this.main_color
-                                }"
-                                [ngClass]="btn_class"
-                                >{{ web_text_TB }}</a
-                            >
+
+                            <span *ngxInit="button$ | async as button">
+                                <a
+                                    class="button mt-3 mt-xl-4"
+                                    href="#"
+                                    [ngStyle]="{
+                                        border: btn_border_color,
+                                        background: btn_bg_color,
+                                        color: this.main_color
+                                    }"
+                                    [ngClass]="button.style"
+                                    >{{ web_text_TB }}</a
+                                >
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -549,15 +555,17 @@
                                 />
                                 <div class="info"></div>
                             </div>
+
                             <button
                                 class="button mr-auto mb-1"
+                                *ngxInit="button$ | async as button"
                                 type="submit"
                                 [ngStyle]="{
                                     border: btn_border_color,
                                     background: btn_bg_color,
                                     color: this.main_color
                                 }"
-                                [ngClass]="btn_class"
+                                [ngClass]="button.style"
                             >
                                 {{ web_text_FOB }}
                             </button>

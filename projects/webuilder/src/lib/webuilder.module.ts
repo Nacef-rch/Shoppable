@@ -19,6 +19,7 @@ import {
     initialState
 } from '@webuilder/+store/webuilder.reducer';
 import { ThemeBuilderComponent } from './components/theme-builder/theme-builder.component';
+import { ButtonBuilderComponent } from './components/button-builder/button-builder.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { ThemeBuilderComponent } from './components/theme-builder/theme-builder.
         WebuilderSidebarComponent,
         BuilderBaseComponent,
         LogoBuilderComponent,
-        ThemeBuilderComponent
+        ThemeBuilderComponent,
+        ButtonBuilderComponent
     ],
     imports: [
         WebuilderRoutingModule,

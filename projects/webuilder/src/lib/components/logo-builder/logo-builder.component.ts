@@ -20,7 +20,7 @@ export class LogoBuilderComponent implements OnInit {
     constructor(private webFacade: WebuilderFacade) {}
     ngOnInit(): void {
         this.logoForm = new FormGroup({
-            logoText: new FormControl(null, [Validators.required, Validators.minLength(2)])
+            logoText: new FormControl(null, [Validators.required])
         });
     }
 

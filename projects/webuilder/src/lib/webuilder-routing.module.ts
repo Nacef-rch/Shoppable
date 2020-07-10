@@ -8,6 +8,8 @@ import { FirstTemplateHomeComponent } from '@layout/Container/first-template-hom
 import { WebuilderSidebarComponent } from './components/webuilder-sidebar/webuilder-sidebar.component';
 import { BuilderBaseComponent } from './containers/builder-base/builder-base.component';
 import { LogoBuilderComponent } from './components/logo-builder/logo-builder.component';
+import { ThemeBuilderComponent } from './components/theme-builder/theme-builder.component';
+import { ButtonBuilderComponent } from './components/button-builder/button-builder.component';
 
 const routes: Routes = [
     {
@@ -38,6 +40,14 @@ const routes: Routes = [
                 path: '',
                 component: LogoBuilderComponent,
                 pathMatch: 'full'
+            },
+            {
+                path: 'theme',
+                component: ThemeBuilderComponent
+            },
+            {
+                path: 'button',
+                component: ButtonBuilderComponent
             }
         ]
     },

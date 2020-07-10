@@ -1,0 +1,163 @@
+@import '../logo-builder/logo-builder.component.scss';
+p {
+    color: #767676 !important;
+    font-size: 16px;
+    letter-spacing: initial;
+    line-height: 22px;
+    font-weight: 400;
+}
+.paletteButton {
+    box-sizing: border-box;
+    background: transparent;
+    border: 0 solid transparent;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    margin: 9px 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 120px;
+    -webkit-appearance: button;
+    cursor: pointer;
+    text-transform: none;
+    border: 1px solid rgba(73, 73, 73, 0.287);
+}
+.pbs-first-1 {
+    border-radius: 50px 0 0 50px;
+    display: block;
+    height: 33px;
+    width: 33%;
+}
+.pbs-first-2 {
+    display: block;
+    height: 33px;
+    width: 33%;
+}
+.pbs-first-3 {
+    border-radius: 0px 50px 50px 0px;
+    display: block;
+    height: 33px;
+    width: 33%;
+}
+.buttons-holder {
+    //width: calc(50% - 4px);
+}
+.StepView {
+    box-sizing: border-box;
+    padding: 0 22px;
+    height: calc(100% - 110px);
+    letter-spacing: initial;
+}
+.nav-tab-container {
+    box-shadow: rgba(0, 0, 0, 0.06) 0px -1px 0px 0px inset;
+    display: flex;
+    position: relative;
+    margin-bottom: 22px;
+}
+.tabs-tab {
+    background-color: transparent;
+    color: rgb(49, 49, 49);
+    display: inline-flex;
+
+    position: relative;
+
+    flex: initial;
+    min-height: 55px;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+}
+.Desig-btn {
+    box-sizing: border-box;
+    padding: 0;
+    position: absolute;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+    border: 0;
+    border-radius: 0;
+    line-height: inherit;
+}
+.text-btn {
+    font-weight: 700;
+    background-color: transparent;
+
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    line-height: 22px;
+}
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 11px;
+}
+.col {
+    padding: 5px;
+}
+.btn-desgin {
+    border: 0;
+    color: rgb(129, 129, 129);
+    border-radius: 0;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+}
+.btnActive {
+    border-bottom: 2px solid black;
+    color: black !important;
+}
+.btnActive p {
+    color: black !important;
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.paletteButton-2 {
+    box-sizing: border-box;
+    background: transparent;
+    border: 0 solid transparent;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    margin: 9px 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    -webkit-appearance: button;
+    cursor: pointer;
+    text-transform: none;
+    border: 1px solid rgba(73, 73, 73, 0.287);
+}
+.pbtns-first-1 {
+    border-radius: 50px 0 0 50px;
+    display: block;
+    height: 33px;
+    width: 100%;
+    border: none;
+    background: none;
+}
+.pbtns-first-2 {
+    display: block;
+    height: 33px;
+    width: 100%;
+    border: none;
+    background: none;
+}
+.pbtns-first-3 {
+    border-radius: 0px 50px 50px 0px;
+    display: block;
+    height: 33px;
+    width: 100%;
+    border: none;
+    background: none;
+}

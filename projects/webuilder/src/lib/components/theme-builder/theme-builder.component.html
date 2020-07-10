@@ -1,1 +1,159 @@
-<p>theme-builder works!</p>
+<div class="panel-container">
+    <div class="panel-cont-text">
+        <h1>Customize Your Colors</h1>
+        <p>
+            Choose a designer palette or make your own. Start with any color and our palette tool
+            will identify complementary colors perfect for your chosen hue.
+        </p>
+        <form class="example-form">
+            <div class="StepView">
+                <div class="nav-tab-container">
+                    <label for="" class="tabs-tab" style="margin-right: 10px;">
+                        <button class="btn-desgin" [ngClass]="btnActive" (click)="swapPanel('Des')">
+                            <p class="text-btn">Designer Palettes</p>
+                        </button>
+                    </label>
+                    <label for="" class="tabs-tab">
+                        <button
+                            class="btn-desgin"
+                            [ngClass]="btnActive2"
+                            (click)="swapPanel('Own')"
+                        >
+                            <p class="text-btn">Choose My Own</p>
+                        </button>
+                    </label>
+                </div>
+                <div class="buttons-container" *ngIf="Design">
+                    <div class="d-flex flex-wrap">
+                        <div class="flex-container">
+                            <div class="flex-fill bd-highlight" *ngFor="let theme of themes">
+                                <button
+                                    class="paletteButton"
+                                    type="button"
+                                    (click)="
+                                        changeColorBtn(
+                                            theme.mainColor,
+                                            theme.secondColor,
+                                            theme.thirdColor
+                                        )
+                                    "
+                                >
+                                    <span
+                                        class="pbs-first-1"
+                                        [ngStyle]="{ 'background-color': theme.secondColor }"
+                                    ></span>
+                                    <span
+                                        class="pbs-first-2"
+                                        [ngStyle]="{ 'background-color': theme.mainColor }"
+                                    ></span>
+                                    <span
+                                        class="pbs-first-3"
+                                        [ngStyle]="{ 'background-color': theme.thirdColor }"
+                                    ></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons-container" *ngIf="!Design">
+                    <p>
+                        Make your combination
+                    </p>
+                    <div class="flex-fill bd-highlight">
+                        <input
+                            type="color"
+                            class="pbtns-first-1"
+                            name="favcolor"
+                            value="#383e56"
+                            (input)="colorPick2(colorS.value)"
+                            #colorS
+                        />
+                        <input
+                            type="color"
+                            class="pbtns-first-2"
+                            name="favcolor"
+                            value="#ffffff"
+                            (input)="colorPick1(colorP.value)"
+                            #colorP
+                        />
+                        <input
+                            type="color"
+                            class="pbtns-first-3"
+                            name="favcolor"
+                            value="#38383b"
+                            (input)="colorPick3(colorT.value)"
+                            #colorT
+                        />
+                        <br />
+                        <br />
+                        <p>
+                            Press the theme palette bellow to try your combination
+                        </p>
+
+                        <button
+                            class="paletteButton-2"
+                            type="button"
+                            (click)="changeColorBtn(colorP.value, colorS.value, colorT.value)"
+                        >
+                            <span
+                                class="pbs-first-1"
+                                [ngStyle]="{ 'background-color': secondColor }"
+                            ></span>
+                            <span
+                                class="pbs-first-2"
+                                [ngStyle]="{ 'background-color': mainColor }"
+                            ></span>
+                            <span
+                                class="pbs-first-3"
+                                [ngStyle]="{ 'background-color': thirdColor }"
+                            ></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="navButtons">
+                <button class="NavButton-Button" type="button" routerLink="/website/config/button">
+                    <span class="NavButton-ButtonText">Next</span>
+                    <svg
+                        width="1.7em"
+                        height="1.7em"
+                        viewBox="0 0 16 16"
+                        class="bi bi-arrow-right"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z"
+                        />
+                        <path
+                            fill-rule="evenodd"
+                            d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z"
+                        />
+                    </svg>
+                </button>
+                <button class="NavButton-Button-back" type="button" routerLink="/website/config">
+                    <svg
+                        width="1.7em"
+                        height="1.7em"
+                        viewBox="0 0 16 16"
+                        class="bi bi-arrow-left"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M5.854 4.646a.5.5 0 0 1 0 .708L3.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0z"
+                        />
+                        <path
+                            fill-rule="evenodd"
+                            d="M2.5 8a.5.5 0 0 1 .5-.5h10.5a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                        />
+                    </svg>
+                    <span class="NavButton-ButtonText">Back</span>
+                </button>
+            </nav>
+        </form>
+    </div>
+</div>
