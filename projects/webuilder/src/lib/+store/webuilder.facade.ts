@@ -14,6 +14,7 @@ export class WebuilderFacade {
     public logo$ = this.store.select(webuilderQuery.getLogo);
     public theme$ = this.store.select(webuilderQuery.getTheme);
     public button$ = this.store.select(webuilderQuery.getButton);
+    public text$ = this.store.select(webuilderQuery.getText);
 
     constructor(private store: Store<WebuilderStore>) {}
 

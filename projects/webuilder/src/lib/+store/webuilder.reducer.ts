@@ -1,11 +1,13 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { Logo, ThemeWeb, ButtonsWeb } from '@webuilder/models/webuilder.model';
+import { Logo, ThemeWeb, ButtonsWeb, TextWeb } from '@webuilder/models/webuilder.model';
 import * as webActions from '@webuilder/+store/webuilder.actions';
+import { TEXT_WEB } from '@webuilder/constants/text-constants';
 
 export interface WebuilderState {
     logo: Logo;
     theme: ThemeWeb;
     button: ButtonsWeb;
+    text: TextWeb;
 }
 export interface WebuilderStore {
     readonly state: WebuilderState;
@@ -24,7 +26,8 @@ export const initialState: WebuilderState = {
     },
     button: {
         style: ['']
-    }
+    },
+    text: TEXT_WEB
 };
 const reducer = createReducer(
     initialState,
