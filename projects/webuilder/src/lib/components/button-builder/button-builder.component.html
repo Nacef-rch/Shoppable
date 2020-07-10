@@ -5,8 +5,9 @@
         <p>
             Choose the design you want, the shape you want, the way you want.
         </p>
-
-        <mat-form-field appearance="fill">
+        <br />
+        <br />
+        <mat-form-field>
             <mat-label>Style</mat-label>
             <select matNativeControl (change)="onChangeStyle($event.target.value)">
                 <option value="Fill" selected>Solid</option>
@@ -14,7 +15,7 @@
                 <option value="button-dashed">Dashed</option>
             </select>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field>
             <mat-label>Shape</mat-label>
             <select matNativeControl (change)="onChangeShape($event.target.value)">
                 <option value="Pill" selected>Pill</option>
