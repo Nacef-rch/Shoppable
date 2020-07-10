@@ -10,6 +10,7 @@ import { BuilderBaseComponent } from './containers/builder-base/builder-base.com
 import { LogoBuilderComponent } from './components/logo-builder/logo-builder.component';
 import { ThemeBuilderComponent } from './components/theme-builder/theme-builder.component';
 import { ButtonBuilderComponent } from './components/button-builder/button-builder.component';
+import { TextBuilderComponent } from './components/text-builder/text-builder.component';
 
 const routes: Routes = [
     {
@@ -48,6 +49,10 @@ const routes: Routes = [
             {
                 path: 'button',
                 component: ButtonBuilderComponent
+            },
+            {
+                path: 'text',
+                component: TextBuilderComponent
             }
         ]
     },
