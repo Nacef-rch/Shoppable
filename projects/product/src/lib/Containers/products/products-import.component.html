@@ -1,0 +1,176 @@
+<app-page-title
+    heading="{{ 'DASH.IMPORT_PRODUCTS.HEAD' | translate }}"
+    subheading="{{ 'DASH.IMPORT_PRODUCTS.SUB' | translate }}"
+    [icon]="icon"
+></app-page-title>
+<div class="row">
+    <div class="col-md-8">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h4 class="card-title">{{ 'DASH.IMPORT_PRODUCTS.PRODUCT' | translate }}</h4>
+
+                <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+                    <div class="position-relative form-group">
+                        <mat-form-field appearance="outline" class="full-width-field">
+                            <mat-label>{{ 'DASH.IMPORT_PRODUCTS.TITLE' | translate }}</mat-label>
+                            <input
+                                matInput
+                                placeholder="Ex. short sleeve t-shirt"
+                                formControlName="Title"
+                                #Titre
+                            />
+                            <mat-error *ngIf="productForm.get('Title').hasError('required')">
+                                {{ 'DASH.IMPORT_PRODUCTS.FIELD' | translate }}
+                                <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="full-width-field">
+                            <mat-label>{{ 'DASH.IMPORT_PRODUCTS.TYPE' | translate }}</mat-label>
+                            <input
+                                type="text"
+                                placeholder="Pick one"
+                                aria-label="Number"
+                                matInput
+                                formControlName="category"
+                                [matAutocomplete]="auto"
+                                #Category
+                            />
+                            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                <mat-option
+                                    *ngFor="let option of filteredOptions | async"
+                                    [value]="option"
+                                >
+                                    {{ option }}
+                                </mat-option>
+                            </mat-autocomplete>
+                            <mat-error
+                                *ngIf="
+                                    productForm.get('category').hasError('required') &&
+                                    productForm.get('category').touched
+                                "
+                            >
+                                {{ 'DASH.IMPORT_PRODUCTS.SELECT' | translate }}
+                                <strong>{{ 'DASH.IMPORT_PRODUCTS.CATEGORY' | translate }}</strong>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <p *ngIf="!productForm.get('category').hasError('required')">
+                            {{ 'DASH.IMPORT_PRODUCTS.SELECTED_CATEGORY' | translate }}
+                            {{ Category.value }}
+                        </p>
+                        <mat-form-field appearance="outline" class="full-width-field">
+                            <mat-label>
+                                {{ 'DASH.IMPORT_PRODUCTS.DESCRIPTION' | translate }}</mat-label
+                            >
+                            <textarea
+                                matInput
+                                placeholder="Ex. short sleeve t-shirt"
+                                formControlName="Description"
+                                rows="7"
+                                cols="20"
+                                #Description
+                            ></textarea>
+                        </mat-form-field>
+
+                        <div class="position-relative form-group">
+                            <label for="exampleFile">
+                                {{ 'DASH.IMPORT_PRODUCTS.FILE' | translate }}</label
+                            ><input
+                                name="file"
+                                id="exampleFile"
+                                type="file"
+                                class="form-control-file"
+                                (change)="onFileChange($event)"
+                            />
+                            <div
+                                class="spinner-border loading-spin spin-pos-product"
+                                role="status"
+                                *ngIf="isLoading"
+                            ></div>
+
+                            <small class="form-text text-muted">
+                                {{ 'DASH.IMPORT_PRODUCTS.IMAGE' | translate }}<strong>png</strong>
+                                {{ 'DASH.IMPORT_PRODUCTS.OR' | translate }} <strong>jpeg</strong>
+                                {{ 'DASH.IMPORT_PRODUCTS.FORMAT' | translate }}
+                            </small>
+                        </div>
+
+                        <hr />
+                        <br />
+                        <label>{{ 'DASH.IMPORT_PRODUCTS.PRICING' | translate }}</label
+                        ><label class="quantity-pos-product">{{
+                            'DASH.IMPORT_PRODUCTS.QUANTITY' | translate
+                        }}</label>
+
+                        <br />
+                        <div class="product-center">
+                            <mat-form-field appearance="outline" class="half-width-field">
+                                <mat-label>{{
+                                    'DASH.IMPORT_PRODUCTS.PRICE' | translate
+                                }}</mat-label>
+                                <input
+                                    matInput
+                                    type="number"
+                                    class="example-right-align"
+                                    formControlName="unitPrice"
+                                    #Price
+                                />
+                                <span matPrefix>TND </span>
+
+                                <mat-error
+                                    *ngIf="productForm.get('unitPrice').hasError('required')"
+                                >
+                                    {{ 'DASH.IMPORT_PRODUCTS.FIELD' | translate }}
+                                    <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
+                                </mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field
+                                appearance="outline"
+                                class="half-width-field margin-left-product"
+                            >
+                                <mat-label>{{
+                                    'DASH.IMPORT_PRODUCTS.AVAILABLE' | translate
+                                }}</mat-label>
+                                <input
+                                    matInput
+                                    type="number"
+                                    class="example-right-align"
+                                    formControlName="quantityInStock"
+                                    #quantityInStock
+                                />
+
+                                <mat-error
+                                    *ngIf="productForm.get('quantityInStock').hasError('required')"
+                                >
+                                    {{ 'DASH.IMPORT_PRODUCTS.FIELD' | translate }}
+                                    <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <button
+                        type="submit"
+                        mat-raised-button
+                        color="primary"
+                        [disabled]="!productForm.valid"
+                    >
+                        {{ 'DASH.IMPORT_PRODUCTS.SUBMIT' | translate }}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2>{{ 'DASH.IMPORT_PRODUCTS.CARD' | translate }}</h2>
+
+        <lib-product-view
+            imgUrl="{{ productForm.get('Media').value }}"
+            titre="{{ Titre.value }}"
+            description="{{ Description.value }}"
+            category="{{ Category.value }}"
+            price="{{ Price.value }}"
+        ></lib-product-view>
+    </div>
+</div>

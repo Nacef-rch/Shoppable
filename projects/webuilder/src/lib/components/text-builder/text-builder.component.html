@@ -1,0 +1,340 @@
+<!-- 
+<button (click)="onClick()">Presse me</button> -->
+
+<div class="panel-container">
+    <div class="panel-cont-text">
+        <h1>Add your Touch</h1>
+        <p>
+            Homepage is the most valuable page <br />on your site, it courage or discourage the
+            buyer to have a look and surf your store, so be wise and make changes that get his
+            attention !
+        </p>
+        <br />
+        <div class="text-conta" *ngIf="FirstSection">
+            <h2 style="margin-bottom: 0px;">First Section</h2>
+            <mat-form-field class="example-form-field">
+                <mat-label>Shop is fun</mat-label>
+                <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="value1"
+                    style="font-size: 130%;"
+                    (input)="firstText($event.target.value)"
+                />
+                <button
+                    mat-button
+                    *ngIf="value1"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="value1 = ''"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field class="example-form-field">
+                <mat-label>BROWSE OUR PREMIUM ...</mat-label>
+                <input matInput type="text" [(ngModel)]="value2" style="font-size: 130%;" />
+                <button
+                    mat-button
+                    *ngIf="value2"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="value2 = ''"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Lorem ipsum dolor sit amet ...</mat-label>
+                <textarea matInput placeholder="Lorem ipsum dolor sit amet..."></textarea>
+            </mat-form-field>
+            <mat-form-field class="example-form-field">
+                <mat-label>Browse Now</mat-label>
+                <input matInput type="text" [(ngModel)]="value3" style="font-size: 130%;" />
+                <button
+                    mat-button
+                    *ngIf="value3"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="value3 = ''"
+                >
+                    <mat-icon>close</mat-icon>
+                </button> </mat-form-field
+            ><br />
+            <button class="btn-section" (click)="goToSection2()">
+                Next Section
+            </button>
+        </div>
+        <div class="text-conta" *ngIf="SecondSection">
+            <h2 style="margin-bottom: 0px;">Second Section</h2>
+            <mat-form-field class="example-form-field">
+                <mat-label>Popular item in ...</mat-label>
+                <input matInput type="text" [(ngModel)]="value1" style="font-size: 130%;" />
+                <button
+                    mat-button
+                    *ngIf="value1"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="value1 = ''"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field class="example-form-field">
+                <mat-label>Trending Product</mat-label>
+                <input matInput type="text" [(ngModel)]="value2" style="font-size: 130%;" />
+                <button
+                    mat-button
+                    *ngIf="value2"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="value2 = ''"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <br />
+            <button class="btn-section" (click)="goToSection1()">Prev Section</button>
+            <button class="btn-section" (click)="goToSection3()">Next Section</button>
+        </div>
+        <div class="text-conta" *ngIf="ThirdSection">
+            <h2 style="margin-bottom: 0px;">Third Section</h2>
+            <mat-form-field class="example-form-field">
+                <mat-label>Up To 50% Off</mat-label>
+                <input matInput type="text" [(ngModel)]="value1" style="font-size: 130%;" />
+                <button
+                    mat-button
+                    *ngIf="value1"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="value1 = ''"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field class="example-form-field">
+                <mat-label>Winter Sale</mat-label>
+                <input matInput type="text" [(ngModel)]="value2" style="font-size: 130%;" />
+                <button
+                    mat-button
+                    *ngIf="value2"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="value2 = ''"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field class="example-form-field">
+                <mat-label>Lorem ipsum dolor sit.</mat-label>
+                <input matInput type="text" [(ngModel)]="value3" style="font-size: 130%;" />
+                <button
+                    mat-button
+                    *ngIf="value3"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="value3 = ''"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field class="example-form-field">
+                <mat-label>Shop Now</mat-label>
+                <input matInput type="text" [(ngModel)]="value4" style="font-size: 130%;" />
+                <button
+                    mat-button
+                    *ngIf="value4"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="value4 = ''"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <br />
+            <button class="btn-section" (click)="goToSection2()">Prev Section</button>
+            <button class="btn-section" (click)="goToSection4()">Next Section</button>
+        </div>
+        <div class="text-conta" *ngIf="FourthSection">
+            <h2 style="margin-bottom: 0px;">Fourth section</h2>
+            <mat-form-field class="example-form-field">
+                <mat-label>GET UPDATE FROM ...</mat-label>
+                <input matInput type="text" [(ngModel)]="value1" style="font-size: 130%;" />
+                <button
+                    mat-button
+                    *ngIf="value1"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="value1 = ''"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field class="example-form-field">
+                <mat-label>Lorem ipsum dolor sit.</mat-label>
+                <input matInput type="text" [(ngModel)]="value2" style="font-size: 130%;" />
+                <button
+                    mat-button
+                    *ngIf="value2"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="value2 = ''"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field class="example-form-field">
+                <mat-label>Enter your ...</mat-label>
+                <input matInput type="text" [(ngModel)]="value3" style="font-size: 130%;" />
+                <button
+                    mat-button
+                    *ngIf="value3"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="value3 = ''"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field class="example-form-field">
+                <mat-label>Subscribe Now</mat-label>
+                <input matInput type="text" [(ngModel)]="value4" style="font-size: 130%;" />
+                <button
+                    mat-button
+                    *ngIf="value4"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="value4 = ''"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <br />
+            <button class="btn-section" (click)="goToSection3()">Prev Section</button>
+            <button class="btn-section" (click)="goToSection5()">Next Section</button>
+        </div>
+        <div class="text-conta" *ngIf="FifthSection">
+            <h2 style="margin-bottom: 0px;">Fifth section</h2>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Lorem ipsum dolor sit amet...</mat-label>
+                <textarea matInput placeholder="Lorem ipsum dolor sit amet..."></textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Lorem ipsum dolor ...</mat-label>
+                <textarea matInput placeholder="Lorem ipsum dolor sit amet..."></textarea>
+            </mat-form-field>
+            <mat-form-field class="example-form-field">
+                <mat-label>Head Office</mat-label>
+                <input matInput type="text" [(ngModel)]="value1" style="font-size: 130%;" />
+                <button
+                    mat-button
+                    *ngIf="value1"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="value1 = ''"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field class="example-form-field">
+                <mat-label>Phone Number 1</mat-label>
+                <input matInput type="text" [(ngModel)]="value2" style="font-size: 130%;" />
+                <button
+                    mat-button
+                    *ngIf="value2"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="value2 = ''"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field class="example-form-field">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" [(ngModel)]="value3" style="font-size: 130%;" />
+                <button
+                    mat-button
+                    *ngIf="value3"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="value3 = ''"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <br />
+            <button class="btn-section" (click)="goToSection4()">Prev Section</button>
+        </div>
+        <button (click)="onClick()">Clickkkk</button>
+        <nav class="navButtons">
+            <button
+                class="NavButton-Button"
+                type="button"
+                routerLink="/website/config/button"
+                (click)="backTop()"
+            >
+                <span class="NavButton-ButtonText">Next</span>
+                <svg
+                    width="1.7em"
+                    height="1.7em"
+                    viewBox="0 0 16 16"
+                    class="bi bi-arrow-right"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z"
+                    />
+                </svg>
+            </button>
+            <button
+                class="NavButton-Button-back"
+                type="button"
+                routerLink="/website/config/button"
+                (click)="backTop()"
+            >
+                <svg
+                    width="1.7em"
+                    height="1.7em"
+                    viewBox="0 0 16 16"
+                    class="bi bi-arrow-left"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        d="M5.854 4.646a.5.5 0 0 1 0 .708L3.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0z"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        d="M2.5 8a.5.5 0 0 1 .5-.5h10.5a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                    />
+                </svg>
+                <span class="NavButton-ButtonText">Back</span>
+            </button>
+        </nav>
+    </div>
+</div>

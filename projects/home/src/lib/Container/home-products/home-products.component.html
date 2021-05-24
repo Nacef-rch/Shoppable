@@ -1,0 +1,13 @@
+<div *ngxInit="isLoading$ | async as isLoading">
+    <lib-home-search (search)="searchFilter($event)"></lib-home-search>
+
+    <br />
+    <lib-card
+        [productsTab]="products"
+        *ngIf="!isLoading"
+        (pageNumber)="onPageNumber($event)"
+    ></lib-card>
+    <div *ngIf="isLoading" style="text-align: center;">
+        <lib-loading-spinner></lib-loading-spinner>
+    </div>
+</div>

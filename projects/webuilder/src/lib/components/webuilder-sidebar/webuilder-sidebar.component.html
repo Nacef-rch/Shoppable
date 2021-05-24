@@ -1,0 +1,16 @@
+<div class="side-nav-container">
+    <div class="side-nav-panel">
+        <section class="nav-panel">
+            <div id="mySidebar" class="sidebar">
+                <img src="assets/images/sh-logo-black.png" class="logo-sidebar" />
+                <a class="closebtn" (click)="closeNav()">×</a>
+
+                <router-outlet></router-outlet>
+            </div>
+
+            <div id="main">
+                <button class="openbtn" (click)="openNav()">☰</button>
+            </div>
+        </section>
+    </div>
+</div>

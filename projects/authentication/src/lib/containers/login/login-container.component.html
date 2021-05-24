@@ -1,0 +1,36 @@
+<div *ngxInit="isLoading$ | async as isLoading">
+    <div class="main">
+        <section class="sign-in">
+            <div class="container">
+                <lib-lang-switcher *ngIf="!isLoading"></lib-lang-switcher>
+                <div class="signin-content">
+                    <div class="signin-image" *ngIf="!isLoading">
+                        <figure>
+                            <img src="assets/auth-images/signin-image.jpg" alt="sing up image" />
+                        </figure>
+                        <a routerLink="/auth/register" class="signup-image-link">{{
+                            'AUTH.LOGIN.CREATE' | translate
+                        }}</a>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title" *ngIf="!isLoading">
+                            {{ 'AUTH.LOGIN.SIGN' | translate }}
+                        </h2>
+
+                        <lib-error-auth></lib-error-auth>
+
+                        <lib-login-form *ngIf="!isLoading"></lib-login-form>
+
+                        <div class="social-login" *ngIf="!isLoading">
+                            <lib-social-auth></lib-social-auth>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div *ngIf="isLoading" style="text-align: center;">
+        <lib-loading-spinner></lib-loading-spinner>
+    </div>
+</div>

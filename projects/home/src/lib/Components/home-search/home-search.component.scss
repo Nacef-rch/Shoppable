@@ -1,0 +1,42 @@
+.form-control {
+    height: 43px;
+}
+.form-control:active,
+.form-control:focus {
+    border-color: #7971ea;
+}
+.form-control:hover,
+.form-control:active,
+.form-control:focus {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.site-block-top-search {
+    padding-top: 0;
+    margin-top: -20px;
+    left: 45%;
+    position: relative;
+    margin-bottom: 30px;
+}
+.site-block-top-search .icon {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.site-block-top-search input {
+    padding-left: 40px;
+    -webkit-transition: 0.3s all ease-in-out;
+    -o-transition: 0.3s all ease-in-out;
+    transition: 0.3s all ease-in-out;
+}
+.site-block-top-search input:focus,
+.site-block-top-search input:active {
+    padding-left: 25px;
+}
+.center-el {
+    margin: auto !important;
+}

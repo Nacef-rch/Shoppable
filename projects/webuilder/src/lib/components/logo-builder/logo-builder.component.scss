@@ -1,0 +1,115 @@
+.panel-cont-text {
+    padding: 30px;
+}
+.panel-cont-text h1 {
+    font-weight: 500;
+}
+h3 {
+    font-weight: 500;
+}
+p {
+    color: #767676 !important;
+    font-size: 16px;
+    letter-spacing: initial;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+.example-form {
+    margin-top: 33px;
+}
+.example-section {
+    margin-top: 33px;
+}
+.style-cadre {
+    font-weight: 300;
+
+    color: #25262a;
+    letter-spacing: 0.2em;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #25262a;
+}
+.panel-container {
+    margin-top: 15px;
+    color: #3e3e3e;
+}
+button {
+    background-color: transparent !important;
+}
+.navButtons {
+}
+.NavButton-Button {
+    box-sizing: border-box;
+    max-width: 194px;
+    bottom: 0;
+    justify-content: flex-end;
+    left: auto;
+    right: 60px;
+    align-items: center;
+    background: transparent;
+    border: 1px solid #e1e1e1;
+    bottom: 33px;
+    box-sizing: border-box;
+    color: #313131;
+    cursor: pointer;
+    display: flex;
+    font-weight: 500;
+    height: 55px;
+    min-width: 55px;
+
+    padding: 12px 22px;
+    position: absolute;
+    text-transform: uppercase;
+    white-space: nowrap;
+    z-index: 999999;
+}
+
+.NavButton-Button-back {
+    box-sizing: border-box;
+    max-width: 194px;
+    bottom: 0;
+    justify-content: flex-end;
+    left: auto;
+
+    align-items: center;
+    background: transparent;
+    border: 1px solid #e1e1e1;
+    bottom: 33px;
+    box-sizing: border-box;
+    color: #313131;
+    cursor: pointer;
+    display: flex;
+    font-weight: 500;
+    height: 55px;
+    min-width: 55px;
+
+    padding: 12px 22px;
+    position: absolute;
+    text-transform: uppercase;
+    white-space: nowrap;
+    z-index: 999999;
+}
+.NavButton-ButtonText {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 14px;
+    opacity: 1;
+
+    cursor: pointer;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.NavButton-Button:hover {
+    background-color: #e2e2e2;
+}
+.NavButton-Button:disabled {
+    color: #b4b4b4 !important;
+}
+
+.NavButton-Arrow {
+    height: 14px;
+    width: 14px;
+}

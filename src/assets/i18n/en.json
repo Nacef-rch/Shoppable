@@ -1,0 +1,220 @@
+{
+    "AUTH": {
+        "LOGIN": {
+            "CREATE": "Create an account",
+            "SIGN": "Sign In",
+            "VALID_EMAIL": "Please enter a valid email !",
+            "EMAIL": "Email",
+            "PASS_IS": "Password is",
+            "EMAIL_IS": "Email is",
+            "REQUIRED": "required",
+            "PASS": "Enter your password",
+            "REMEMBER": "Remember me",
+            "LOG_IN": "Log in",
+            "LOG_WITH": "Or login with"
+        },
+        "REGISTER": {
+            "SIGN": "Sign up",
+            "MEMBER": "I am already member",
+            "VALID_NAME": "Please enter your name !",
+            "NAME": "Name",
+            "VALID_EMAIL": "Please enter a valid email !",
+            "EMAIL": "Email",
+            "VALID_PASS": "Please enter a password !",
+            "PASS": "Password",
+            "VALID_REPASS": "Please repeat your password !",
+            "REPASS": "Repeat your password",
+            "VALID_HANDLE": "Please enter a Handle !",
+            "HANDLE": "Handle",
+            "AGREE": "I agree all statements in",
+            "TERMS": "Terms of service",
+            "REGISTER": "Register",
+            "NAME_IS": "Name is ",
+            "EMAIL_IS": "Email is",
+            "PASS_IS": "Password is",
+            "HANDLE_IS": "Handle is"
+        }
+    },
+    "DASH": {
+        "FOOTER": {
+            "COPY_RIGHTS": "Copyright 2020",
+            "HOME": "Store"
+        },
+        "GET_PRODUCTS": {
+            "PRODUCT": "Product",
+            "PRODUCTS": "Products",
+            "CATEGORY": "Category",
+            "ADD": "Added by",
+            "INCOMING": "Incoming",
+            "AVAILABLE": "Available",
+            "EDIT": "Edit quantity available",
+            "SAVE": "Save"
+        },
+        "USER_BOX": {
+            "SETT": "Settings",
+            "LOG": "Logout"
+        },
+        "SIDE_BAR": {
+            "PRODUCTS": "Products",
+            "ALL": "All Products",
+            "ADD": "Add your products",
+            "INVENTORY": "Inventory",
+            "ORDERS": "Purchase orders",
+            "GIFT": "Gift Card",
+            "ANALYTICS": "Analytics",
+            "DASHBOARDS": "Dashboard",
+            "REPORTS": "Reports"
+        },
+        "INVENTORY": {
+            "CARD": "Card view",
+            "SELECT": "select a product",
+            "HEAD": "Inventory",
+            "SUB": "In this page you can organize all of your products"
+        },
+        "IMPORT_PRODUCTS": {
+            "PRODUCT": "Product",
+            "TITLE": "Title",
+            "FIELD": "This field",
+            "TYPE": "Product type",
+            "SELECT": " Select a",
+            "CATEGORY": "category !",
+            "SELECTED_CATEGORY": "Selected category :",
+            "DESCRIPTION": "Description",
+            "FILE": "File",
+            "IMAGE": "The image must be in ",
+            "OR": "or",
+            "FORMAT": "format !",
+            "PRICING": "Pricing",
+            "QUANTITY": "Quantity",
+            "PRICE": "Price",
+            "AVAILABLE": "Available",
+            "SUBMIT": "Submit",
+            "CARD": "Card preview",
+            "HEAD": "Add product",
+            "SUB": "In this page you can add your products"
+        },
+        "WELCOME": {
+            "YOUR": "Add your products",
+            "GET": "Get closer to your first sale by adding products, or import your existing product inventory.",
+            "ADD": "Add product"
+        },
+        "SEARCH": { "SEARCH": "Type to search" },
+        "LIST": {
+            "INV": "Inventory",
+            "STAT": "Statistics",
+            "SET": "Settings"
+        }
+    },
+    "LAYOUT": {
+        "DEFAULT_FOOTER": {
+            "NAV": "Navigations",
+            "SELL": "Sell online",
+            "FEATURE": "Features",
+            "CART": "Shopping cart",
+            "CONTACT": "Contact us",
+            "ABOUT": "About us",
+            "FOLLOW": "Follow us",
+            "MEDIA": "Social media",
+            "INFO": "Contact Info",
+            "SUB": "Subscribe",
+            "SEND": "Send"
+        },
+        "DEFAULT_HEADER": {
+            "SHOP": "Shop",
+            "ABOUT": "About",
+            "BASKET": "Basket",
+            "CONTACT": "Contact"
+        },
+        "DEFAULT_PRODUCT_INFO": {
+            "SHOP": "Shop",
+            "WEAR": "To wear with",
+            "BASKET": "Basket",
+            "CONTACT": "Contact",
+            "ADD": "Add To Cart"
+        },
+        "DEFAULT_SIDE_BAR": {
+            "SHOP": "Shop",
+            "LATEST": "Latest",
+            "REF": "Reference",
+            "CATEGORIES": "Categories",
+            "FILTER": "Filter by Price",
+            "MIN": "Min : ",
+            "MAX": "Max : "
+        },
+        "INSTA": {
+            "SHOW": "Show more",
+            "THERE": "There is no comments on this product",
+            "ADD": "Add"
+        },
+        "DEFAULT_CART": {
+            "SHOP": "Shop",
+            "CART": "Cart",
+            "IMG": "Image",
+            "PRODUCT": "Product",
+            "PRICE": "Price",
+            "QUANTITY": "Quantity",
+            "TOTAL": "Total",
+            "REMOVE": "Remove",
+            "UPDATE": "Update Cart",
+            "CONTINUE": "Continue Shopping",
+            "COUPON": "Coupon",
+            "ENTER": "Enter your coupon code if you have one.",
+            "APPLY": "Apply Coupon",
+            "CART_TOTAL": "Cart Totals",
+            "ORDER": "Order value",
+            "DELIVERY": "Delivery",
+            "FINISH": "Finish my order"
+        },
+        "DEFAULT_ORDER": {
+            "SHOP": "shop",
+            "CONTACT": "Contact",
+            "THANK": "Thank you!",
+            "ORDER": "You order was successfuly completed.",
+            "BACK": "Back to shop"
+        },
+        "DEFAULT_CHECKOUT": {
+            "CART": "Cart",
+            "CHECKOUT": "Checkout",
+            "RET": "Returning customer? ",
+            "CLICK": "Click here",
+            "LOGIN": " to login",
+            "BILL": "Billing Details",
+            "COUNTRY": "Country ",
+            "SELECT": "Select a country",
+            "TUN": "Tunisia",
+            "ALG": "Algeria",
+            "MOR": "Morocco",
+            "LIB": "Libya",
+            "FN": "First Name ",
+            "LN": "Last Name ",
+            "COMPANY": "Company Name ",
+            "ADDRESS": "Address ",
+            "STREET": "Street address",
+            "APA": "Apartment, suite, unit etc. (optional)",
+            "STCO": "State / Country ",
+            "PZ": "Post / Zip ",
+            "EA": "Email Address ",
+            "PHONE": "Phone ",
+            "PHONE_NUM": "Phone Number",
+            "SHIP": "Ship To A Different Address?",
+            "ORDER": "Order Notes",
+            "NOTES": "Write your notes here...",
+            "COUPON": "Coupon Code",
+            "CODE": "Enter your coupon code if you have one",
+            "C_CODE": "Coupon Code",
+            "APPLY": "Apply",
+            "Y_ORDER": "Your Order",
+            "PRODUCT": "Product",
+            "SUB": "Cart Subtotal",
+            "TOTAL": "Order Total",
+            "BANK": "Direct Bank Transfer",
+            "CPAY": "Cheque Payment",
+            "PLACE_OR": "Place order",
+            "PAYPAL": "Paypal",
+            "PAY": "Place Order",
+            "CREAT": "Create an account?",
+            "CR_ACCOUNT": "Create an account by entering the information below. If you are a returning customer please login at the top of the page.",
+            "PASS": "Account Password"
+        }
+    }
+}

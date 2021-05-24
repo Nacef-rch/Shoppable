@@ -1,0 +1,77 @@
+<form class="register-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <mat-form-field class="mat-email">
+            <mat-label>
+                <span class="span-pos">
+                    <i
+                        class="zmdi zmdi-email"
+                        [style.color]="
+                            !loginForm.get('email').valid && loginForm.get('email').touched
+                                ? '#cc3b49'
+                                : 'black'
+                        "
+                    >
+                    </i>
+                </span>
+                {{ 'AUTH.LOGIN.EMAIL' | translate }}
+            </mat-label>
+
+            <input matInput formControlName="email" placeholder="Ex. pat@example.com" />
+            <mat-error
+                *ngIf="
+                    loginForm.get('email').hasError('email') &&
+                    !loginForm.get('email').hasError('required')
+                "
+            >
+                {{ 'AUTH.LOGIN.VALID_EMAIL' | translate }}
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('email').hasError('required')">
+                {{ 'AUTH.LOGIN.EMAIL_IS' | translate }}
+                <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="form-group">
+        <mat-form-field>
+            <mat-label>
+                <i
+                    class="zmdi zmdi-lock"
+                    [style.color]="
+                        !loginForm.get('password').valid && loginForm.get('password').touched
+                            ? '#cc3b49'
+                            : 'black'
+                    "
+                >
+                </i>
+                {{ 'AUTH.LOGIN.PASS' | translate }}</mat-label
+            >
+
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+            <mat-icon
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+            >
+                <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </mat-icon>
+            <mat-error *ngIf="loginForm.get('password').hasError('required')">
+                {{ 'AUTH.LOGIN.PASS_IS' | translate }}
+                <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-checkbox
+            ><label for="remember-me" class="label-agree-term"
+                ><span><span></span></span>{{ 'AUTH.LOGIN.REMEMBER' | translate }}</label
+            ></mat-checkbox
+        >
+    </div>
+    <div class="form-group form-button">
+        <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid">
+            {{ 'AUTH.LOGIN.LOG_IN' | translate }}
+        </button>
+    </div>
+</form>

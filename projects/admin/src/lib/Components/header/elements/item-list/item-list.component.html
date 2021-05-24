@@ -1,0 +1,20 @@
+<ul class="header-menu nav">
+    <li class="nav-item">
+        <a routerLinkActive="active-item" routerLink="/products/inventory" class="nav-link">
+            <i class="nav-link-icon fa fa-shopping-basket"> </i>
+            {{ 'DASH.LIST.INV' | translate }}
+        </a>
+    </li>
+    <li class="btn-group nav-item">
+        <a routerLinkActive="active-item" routerLink="/admin/" class="nav-link">
+            <i class="nav-link-icon fa fa-rocket"></i>
+            {{ 'DASH.FOOTER.HOME' | translate }}
+        </a>
+    </li>
+    <li class="dropdown nav-item">
+        <a routerLinkActive="active-item" routerLink="/admin/" class="nav-link">
+            <i class="nav-link-icon fa fa-cog"></i>
+            {{ 'DASH.LIST.SET' | translate }}
+        </a>
+    </li>
+</ul>

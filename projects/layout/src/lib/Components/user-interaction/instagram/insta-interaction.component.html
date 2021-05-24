@@ -1,0 +1,114 @@
+<div class="push-svg-top">
+    <svg
+        class="bi bi-heart float-right"
+        *ngIf="!like"
+        width="1.5em"
+        (click)="onLike()"
+        height="1.5em"
+        viewBox="0 0 16 16"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fill-rule="evenodd"
+            d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
+        />
+    </svg>
+    <svg
+        *ngIf="like"
+        class="bi bi-heart-fill float-right"
+        width="1.5em"
+        (click)="onDisLike()"
+        height="1.5em"
+        viewBox="0 0 16 16"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fill-rule="evenodd"
+            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+        />
+    </svg>
+
+    <svg
+        class="bi bi-chat float-right margin-right-svg msg-svg"
+        width="1.5em"
+        height="1.5em"
+        (click)="onComment()"
+        viewBox="0 0 48 48"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            clip-rule="evenodd"
+            d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"
+            fill-rule="evenodd"
+        ></path>
+    </svg>
+    <svg
+        aria-label="Partager la publication"
+        class="float-right margin-right-svg"
+        fill="currentColor"
+        width="1.5em"
+        height="1.5em"
+        viewBox="0 0 48 48"
+    >
+        <path
+            d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
+        ></path>
+    </svg>
+</div>
+<br />
+
+<div class="detailBox float-left" *ngIf="comment">
+    <div class="actionBox">
+        <ul class="commentList">
+            <li *ngFor="let comment of product.comments | slice: pageStart:pageEnd; let i = index">
+                <div class="commenterImage">
+                    <img src="./assets/images/avatars/1.jpg" />
+                </div>
+                <div class="commentText">
+                    <p class="">
+                        <b
+                            ><i>{{ comment.userHandle }} : </i></b
+                        >
+                        {{ comment.body }}
+                    </p>
+                    <span class="date sub-text">{{ comment.createdAt }}</span>
+                </div>
+            </li>
+        </ul>
+        <p class="showMore" (click)="showMoreComments()" *ngIf="show">
+            {{ 'LAYOUT.INSTA.SHOW' | translate }}
+        </p>
+        <p class="showMore" *ngIf="noComments">
+            {{ 'LAYOUT.INSTA.THERE' | translate
+            }}<svg
+                class="bi bi-filter"
+                width="1em"
+                height="1em"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    fill-rule="evenodd"
+                    d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
+                />
+            </svg>
+        </p>
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Your comments" #commentBody />
+            </div>
+            <div class="form-group">
+                <button
+                    (click)="postComment(commentBody.value)"
+                    class="btn btn-default btn-color-product"
+                >
+                    {{ 'LAYOUT.INSTA.ADD' | translate }}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

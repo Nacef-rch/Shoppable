@@ -1,0 +1,70 @@
+<div class="panel-container">
+    <div class="panel-cont-text">
+        <h1>Customize Your Buttons</h1>
+        <br />
+        <p>
+            Choose the design you want, the shape you want, the way you want.
+        </p>
+        <br />
+        <br />
+        <mat-form-field>
+            <mat-label>Style</mat-label>
+            <select matNativeControl (change)="onChangeStyle($event.target.value)">
+                <option value="Fill" selected>Solid</option>
+                <option value="button-unFill">Outline</option>
+                <option value="button-dashed">Dashed</option>
+            </select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Shape</mat-label>
+            <select matNativeControl (change)="onChangeShape($event.target.value)">
+                <option value="Pill" selected>Pill</option>
+                <option value="button-rounded">Rounded</option>
+                <option value="button-square">Square</option>
+            </select>
+        </mat-form-field>
+
+        <nav class="navButtons">
+            <button class="NavButton-Button" type="button" routerLink="/website/config/text">
+                <span class="NavButton-ButtonText">Next</span>
+                <svg
+                    width="1.7em"
+                    height="1.7em"
+                    viewBox="0 0 16 16"
+                    class="bi bi-arrow-right"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z"
+                    />
+                </svg>
+            </button>
+            <button class="NavButton-Button-back" type="button" routerLink="/website/config/theme">
+                <svg
+                    width="1.7em"
+                    height="1.7em"
+                    viewBox="0 0 16 16"
+                    class="bi bi-arrow-left"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        d="M5.854 4.646a.5.5 0 0 1 0 .708L3.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0z"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        d="M2.5 8a.5.5 0 0 1 .5-.5h10.5a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                    />
+                </svg>
+                <span class="NavButton-ButtonText">Back</span>
+            </button>
+        </nav>
+    </div>
+</div>

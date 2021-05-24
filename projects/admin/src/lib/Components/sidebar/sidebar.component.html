@@ -1,0 +1,128 @@
+<div
+    [class]="'app-sidebar sidebar-shadow '"
+    (mouseover)="sidebarHover()"
+    (mouseout)="sidebarHover()"
+>
+    <div class="app-header__logo">
+        <div class="logo-src"></div>
+        <div class="header__pane ml-auto">
+            <button
+                type="button"
+                class="hamburger close-sidebar-btn hamburger--elastic"
+                [ngClass]="{ 'is-active': globals.toggleSidebar }"
+                (click)="toggleSidebar()"
+            >
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="app-sidebar-content">
+        <div class="app-sidebar-scroll">
+            <perfect-scrollbar [autoPropagation]="true">
+                <div class="v-sidebar-menu vsm-default">
+                    <div class="vsm-list">
+                        <ngb-accordion>
+                            <ngb-panel>
+                                <ng-template ngbPanelHeader>
+                                    <div class="vsm-header">
+                                        {{ 'DASH.SIDE_BAR.PRODUCTS' | translate }}
+                                    </div>
+                                </ng-template>
+                            </ngb-panel>
+                            <ngb-panel id="elementsMenu">
+                                <ng-template ngbPanelHeader>
+                                    <button ngbPanelToggle class="vsm-link">
+                                        <i class="vsm-icon pe-7s-diamond"></i>
+                                        <span class="vsm-title">{{
+                                            'DASH.SIDE_BAR.ALL' | translate
+                                        }}</span>
+                                        <i class="vsm-arrow"></i>
+                                    </button>
+                                </ng-template>
+                                <ng-template ngbPanelContent>
+                                    <div class="vsm-dropdown">
+                                        <div class="vsm-list">
+                                            <div class="vsm-item">
+                                                <a
+                                                    routerLinkActive="active-item"
+                                                    routerLink="/products/new"
+                                                    class="vsm-link"
+                                                >
+                                                    <span class="vsm-title">{{
+                                                        'DASH.SIDE_BAR.ADD' | translate
+                                                    }}</span></a
+                                                >
+                                            </div>
+                                            <div class="vsm-item">
+                                                <a
+                                                    routerLinkActive="active-item"
+                                                    routerLink="/products/inventory"
+                                                    class="vsm-link"
+                                                >
+                                                    <span class="vsm-title">{{
+                                                        'DASH.SIDE_BAR.INVENTORY' | translate
+                                                    }}</span></a
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </ngb-panel>
+                        </ngb-accordion>
+                        <div class="vsm-item">
+                            <a
+                                routerLink="/charts/chartjs"
+                                routerLinkActive="active-item"
+                                class="vsm-link"
+                            >
+                                <i class="vsm-icon pe-7s-graph2"></i>
+                                <span class="vsm-title">{{
+                                    'DASH.SIDE_BAR.ORDERS' | translate
+                                }}</span>
+                            </a>
+                        </div>
+                        <div class="vsm-item">
+                            <a
+                                routerLink="/charts/chartjs"
+                                routerLinkActive="active-item"
+                                class="vsm-link"
+                            >
+                                <i class="vsm-icon pe-7s-graph2"></i>
+                                <span class="vsm-title">{{
+                                    'DASH.SIDE_BAR.GIFT' | translate
+                                }}</span>
+                            </a>
+                        </div>
+                        <div class="vsm-header">{{ 'DASH.SIDE_BAR.ANALYTICS' | translate }}</div>
+                        <div class="vsm-item">
+                            <a
+                                routerLink="/charts/chartjs"
+                                routerLinkActive="active-item"
+                                class="vsm-link"
+                            >
+                                <i class="vsm-icon pe-7s-graph2"></i>
+                                <span class="vsm-title">{{
+                                    'DASH.SIDE_BAR.DASHBOARDS' | translate
+                                }}</span>
+                            </a>
+                        </div>
+                        <div class="vsm-item">
+                            <a
+                                routerLink="/charts/chartjs"
+                                routerLinkActive="active-item"
+                                class="vsm-link"
+                            >
+                                <i class="vsm-icon pe-7s-graph2"></i>
+                                <span class="vsm-title">{{
+                                    'DASH.SIDE_BAR.REPORTS' | translate
+                                }}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </perfect-scrollbar>
+        </div>
+    </div>
+</div>

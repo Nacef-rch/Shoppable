@@ -1,0 +1,5 @@
+<div *ngxInit="error$ | async as error">
+    <div class="alert alert-danger" role="alert" *ngIf="error">
+        {{ error }}
+    </div>
+</div>

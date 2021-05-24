@@ -1,0 +1,86 @@
+<div class="type-container">
+    <div class="main-container">
+        <div class="db-block">
+            <div class="Block-1">
+                <a class="navbar-brand" href="#">
+                    <img
+                        src="assets/images/shoppable-type.png"
+                        alt=""
+                        class="img-fluid image-pos img-size"
+                /></a>
+                <div class="inside-bk-1">
+                    <div class="logo-here"></div>
+                    <div class="text-here">
+                        <span class="text-here-text">What type of site do you want to create?</span>
+                    </div>
+                </div>
+            </div>
+            <div class="right-block">
+                <form [formGroup]="storeTypeForm" (ngSubmit)="onSubmit()" class="right-block-fix">
+                    <div class="right-block-fix">
+                        <div class="form-container-right">
+                            <div class="form-first">
+                                <div class="side-form">
+                                    <div class="IconWrapperRight">
+                                        <svg
+                                            viewBox="0 0 240 240"
+                                            fill="currentColor"
+                                            width="240"
+                                            height="240"
+                                        >
+                                            <g id="IOS-Icons" stroke-width="1" fill-rule="evenodd">
+                                                <g id="seo">
+                                                    <path
+                                                        d="M60,105 C60,80.19 80.19,60 105,60 C129.81,60 150,80.19 150,105 C150,129.81 129.81,150 105,150 C80.19,150 60,129.81 60,105 L60,105 Z M190,182.93 L147.24,140.17 C155.2,130.63 160,118.37 160,105 C160,74.67 135.33,50 105,50 C74.67,50 50,74.67 50,105 C50,135.33 74.67,160 105,160 C118.37,160 130.63,155.2 140.17,147.24 L182.93,190 L190,182.93 Z"
+                                                        id="Fill-2"
+                                                    ></path>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </div>
+
+                                    <input
+                                        placeholder="Enter your business or website type"
+                                        class="InputRightType"
+                                        formControlName="storeType"
+                                        type="text"
+                                        value=""
+                                    />
+                                    <div class="sug-place">
+                                        <div class="cat-place">
+                                            <span class="typo-sug">SUGGESTIONS</span>
+                                            <ul class="sug-ul">
+                                                <li class="sug-li">
+                                                    <span>Clothes Goods Store</span>
+                                                </li>
+                                                <li class="sug-li">
+                                                    <span>Furniture Store</span>
+                                                </li>
+                                                <li class="sug-li">
+                                                    <span>Sporting Goods Store</span>
+                                                </li>
+                                                <li class="sug-li">
+                                                    <span>Food Store</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="foot-btn">
+                        <button
+                            class="Skip-btn"
+                            style="font-size: 130%;"
+                            [disabled]="!storeTypeForm.valid"
+                            routerLink="/website/name"
+                        >
+                            Next
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

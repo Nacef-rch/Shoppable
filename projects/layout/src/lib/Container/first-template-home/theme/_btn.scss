@@ -1,0 +1,60 @@
+/*=================== custo button rule start ====================*/
+
+.button {
+    display: inline-block;
+    border: 1px solid $primary-color;
+    border-radius: 30px;
+    color: $title-color;
+    font-weight: 500;
+    padding: 12px 50px;
+    background: $primary-color;
+    color: #fff;
+    transition: all 0.4s ease;
+
+    &-unFill {
+        font-size: 14px;
+        padding: 12px 50px;
+        background: transparent !important;
+        color: #000000 !important;
+
+        @media (min-width: 500px) {
+            padding: 12px 35px;
+            font-size: 15px;
+        }
+    }
+    &-dashed {
+        border-style: dashed !important;
+
+        background: transparent !important;
+        color: #000000 !important;
+
+        font-size: 14px;
+        padding: 12px 50px;
+
+        @media (min-width: 500px) {
+            padding: 12px 35px;
+            font-size: 15px;
+        }
+    }
+    &-rounded {
+        border-radius: 5px 5px 5px 5px !important;
+
+        font-size: 14px;
+        padding: 12px 50px;
+
+        @media (min-width: 500px) {
+            padding: 12px 35px;
+            font-size: 15px;
+        }
+    }
+    &-square {
+        border-radius: 0px;
+        font-size: 14px;
+        padding: 12px 50px;
+
+        @media (min-width: 500px) {
+            padding: 12px 35px;
+            font-size: 15px;
+        }
+    }
+}

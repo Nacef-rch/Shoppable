@@ -1,0 +1,82 @@
+<div class="panel-container">
+    <div class="panel-cont-text">
+        <h1>Add a Logo</h1>
+        <p>
+            Make your site feel like yours.
+        </p>
+        <form class="example-form" [formGroup]="logoForm">
+            <!-- (ngSubmit)="onSubmit()" -->
+            <mat-form-field class="example-full-width">
+                <mat-label>SITE TITLE</mat-label>
+                <!-- [formControl]="emailFormControl" -->
+                <input
+                    matInput
+                    (input)="onTextChange($event.target.value)"
+                    formControlName="logoText"
+                />
+                <mat-error *ngIf="logoForm.get('logoText').hasError('required')">
+                    <span style="font-size: 130%;">
+                        This Field is
+                        <strong>{{ 'AUTH.LOGIN.REQUIRED' | translate }}</strong>
+                    </span>
+                </mat-error>
+            </mat-form-field>
+            <section class="example-section">
+                <mat-checkbox
+                    class="example-margin"
+                    color="primary"
+                    (change)="LogoStyleCadre($event)"
+                    ><span class="style-cadre">Logo with cadre</span></mat-checkbox
+                ><br />
+
+                <mat-checkbox class="example-margin" color="primary" (change)="LogoStyle1($event)"
+                    >UPPERCASE</mat-checkbox
+                ><br />
+                <mat-checkbox class="example-margin" color="primary" (change)="LogoStyle3($event)"
+                    ><b>Bold</b></mat-checkbox
+                ><br />
+                <mat-checkbox class="example-margin" color="primary" (change)="LogoStyle2($event)"
+                    >Thin</mat-checkbox
+                ><br />
+                <div class="example-section">
+                    <h3>Change your logo color</h3>
+
+                    <input
+                        type="color"
+                        name="favcolor"
+                        value="#000000"
+                        (input)="colorPick(colorP.value)"
+                        #colorP
+                    />
+                </div>
+            </section>
+            <nav class="navButtons">
+                <button
+                    class="NavButton-Button"
+                    type="button"
+                    routerLink="/website/config/theme"
+                    [disabled]="!logoForm.valid"
+                >
+                    <span class="NavButton-ButtonText">Next</span>
+                    <svg
+                        width="1.7em"
+                        height="1.7em"
+                        viewBox="0 0 16 16"
+                        class="bi bi-arrow-right"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z"
+                        />
+                        <path
+                            fill-rule="evenodd"
+                            d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z"
+                        />
+                    </svg>
+                </button>
+            </nav>
+        </form>
+    </div>
+</div>

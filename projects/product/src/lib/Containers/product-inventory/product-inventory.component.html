@@ -1,0 +1,41 @@
+<app-page-title
+    heading="{{ 'DASH.INVENTORY.HEAD' | translate }}"
+    subheading="{{ 'DASH.INVENTORY.SUB' | translate }}"
+    [icon]="icon"
+></app-page-title>
+<div *ngxInit="isLoading$ | async as isLoading">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="main-card mb-3 card">
+                <lib-get-products
+                    *ngIf="!isLoading"
+                    (pressedProduct)="viewProduct($event)"
+                ></lib-get-products>
+                <div *ngIf="isLoading" style="text-align: center;" class="load-center">
+                    <lib-loading-spinner></lib-loading-spinner>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <h2>
+                        {{ 'DASH.INVENTORY.CARD' | translate
+                        }}<small
+                            ><i
+                                ><sub> {{ 'DASH.INVENTORY.SELECT' | translate }}</sub></i
+                            ></small
+                        >
+                    </h2>
+                    <lib-product-view
+                        imgUrl="{{ imgUrl }}"
+                        titre="{{ titre }}"
+                        description="{{ description }}"
+                        category="{{ category }}"
+                        price="{{ price }}"
+                    ></lib-product-view>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

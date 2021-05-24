@@ -1,0 +1,709 @@
+<div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light nav-bar-home">
+            <a class="navbar-brand" href="#">
+                <img
+                    src="assets/images/shoppable-Home.png"
+                    alt=""
+                    class="img-fluid image-pos img-size"
+            /></a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarText"
+                aria-controls="navbarText"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link nav-linkk" href="#"
+                            >Start <span class="sr-only">(current)</span></a
+                        >
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-linkk" href="#">Sell</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="dropbtn dropdown-toggle">Manage</button>
+                            <div class="dropdown-content">
+                                <a href="#">Payments</a>
+                                <a href="#">Shipping</a>
+                                <a href="#">Capital</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-linkk" href="#">Market</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active ul-nav-font">
+                            <a
+                                routerLink="/auth/register"
+                                class="nav-link get-link nav-linkk"
+                                href="#"
+                                >GET STARTED</a
+                            >
+                        </li>
+                        <li class="nav-item ul-nav-font">
+                            <a routerLink="/auth/login" class="nav-link nav-linkk" href="#"
+                                >LOG IN</a
+                            >
+                        </li>
+                        <li class="nav-item ul-nav-font">
+                            <lib-translate-home></lib-translate-home>
+                        </li>
+                    </ul>
+                </span>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col-sm" style="padding: 100px 20px 100px 0;">
+                    <h2>
+                        <strong style="font-weight: 700; color: #8186d5;"
+                            >Build exactly the eCommerce website you want</strong
+                        >
+                    </h2>
+                    <p>
+                        <b>
+                            Shoppable is a commerce platform that allows anyone to create an online
+                            store and sell their products. Get started quickly and make your way.
+                        </b>
+                    </p>
+                    <br />
+                    <button routerLink="/auth/register" class="btn-log log">
+                        START A NEW STORE
+                    </button>
+                </div>
+                <div class="col-sm">
+                    <div class="row">
+                        <div class="col-sm">
+                            <img
+                                src="assets/home/image01.jpg"
+                                alt=""
+                                class="img-fluid image-pos img-template"
+                            />
+                            <img
+                                src="assets/home/image02.jpg"
+                                alt=""
+                                class="img-fluid image-pos img-template"
+                            />
+                            <img
+                                src="assets/home/image03.jpg"
+                                alt=""
+                                class="img-fluid image-pos img-template"
+                            />
+                        </div>
+                        <div class="col-sm" style="padding-top: 30px;">
+                            <img
+                                src="assets/home/image04.jpg"
+                                alt=""
+                                class="img-fluid image-pos img-template"
+                            />
+                            <img
+                                src="assets/home/image05.jpg"
+                                alt=""
+                                class="img-fluid image-pos img-template"
+                            />
+                            <img
+                                src="assets/home/image06.jpg"
+                                alt=""
+                                class="img-fluid image-pos img-template"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="curved">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <defs>
+                <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color: rgb(91, 97, 167); stop-opacity: 1;" />
+                    <stop offset="100%" style="stop-color: rgb(132, 141, 206); stop-opacity: 1;" />
+                </linearGradient>
+            </defs>
+            <path
+                fill="url(#linear)"
+                fill-opacity="1"
+                d="M0,192L80,213.3C160,235,320,277,480,277.3C640,277,800,235,960,208C1120,181,1280,171,1360,165.3L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+            ></path>
+        </svg>
+    </div>
+
+    <div class="body-mock">
+        <div class="boxed-page">
+            <nav class="navbar navbar-expand-lg navbar-light nav-home">
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarText"
+                    aria-controls="navbarText"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="mr-auto navbar-nav">
+                        <li class="nav-item">
+                            <a
+                                routerLink="/home/stores"
+                                class="nav-link"
+                                routerLinkActive="active-link"
+                                href="#"
+                                >Stores</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                routerLink="/home/products"
+                                class="nav-link"
+                                routerLinkActive="active-link"
+                                href="#"
+                                >Products</a
+                            >
+                        </li>
+                    </ul>
+                    <span class="nav-item" style="margin-right: 20px;"> </span>
+                </div>
+            </nav>
+            <div class="jumbotron d-flex">
+                <div class="container">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+            <hr />
+            <section id="gtco-who-we-are" class="bg-white">
+                <div class="container">
+                    <div class="section-content">
+                        <div class="title-wrap">
+                            <h2 class="section-title">
+                                The easiest way <br />to build<b> websites online</b>
+                            </h2>
+                            <p class="section-sub-title">
+                                Make the website you’ve always wanted. Whether you’re new to website
+                                design or a seasoned pro,<br />
+                                our website builder makes it easy to build a beautiful website.
+                            </p>
+                        </div>
+
+                        <div class="row text-center">
+                            <div class="col-md-4 col-sm-6">
+                                <img
+                                    class="rounded-circle"
+                                    src="assets/home/icons/animat-checkmark.gif"
+                                    alt="Generic placeholder image"
+                                    width="140"
+                                    height="140"
+                                />
+                                <h5 class="mb-4">Simple and Clean</h5>
+                                <p>
+                                    you never feel like it's your first time building a website.
+                                </p>
+                            </div>
+                            <!-- /.col-md-4 col-sm-6  -->
+                            <div class="col-md-4 col-sm-6">
+                                <img
+                                    class="rounded-circle"
+                                    src="assets/home/icons/animat-customize.gif"
+                                    alt="Generic placeholder image"
+                                    width="140"
+                                    height="140"
+                                />
+                                <h5 class="mb-4">Easy to Customize</h5>
+                                <p>
+                                    Change, customize or add anything to your site.
+                                </p>
+                            </div>
+                            <!-- /.col-md-4 col-sm-6  -->
+                            <div class="col-md-4 col-sm-6">
+                                <img
+                                    class="rounded-circle"
+                                    src="assets/home/icons/animat-responsive.gif"
+                                    alt="Generic placeholder image"
+                                    width="140"
+                                    height="140"
+                                />
+                                <h5 class="mb-4">Fully Responsive</h5>
+                                <p>
+                                    Look amazing on every screen with a mobile-friendly version of
+                                    your website.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Counter Section -->
+            <section id="gtco-counter" class="overlay bg-fixed">
+                <div class="container">
+                    <div class="section-content">
+                        <div class="row">
+                            <!-- Counter Item -->
+                            <div class="col-md-3 col-sm-6 counter-item">
+                                <i class="lnr lnr-users">
+                                    <svg
+                                        width="1em"
+                                        height="1em"
+                                        viewBox="0 0 16 16"
+                                        class="bi bi-person"
+                                        fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"
+                                        />
+                                    </svg>
+                                </i>
+                                <span
+                                    class="number"
+                                    data-from="0"
+                                    data-to="34"
+                                    data-refresh-interval="100"
+                                    >14</span
+                                >
+                                <h4>Clients</h4>
+                            </div>
+                            <!-- End of Counter Item -->
+                            <!-- Counter Item -->
+                            <div class="col-md-3 col-sm-6 counter-item">
+                                <i class="lnr lnr-briefcase">
+                                    <svg
+                                        width="1em"
+                                        height="1em"
+                                        viewBox="0 0 16 16"
+                                        class="bi bi-shop"
+                                        fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M0 15.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zM3.12 1.175A.5.5 0 0 1 3.5 1h9a.5.5 0 0 1 .38.175l2.759 3.219A1.5 1.5 0 0 1 16 5.37v.13h-1v-.13a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.13H0v-.13a1.5 1.5 0 0 1 .361-.976l2.76-3.22z"
+                                        />
+                                        <path
+                                            d="M2.375 6.875c.76 0 1.375-.616 1.375-1.375h1a1.375 1.375 0 0 0 2.75 0h1a1.375 1.375 0 0 0 2.75 0h1a1.375 1.375 0 1 0 2.75 0h1a2.375 2.375 0 0 1-4.25 1.458 2.371 2.371 0 0 1-1.875.917A2.37 2.37 0 0 1 8 6.958a2.37 2.37 0 0 1-1.875.917 2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.5h1c0 .76.616 1.375 1.375 1.375z"
+                                        />
+                                        <path
+                                            d="M4.75 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm3.75 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm3.75 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"
+                                        />
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M2 7.846V7H1v.437c.291.207.632.35 1 .409zm-1 .737c.311.14.647.232 1 .271V15H1V8.583zm13 .271a3.354 3.354 0 0 0 1-.27V15h-1V8.854zm1-1.417c-.291.207-.632.35-1 .409V7h1v.437zM3 9.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5V15H7v-5H4v5H3V9.5zm6 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4zm1 .5v3h2v-3h-2z"
+                                        />
+                                    </svg>
+                                </i>
+                                <span
+                                    class="number"
+                                    data-from="0"
+                                    data-to="32"
+                                    data-refresh-interval="100"
+                                    >18</span
+                                >
+                                <h4>Stores</h4>
+                            </div>
+                            <!-- End of Counter Item -->
+                            <!-- Counter Item -->
+                            <div class="col-md-3 col-sm-6 counter-item">
+                                <i class="lnr lnr-heart">
+                                    <svg
+                                        width="1em"
+                                        height="1em"
+                                        viewBox="0 0 16 16"
+                                        class="bi bi-box-seam"
+                                        fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"
+                                        />
+                                    </svg>
+                                </i>
+                                <span
+                                    class="number"
+                                    data-from="0"
+                                    data-to="38"
+                                    data-refresh-interval="100"
+                                    >169</span
+                                >
+                                <h4>Products</h4>
+                            </div>
+                            <!-- End of Counter Item -->
+                            <!-- Counter Item -->
+                            <div class="col-md-3 col-sm-6 counter-item">
+                                <i class="lnr lnr-rocket">
+                                    <svg
+                                        width="1em"
+                                        height="1em"
+                                        viewBox="0 0 16 16"
+                                        class="bi bi-truck"
+                                        fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5v7h-1v-7a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5v1A1.5 1.5 0 0 1 0 10.5v-7zM4.5 11h6v1h-6v-1z"
+                                        />
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M11 5h2.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5h-1v-1h1a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4.5h-1V5zm-8 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
+                                        />
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
+                                        />
+                                    </svg>
+                                </i>
+                                <span
+                                    class="number"
+                                    data-from="0"
+                                    data-to="29"
+                                    data-refresh-interval="100"
+                                    >225</span
+                                >
+                                <h4>sells</h4>
+                            </div>
+                            <!-- End of Counter Item -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End of Counter Section -->
+            <!-- Features Section-->
+
+            <!-- End of Features Section-->
+            <section id="gtco-section-featurettes" class="featurettes bg-white">
+                <div class="container">
+                    <div class="section-content">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <!-- Section Title -->
+                                <div class="title-wrap">
+                                    <h2 class="section-title">
+                                        <b>With you wherever you’re going</b>
+                                    </h2>
+                                    <p class="section-sub-title">
+                                        One platform with all the ecommerce and point of sale<br />
+                                        features you need to start, run, and grow your business.
+                                    </p>
+                                </div>
+                                <!-- End of Section Title -->
+
+                                <div class="featurettes-wrap text-left mb-4">
+                                    <div class="row">
+                                        <div class="col-md-4 offset-md-2 col-sm-4 featurettes-item">
+                                            <div class="my-5">
+                                                <span
+                                                    class="lnr lnr-camera fs-40 color-primary"
+                                                ></span>
+                                            </div>
+                                            <h3 class="mb-3">
+                                                Market your business
+                                            </h3>
+                                            <p>
+                                                Take the guesswork out of marketing with built-in
+                                                tools that help you create, execute, and analyze
+                                                digital marketing campaigns.
+                                            </p>
+                                        </div>
+                                        <!--/ .col-md-4.col-md-offset-2.col-sm-6 -->
+
+                                        <div class="col-md-4 offset-md-right-2 col-sm-8">
+                                            <img
+                                                class="my-5 img-fluid"
+                                                src="assets/home/app-chat-mockup.jpg"
+                                                alt=""
+                                            />
+                                        </div>
+                                        <!--/ .col-md-4.col-md-offset-right-2.col-sm-6 -->
+                                    </div>
+                                    <!--/ .featurettes-item -->
+                                </div>
+                                <!--/ .featurettes-wrap -->
+
+                                <div class="featurettes-wrap text-left">
+                                    <div class="row">
+                                        <div class="col-md-4 offset-md-2 col-sm-6">
+                                            <img
+                                                class="my-4"
+                                                src="assets/home/app-chat-mockup2.png"
+                                                alt=""
+                                            />
+                                        </div>
+                                        <!--/ .col-md-4.col-md-offset-2.col-sm-6 -->
+
+                                        <div
+                                            class="col-md-4 offset-md-right-2 col-sm-6 mb-5 featurettes-item2"
+                                        >
+                                            <div class="my-4">
+                                                <span
+                                                    class="lnr lnr-bubble fs-40 color-primary"
+                                                ></span>
+                                            </div>
+                                            <h3 class="mb-3">
+                                                Sell everywhere
+                                            </h3>
+                                            <p>
+                                                Use one platform to sell products to anyone,
+                                                anywhere—in person with Point of Sale and online
+                                                through your website, social media, and online
+                                                marketplaces.
+                                            </p>
+                                        </div>
+                                        <!--/ .col-md-4.col-md-offset-right-2.col-sm-6 -->
+                                    </div>
+                                    <!--/ .featurettes-item -->
+                                </div>
+                                <!--/ .featurettes-wrap -->
+
+                                <!--/ .featurettes-wrap -->
+                            </div>
+                            <!--/ .col-md-12 -->
+                        </div>
+                        <!--/ .row -->
+                    </div>
+                </div>
+                <!--/ .container -->
+            </section>
+            <!-- Blog Section -->
+            <section id="gtco-blog" class="bg-grey">
+                <div class="container">
+                    <div class="section-content">
+                        <div class="title-wrap mb-4">
+                            <h2 class="section-title bot-text">
+                                Start your business journey with Shoppable
+                            </h2>
+                            <p class="section-sub-title bot-text">
+                                Try Shoppable for free, and explore all the tools and services you
+                                need to start, run, and grow
+                                <br />your business.
+                            </p>
+                            <button routerLink="/auth/register" class="btn-logg log">
+                                Get Started
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End of Blog Section -->
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="container" style="max-width: 80vw;">
+        <div class="row justify-content-md-center">
+            <div class="col-sm">
+                <div class="Footer-icons">
+                    <svg
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        class="bi bi-cash"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M15 4H1v8h14V4zM1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1z"
+                        />
+                        <path
+                            d="M13 4a2 2 0 0 0 2 2V4h-2zM3 4a2 2 0 0 1-2 2V4h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 12a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"
+                        />
+                    </svg>
+                </div>
+                <p class="Footer-icons-text">
+                    <span style="color: #8186d5; font-weight: 900;">Free</span>
+                    no money charge at all
+                </p>
+            </div>
+            <div class="col-sm">
+                <div class="Footer-icons">
+                    <svg
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        class="bi bi-life-preserver"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                        />
+                        <path
+                            fill-rule="evenodd"
+                            d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
+                        />
+                        <path
+                            d="M11.642 6.343L15 5v6l-3.358-1.343A3.99 3.99 0 0 0 12 8a3.99 3.99 0 0 0-.358-1.657zM9.657 4.358L11 1H5l1.343 3.358A3.985 3.985 0 0 1 8 4c.59 0 1.152.128 1.657.358zM4.358 6.343L1 5v6l3.358-1.343A3.985 3.985 0 0 1 4 8c0-.59.128-1.152.358-1.657zm1.985 5.299L5 15h6l-1.343-3.358A3.984 3.984 0 0 1 8 12a3.99 3.99 0 0 1-1.657-.358z"
+                        />
+                    </svg>
+                </div>
+                <p class="Footer-icons-text">
+                    <span style="color: #8186d5; font-weight: 900;">Support</span>
+                    teams across the world
+                </p>
+            </div>
+            <div class="col-sm">
+                <div class="Footer-icons">
+                    <svg
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        class="bi bi-shield-check"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M5.443 1.991a60.17 60.17 0 0 0-2.725.802.454.454 0 0 0-.315.366C1.87 7.056 3.1 9.9 4.567 11.773c.736.94 1.533 1.636 2.197 2.093.333.228.626.394.857.5.116.053.21.089.282.11A.73.73 0 0 0 8 14.5c.007-.001.038-.005.097-.023.072-.022.166-.058.282-.111.23-.106.525-.272.857-.5a10.197 10.197 0 0 0 2.197-2.093C12.9 9.9 14.13 7.056 13.597 3.159a.454.454 0 0 0-.315-.366c-.626-.2-1.682-.526-2.725-.802C9.491 1.71 8.51 1.5 8 1.5c-.51 0-1.49.21-2.557.491zm-.256-.966C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 0 1 2.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 0 1-2.418 2.3 6.942 6.942 0 0 1-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 0 1-1.007-.586 11.192 11.192 0 0 1-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 0 1 2.415 1.84a61.11 61.11 0 0 1 2.772-.815z"
+                        />
+                        <path
+                            fill-rule="evenodd"
+                            d="M10.854 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708 0z"
+                        />
+                    </svg>
+                </div>
+                <p class="Footer-icons-text">
+                    <span style="color: #8186d5; font-weight: 900;">Safe & Secure</span>
+                    online payment
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-md-center" style="margin-bottom: 100px;">
+            <div class="col-lg-3 mb-5 mb-lg-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="footer-heading mb-4">
+                            <span style="font-weight: 900; color: rgb(132, 141, 206);"
+                                >WHO WE ARE</span
+                            >
+                        </h4>
+                    </div>
+                    <div class="col-md-12 col-lg-12">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a>About</a>
+                            </li>
+                            <li>
+                                <a>Team</a>
+                            </li>
+                            <li>
+                                <a>Work With Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-5 mb-lg-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="footer-heading mb-4">
+                            <span style="font-weight: 900; color: rgb(132, 141, 206);"
+                                >SHOPPABLE</span
+                            >
+                        </h4>
+                    </div>
+                    <div class="col-md-12 col-lg-12">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a>Features</a>
+                            </li>
+                            <li>
+                                <a>Payments</a>
+                            </li>
+                            <li>
+                                <a>Marketing</a>
+                            </li>
+                            <li>
+                                <a>Shipping</a>
+                            </li>
+                            <li>
+                                <a>Extension Store</a>
+                            </li>
+                            <li>
+                                <a>Ideas Board</a>
+                            </li>
+                            <li>
+                                <a>Mobile App</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-5 mb-lg-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="footer-heading mb-4">
+                            <span style="font-weight: 900; color: rgb(132, 141, 206);"
+                                >SUPPORT</span
+                            >
+                        </h4>
+                    </div>
+                    <div class="col-md-12 col-lg-12">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a>Documentation</a>
+                            </li>
+                            <li>
+                                <a>Customization</a>
+                            </li>
+                            <li>
+                                <a>Support Policy</a>
+                            </li>
+                            <li>
+                                <a>Contact</a>
+                            </li>
+                            <li>
+                                <a>COVID-19 REsources</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-5 mb-lg-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="footer-heading mb-4">
+                            <span style="font-weight: 900; color: rgb(132, 141, 206);"
+                                >WE RECOMMEND</span
+                            >
+                        </h4>
+                    </div>
+                    <div class="col-md-12 col-lg-12">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a>ShoppableExperts</a>
+                            </li>
+                            <li>
+                                <a>Hosting Solutions</a>
+                            </li>
+                            <li>
+                                <a>Pre-sales FAQ</a>
+                            </li>
+                            <li>
+                                <a>Success Stories</a>
+                            </li>
+                            <li>
+                                <a>Design Feedback Group</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

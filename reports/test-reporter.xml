@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+    <file path="E:\My Work\Shoppable\projects\product\src\lib\+store\product.facade.spec.ts">
+        <testCase name="UserFacade should be created" duration="33"/>
+        <testCase name="UserFacade should dispatch a productAction.IMPORT_SUCCESS action when productSuccess is called" duration="9"/>
+        <testCase name="UserFacade should dispatch a productAction.DELETE_PRODUCT action when productDelete is called" duration="8"/>
+        <testCase name="UserFacade should dispatch a productAction.CHANGE_PRODUCT_STOCK action when productStock is called" duration="7"/>
+        <testCase name="UserFacade should dispatch a productAction.IMPORT_START action when importStart is called" duration="7"/>
+        <testCase name="UserFacade should dispatch a productAction.FETCH_STORE_PRODUCTS_START action when fetchStoreStart is called" duration="8"/>
+        <testCase name="UserFacade should dispatch a productAction.FETCH_STORE_CATEGORY_START action when fetchCategoryStart is called" duration="12"/>
+        <testCase name="UserFacade should dispatch a productAction.CLEAR_ERROR action when clearError is called" duration="6"/>
+        <testCase name="UserFacade should dispatch a productAction.CLEAR_SUCCESS action when clearSuccess is called" duration="7"/>
+        <testCase name="UserFacade should dispatch a productAction.LOADING_START action when loadingStart is called" duration="8"/>
+        <testCase name="UserFacade should dispatch a productAction.LOADING_STOP action when loadingStop is called" duration="7"/>
+        <testCase name="UserFacade should dispatch a productAction.IMPORT_FAIL action when importFail is called" duration="7"/>
+    </file>
+    <file path="E:\My Work\Shoppable\projects\product\src\lib\product.module.spec.ts">
+        <testCase name="InternationalizationModule should create an instance" duration="1"/>
+    </file>
+    <file path="E:\My Work\Shoppable\projects\product\src\lib\+store\product.reducer.spec.ts">
+        <testCase name="productReducer undefined action should return the default state" duration="2"/>
+        <testCase name="productReducer undefined action PRODUCT IMPORT SUCCESS , START AND FAIL `IMPORT_SUCCESS`" duration="0"/>
+        <testCase name="productReducer undefined action `IMPORT_FAIL`" duration="1"/>
+        <testCase name="productReducer undefined action IMPORT_START" duration="0"/>
+        <testCase name="productReducer DELETE_PRODUCT DELETE_PRODUCT" duration="1"/>
+        <testCase name="productReducer FETECH STORE SUCESS &amp; START FETCH_STORE_PRODUCTS_SUCCESS" duration="1"/>
+        <testCase name="productReducer FETECH STORE SUCESS &amp; START FETCH_STORE_PRODUCTS_START" duration="0"/>
+        <testCase name="productReducer FETECH CATEGORY SUCESS &amp; START FETCH_STORE_CATEGORY_SUCCESS" duration="1"/>
+        <testCase name="productReducer FETECH CATEGORY SUCESS &amp; START FETCH_STORE_CATEGORY_START" duration="0"/>
+        <testCase name="productReducer CHANGE_PRODUCT_STOCK CHANGE_PRODUCT_STOCK" duration="1"/>
+        <testCase name="productReducer LOADING LOADING_START" duration="0"/>
+        <testCase name="productReducer LOADING LOADING_STOP" duration="1"/>
+        <testCase name="productReducer ERROR+SUCESS CLEAR_ERROR" duration="0"/>
+        <testCase name="productReducer ERROR+SUCESS CLEAR_SUCCESS" duration="1"/>
+    </file>
+    <file path="E:\My Work\Shoppable\projects\product\Storyshots.spec.ts">
+        <testCase name="local-storage dummy local-storage dummy" duration="0"/>
+    </file>
+    <file path="E:\My Work\Shoppable\projects\product\src\lib\+store\product.effects.spec.ts">
+        <testCase name="UserEffects should be created" duration="13"/>
+        <testCase name="UserEffects [IMPORT_PRODUCT] Should return productAction.AUTHENTICATE_SUCCESS" duration="28"/>
+        <testCase name="UserEffects [DELETE_PRODUCT] Should return productAction.DELETE_PRODUCT" duration="8"/>
+        <testCase name="UserEffects [CHANGE_PRODUCT_STOCK] Should return productAction.CHANGE_PRODUCT_STOCK" duration="8"/>
+        <testCase name="UserEffects [FETCH_STORE_PRODUCTS_START] Should return productAction.FETCH_STORE_PRODUCTS_START" duration="14"/>
+        <testCase name="UserEffects [FETCH_STORE_CATEGORY_START] Should return productAction.FETCH_STORE_CATEGORY_START" duration="7"/>
+    </file>
+</testExecutions>
